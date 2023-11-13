@@ -157,7 +157,7 @@ class _ConnectYourAccountsState extends State<ConnectYourAccounts> {
                               child: DropdownButton(
                                 focusColor: Colors.red,
                                 padding:
-                                    const EdgeInsets.symmetric(horizontal: 24),
+                                    const EdgeInsets.symmetric(horizontal: 23),
                                 underline: Container(),
                                 borderRadius: BorderRadius.circular(18),
                                 value: valuechoose,
