@@ -54,7 +54,7 @@ class _SignupState extends State<Signup> {
                     ElevatedButton(
                       onPressed: () {
                         Get.to(() => const AboutYourself(),
-                            transition: Transition.leftToRight);
+                            transition: Transition.rightToLeftWithFade);
                       },
                       style: ElevatedButton.styleFrom(
                         alignment: Alignment.center,

@@ -34,7 +34,8 @@ class _OpeningScreenState extends State<OpeningScreen> {
         curve: Curves.easeInOut,
       );
     } else {
-      Get.to(() => const LoginPage(), transition: Transition.rightToLeft);
+      Get.to(() => const LoginPage(),
+          transition: Transition.rightToLeftWithFade);
     }
   }
 

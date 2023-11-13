@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-
 import '../const.dart';
-import '../screen/login_page.dart';
 import 'company_name.dart';
 
 class AboutYourself extends StatefulWidget {
@@ -45,7 +43,9 @@ class _AboutYourselfState extends State<AboutYourself> {
                           TextStyle(fontSize: 26, fontWeight: FontWeight.w500),
                     ),
                     height30,
-                    const DetailsField(name: "Enter your First Name"),
+                    const DetailsField(
+                      name: "Enter your First Name",
+                    ),
                     height20,
                     const DetailsField(name: "Enter your Last Name"),
                     height20,
@@ -54,7 +54,7 @@ class _AboutYourselfState extends State<AboutYourself> {
                     ElevatedButton(
                       onPressed: () {
                         Get.to(() => const CompanyName(),
-                            transition: Transition.leftToRight);
+                            transition: Transition.rightToLeftWithFade);
                       },
                       style: ElevatedButton.styleFrom(
                         alignment: Alignment.center,

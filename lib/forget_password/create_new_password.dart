@@ -31,7 +31,7 @@ class _CreateNewPasswordState extends State<CreateNewPassword> {
         leading: IconButton(
           onPressed: () {
             Get.off(() => const ForgotPassword(),
-                transition: Transition.rightToLeft);
+                transition: Transition.rightToLeftWithFade);
           },
           icon: const Icon(
             Icons.arrow_back_ios_new_sharp,

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
 
 import '../const.dart';
+import 'connect_your_account.dart';
 
 class CompanyName extends StatefulWidget {
   const CompanyName({super.key});
@@ -11,6 +13,7 @@ class CompanyName extends StatefulWidget {
 }
 
 class _CompanyNameState extends State<CompanyName> {
+  String name = "";
   @override
   Widget build(BuildContext context) {
     double screenHeight = MediaQuery.of(context).size.height;
@@ -26,7 +29,29 @@ class _CompanyNameState extends State<CompanyName> {
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          SvgPicture.asset("assets/images/Group18307.svg"),
+          Stack(
+            children: [
+              SvgPicture.asset("assets/images/Rectangle127.svg"),
+              Positioned(
+                top: 15,
+                left: 20,
+                child: Row(
+                  children: [
+                    SvgPicture.asset("assets/images/solar_user-broken.svg"),
+                    kwidth30,
+                    Text(
+                      "Hello $name, Let Me\nKnow your Company\nname!",
+                      maxLines: 3,
+                      style: const TextStyle(
+                          fontWeight: FontWeight.w500,
+                          color: Colors.white,
+                          fontSize: 16),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
           Expanded(
             child: SingleChildScrollView(
               physics: const BouncingScrollPhysics(),
@@ -38,14 +63,40 @@ class _CompanyNameState extends State<CompanyName> {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     height20,
-                    const DetailsField(name: "Enter your Company Name"),
+                    TextFormField(
+                      decoration: InputDecoration(
+                        contentPadding: const EdgeInsets.symmetric(
+                            vertical: 13, horizontal: 26),
+                        enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(16),
+                          borderSide:
+                              BorderSide(color: Colors.black.withOpacity(0.2)),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(16),
+                          borderSide: BorderSide(
+                              color: Colors.black.withOpacity(0.2), width: 1.3),
+                        ),
+                        hintText: "Enter your Company Name",
+                        alignLabelWithHint: true,
+                        hintStyle: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w500,
+                          color: Colors.black.withOpacity(0.2),
+                        ),
+                      ),
+                      onChanged: (value) {
+                        name = value;
+                        setState(() {});
+                      },
+                    ),
                     height20,
                     const DetailsField(name: "Enter your Company Website"),
                     height50,
                     ElevatedButton(
                       onPressed: () {
-                        // Get.to(() => const AboutYourself(),
-                        //     transition: Transition.leftToRight);
+                        Get.off(() => const ConnectYourAccounts(),
+                            transition: Transition.rightToLeftWithFade);
                       },
                       style: ElevatedButton.styleFrom(
                         alignment: Alignment.center,

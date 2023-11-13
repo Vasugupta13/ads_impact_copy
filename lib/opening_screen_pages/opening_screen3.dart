@@ -39,7 +39,7 @@ class _Page3State extends State<Page3> {
                     child: TextButton(
                       onPressed: () {
                         Get.to(() => const LoginPage(),
-                            transition: Transition.rightToLeft);
+                            transition: Transition.rightToLeftWithFade);
                       },
                       child: const Text(
                         "Skip",

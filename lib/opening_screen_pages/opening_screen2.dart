@@ -39,7 +39,7 @@ class _Page2State extends State<Page2> {
                     child: TextButton(
                       onPressed: () {
                         Get.to(() => const LoginPage(),
-                            transition: Transition.rightToLeft);
+                            transition: Transition.rightToLeftWithFade);
                       },
                       child: const Text(
                         "Skip",
@@ -53,7 +53,7 @@ class _Page2State extends State<Page2> {
                   ),
                 ],
               ),
-            height25,
+              height25,
               const Text(
                 "Innovative Ad Campaigns",
                 style: TextStyle(
