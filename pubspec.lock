@@ -259,6 +259,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.1.6"
+  scroll_snap_list:
+    dependency: "direct main"
+    description:
+      name: scroll_snap_list
+      sha256: "8009ad9030f680b93f3107b29b1ea31284d867aa4972868d2970c6d61fe9e59f"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.9.1"
   sky_engine:
     dependency: transitive
     description: flutter
@@ -304,6 +312,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.2.0"
+  stylish_bottom_bar:
+    dependency: "direct main"
+    description:
+      name: stylish_bottom_bar
+      sha256: "54970e4753b4273239b6dea0d1175c56beabcf39b5c65df4cbf86f1b86568d2b"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.3"
   term_glyph:
     dependency: transitive
     description:

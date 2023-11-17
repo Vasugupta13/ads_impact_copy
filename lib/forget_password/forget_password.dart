@@ -169,7 +169,7 @@ void _showPopup(BuildContext context) {
             BackdropFilter(
               filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
               child: Container(
-                color: Colors.grey.withOpacity(0.3),
+                color: Colors.white.withOpacity(0.5),
               ),
             ),
             Dialog(

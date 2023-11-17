@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 
 import '../const.dart';
 import '../forget_password/forget_password.dart';
+import '../home_page/homepage.dart';
 import '../sign-up/sign_up.dart';
 
 class LoginPage extends StatefulWidget {
@@ -14,6 +15,18 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  final FocusNode _emailfocusNode = FocusNode();
+  final FocusNode _passwordfocusNode = FocusNode();
+
+  @override
+  void dispose() {
+    setState(() {
+      _emailfocusNode.dispose();
+      _passwordfocusNode.dispose();
+      super.dispose();
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     double screenHeight = MediaQuery.of(context).size.height;
@@ -63,7 +76,10 @@ class _LoginPageState extends State<LoginPage> {
                       focusedBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(16),
                         borderSide: BorderSide(
-                            color: Colors.black.withOpacity(0.2), width: 1.3),
+                            color: _emailfocusNode.hasFocus
+                                ? const Color(0xffFF4848)
+                                : Colors.black.withOpacity(0.2),
+                            width: 1.3),
                       ),
                       hintText: "Enter your Email address",
                       alignLabelWithHint: true,
@@ -73,9 +89,11 @@ class _LoginPageState extends State<LoginPage> {
                         color: Colors.black.withOpacity(0.2),
                       ),
                     ),
+                    focusNode: _emailfocusNode,
                   ),
                   height20,
                   TextFormField(
+                    focusNode: _passwordfocusNode,
                     obscureText: true,
                     decoration: InputDecoration(
                       contentPadding: const EdgeInsets.symmetric(
@@ -88,8 +106,10 @@ class _LoginPageState extends State<LoginPage> {
                       focusedBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(16),
                         borderSide: BorderSide(
-                          color: Colors.black.withOpacity(0.2),
-                        ),
+                            color: _passwordfocusNode.hasFocus
+                                ? const Color(0xffFF4848)
+                                : Colors.black.withOpacity(0.2),
+                            width: 1.3),
                       ),
                       hintText: "Password",
                       alignLabelWithHint: true,
@@ -119,7 +139,10 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                   height30,
                   ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Get.off(() => const HomePage(),
+                          transition: Transition.leftToRightWithFade);
+                    },
                     style: ElevatedButton.styleFrom(
                       alignment: Alignment.center,
                       elevation: 0,

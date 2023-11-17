@@ -3,7 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 
 import '../const.dart';
-import 'connect_your_account.dart';
+import '../connect_account/connect_your_account.dart';
 
 class CompanyName extends StatefulWidget {
   const CompanyName({super.key});
