@@ -4,8 +4,12 @@ import 'package:flutter/material.dart';
 class CommonElevatedButton extends StatelessWidget {
   final String name;
   final double buttonwidth;
+  final IconData? iconname;
   const CommonElevatedButton(
-      {super.key, required this.name, required this.buttonwidth});
+      {super.key,
+      required this.name,
+      required this.buttonwidth,
+      this.iconname});
 
   @override
   Widget build(BuildContext context) {

@@ -16,20 +16,20 @@ class _TakePlanBarState extends State<TakePlanBar> {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 18),
-      child: Column(
-        children: [
-          const Divider(
-            thickness: 1.6,
-          ),
-          height20,
-          GestureDetector(
-            onTap: () {
-              setState(() {
-                isvisible = !isvisible;
-              });
-            },
+    return Column(
+      children: [
+        const Divider(
+          thickness: 1.6,
+        ),
+        height20,
+        GestureDetector(
+          onTap: () {
+            setState(() {
+              isvisible = !isvisible;
+            });
+          },
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 18),
             child: Stack(
               children: [
                 Container(
@@ -70,10 +70,10 @@ class _TakePlanBarState extends State<TakePlanBar> {
               ],
             ),
           ),
-          height20,
-          if (isvisible) const PlanDetails(),
-        ],
-      ),
+        ),
+        height20,
+        if (isvisible) const PlanDetails(),
+      ],
     );
   }
 }

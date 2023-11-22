@@ -17,10 +17,12 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   bool showplandetails = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: _scaffoldKey,
       backgroundColor: kwhite,
       appBar: AppBar(
         toolbarHeight: 80,
@@ -28,7 +30,9 @@ class _HomePageState extends State<HomePage> {
         elevation: 0,
         backgroundColor: Colors.transparent,
         leading: IconButton(
-          onPressed: () {},
+          onPressed: () {
+            _scaffoldKey.currentState?.openDrawer();
+          },
           icon: const Icon(
             CupertinoIcons.line_horizontal_3,
             color: kblack,
@@ -78,7 +82,32 @@ class _HomePageState extends State<HomePage> {
           ],
         ),
       ),
-      drawer: const Drawer(),
+      drawer: Drawer(
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: [
+            const DrawerHeader(
+              decoration: BoxDecoration(
+                color: Colors.blue,
+              ),
+              child: Text('Drawer Header'),
+            ),
+            ListTile(
+              title: const Text('Item 1'),
+              onTap: () {
+                // Add your logic here for when Item 1 is tapped
+              },
+            ),
+            ListTile(
+              title: const Text('Item 2'),
+              onTap: () {
+                // Add your logic here for when Item 2 is tapped
+              },
+            ),
+            // Add more ListTile widgets as needed
+          ],
+        ),
+      ),
       bottomNavigationBar: const BottomNavBar(),
     );
   }

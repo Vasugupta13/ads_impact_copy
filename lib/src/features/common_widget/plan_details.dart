@@ -1,9 +1,11 @@
 import 'package:ads/src/features/common_widget/elevatedbutton.dart';
 import 'package:ads/src/features/common_widget/plan_deatils_conatiner_image.dart';
-import 'package:ads/src/features/common_widget/shopping_slider_plans.dart';
+import 'package:ads/src/features/common_widget/branding_partners_sliding.dart';
 import 'package:ads/src/utils/const.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+
+import 'need_help_chat.dart';
 
 class PlanDetails extends StatefulWidget {
   const PlanDetails({super.key});
@@ -101,8 +103,9 @@ class _PlanDetailsState extends State<PlanDetails> {
           height15,
           const CommonElevatedButton(name: "Buy Now", buttonwidth: 0.30),
           height15,
-          Divider(color: kblack.withOpacity(0.2), endIndent: 8, indent: 8),
-          // const ShoppingListSlider(),
+          const ShoppingListSlider(),
+          height15,
+          const NeedHelp(),
         ],
       ),
     );
