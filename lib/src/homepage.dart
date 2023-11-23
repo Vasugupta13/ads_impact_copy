@@ -2,10 +2,13 @@ import 'package:ads/src/features/bottombar/bottomnavigationbar.dart';
 import 'package:ads/src/features/common_widget/overview_insights.dart';
 import 'package:ads/src/features/common_widget/plan_snaplistview.dart';
 import 'package:ads/src/features/common_widget/take_plan_bar.dart';
+import 'package:ads/src/features/dashboard/dashboard_view.dart';
+import 'package:ads/src/features/menu/menu.dart';
 import 'package:ads/src/utils/const.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
 
 import 'features/common_widget/plan_details.dart';
 
@@ -17,12 +20,10 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   bool showplandetails = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      key: _scaffoldKey,
       backgroundColor: kwhite,
       appBar: AppBar(
         toolbarHeight: 80,
@@ -31,7 +32,7 @@ class _HomePageState extends State<HomePage> {
         backgroundColor: Colors.transparent,
         leading: IconButton(
           onPressed: () {
-            _scaffoldKey.currentState?.openDrawer();
+            _showPopupMenu(context);
           },
           icon: const Icon(
             CupertinoIcons.line_horizontal_3,
@@ -82,33 +83,28 @@ class _HomePageState extends State<HomePage> {
           ],
         ),
       ),
-      drawer: Drawer(
-        child: ListView(
-          padding: EdgeInsets.zero,
-          children: [
-            const DrawerHeader(
-              decoration: BoxDecoration(
-                color: Colors.blue,
-              ),
-              child: Text('Drawer Header'),
-            ),
-            ListTile(
-              title: const Text('Item 1'),
-              onTap: () {
-                // Add your logic here for when Item 1 is tapped
-              },
-            ),
-            ListTile(
-              title: const Text('Item 2'),
-              onTap: () {
-                // Add your logic here for when Item 2 is tapped
-              },
-            ),
-            // Add more ListTile widgets as needed
-          ],
-        ),
-      ),
       bottomNavigationBar: const BottomNavBar(),
+    );
+  }
+
+  void _showPopupMenu(BuildContext context) async {
+    final RenderBox overlay =
+        Overlay.of(context).context.findRenderObject() as RenderBox;
+
+    showMenu(
+      context: context,
+      position: RelativeRect.fromLTRB(
+        overlay.size.width / 8,
+        overlay.size.height / 10,
+        overlay.size.width / 8,
+        overlay.size.height / 10,
+      ),
+      items: [
+        const PopupMenuItem(
+          child: PopupMenuView(),
+        ),
+      ],
+      elevation: 8.0,
     );
   }
 }

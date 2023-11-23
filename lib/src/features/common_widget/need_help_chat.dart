@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 
-import '../Adchat/chat_page.dart';
+import '../adchat/chat_page.dart';
 
 class NeedHelp extends StatefulWidget {
   const NeedHelp({super.key});
