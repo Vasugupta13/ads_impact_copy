@@ -11,6 +11,10 @@ const Color storyColor = Color.fromARGB(255, 231, 20, 87);
 
 //const width
 const SizedBox kwidth5 = SizedBox(width: 5);
+const SizedBox kwidth7 = SizedBox(width: 7);
+const SizedBox kwidth8 = SizedBox(width: 8);
+const SizedBox kwidth9 = SizedBox(width: 9);
+
 const SizedBox kwidth10 = SizedBox(width: 10);
 const SizedBox kwidth13 = SizedBox(width: 13);
 

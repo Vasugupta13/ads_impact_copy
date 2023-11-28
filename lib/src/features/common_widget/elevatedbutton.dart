@@ -4,12 +4,16 @@ import 'package:flutter/material.dart';
 class CommonElevatedButton extends StatelessWidget {
   final String name;
   final double buttonwidth;
+  final double buttonheight;
   final IconData? iconname;
+  final TextStyle textStyle;
   const CommonElevatedButton(
       {super.key,
       required this.name,
       required this.buttonwidth,
-      this.iconname});
+      this.iconname,
+      required this.buttonheight,
+      required this.textStyle});
 
   @override
   Widget build(BuildContext context) {
@@ -20,20 +24,14 @@ class CommonElevatedButton extends StatelessWidget {
         style: ElevatedButton.styleFrom(
           alignment: Alignment.center,
           elevation: 0,
-          fixedSize: Size(screenHeight * buttonwidth, screenHeight * 0.06),
+          fixedSize:
+              Size(screenHeight * buttonwidth, screenHeight * buttonheight),
           backgroundColor: const Color(0xffFF4848),
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(8),
+            borderRadius: BorderRadius.circular(12),
           ),
         ),
-        child: Text(
-          name,
-          style: const TextStyle(
-            fontWeight: FontWeight.w600,
-            color: kwhite,
-            fontSize: 14,
-          ),
-        ),
+        child: Text(name, style: textStyle),
       ),
     );
   }

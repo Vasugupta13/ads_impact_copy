@@ -4,14 +4,16 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class TakePlanBar extends StatefulWidget {
-  const TakePlanBar({super.key});
+  final VoidCallback toggle;
+  final bool isvisible;
+
+  const TakePlanBar({super.key, required this.toggle, required this.isvisible});
 
   @override
   State<TakePlanBar> createState() => _TakePlanBarState();
 }
 
 class _TakePlanBarState extends State<TakePlanBar> {
-  bool isvisible = false;
   double screenWidth = Get.width;
 
   @override
@@ -23,11 +25,7 @@ class _TakePlanBarState extends State<TakePlanBar> {
         ),
         height20,
         GestureDetector(
-          onTap: () {
-            setState(() {
-              isvisible = !isvisible;
-            });
-          },
+          onTap: widget.toggle,
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 18),
             child: Stack(
@@ -72,7 +70,7 @@ class _TakePlanBarState extends State<TakePlanBar> {
           ),
         ),
         height20,
-        if (isvisible) const PlanDetails(),
+        if (widget.isvisible) const PlanDetails(),
       ],
     );
   }

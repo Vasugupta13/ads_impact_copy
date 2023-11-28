@@ -1,16 +1,14 @@
+import 'dart:ui';
+
 import 'package:ads/src/features/bottombar/bottomnavigationbar.dart';
 import 'package:ads/src/features/common_widget/overview_insights.dart';
 import 'package:ads/src/features/common_widget/plan_snaplistview.dart';
 import 'package:ads/src/features/common_widget/take_plan_bar.dart';
-import 'package:ads/src/features/dashboard/dashboard_view.dart';
 import 'package:ads/src/features/menu/menu.dart';
 import 'package:ads/src/utils/const.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:get/get.dart';
-
-import 'features/common_widget/plan_details.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -21,6 +19,12 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   bool showplandetails = false;
+  toggleVisibility() {
+    setState(() {
+      showplandetails = !showplandetails;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -63,23 +67,31 @@ class _HomePageState extends State<HomePage> {
           kwidth20,
         ],
       ),
-      body: const SingleChildScrollView(
-        physics: BouncingScrollPhysics(),
+      body: SingleChildScrollView(
+        physics: const BouncingScrollPhysics(),
         child: Column(
           children: [
             height10,
-            TakePlanBar(),
-            height10,
-            PlanList(),
-            height20,
-            Divider(
-              endIndent: 18,
-              indent: 18,
-              thickness: 1.6,
+            TakePlanBar(
+              toggle: () => toggleVisibility(),
+              isvisible: showplandetails,
             ),
             height10,
-            HomeDetailsPage(),
-            height10,
+            if (!showplandetails)
+              const Column(
+                children: [
+                  PlanList(),
+                  height20,
+                  Divider(
+                    endIndent: 18,
+                    indent: 18,
+                    thickness: 1.6,
+                  ),
+                  height10,
+                  HomeDetailsPage(),
+                  height10,
+                ],
+              )
           ],
         ),
       ),

@@ -1,4 +1,7 @@
+import 'dart:ui';
+
 import 'package:ads/src/features/dashboard/dashboard_view.dart';
+import 'package:ads/src/features/forget_password/create_new_password.dart';
 import 'package:ads/src/utils/const.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -49,13 +52,21 @@ class _PopupMenuViewState extends State<PopupMenuView> {
           }),
           customDivider(
               color: kblack.withOpacity(0.2), endIndent: 18, indent: 18),
-          menuItemWithDropdown("Catalog", "assets/images/catlog_icon.svg"),
+          menuItemWithDropdown(
+            "Catalog",
+            "assets/images/catlog_icon.svg",
+            () {
+              _showPopup(context);
+            },
+          ),
           customDivider(
               color: kblack.withOpacity(0.2), endIndent: 18, indent: 18),
-          menuItemWithDropdown("Insights", "assets/images/insights_icon.svg"),
+          menuItemWithDropdown(
+              "Insights", "assets/images/insights_icon.svg", () {}),
           customDivider(
               color: kblack.withOpacity(0.2), endIndent: 18, indent: 18),
-          menuItemWithDropdown("Campaign", "assets/images/campaign_icon.svg"),
+          menuItemWithDropdown(
+              "Campaign", "assets/images/campaign_icon.svg", () {}),
           customDivider(
               color: kblack.withOpacity(0.2), endIndent: 18, indent: 18),
           menuItem("Audience Insights", "assets/images/audience_insights.svg",
@@ -73,11 +84,11 @@ class _PopupMenuViewState extends State<PopupMenuView> {
     );
   }
 
-  Widget menuItem(String text, String iconPath, Function onPressed) {
+  Widget menuItem(String text, String iconPath, void Function() onPressed) {
     return Padding(
       padding: const EdgeInsets.only(left: 36),
       child: GestureDetector(
-        onTap: () {},
+        onTap: onPressed,
         child: Row(
           children: [
             SvgPicture.asset(iconPath),
@@ -93,11 +104,12 @@ class _PopupMenuViewState extends State<PopupMenuView> {
     );
   }
 
-  Widget menuItemWithDropdown(String text, String iconPath) {
+  Widget menuItemWithDropdown(
+      String text, String iconPath, void Function() ontap) {
     return Padding(
       padding: const EdgeInsets.only(left: 36, right: 26),
       child: GestureDetector(
-        onTap: () {},
+        onTap: ontap,
         child: Row(
           children: [
             SvgPicture.asset(iconPath),
@@ -234,6 +246,120 @@ class _PopupMenuViewState extends State<PopupMenuView> {
       color: color,
       endIndent: endIndent,
       indent: indent,
+    );
+  }
+
+  void _showPopup(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return GestureDetector(
+          onTap: () {
+            Get.back();
+          },
+          child: Stack(
+            children: [
+              BackdropFilter(
+                filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
+                child: Container(
+                  color: Colors.white.withOpacity(0.2),
+                ),
+              ),
+              Positioned(
+                top: 30,
+                bottom: 30,
+                left: 20,
+                right: 20,
+                child: Dialog(
+                  child: Container(
+                    height: 180,
+                    width: 40,
+                    padding: const EdgeInsets.all(16),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(26),
+                    ),
+                    child: Column(
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            SvgPicture.asset("assets/images/catlog_icon.svg"),
+                            kwidth10,
+                            const Text(
+                              "Catalog",
+                              style: TextStyle(
+                                  fontSize: 14, fontWeight: FontWeight.w600),
+                            ),
+                          ],
+                        ),
+                        customDivider(
+                            color: kblack.withOpacity(0.2),
+                            endIndent: 10,
+                            indent: 10),
+                        Padding(
+                          padding: const EdgeInsets.only(left: 20),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              SvgPicture.asset(
+                                  "assets/images/categories_icon.svg"),
+                              kwidth10,
+                              const Text(
+                                "Categories",
+                                style: TextStyle(
+                                    fontSize: 12, fontWeight: FontWeight.w500),
+                              ),
+                            ],
+                          ),
+                        ),
+                        customDivider(
+                            color: kblack.withOpacity(0.2),
+                            endIndent: 10,
+                            indent: 10),
+                        Padding(
+                          padding: const EdgeInsets.only(left: 20),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              SvgPicture.asset(
+                                  "assets/images/products_icon.svg"),
+                              kwidth10,
+                              const Text(
+                                "Products",
+                                style: TextStyle(
+                                    fontSize: 12, fontWeight: FontWeight.w500),
+                              ),
+                            ],
+                          ),
+                        ),
+                        customDivider(
+                            color: kblack.withOpacity(0.2),
+                            endIndent: 10,
+                            indent: 10),
+                        Padding(
+                          padding: const EdgeInsets.only(left: 20),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              SvgPicture.asset("assets/images/info_icon.svg"),
+                              kwidth10,
+                              const Text(
+                                "Catalog Information",
+                                style: TextStyle(
+                                    fontSize: 12, fontWeight: FontWeight.w500),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        );
+      },
     );
   }
 }

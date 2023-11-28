@@ -1,7 +1,11 @@
 import 'package:ads/src/features/screen/splash_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flyout/flyout.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:flutter/material.dart';
+import 'package:flyout/flyout.dart';
+import 'package:get/get.dart';
 
 void main() {
   runApp(const MyApp());

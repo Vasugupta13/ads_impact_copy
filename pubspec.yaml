@@ -48,7 +48,11 @@ dependencies:
   fl_chart: ^0.64.0
   carousel_slider: ^4.2.1
   flutter_chat_ui: ^1.6.10
-  
+  socket_io_client: ^2.0.3+1
+  flyout: ^1.0.2
+  dots_indicator: ^3.0.0
+
+
 
 
 
