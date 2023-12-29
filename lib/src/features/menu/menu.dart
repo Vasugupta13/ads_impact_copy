@@ -1,6 +1,7 @@
 import 'dart:ui';
 
-import 'package:ads/src/features/dashboard/dashboard_view.dart';
+import 'package:ads/src/features/menu/catalog/categories.dart';
+import 'package:ads/src/features/menu/dashboard/dashboard_view.dart';
 import 'package:ads/src/features/forget_password/create_new_password.dart';
 import 'package:ads/src/utils/const.dart';
 import 'package:flutter/material.dart';
@@ -298,18 +299,24 @@ class _PopupMenuViewState extends State<PopupMenuView> {
                             indent: 10),
                         Padding(
                           padding: const EdgeInsets.only(left: 20),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
-                              SvgPicture.asset(
-                                  "assets/images/categories_icon.svg"),
-                              kwidth10,
-                              const Text(
-                                "Categories",
-                                style: TextStyle(
-                                    fontSize: 12, fontWeight: FontWeight.w500),
-                              ),
-                            ],
+                          child: GestureDetector(
+                            onTap: () {
+                              Get.to(() => const MenuCatalogCategories());
+                            },
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                SvgPicture.asset(
+                                    "assets/images/categories_icon.svg"),
+                                kwidth10,
+                                const Text(
+                                  "Categories",
+                                  style: TextStyle(
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.w500),
+                                ),
+                              ],
+                            ),
                           ),
                         ),
                         customDivider(

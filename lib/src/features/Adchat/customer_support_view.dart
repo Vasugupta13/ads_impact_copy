@@ -1,6 +1,5 @@
 import 'package:ads/src/utils/const.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:socket_io_client/socket_io_client.dart' as IO;
 
@@ -89,7 +88,6 @@ class _CustomerSupportViewState extends State<CustomerSupportView> {
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
-    double width = MediaQuery.of(context).size.width;
     return Container(
       height: height,
       decoration: BoxDecoration(

@@ -1,14 +1,17 @@
+import 'package:ads/src/features/bottombar/bottomnavigationbar.dart';
 import 'package:ads/src/features/common_widget/custom_app_bar.dart';
 import 'package:ads/src/features/common_widget/elevatedbutton.dart';
 import 'package:ads/src/features/common_widget/insights_graph.dart';
 import 'package:ads/src/features/common_widget/social_account_overview_details.dart';
-import 'package:ads/src/features/dashboard/common_container.dart';
+import 'package:ads/src/features/common_widget/view_more_detail_container.dart';
+import 'package:ads/src/features/menu/dashboard/common_container.dart';
 import 'package:ads/src/homepage/social_account_list_widget.dart';
 import 'package:ads/src/model/social_media_info.dart';
+import 'package:ads/src/res/dashboard_creative_spend.dart';
+import 'package:ads/src/res/dashboard_platform_spend.dart';
 import 'package:ads/src/res/socialmediainfo.dart';
 import 'package:ads/src/utils/const.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 class DashboardView extends StatefulWidget {
   const DashboardView({super.key});
@@ -144,101 +147,32 @@ class _DashboardViewState extends State<DashboardView> {
             ),
             height20,
             const CommonElevatedButton(
-              name: "Platform Wise Spend and ROAS %",
-              textStyle: TextStyle(
-                fontWeight: FontWeight.w500,
-                color: kwhite,
-                fontSize: 12,
-              ),
-              buttonwidth: 0.40,
-              buttonheight: 0.07,
-            ),
+                name: "Platform Wise Spend and ROAS %",
+                textStyle: TextStyle(
+                    fontWeight: FontWeight.w500, color: kwhite, fontSize: 12),
+                buttonwidth: 0.40,
+                buttonheight: 0.07),
             height30,
-            Stack(
-              //! same for future use (for adding the graph in to it)
-
-              children: [
-                Container(
-                  height: 210,
-                  width: Get.width,
-                  margin: const EdgeInsets.all(10),
-                  decoration: BoxDecoration(
-                    boxShadow: [
-                      BoxShadow(
-                        blurRadius: 4,
-                        color: kblack.withOpacity(0.25),
-                        offset: const Offset(0, 4),
-                      ),
-                    ],
-                    color: kwhite,
-                    borderRadius: const BorderRadius.only(
-                      bottomRight: Radius.circular(12),
-                      bottomLeft: Radius.circular(12),
-                      topRight: Radius.circular(12),
-                    ),
-                  ),
-                  child: Column(
-                    children: [
-                      height50,
-                      Divider(
-                        color: kblack.withOpacity(0.1),
-                        endIndent: 14,
-                        indent: 14,
-                      ),
-                      SizedBox(
-                        child: ListView.builder(
-                          shrinkWrap: true,
-                          physics: const NeverScrollableScrollPhysics(),
-                          itemCount: 5,
-                          itemBuilder: (context, index) {
-                            return const Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceAround,
-                              children: [
-                                Text("Facebook"),
-                                Text("1,23,567"),
-                                Text("550"),
-                              ],
-                            );
-                          },
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                Positioned(
-                  top: 10,
-                  left: (Get.width - 76) / 2,
-                  child: GestureDetector(
-                    child: Container(
-                      height: 40,
-                      width: 76,
-                      decoration: const BoxDecoration(
-                        color: Color(0xffE8EBF2),
-                        borderRadius: BorderRadius.only(
-                          bottomLeft: Radius.circular(14),
-                          bottomRight: Radius.circular(14),
-                        ),
-                      ),
-                      child: const Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Icon(Icons.keyboard_arrow_up),
-                          Text(
-                            "View More",
-                            style: TextStyle(
-                                fontSize: 10, fontWeight: FontWeight.w500),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                )
-              ],
+            ViewMoreContainer(data: DashboardSocialMediaData.socialspend),
+            height10,
+            Divider(
+              indent: 26,
+              endIndent: 0,
+              color: kblack.withOpacity(0.1),
             ),
+            height20,
+            const CommonElevatedButton(
+                name: "Creative Wise Spend and ROAS %",
+                textStyle: TextStyle(
+                    fontWeight: FontWeight.w500, color: kwhite, fontSize: 12),
+                buttonwidth: 0.40,
+                buttonheight: 0.07),
+            height30,
+            ViewMoreContainer(data: DashboardCreativeSpend.spendname)
           ],
         ),
       ),
+      bottomNavigationBar: const BottomNavBar(),
     );
   }
 }
