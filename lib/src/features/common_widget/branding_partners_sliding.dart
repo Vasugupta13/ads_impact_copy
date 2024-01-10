@@ -33,7 +33,7 @@ class _ShoppingListSliderState extends State<ShoppingListSlider> {
         const Text(
           "Our Branding Partners",
           style: TextStyle(
-              fontSize: 24, fontWeight: FontWeight.w500, letterSpacing: -0.3),
+              fontSize: 24, letterSpacing: -0.3),
         ),
         height20,
         SizedBox(

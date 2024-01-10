@@ -48,7 +48,7 @@ class _PlanDetailsState extends State<PlanDetails> {
                 ),
                 TextSpan(
                   text: ' the Perfect\nSolution for your\n"Ads"',
-                  style: TextStyle(fontWeight: FontWeight.w500, fontSize: 36),
+                  style: TextStyle( fontSize: 36),
                 ),
               ],
             ),
@@ -61,7 +61,7 @@ class _PlanDetailsState extends State<PlanDetails> {
           height20,
           const Text(
             "Our Plans",
-            style: TextStyle(fontSize: 24, fontWeight: FontWeight.w500),
+            style: TextStyle(fontSize: 24, ),
           ),
           height10,
           const CommonContainerPlanDetals(
@@ -75,12 +75,16 @@ class _PlanDetailsState extends State<PlanDetails> {
               name4: "Porem ipsum dolor sit amet",
               name5: "Porem ipsum dolor sit amet"),
           height15,
-          const CommonElevatedButton(
-              name: "Buy Now", textStyle:  TextStyle(
-            fontWeight: FontWeight.w500,
-            color: kwhite,
-            fontSize: 14,
-          ),buttonwidth: 0.30, buttonheight: 0.06),
+          CommonElevatedButton(
+              ontap: () {},
+              name: "Buy Now",
+              textStyle: const TextStyle(
+
+                color: kwhite,
+                fontSize: 14,
+              ),
+              buttonwidth: 0.30,
+              buttonheight: 0.06),
           height15,
           const CommonContainerPlanDetals(
               containerheight: 340,
@@ -93,12 +97,16 @@ class _PlanDetailsState extends State<PlanDetails> {
               name4: "Porem ipsum dolor sit amet",
               name5: "Porem ipsum dolor sit amet"),
           height15,
-          const CommonElevatedButton(
-              name: "Buy Now", textStyle:  TextStyle(
-            fontWeight: FontWeight.w500,
-            color: kwhite,
-            fontSize: 14,
-          ),buttonwidth: 0.30, buttonheight: 0.06),
+          CommonElevatedButton(
+              ontap: () {},
+              name: "Buy Now",
+              textStyle: const TextStyle(
+
+                color: kwhite,
+                fontSize: 14,
+              ),
+              buttonwidth: 0.30,
+              buttonheight: 0.06),
           height15,
           const CommonContainerPlanDetals(
               containerheight: 340,
@@ -111,12 +119,16 @@ class _PlanDetailsState extends State<PlanDetails> {
               name4: "Porem ipsum dolor sit amet",
               name5: "Porem ipsum dolor sit amet"),
           height15,
-          const CommonElevatedButton(
-              name: "Buy Now",textStyle:  TextStyle(
-            fontWeight: FontWeight.w500,
-            color: kwhite,
-            fontSize: 14,
-          ), buttonwidth: 0.30, buttonheight: 0.06),
+          CommonElevatedButton(
+              ontap: () {},
+              name: "Buy Now",
+              textStyle: const TextStyle(
+                
+                color: kwhite,
+                fontSize: 14,
+              ),
+              buttonwidth: 0.30,
+              buttonheight: 0.06),
           height15,
           const ShoppingListSlider(),
           height15,

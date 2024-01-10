@@ -71,8 +71,8 @@ class _HomeDetailsPageState extends State<HomeDetailsPage> {
                       child: Text(
                         'OverView',
                         style: TextStyle(
-                            color: currentindex == 0 ? Colors.white : kblack,
-                            fontWeight: FontWeight.w500),
+                          color: currentindex == 0 ? Colors.white : kblack,
+                        ),
                       ),
                     ),
                   ),
@@ -103,8 +103,8 @@ class _HomeDetailsPageState extends State<HomeDetailsPage> {
                       child: Text(
                         'Insights',
                         style: TextStyle(
-                            color: currentindex == 0 ? kblack : Colors.white,
-                            fontWeight: FontWeight.w500),
+                          color: currentindex == 0 ? kblack : Colors.white,
+                        ),
                       ),
                     ),
                   ),

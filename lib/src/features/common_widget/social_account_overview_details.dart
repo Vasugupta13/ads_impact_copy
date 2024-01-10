@@ -1,8 +1,6 @@
 import 'package:ads/src/utils/const.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:get/get.dart';
-
 import '../../../src/model/social_media_info.dart';
 
 class SocialMediaOverview extends StatefulWidget {
@@ -75,12 +73,12 @@ class _SocialMediaOverviewState extends State<SocialMediaOverview> {
             children: [
               Text(
                 widget.dataList[index].name,
-                style:
-                    const TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+                style: const TextStyle(
+                  fontSize: 16,
+                ),
               ),
               SvgPicture.asset(
                 widget.dataList[index].imageurl,
-                // ignore: deprecated_member_use
                 color: const Color(0xff5468BE),
               )
             ],

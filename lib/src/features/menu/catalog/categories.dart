@@ -1,7 +1,10 @@
+import 'package:ads/src/features/bottombar/bottomnavigationbar.dart';
 import 'package:ads/src/features/common_widget/catalog_list_view.dart';
 import 'package:ads/src/features/common_widget/custom_app_bar.dart';
-import 'package:ads/src/res/catalog_products.dart';
+import 'package:ads/src/features/common_widget/elevatedbutton.dart';
+import 'package:ads/src/res/catalog_categories_products.dart';
 import 'package:ads/src/utils/const.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
@@ -15,6 +18,18 @@ class MenuCatalogCategories extends StatefulWidget {
 }
 
 class _MenuCatalogCategoriesState extends State<MenuCatalogCategories> {
+  TableRow buildRow(List<String> cells) => TableRow(
+          children: cells.map((cell) {
+        return Padding(
+          padding: const EdgeInsets.all(12),
+          child: Center(
+            child: Text(
+              cell,
+              style: const TextStyle(fontSize: 13, fontWeight: FontWeight.w600),
+            ),
+          ),
+        );
+      }).toList());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -53,6 +68,8 @@ class _MenuCatalogCategoriesState extends State<MenuCatalogCategories> {
             ),
             height20,
             CatalogListView(
+              containerwidth: 0.85,
+              names: ["Default View", "Website View", "Performance View"],
               onTapCallback: (int index) {},
             ),
             height20,
@@ -81,55 +98,66 @@ class _MenuCatalogCategoriesState extends State<MenuCatalogCategories> {
             ),
             height20,
             Container(
-              margin: const EdgeInsets.all(16),
+              margin: const EdgeInsets.all(15),
               decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(16),
-                  border: Border.all(color: kblack.withOpacity(0.2))),
-              child: Table(
-                border: const TableBorder(
-                  verticalInside: BorderSide(),
+                borderRadius: BorderRadius.circular(16),
+                border: Border.all(
+                  color: kblack.withOpacity(0.4),
                 ),
-                defaultVerticalAlignment: TableCellVerticalAlignment.middle,
+              ),
+              child: Column(
                 children: [
-                  TableRow(
-                    children: [
-                      TableCell(
-                        child: Container(
-                          padding: const EdgeInsets.all(8.0),
-                          child: const Text('Category Name'),
-                        ),
+                  Table(
+                    border: TableBorder(
+                      verticalInside:
+                          BorderSide(color: kblack.withOpacity(0.4)),
+                      bottom: BorderSide(
+                        color: kblack.withOpacity(0.4),
                       ),
-                      TableCell(
-                        child: Container(
-                          padding: const EdgeInsets.all(8.0),
-                          child: const Text('Products'),
-                        ),
+                    ),
+                    children: [
+                      buildRow(
+                        ["Product Categories", "Products"],
                       ),
                     ],
                   ),
-                  for (var category in CatalogProductDetail.categorydetails)
-                    TableRow(
-                      children: [
-                        TableCell(
-                          child: Container(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Text(category["categoryname"].toString()),
-                          ),
-                        ),
-                        TableCell(
-                          child: Container(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Text(category["products"].toString()),
-                          ),
-                        ),
-                      ],
+                  Table(
+                    border: TableBorder(
+                      verticalInside: BorderSide(
+                        width: 1,
+                        color: kblack.withOpacity(0.4),
+                      ),
                     ),
+                    children: CatalogProductDetail.categorydetails
+                        .map(
+                          (category) => buildRow(
+                            [
+                              category["categoryname"].toString(),
+                              category["products"].toString(),
+                            ],
+                          ),
+                        )
+                        .toList(),
+                  ),
                 ],
               ),
-            )
+            ),
+            height30,
+            CommonElevatedButton(
+              ontap: () {},
+              name: "Total Summary:   74,072",
+              buttonwidth: 0.40,
+              buttonheight: 0.07,
+              textStyle: TextStyle(
+                fontSize: 12,
+                color: kwhite,
+              ),
+            ),
+            height30,
           ],
         ),
       ),
+      bottomNavigationBar: const BottomNavBar(),
     );
   }
 }

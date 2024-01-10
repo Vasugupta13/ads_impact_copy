@@ -51,6 +51,8 @@ dependencies:
   socket_io_client: ^2.0.3+1
   flyout: ^1.0.2
   dots_indicator: ^3.0.0
+  dotted_border: ^2.1.0
+  dropdown_button2: ^2.3.9
 
 
 

@@ -74,7 +74,7 @@ class CommonContainerPlanDetals extends StatelessWidget {
             name1,
             style: TextStyle(
               fontSize: 14,
-              fontWeight: FontWeight.w500,
+
               color: kblack.withOpacity(0.4),
             ),
           ),
@@ -83,7 +83,7 @@ class CommonContainerPlanDetals extends StatelessWidget {
             name2,
             style: TextStyle(
               fontSize: 14,
-              fontWeight: FontWeight.w500,
+
               color: kblack.withOpacity(0.4),
             ),
           ),
@@ -92,7 +92,7 @@ class CommonContainerPlanDetals extends StatelessWidget {
             name3,
             style: TextStyle(
               fontSize: 14,
-              fontWeight: FontWeight.w500,
+
               color: kblack.withOpacity(0.4),
             ),
           ),
@@ -101,7 +101,7 @@ class CommonContainerPlanDetals extends StatelessWidget {
             name4,
             style: TextStyle(
               fontSize: 14,
-              fontWeight: FontWeight.w500,
+
               color: kblack.withOpacity(0.4),
             ),
           ),
@@ -110,7 +110,7 @@ class CommonContainerPlanDetals extends StatelessWidget {
             name5,
             style: TextStyle(
               fontSize: 14,
-              fontWeight: FontWeight.w500,
+              
               color: kblack.withOpacity(0.4),
             ),
           )

@@ -46,7 +46,6 @@ class _SocialAccountListState extends State<SocialAccountList> {
                 setState(() {
                   listindex = index;
                   widget.onTapCallback(index);
-                  print("Tapped index: $index");
                 });
               },
               child: Container(

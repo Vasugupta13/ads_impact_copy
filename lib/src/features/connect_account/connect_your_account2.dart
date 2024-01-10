@@ -57,7 +57,7 @@ class _ConnectYourAccount2State extends State<ConnectYourAccount2> {
                 "We don’t use or make any changes to your account and you can easily disconnect it whenever you wnat",
                 maxLines: 2,
                 style: TextStyle(
-                    fontWeight: FontWeight.w500,
+
                     fontSize: 13,
                     color: kblack.withOpacity(0.45)),
               ),

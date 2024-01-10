@@ -68,7 +68,7 @@ class _CreateNewPasswordState extends State<CreateNewPassword> {
                   height25,
                   const Text(
                     "Password",
-                    style: TextStyle(fontSize: 15, fontWeight: FontWeight.w500),
+                    style: TextStyle(fontSize: 15, ),
                   ),
                   height5,
                   TextFormField(
@@ -109,7 +109,7 @@ class _CreateNewPasswordState extends State<CreateNewPassword> {
                       alignLabelWithHint: true,
                       hintStyle: TextStyle(
                         fontSize: 16,
-                        fontWeight: FontWeight.w500,
+
                         color: Colors.black.withOpacity(0.2),
                       ),
                     ),
@@ -125,7 +125,7 @@ class _CreateNewPasswordState extends State<CreateNewPassword> {
                   const SizedBox(height: 20),
                   const Text(
                     "Confirm Password",
-                    style: TextStyle(fontSize: 15, fontWeight: FontWeight.w500),
+                    style: TextStyle(fontSize: 15, ),
                   ),
                   height5,
                   TextFormField(
@@ -150,7 +150,7 @@ class _CreateNewPasswordState extends State<CreateNewPassword> {
                       alignLabelWithHint: true,
                       hintStyle: TextStyle(
                         fontSize: 14,
-                        fontWeight: FontWeight.w500,
+
                         color: Colors.black.withOpacity(0.2),
                       ),
                     ),
@@ -184,7 +184,7 @@ class _CreateNewPasswordState extends State<CreateNewPassword> {
                       child: const Text(
                         "Reset Password",
                         style: TextStyle(
-                          fontWeight: FontWeight.w500,
+
                           color: kwhite,
                           fontSize: 14,
                         ),

@@ -103,7 +103,7 @@ class _Page1State extends State<Page1> {
                 style: TextStyle(
                   height: 1.3,
                   fontSize: screenHeight * 0.02,
-                  fontWeight: FontWeight.w500,
+
                   color: const Color(0xff777777),
                 ),
               ),

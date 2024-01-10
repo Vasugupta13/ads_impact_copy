@@ -85,7 +85,7 @@ class _AccountViewState extends State<AccountView> {
                     style: TextStyle(
                       color: kblack.withOpacity(0.60),
                       fontSize: 13,
-                      fontWeight: FontWeight.w500,
+
                     ),
                   ),
                 height5,
@@ -109,7 +109,7 @@ class _AccountViewState extends State<AccountView> {
                           "Choose your Social Media Account",
                           style: TextStyle(
                               color: kblack.withOpacity(0.4),
-                              fontWeight: FontWeight.w500,
+
                               fontSize: 13),
                         ),
                         dropdownColor: Colors.white,
@@ -121,7 +121,7 @@ class _AccountViewState extends State<AccountView> {
                         isExpanded: true,
                         style: TextStyle(
                             color: kblack.withOpacity(0.5),
-                            fontWeight: FontWeight.w500,
+
                             fontSize: 12),
                         items: listitem.map((valueItem) {
                           return DropdownMenuItem(
@@ -187,7 +187,7 @@ class _AccountViewState extends State<AccountView> {
                         Text(
                           widget.accountname,
                           style: const TextStyle(
-                            fontWeight: FontWeight.w500,
+
                             fontSize: 14,
                             color: kwhite,
                           ),

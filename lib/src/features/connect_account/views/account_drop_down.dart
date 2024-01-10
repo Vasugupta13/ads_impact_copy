@@ -103,7 +103,7 @@ class _AccountIDDropDownState extends State<AccountIDDropDown> {
                         "Choose your Ad  Account",
                         style: TextStyle(
                             color: kblack.withOpacity(0.4),
-                            fontWeight: FontWeight.w500,
+
                             fontSize: 13),
                       ),
                       dropdownColor: Colors.white,
@@ -115,7 +115,7 @@ class _AccountIDDropDownState extends State<AccountIDDropDown> {
                       isExpanded: true,
                       style: TextStyle(
                           color: kblack.withOpacity(0.5),
-                          fontWeight: FontWeight.w500,
+
                           fontSize: 12),
                       items: adidaccount.map((valueItem) {
                         return DropdownMenuItem(
@@ -163,7 +163,7 @@ class _AccountIDDropDownState extends State<AccountIDDropDown> {
                           "Choose your Socail Media  Account",
                           style: TextStyle(
                               color: kblack.withOpacity(0.20),
-                              fontWeight: FontWeight.w500,
+
                               fontSize: 13),
                         ),
                         dropdownColor: Colors.white,
@@ -175,7 +175,7 @@ class _AccountIDDropDownState extends State<AccountIDDropDown> {
                         isExpanded: true,
                         style: TextStyle(
                             color: kblack.withOpacity(0.5),
-                            fontWeight: FontWeight.w500,
+
                             fontSize: 12),
                         items: sicalmediaaccount.map((valueItem) {
                           return DropdownMenuItem(
@@ -232,7 +232,7 @@ class _AccountIDDropDownState extends State<AccountIDDropDown> {
                         Text(
                           widget.accountname,
                           style: const TextStyle(
-                            fontWeight: FontWeight.w500,
+                            
                             fontSize: 14,
                             color: kwhite,
                           ),

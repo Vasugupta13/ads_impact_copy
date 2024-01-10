@@ -1,0 +1,115 @@
+import 'package:ads/src/features/menu/audience%20insights/audience_insights.dart';
+import 'package:ads/src/utils/const.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+
+class MyTableWidget extends StatefulWidget {
+  const MyTableWidget({
+    super.key,
+  });
+
+  @override
+  State<MyTableWidget> createState() => _MyTableWidgetState();
+}
+
+class _MyTableWidgetState extends State<MyTableWidget> {
+  List<MyTableRowData> tableData = [
+    MyTableRowData(name: 'saichittala portfolio', status: 'Ready'),
+    MyTableRowData(name: 'ricoz - website', status: 'Ready'),
+    MyTableRowData(name: 'makeuphub Website', status: 'Ready'),
+    MyTableRowData(name: 'ricoz Website', status: 'Ready'),
+    MyTableRowData(name: 'ricoz Website', status: 'Ready'),
+    MyTableRowData(name: 'ricoz Website', status: 'Ready'),
+    MyTableRowData(name: 'ricoz Website', status: 'Ready'),
+    MyTableRowData(name: 'ricoz Website', status: 'Expiring Soon'),
+  ];
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(16.0),
+      child: Table(
+        columnWidths: const {
+          0: FlexColumnWidth(1.5),
+          1: FlexColumnWidth(4.0),
+          2: FlexColumnWidth(2.5)
+        },
+        border: TableBorder(
+          borderRadius: BorderRadius.circular(12),
+          bottom: BorderSide(
+            color: kblack.withOpacity(0.21),
+          ),
+          top: BorderSide(color: kblack.withOpacity(0.21)),
+          left: BorderSide(color: kblack.withOpacity(0.21)),
+          right: BorderSide(color: kblack.withOpacity(0.21)),
+          verticalInside: BorderSide(color: kblack.withOpacity(0.21)),
+        ),
+        defaultVerticalAlignment: TableCellVerticalAlignment.middle,
+        children: [
+          TableRow(
+            decoration: BoxDecoration(
+              border: Border(
+                bottom: BorderSide(
+                  color: kblack.withOpacity(0.21),
+                ),
+              ),
+            ),
+            children: const [
+              TableCell(child: Center(child: Text('Select'))),
+              TableCell(child: Center(child: Text('Name'))),
+              TableCell(child: Center(child: Text('Status'))),
+            ],
+          ),
+          for (var rowData in tableData)
+            TableRow(
+              children: [
+                TableCell(
+                  child: CustomCheckbox(
+                    value: rowData.isSelected,
+                    onchanged: (value) {
+                      setState(() {
+                        rowData.isSelected = value ?? false;
+                      });
+                    },
+                  ),
+                ),
+                TableCell(
+                  child: Center(
+                    heightFactor: 2.5,
+                    child: Text(
+                      rowData.name,
+                      style: const TextStyle(
+                          fontSize: 12, ),
+                    ),
+                  ),
+                ),
+                TableCell(
+                  child: Center(
+                    child: Text(
+                      rowData.status,
+                      style: const TextStyle(
+                        fontSize: 12,
+                        
+                        color: Color(0xff00C944),
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+        ],
+      ),
+    );
+  }
+}
+
+class MyTableRowData {
+  final String name;
+  final String status;
+  bool isSelected;
+
+  MyTableRowData({
+    required this.name,
+    required this.status,
+    this.isSelected = false,
+  });
+}

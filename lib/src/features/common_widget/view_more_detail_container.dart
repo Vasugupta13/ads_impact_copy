@@ -71,7 +71,8 @@ class _ViewMoreContainerState extends State<ViewMoreContainer> {
                               child: Text(
                                 widget.data[index]["name"],
                                 style: const TextStyle(
-                                    fontSize: 12, fontWeight: FontWeight.w500),
+                                  fontSize: 12,
+                                ),
                               ),
                             ),
                             const VerticalDivider(color: Colors.black),
@@ -123,7 +124,9 @@ class _ViewMoreContainerState extends State<ViewMoreContainer> {
                   Icon(Icons.keyboard_arrow_up),
                   Text(
                     "View More",
-                    style: TextStyle(fontSize: 10, fontWeight: FontWeight.w500),
+                    style: TextStyle(
+                      fontSize: 10,
+                    ),
                   ),
                 ],
               ),

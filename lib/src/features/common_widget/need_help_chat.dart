@@ -23,7 +23,7 @@ class _NeedHelpState extends State<NeedHelp> {
         const Text(
           "Need Help",
           style: TextStyle(
-              fontSize: 24, fontWeight: FontWeight.w500, letterSpacing: -0.3),
+              fontSize: 24,  letterSpacing: -0.3),
         ),
         height20,
         Align(
@@ -41,14 +41,14 @@ class _NeedHelpState extends State<NeedHelp> {
                 style: TextStyle(
                     fontSize: 28,
                     color: kblack,
-                    fontWeight: FontWeight.w500,
+
                     letterSpacing: -0.3),
                 children: [
                   TextSpan(
                     text: "AdChat\n",
                     style: TextStyle(
                         fontSize: 28,
-                        fontWeight: FontWeight.w500,
+
                         color: Color(0xffFF4848),
                         letterSpacing: -0.3),
                   ),
@@ -56,7 +56,7 @@ class _NeedHelpState extends State<NeedHelp> {
                     text: "assistance which can help\nyou!",
                     style: TextStyle(
                         fontSize: 28,
-                        fontWeight: FontWeight.w500,
+
                         color: kblack,
                         letterSpacing: -0.3),
                   ),
@@ -75,7 +75,7 @@ class _NeedHelpState extends State<NeedHelp> {
               ),
             ),
             textStyle: MaterialStateProperty.all(
-              const TextStyle(fontWeight: FontWeight.w500, fontSize: 16),
+              const TextStyle(fontSize: 16),
             ),
             fixedSize: MaterialStateProperty.all<Size>(
               const Size(160, 44),

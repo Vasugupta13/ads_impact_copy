@@ -82,7 +82,7 @@ class _PlanListState extends State<PlanList> {
                             maxLines: 3,
                             style: const TextStyle(
                                 fontSize: 10,
-                                fontWeight: FontWeight.w500,
+                                
                                 letterSpacing: -0.3),
                           ),
                         ],

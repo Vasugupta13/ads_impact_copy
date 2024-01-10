@@ -95,7 +95,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                             alignLabelWithHint: true,
                             hintStyle: TextStyle(
                               fontSize: 16,
-                              fontWeight: FontWeight.w500,
+
                               color: Colors.black.withOpacity(0.2),
                             ),
                           ),
@@ -120,7 +120,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                           child: const Text(
                             "Send Instructions",
                             style: TextStyle(
-                              fontWeight: FontWeight.w500,
+
                               color: Colors.white,
                               fontSize: 14,
                             ),
@@ -208,7 +208,7 @@ void _showPopup(BuildContext context) {
                       child: const Text(
                         "Open Mail",
                         style: TextStyle(
-                          fontWeight: FontWeight.w500,
+                          
                           color: Colors.white,
                           fontSize: 14,
                         ),

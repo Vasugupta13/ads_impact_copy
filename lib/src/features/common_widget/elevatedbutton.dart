@@ -7,31 +7,42 @@ class CommonElevatedButton extends StatelessWidget {
   final double buttonheight;
   final IconData? iconname;
   final TextStyle textStyle;
+  final VoidCallback ontap;
+  final Color alternatecolor;
+  final Color bordercolor;
+
   const CommonElevatedButton(
       {super.key,
       required this.name,
       required this.buttonwidth,
       this.iconname,
       required this.buttonheight,
-      required this.textStyle});
+      required this.textStyle,
+      required this.ontap,
+      this.alternatecolor = const Color(0xffFF4848),
+      this.bordercolor = Colors.transparent});
 
   @override
   Widget build(BuildContext context) {
     double screenHeight = MediaQuery.of(context).size.height;
     return Center(
       child: ElevatedButton(
-        onPressed: () {},
+        onPressed: ontap,
         style: ElevatedButton.styleFrom(
           alignment: Alignment.center,
           elevation: 0,
           fixedSize:
               Size(screenHeight * buttonwidth, screenHeight * buttonheight),
-          backgroundColor: const Color(0xffFF4848),
+          backgroundColor: alternatecolor ?? Colors.white,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(12),
+            side: BorderSide(
+              color: bordercolor,
+            ),
           ),
         ),
-        child: Text(name, style: textStyle),
+        child: Text(name,
+            style: textStyle, maxLines: 1, overflow: TextOverflow.ellipsis),
       ),
     );
   }

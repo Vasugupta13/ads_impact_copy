@@ -41,9 +41,9 @@ class _TakePlanBarState extends State<TakePlanBar> {
                   child: const Text(
                     "Take your plan and start your trial",
                     style: TextStyle(
-                        fontSize: 13,
-                        color: kwhite,
-                        fontWeight: FontWeight.w500),
+                      fontSize: 13,
+                      color: kwhite,
+                    ),
                   ),
                 ),
                 Positioned(

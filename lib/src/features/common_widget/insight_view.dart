@@ -16,12 +16,14 @@ class _InsightViewState extends State<InsightView> {
   @override
   Widget build(BuildContext context) {
     return widget.value == 0
-        ? const Column(
+        ?  Column(
             children: [
               height20,
-              CommonElevatedButton(
+              CommonElevatedButton(ontap: () {
+
+            },
                   name: "Impressions",textStyle:  TextStyle(
-            fontWeight: FontWeight.w500,
+            
             color: kwhite,
             fontSize: 14,
           ),buttonwidth: 0.40, buttonheight: 0.06),
@@ -71,7 +73,7 @@ class _InsightViewState extends State<InsightView> {
               //               Text(
               //                 "View More",
               //                 style: TextStyle(
-              //                     fontSize: 10, fontWeight: FontWeight.w500),
+              //                     fontSize: 10, ),
               //               ),
               //             ],
               //           ),
@@ -84,18 +86,22 @@ class _InsightViewState extends State<InsightView> {
                 imagepath: "assets/images/GraphComponent.svg",
               ),
               height20,
-              CommonElevatedButton(
+              CommonElevatedButton(ontap: () {
+
+            },
                   name: "Spend", textStyle:  TextStyle(
-            fontWeight: FontWeight.w500,
+
             color: kwhite,
             fontSize: 14,
           ),buttonwidth: 0.40, buttonheight: 0.06),
               height15,
               CommonGraph(imagepath: "assets/images/GraphComponent.svg"),
               height20,
-              CommonElevatedButton(
+              CommonElevatedButton(ontap: () {
+
+            },
                   name: "Cost Per 1000 Impression (CPM)",textStyle:  TextStyle(
-            fontWeight: FontWeight.w500,
+
             color: kwhite,
             fontSize: 14,
           ),
@@ -104,9 +110,11 @@ class _InsightViewState extends State<InsightView> {
               height15,
               CommonGraph(imagepath: "assets/images/Graph_Component2.svg"),
               height20,
-              CommonElevatedButton(
+              CommonElevatedButton(ontap: () {
+
+            },
                   name: "Link Clicks",textStyle:  TextStyle(
-            fontWeight: FontWeight.w500,
+
             color: kwhite,
             fontSize: 14,
           ), buttonwidth: 0.40, buttonheight: 0.06),

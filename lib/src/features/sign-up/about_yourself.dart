@@ -40,7 +40,7 @@ class _AboutYourselfState extends State<AboutYourself> {
                     const Text(
                       "About Yourself",
                       style:
-                          TextStyle(fontSize: 26, fontWeight: FontWeight.w500),
+                          TextStyle(fontSize: 26, ),
                     ),
                     height30,
                     const DetailsField(
@@ -69,7 +69,7 @@ class _AboutYourselfState extends State<AboutYourself> {
                       child: const Text(
                         "Next",
                         style: TextStyle(
-                          fontWeight: FontWeight.w500,
+                          
                           color: kwhite,
                           fontSize: 14,
                         ),

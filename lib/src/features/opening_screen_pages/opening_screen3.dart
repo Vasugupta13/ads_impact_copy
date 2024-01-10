@@ -70,7 +70,7 @@ class _Page3State extends State<Page3> {
                   style: TextStyle(
                     height: 1.3,
                     fontSize: screenHeight * 0.02,
-                    fontWeight: FontWeight.w500,
+                    
                     color: const Color(0xff777777),
                   ),
                 ),

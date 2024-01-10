@@ -16,7 +16,7 @@ class ChartNameContainer extends StatelessWidget {
       alignment: Alignment.centerLeft,
       child: Container(
         height: 46,
-        width: Get.width * 0.7,
+        width: Get.width * 0.72,
         decoration: const BoxDecoration(
           color: Color(0xffFF4848),
           borderRadius: BorderRadius.only(

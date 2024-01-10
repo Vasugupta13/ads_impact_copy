@@ -40,7 +40,7 @@ class _SignupState extends State<Signup> {
                     const Text(
                       "Sign-up",
                       style:
-                          TextStyle(fontSize: 26, fontWeight: FontWeight.w500),
+                          TextStyle(fontSize: 26, ),
                     ),
                     height30,
                     const DetailsField(name: "Enter your E-mail"),
@@ -69,7 +69,7 @@ class _SignupState extends State<Signup> {
                       child: const Text(
                         "Next",
                         style: TextStyle(
-                          fontWeight: FontWeight.w500,
+
                           color: kwhite,
                           fontSize: 14,
                         ),
@@ -132,7 +132,7 @@ class DetailsField extends StatelessWidget {
         alignLabelWithHint: true,
         hintStyle: TextStyle(
           fontSize: 16,
-          fontWeight: FontWeight.w500,
+          
           color: Colors.black.withOpacity(0.2),
         ),
       ),

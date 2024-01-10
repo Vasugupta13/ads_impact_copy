@@ -80,7 +80,7 @@ class _LoginPageState extends State<LoginPage> {
                       alignLabelWithHint: true,
                       hintStyle: TextStyle(
                         fontSize: 16,
-                        fontWeight: FontWeight.w500,
+
                         color: Colors.black.withOpacity(0.2),
                       ),
                     ),
@@ -110,7 +110,7 @@ class _LoginPageState extends State<LoginPage> {
                       alignLabelWithHint: true,
                       hintStyle: TextStyle(
                         fontSize: 16,
-                        fontWeight: FontWeight.w500,
+
                         color: Colors.black.withOpacity(0.2),
                       ),
                     ),
@@ -126,7 +126,7 @@ class _LoginPageState extends State<LoginPage> {
                         "Forget Password?",
                         style: TextStyle(
                           fontSize: 14,
-                          fontWeight: FontWeight.w500,
+                          
                           color: Colors.black.withOpacity(0.2),
                         ),
                       ),

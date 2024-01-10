@@ -42,7 +42,7 @@ class _CompanyNameState extends State<CompanyName> {
                       "Hello $name, Let Me\nKnow your Company\nname!",
                       maxLines: 3,
                       style: const TextStyle(
-                          fontWeight: FontWeight.w500,
+                          
                           color: Colors.white,
                           fontSize: 16),
                     ),
@@ -80,7 +80,7 @@ class _CompanyNameState extends State<CompanyName> {
                         alignLabelWithHint: true,
                         hintStyle: TextStyle(
                           fontSize: 16,
-                          fontWeight: FontWeight.w500,
+
                           color: Colors.black.withOpacity(0.2),
                         ),
                       ),
@@ -110,7 +110,7 @@ class _CompanyNameState extends State<CompanyName> {
                       child: const Text(
                         "Next",
                         style: TextStyle(
-                          fontWeight: FontWeight.w500,
+
                           color: kwhite,
                           fontSize: 14,
                         ),
@@ -173,7 +173,7 @@ class DetailsField extends StatelessWidget {
         alignLabelWithHint: true,
         hintStyle: TextStyle(
           fontSize: 16,
-          fontWeight: FontWeight.w500,
+
           color: Colors.black.withOpacity(0.2),
         ),
       ),
