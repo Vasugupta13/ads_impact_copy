@@ -22,7 +22,7 @@ class _SocialAccountListState extends State<SocialAccountList> {
       alignment: Alignment.centerRight,
       child: Container(
         height: 60,
-        width: Get.width * 0.83,
+        width: Get.width * 0.90,
         padding: const EdgeInsets.only(left: 20, right: 20),
         decoration: BoxDecoration(
             color: Colors.white,

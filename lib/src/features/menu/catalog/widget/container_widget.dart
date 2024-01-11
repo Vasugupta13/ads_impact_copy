@@ -1,14 +1,14 @@
 import 'package:ads/src/utils/const.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 
 class CatalogContainer extends StatefulWidget {
   final String name;
-  final IconData iconname;
-  const CatalogContainer(
-      {super.key, required this.name, required this.iconname});
+  final String image;
+  const CatalogContainer({super.key, required this.name, required this.image});
 
   @override
   State<CatalogContainer> createState() => _CatalogContainerState();
@@ -27,15 +27,14 @@ class _CatalogContainerState extends State<CatalogContainer> {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Icon(
-            widget.iconname,
-            color: kwhite,
+          SvgPicture.asset(
+            widget.image,
+            color: kwhite
           ),
           kwidth15,
           Text(
             widget.name,
-            style: const TextStyle(
-                fontSize: 14,  color: kwhite),
+            style: const TextStyle(fontSize: 14, color: kwhite),
           )
         ],
       ),

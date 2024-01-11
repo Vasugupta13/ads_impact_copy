@@ -11,6 +11,7 @@ class CustomDropDown extends StatelessWidget {
   final String? value;
   final List<String> dropdownItems;
   final ValueChanged<String?>? onChanged;
+  
 
   const CustomDropDown(
       {super.key,
@@ -38,7 +39,6 @@ class CustomDropDown extends StatelessWidget {
           ),
           style: const TextStyle(
             fontSize: 10,
-            
             color: kblack,
           ),
           isExpanded: true,

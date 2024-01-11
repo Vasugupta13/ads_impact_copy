@@ -1,4 +1,5 @@
 import 'package:ads/src/features/common_widget/custom_app_bar.dart';
+import 'package:ads/src/features/common_widget/elevatedbutton.dart';
 import 'package:ads/src/utils/const.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -253,7 +254,7 @@ class _NextButtonViewState extends State<NextButtonView> {
                   height20,
                   Container(
                     height: 40,
-                    width: Get.width * 0.7,
+                    width: Get.width * 0.8,
                     decoration: BoxDecoration(
                       color: const Color(0xffE3E3E3),
                       borderRadius: BorderRadius.circular(10),
@@ -276,32 +277,26 @@ class _NextButtonViewState extends State<NextButtonView> {
                     ),
                   ),
                   height10,
-
-                  // SizedBox(
-                  //   height: Get.height * 0.7,
-                  //   child: RotatedBox(
-                  //     quarterTurns: 1,
-                  //     child: Slider(
-                  //       value: progressvalue,
-                  //       min: 0.0,
-                  //       max: 10.0,
-                  //       thumbColor: kwhite,
-                  //       onChanged: (value) {
-                  //         setState(
-                  //           () {
-                  //             progressvalue = value;
-                  //           },
-                  //         );
-                  //       },
-                  //       divisions: 10,
-                  //       label: progressvalue.toStringAsFixed(2),
-                  //       activeColor: const Color(0xffFF4848),
-                  //       inactiveColor: Colors.black.withOpacity(0.5),
-                  //       onChangeStart: (value) {},
-                  //       onChangeEnd: (value) {},
-                  //     ),
-                  //   ),
-                  // ),
+                  buildSliderTopLabel(),
+                  height10,
+                  CommonElevatedButton(
+                    name: "Create Now",
+                    buttonwidth: 0.2,
+                    buttonheight: 0.05,
+                    textStyle: const TextStyle(color: kwhite, fontSize: 12),
+                    ontap: () {},
+                  ),
+                  height10,
+                  CommonElevatedButton(
+                    alternatecolor: kwhite,
+                    bordercolor: kblack.withOpacity(0.1),
+                    name: "Cancel",
+                    buttonwidth: 0.2,
+                    buttonheight: 0.05,
+                    textStyle: const TextStyle(fontSize: 12, color: kblack),
+                    ontap: () {},
+                  ),
+                  height30,
                 ],
               ),
             ),
@@ -311,66 +306,60 @@ class _NextButtonViewState extends State<NextButtonView> {
     );
   }
 
-  Widget buildSliderSideLabel() {
-    const double min = 20;
-    const double max = 80;
-    const divisions = 4;
-
-    return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 16),
-      child: Row(
-        children: [
-          buildSideLabel(min),
-          Expanded(
-            child: Slider(
-              value: valueBottom,
-              min: min,
-              max: max,
-              divisions: divisions,
-              label: valueBottom.round().toString(),
-              onChanged: (value) => setState(() => valueBottom = value),
-            ),
-          ),
-          buildSideLabel(max),
-        ],
-      ),
-    );
-  }
-
   Widget buildSliderTopLabel() {
-    final labels = ['0', '18', '30', '50', '+'];
+    final labels = [
+      '0%',
+      '1%',
+      '2%',
+      '3%',
+      '4%',
+      '5%',
+      '6%',
+      '7%',
+      '8%',
+      '9%',
+      '10%'
+    ];
     const double min = 0;
     final double max = labels.length - 1.0;
     final divisions = labels.length - 1;
 
-    return Column(
-      children: [
-        Container(
-          margin: const EdgeInsets.symmetric(horizontal: 10),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: Utils.modelBuilder(
-              labels,
-              (index, label) {
-                const selectedColor = Colors.black;
-                final unselectedColor = Colors.black.withOpacity(0.3);
-                final isSelected = index <= indexTop;
-                final color = isSelected ? selectedColor : unselectedColor;
-
-                return buildLabel(label: label, color: color, width: 30);
-              },
+    return RotatedBox(
+      quarterTurns: 1,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Container(
+            margin: const EdgeInsets.symmetric(horizontal: 10),
+            child: Row(
+              children: Utils.modelBuilder(
+                labels,
+                (index, label) {
+                  const selectedColor = Colors.black;
+                  final unselectedColor = Colors.black.withOpacity(0.5);
+                  final isSelected = index <= indexTop;
+                  final color = isSelected ? selectedColor : unselectedColor;
+                  return buildLabel(label: label, color: color, width: 35);
+                },
+              ),
             ),
           ),
-        ),
-        Slider(
-          value: indexTop.toDouble(),
-          min: min,
-          max: max,
-          divisions: divisions,
-          // label: labels[indexTop],
-          onChanged: (value) => setState(() => indexTop = value.toInt()),
-        ),
-      ],
+          height10,
+          SizedBox(
+            width: Get.width,
+            child: Slider(
+              activeColor: const Color(0xffFF4848),
+              thumbColor: kwhite,
+              inactiveColor: kblack.withOpacity(0.5),
+              value: indexTop.toDouble(),
+              min: min,
+              max: max,
+              onChanged: (value) => setState(() => indexTop = value.toInt()),
+            ),
+          ),
+        ],
+      ),
     );
   }
 
@@ -385,17 +374,8 @@ class _NextButtonViewState extends State<NextButtonView> {
           label,
           textAlign: TextAlign.center,
           style: const TextStyle(
-            fontSize: 18,
-            fontWeight: FontWeight.bold,
+            fontSize: 12,
           ).copyWith(color: color),
-        ),
-      );
-
-  Widget buildSideLabel(double value) => SizedBox(
-        width: 25,
-        child: Text(
-          value.round().toString(),
-          style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
         ),
       );
 }

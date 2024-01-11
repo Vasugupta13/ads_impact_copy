@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:ads/src/features/menu/audience%20insights/audience_insights.dart';
+import 'package:ads/src/features/menu/automations/automations_view.dart';
 import 'package:ads/src/features/menu/campaign/campaign_analysis.dart';
 import 'package:ads/src/features/menu/campaign/campaign_create.dart';
 import 'package:ads/src/features/menu/catalog/catalog_information.dart';
@@ -140,7 +141,9 @@ class _PopupMenuViewState extends State<PopupMenuView> {
           }),
           customDivider(
               color: kblack.withOpacity(0.2), endIndent: 18, indent: 18),
-          menuItem("Automations", "assets/images/automations_icon.svg", () {}),
+          menuItem("Automations", "assets/images/automations_icon.svg", () {
+            Get.to(() => const Automation());
+          }),
           height30,
           flagImage("assets/images/redflag.svg", "Try Our Packs", 35),
           height30,
@@ -162,8 +165,7 @@ class _PopupMenuViewState extends State<PopupMenuView> {
             kwidth15,
             Text(
               text,
-              style: const TextStyle(
-                  fontSize: 12,  color: kblack),
+              style: const TextStyle(fontSize: 12, color: kblack),
             ),
           ],
         ),
@@ -183,8 +185,7 @@ class _PopupMenuViewState extends State<PopupMenuView> {
             kwidth15,
             Text(
               text,
-              style: const TextStyle(
-                  fontSize: 12, color: kblack),
+              style: const TextStyle(fontSize: 12, color: kblack),
             ),
             const Spacer(),
             const Icon(Icons.keyboard_arrow_down_outlined),
@@ -391,13 +392,10 @@ class _PopupMenuViewState extends State<PopupMenuView> {
                                 children: [
                                   SvgPicture.asset(submenuimage1),
                                   kwidth10,
-                                  Text(
-                                    submenutitle1,
-                                    style: const TextStyle(
-                                      fontSize: 12,
-
-                                    )
-                                  ),
+                                  Text(submenutitle1,
+                                      style: const TextStyle(
+                                        fontSize: 12,
+                                      )),
                                 ],
                               ),
                             ),
@@ -420,7 +418,6 @@ class _PopupMenuViewState extends State<PopupMenuView> {
                                     submenutitle2,
                                     style: const TextStyle(
                                       fontSize: 12,
-
                                     ),
                                   ),
                                 ],
@@ -448,7 +445,6 @@ class _PopupMenuViewState extends State<PopupMenuView> {
                                       submenutitle3,
                                       style: const TextStyle(
                                         fontSize: 12,
-
                                       ),
                                     ),
                                   ],
@@ -477,7 +473,6 @@ class _PopupMenuViewState extends State<PopupMenuView> {
                                       submenutitle4,
                                       style: const TextStyle(
                                         fontSize: 12,
-                                        
                                       ),
                                     ),
                                   ],

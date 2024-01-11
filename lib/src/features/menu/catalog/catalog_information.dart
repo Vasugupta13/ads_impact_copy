@@ -75,8 +75,7 @@ class _MenuCatalogInformationState extends State<MenuCatalogInformation> {
             ),
             height30,
             const CatalogContainer(
-                iconname: Icons.candlestick_chart_outlined,
-                name: "Stock Status"),
+                image: "assets/images/stock_status.svg", name: "Stock Status"),
             height20,
             RadioListTile<StockStatus>(
               activeColor: const Color(0xff1A377D),
@@ -194,7 +193,9 @@ class _MenuCatalogInformationState extends State<MenuCatalogInformation> {
             ),
             height10,
             const CatalogContainer(
-                name: "Image Specifications", iconname: Icons.image),
+              image: "assets/images/majesticons_image.svg",
+              name: "Image Specifications",
+            ),
             height20,
             const Text(
               "No - Fit",
@@ -315,8 +316,9 @@ class _MenuCatalogInformationState extends State<MenuCatalogInformation> {
             ),
             height20,
             const CatalogContainer(
-                name: "Image Padding (No-Fit)",
-                iconname: Icons.padding_rounded),
+              name: "Image Padding (No-Fit)",
+              image: "assets/images/material_padding.svg",
+            ),
             height15,
             Container(
               margin: const EdgeInsets.all(16),
@@ -387,7 +389,8 @@ class _MenuCatalogInformationState extends State<MenuCatalogInformation> {
             ),
             height20,
             const CatalogContainer(
-                name: "Product Details", iconname: Icons.style_outlined),
+                image: "assets/images/color-swatch.svg",
+                name: "Product Details"),
             height30,
             const Text(
               "Product Title",
@@ -653,8 +656,9 @@ class _MenuCatalogInformationState extends State<MenuCatalogInformation> {
             ),
             height20,
             const CatalogContainer(
-                name: "Default Description",
-                iconname: Icons.event_note_outlined),
+              name: "Default Description",
+              image: "assets/images/stickynote.svg",
+            ),
             height20,
             SizedBox(
               width: Get.width * 0.8,
@@ -692,7 +696,9 @@ class _MenuCatalogInformationState extends State<MenuCatalogInformation> {
             ),
             height20,
             const CatalogContainer(
-                name: "Variant Inclusion", iconname: Icons.feed_outlined),
+              image: "assets/images/document.svg",
+              name: "Variant Inclusion",
+            ),
             height20,
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),

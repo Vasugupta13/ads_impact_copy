@@ -41,8 +41,14 @@ class CommonElevatedButton extends StatelessWidget {
             ),
           ),
         ),
-        child: Text(name,
-            style: textStyle, maxLines: 1, overflow: TextOverflow.ellipsis),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            if (iconname != null) ...[Icon(iconname), kwidth20],
+            Text(name,
+                style: textStyle, maxLines: 1, overflow: TextOverflow.ellipsis),
+          ],
+        ),
       ),
     );
   }
