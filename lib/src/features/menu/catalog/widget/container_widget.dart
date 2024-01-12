@@ -7,8 +7,8 @@ import 'package:get/get_core/src/get_main.dart';
 
 class CatalogContainer extends StatefulWidget {
   final String name;
-  final String image;
-  const CatalogContainer({super.key, required this.name, required this.image});
+  final String? image;
+  const CatalogContainer({super.key, required this.name, this.image});
 
   @override
   State<CatalogContainer> createState() => _CatalogContainerState();
@@ -27,10 +27,8 @@ class _CatalogContainerState extends State<CatalogContainer> {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          SvgPicture.asset(
-            widget.image,
-            color: kwhite
-          ),
+          if (widget.image != null)
+            SvgPicture.asset(widget.image!, color: kwhite),
           kwidth15,
           Text(
             widget.name,

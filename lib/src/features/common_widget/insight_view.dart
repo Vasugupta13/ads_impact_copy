@@ -16,17 +16,18 @@ class _InsightViewState extends State<InsightView> {
   @override
   Widget build(BuildContext context) {
     return widget.value == 0
-        ?  Column(
+        ? Column(
             children: [
               height20,
-              CommonElevatedButton(ontap: () {
-
-            },
-                  name: "Impressions",textStyle:  TextStyle(
-            
-            color: kwhite,
-            fontSize: 14,
-          ),buttonwidth: 0.40, buttonheight: 0.06),
+              CommonElevatedButton(
+                  ontap: () {},
+                  name: "Impressions",
+                  textStyle: const TextStyle(
+                    color: kwhite,
+                    fontSize: 14,
+                  ),
+                  buttonwidth: 0.40,
+                  buttonheight: 0.06),
 
               height10,
               // Stack(   //! for future use (for adding the graph intoit)
@@ -82,44 +83,46 @@ class _InsightViewState extends State<InsightView> {
               //     )
               //   ],
               // ),
-              CommonGraph(
+              const CommonGraph(
                 imagepath: "assets/images/GraphComponent.svg",
               ),
               height20,
-              CommonElevatedButton(ontap: () {
-
-            },
-                  name: "Spend", textStyle:  TextStyle(
-
-            color: kwhite,
-            fontSize: 14,
-          ),buttonwidth: 0.40, buttonheight: 0.06),
-              height15,
-              CommonGraph(imagepath: "assets/images/GraphComponent.svg"),
-              height20,
-              CommonElevatedButton(ontap: () {
-
-            },
-                  name: "Cost Per 1000 Impression (CPM)",textStyle:  TextStyle(
-
-            color: kwhite,
-            fontSize: 14,
-          ),
+              CommonElevatedButton(
+                  ontap: () {},
+                  name: "Spend",
+                  textStyle: const TextStyle(
+                    color: kwhite,
+                    fontSize: 14,
+                  ),
                   buttonwidth: 0.40,
                   buttonheight: 0.06),
               height15,
-              CommonGraph(imagepath: "assets/images/Graph_Component2.svg"),
+              const CommonGraph(imagepath: "assets/images/GraphComponent.svg"),
               height20,
-              CommonElevatedButton(ontap: () {
-
-            },
-                  name: "Link Clicks",textStyle:  TextStyle(
-
-            color: kwhite,
-            fontSize: 14,
-          ), buttonwidth: 0.40, buttonheight: 0.06),
+              CommonElevatedButton(
+                  ontap: () {},
+                  name: "Cost Per 1000 Impression (CPM)",
+                  textStyle: const TextStyle(
+                    color: kwhite,
+                    fontSize: 14,
+                  ),
+                  buttonwidth: 0.40,
+                  buttonheight: 0.06),
               height15,
-              CommonGraph(imagepath: "assets/images/GraphComponent.svg"),
+              const CommonGraph(
+                  imagepath: "assets/images/Graph_Component2.svg"),
+              height20,
+              CommonElevatedButton(
+                  ontap: () {},
+                  name: "Link Clicks",
+                  textStyle: const TextStyle(
+                    color: kwhite,
+                    fontSize: 14,
+                  ),
+                  buttonwidth: 0.40,
+                  buttonheight: 0.06),
+              height15,
+              const CommonGraph(imagepath: "assets/images/GraphComponent.svg"),
             ],
           )
         : const Text("Another Widget");
