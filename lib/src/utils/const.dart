@@ -65,5 +65,4 @@ const TextStyle headingStyleBlack =
 const TextStyle headingStyleWhite =
     TextStyle(fontSize: 20, color: kwhite, fontWeight: FontWeight.bold);
 
-const TextStyle subHeadingStyle =
-    TextStyle(fontSize: 16, color: kgrey, fontWeight: FontWeight.w400);
+TextStyle prestyle = TextStyle(fontSize: 12, color: kblack.withOpacity(0.5));

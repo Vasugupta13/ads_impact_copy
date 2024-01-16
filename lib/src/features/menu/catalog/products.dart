@@ -35,12 +35,12 @@ class _MenuCatalogProductsState extends State<MenuCatalogProducts> {
               indent: 26,
             ),
             height15,
-            CatalogListView(containerwidth: 0.85,
-              names: ["Default View", "Website View", "Performance View"],
+            CatalogListView(
+              containerwidth: 0.85,
+              names: const ["Default View", "Website View", "Performance View"],
               onTapCallback: (index) {
                 setState(() {
                   listindex = index;
-
                 });
               },
             ),
@@ -87,7 +87,6 @@ class _MenuCatalogProductsState extends State<MenuCatalogProducts> {
                                       "Date Added :",
                                       style: TextStyle(
                                         fontSize: 10,
-                                        
                                         color: kblack.withOpacity(0.7),
                                       ),
                                     ),
@@ -95,8 +94,8 @@ class _MenuCatalogProductsState extends State<MenuCatalogProducts> {
                                       CatalogProductDetails.defaultitem[index]
                                           ["date"],
                                       style: const TextStyle(
-                                          fontSize: 12,
-                                          ),
+                                        fontSize: 12,
+                                      ),
                                     ),
                                     height20,
                                     Container(
@@ -111,7 +110,6 @@ class _MenuCatalogProductsState extends State<MenuCatalogProducts> {
                                         child: Text(
                                           "In Stock",
                                           style: TextStyle(
-
                                             fontSize: 12,
                                             color: Color(0xff1A377D),
                                           ),
@@ -192,40 +190,34 @@ class _MenuCatalogProductsState extends State<MenuCatalogProducts> {
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: [
-                                Container(
-                                  child: Row(
-                                    children: [
-                                      SvgPicture.asset(
-                                        "assets/images/trash.svg",
-                                        color: kblack,
-                                        height: 18,
+                                Row(
+                                  children: [
+                                    SvgPicture.asset(
+                                      "assets/images/trash.svg",
+                                      color: kblack,
+                                      height: 18,
+                                    ),
+                                    kwidth10,
+                                    const Text(
+                                      "Edit",
+                                      style: TextStyle(
+                                        fontSize: 12,
                                       ),
-                                      kwidth10,
-                                      const Text(
-                                        "Edit",
-                                        style: TextStyle(
-                                          fontSize: 12,
-
-                                        ),
-                                      )
-                                    ],
-                                  ),
+                                    )
+                                  ],
                                 ),
-                                Container(
-                                  padding: const EdgeInsets.all(8),
-                                  child: Row(
-                                    children: [
-                                      Image.asset("assets/images/trash.png"),
-                                      kwidth10,
-                                      const Text(
-                                        "Remove",
-                                        style: TextStyle(
-                                          fontSize: 12,
-
-                                        ),
-                                      )
-                                    ],
-                                  ),
+                                const VerticalDivider(),
+                                Row(
+                                  children: [
+                                    SvgPicture.asset("assets/images/trash.svg"),
+                                    kwidth10,
+                                    const Text(
+                                      "Remove",
+                                      style: TextStyle(
+                                        fontSize: 12,
+                                      ),
+                                    )
+                                  ],
                                 ),
                               ],
                             ),

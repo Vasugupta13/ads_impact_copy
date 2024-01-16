@@ -1,11 +1,9 @@
 import 'package:ads/src/features/common_widget/custom_app_bar.dart';
 import 'package:ads/src/features/common_widget/elevatedbutton.dart';
-import 'package:ads/src/features/menu/audience%20insights/audience_insights.dart';
 import 'package:ads/src/features/menu/automations/view/ad_optimization.dart';
 import 'package:ads/src/features/menu/catalog/widget/container_widget.dart';
 import 'package:ads/src/homepage/social_account_list_widget.dart';
 import 'package:ads/src/utils/const.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
@@ -20,6 +18,10 @@ class ConnectView extends StatefulWidget {
 class _ConnectViewState extends State<ConnectView> {
   int listindex = 0;
   bool? isChecked = false;
+  // bool isSelected = false;
+  List<String> radioitems = ["Conservative", "Enhanced", "Preservance"];
+
+  int? selectedvalue;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -53,18 +55,74 @@ class _ConnectViewState extends State<ConnectView> {
               },
             ),
             height30,
-            const CatalogContainer(name: "Facebook Page access"),
+            if (listindex == 0)
+              const CatalogContainer(name: "Facebook Page access")
+            else if (listindex == 1)
+              const CatalogContainer(name: "Twitter Page access")
+            else if (listindex == 2)
+              const CatalogContainer(name: "Google Page access")
+            else if (listindex == 3)
+              const CatalogContainer(name: "Linkedin Page access"),
             height20,
-            const SocialAccountContainer(
-                image: "assets/images/fb_logo.svg",
-                title: "Facebook",
-                socialname: "Connect your Facebook Account"),
+            if (listindex == 0)
+              const SocialAccountContainer(
+                  image: "assets/images/fb_logo.svg",
+                  title: "Facebook",
+                  socialname: "Facebook")
+            else if (listindex == 1)
+              const SocialAccountContainer(
+                  image: "assets/images/twitter.svg",
+                  title: "Twitter",
+                  socialname: "Twitter")
+            else if (listindex == 2)
+              const SocialAccountContainer(
+                  image: "assets/images/google.svg",
+                  title: "Twitter",
+                  socialname: "Google")
+            else if (listindex == 3)
+              const SocialAccountContainer(
+                  image: "assets/images/link_logo.svg",
+                  title: "Twitter",
+                  socialname: "Linkedin"),
             height20,
-            const ConnectDetailsPage(title: "Facebook Page Settings"),
+            if (listindex == 0)
+              const ConnectDetailsPage(
+                  title: "Facebook Page Setting", socialname: "Facebook")
+            else if (listindex == 1)
+              const ConnectDetailsPage(
+                  title: "Twitter Page Setting", socialname: "Twitter")
+            else if (listindex == 2)
+              const ConnectDetailsPage(
+                  title: "Google Page Setting", socialname: "Google")
+            else if (listindex == 3)
+              const ConnectDetailsPage(
+                  title: "Linkedin Page Setting", socialname: "Linkedin"),
             height20,
-            const ConnectDetailsPage(title: "Facebook AdPage Setting"),
+            if (listindex == 0)
+              const ConnectDetailsPage(
+                  title: "Facebook AdPage Setting", socialname: "Facebook")
+            else if (listindex == 1)
+              const ConnectDetailsPage(
+                  title: "Twitter AdPage Setting", socialname: "Twitter")
+            else if (listindex == 2)
+              const ConnectDetailsPage(
+                  title: "Google AdPage Setting", socialname: "Google")
+            else if (listindex == 3)
+              const ConnectDetailsPage(
+                  title: "Linkedin AdPage Setting", socialname: "Linkedin"),
             height20,
-            const ConnectDetailsPage(title: "Facebook Catalog ID"),
+            if (listindex == 0)
+              const ConnectDetailsPage(
+                  title: "Facebook Catalog ID", socialname: "Facebook")
+            else if (listindex == 1)
+              const ConnectDetailsPage(
+                  title: "Twitter Catalog ID", socialname: "Twitter")
+            else if (listindex == 2)
+              const ConnectDetailsPage(
+                  title: "Google Catalog ID", socialname: "Google")
+            else if (listindex == 3)
+              const ConnectDetailsPage(
+                  title: "Linkedin Catalog ID", socialname: "Linkedin"),
             height20,
             Container(
               width: Get.width * 0.75,
@@ -87,17 +145,107 @@ class _ConnectViewState extends State<ConnectView> {
                     color: Color(0xffE5E5E5),
                   ),
                   height20,
-                  Text(
-                    "Facebook Ad Account Share Data",
-                    style: TextStyle(
-                      fontSize: 12,
-                      color: kblack.withOpacity(0.5),
-                    ),
-                  ),
+                  if (listindex == 0)
+                    Text("Facebook Ad Account Share Data", style: prestyle)
+                  else if (listindex == 1)
+                    Text("Twitter Ad Account Share Data", style: prestyle)
+                  else if (listindex == 2)
+                    Text("Google Ad Account Share Data", style: prestyle)
+                  else if (listindex == 3)
+                    Text("Linkedin Ad Account Share Data", style: prestyle),
                   height20,
                   const Text(
                     "Preference",
                     style: TextStyle(fontSize: 16),
+                  ),
+                  height20,
+                  SizedBox(
+                    width: Get.width,
+                    child: ListView.builder(
+                      shrinkWrap: true,
+                      physics: const BouncingScrollPhysics(),
+                      itemCount: radioitems.length,
+                      itemBuilder: (context, index) {
+                        bool isSelected = selectedvalue == index;
+                        return Center(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              GestureDetector(
+                                onTap: () {
+                                  setState(() {
+                                    selectedvalue = index;
+                                  });
+                                },
+                                child: Container(
+                                  width: Get.width * 0.32,
+                                  height: 25,
+                                  decoration: BoxDecoration(
+                                    borderRadius: const BorderRadius.only(
+                                      topRight: Radius.circular(12),
+                                    ),
+                                    border: Border.fromBorderSide(
+                                      BorderSide(
+                                        color: isSelected
+                                            ? const Color(0xff1A377D)
+                                            : kblack.withOpacity(0.3),
+                                      ),
+                                    ),
+                                  ),
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    mainAxisSize: MainAxisSize.min,
+                                    children: [
+                                      Radio(
+                                        value: index,
+                                        groupValue: selectedvalue,
+                                        onChanged: (value) {
+                                          setState(() {
+                                            selectedvalue = value;
+                                          });
+                                        },
+                                      ),
+                                      Expanded(
+                                        child: Text(
+                                          radioitems[index],
+                                          style: const TextStyle(fontSize: 10),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                              GestureDetector(
+                                onTap: () {
+                                  setState(() {
+                                    selectedvalue = index;
+                                  });
+                                },
+                                child: Container(
+                                  height: Get.height * 0.25,
+                                  width: Get.width * 0.55,
+                                  decoration: BoxDecoration(
+                                    borderRadius: const BorderRadius.only(
+                                      bottomLeft: Radius.circular(12),
+                                      bottomRight: Radius.circular(12),
+                                      topRight: Radius.circular(12),
+                                    ),
+                                    border: Border.all(
+                                      color: isSelected
+                                          ? const Color(0xff1A377D)
+                                          : kblack.withOpacity(0.3),
+                                    ),
+                                  ),
+                                  child: Image.asset(
+                                      "assets/images/connect_images.png"),
+                                ),
+                              ),
+                              height30,
+                            ],
+                          ),
+                        );
+                      },
+                    ),
                   ),
                   height20,
                   const Text(
@@ -147,15 +295,14 @@ class _ConnectViewState extends State<ConnectView> {
                     color: Color(0xffE5E5E5),
                   ),
                   height10,
-                  Text(
-                    "You need to accept Facebook Catalogue\nTerms to setup Facebook Marketing",
-                    textAlign: TextAlign.center,
-                    maxLines: 2,
-                    style: TextStyle(
-                      fontSize: 12,
-                      color: kblack.withOpacity(0.5),
-                    ),
-                  ),
+                  if (listindex == 0)
+                    _buildCondtionText("Facebook")
+                  else if (listindex == 1)
+                    _buildCondtionText("Twitter")
+                  else if (listindex == 2)
+                    _buildCondtionText("Google")
+                  else if (listindex == 3)
+                    _buildCondtionText("Linkedin"),
                   height10,
                   CheckboxListTile(
                     side: const BorderSide(color: kblack),
@@ -190,6 +337,18 @@ class _ConnectViewState extends State<ConnectView> {
             height30,
           ],
         ),
+      ),
+    );
+  }
+
+  Widget _buildCondtionText(String socialname) {
+    return Text(
+      "You need to accept $socialname Catalogue\nTerms to setup Facebook Marketing",
+      textAlign: TextAlign.center,
+      maxLines: 2,
+      style: TextStyle(
+        fontSize: 12,
+        color: kblack.withOpacity(0.5),
       ),
     );
   }
@@ -231,7 +390,7 @@ class SocialAccountContainer extends StatelessWidget {
               ),
               kwidth15,
               Text(
-                title,
+                socialname,
                 style:
                     const TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
               ),
@@ -241,7 +400,7 @@ class SocialAccountContainer extends StatelessWidget {
           const Divider(thickness: 1),
           height20,
           Text(
-            socialname,
+            "Connect your $title Account",
             style: TextStyle(
               fontSize: 12,
               fontWeight: FontWeight.w600,
@@ -265,7 +424,10 @@ class SocialAccountContainer extends StatelessWidget {
 
 class ConnectDetailsPage extends StatelessWidget {
   final String title;
-  const ConnectDetailsPage({super.key, required this.title});
+  final String socialname;
+
+  const ConnectDetailsPage(
+      {super.key, required this.title, required this.socialname});
 
   @override
   Widget build(BuildContext context) {
@@ -293,7 +455,7 @@ class ConnectDetailsPage extends StatelessWidget {
           ),
           height10,
           Text(
-            "Facebook page will be used to publish ads",
+            "$socialname page will be used to publish ads",
             style: TextStyle(
               fontSize: 12,
               color: kblack.withOpacity(0.5),

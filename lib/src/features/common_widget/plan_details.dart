@@ -4,6 +4,8 @@ import 'package:ads/src/features/common_widget/branding_partners_sliding.dart';
 import 'package:ads/src/utils/const.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 
 import 'need_help_chat.dart';
 
@@ -48,7 +50,7 @@ class _PlanDetailsState extends State<PlanDetails> {
                 ),
                 TextSpan(
                   text: ' the Perfect\nSolution for your\n"Ads"',
-                  style: TextStyle( fontSize: 36),
+                  style: TextStyle(fontSize: 36),
                 ),
               ],
             ),
@@ -61,77 +63,67 @@ class _PlanDetailsState extends State<PlanDetails> {
           height20,
           const Text(
             "Our Plans",
-            style: TextStyle(fontSize: 24, ),
+            style: TextStyle(
+              fontSize: 24,
+            ),
           ),
-          height10,
-          const CommonContainerPlanDetals(
-              containerheight: 322,
-              imageurl: "assets/images/bro.svg",
-              titleword: "B",
-              titlename: 'asic Plan',
-              name1: "10 + Users Help and support",
-              name2: "Porem ipsum dolor sit amet",
-              name3: "Porem ipsum dolor sit amet",
-              name4: "Porem ipsum dolor sit amet",
-              name5: "Porem ipsum dolor sit amet"),
-          height15,
+          height20,
+          CommonContainerPlanDetals(
+            containerheight: Get.height * 0.48,
+            containerwidth: Get.width * 0.75,
+            imageurl: "assets/images/bro.svg",
+            titleword: "B",
+            titlename: 'asic Plan',
+          ),
+          height20,
           CommonElevatedButton(
               ontap: () {},
               name: "Buy Now",
               textStyle: const TextStyle(
-
                 color: kwhite,
                 fontSize: 14,
               ),
-              buttonwidth: 0.30,
+              buttonwidth: 0.24,
               buttonheight: 0.06),
-          height15,
-          const CommonContainerPlanDetals(
-              containerheight: 340,
-              imageurl: "assets/images/pana.svg",
-              titleword: "A",
-              titlename: 'dvance Plan',
-              name1: "20 + Users Help and support",
-              name2: "Porem ipsum dolor sit amet",
-              name3: "Porem ipsum dolor sit amet",
-              name4: "Porem ipsum dolor sit amet",
-              name5: "Porem ipsum dolor sit amet"),
-          height15,
+          height20,
+          CommonContainerPlanDetals(
+            containerheight: Get.height * 0.48,
+            containerwidth: Get.width * 0.75,
+            imageurl: "assets/images/pana.svg",
+            titleword: "A",
+            titlename: 'dvance Plan',
+          ),
+          height20,
           CommonElevatedButton(
               ontap: () {},
               name: "Buy Now",
               textStyle: const TextStyle(
-
                 color: kwhite,
                 fontSize: 14,
               ),
-              buttonwidth: 0.30,
+              buttonwidth: 0.24,
               buttonheight: 0.06),
-          height15,
-          const CommonContainerPlanDetals(
-              containerheight: 340,
-              imageurl: "assets/images/cuate.svg",
-              titleword: "P",
-              titlename: 'remium Plan',
-              name1: "30 + Users Help and support",
-              name2: "Porem ipsum dolor sit amet",
-              name3: "Porem ipsum dolor sit amet",
-              name4: "Porem ipsum dolor sit amet",
-              name5: "Porem ipsum dolor sit amet"),
-          height15,
+          height20,
+          CommonContainerPlanDetals(
+            containerheight: Get.height * 0.48,
+            containerwidth: Get.width * 0.75,
+            imageurl: "assets/images/cuate.svg",
+            titleword: "P",
+            titlename: 'remium Plan',
+          ),
+          height20,
           CommonElevatedButton(
               ontap: () {},
               name: "Buy Now",
               textStyle: const TextStyle(
-                
                 color: kwhite,
                 fontSize: 14,
               ),
-              buttonwidth: 0.30,
+              buttonwidth: 0.24,
               buttonheight: 0.06),
-          height15,
+          height20,
           const ShoppingListSlider(),
-          height15,
+          height20,
           const NeedHelp(),
         ],
       ),

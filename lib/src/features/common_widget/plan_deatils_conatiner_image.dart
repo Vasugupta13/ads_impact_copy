@@ -5,33 +5,33 @@ import 'package:get/get.dart';
 
 class CommonContainerPlanDetals extends StatelessWidget {
   final double containerheight;
+  final double containerwidth;
   final String titleword;
   final String titlename;
-  final String name1;
-  final String name2;
-  final String name3;
-  final String name4;
-  final String name5;
+  final double titlewordsize;
+  final double titlenamesize;
+  final double customfontsize;
+  final Color titlewordcolor;
   final String imageurl;
 
   const CommonContainerPlanDetals(
       {super.key,
-      required this.name1,
-      required this.name2,
-      required this.name3,
-      required this.name4,
-      required this.name5,
       required this.imageurl,
       required this.titleword,
       required this.titlename,
-      required this.containerheight});
+      required this.containerheight,
+      required this.containerwidth,
+      this.customfontsize = 14,
+      this.titlewordsize = 24,
+      this.titlenamesize = 24,
+      this.titlewordcolor = const Color(0xff1A377D)});
 
   @override
   Widget build(BuildContext context) {
     return Container(
       height: containerheight,
-      width: Get.width,
-      margin: const EdgeInsets.all(30),
+      width: containerwidth,
+      margin: const EdgeInsets.all(8),
       decoration: BoxDecoration(
         color: kwhite,
         borderRadius: const BorderRadius.only(
@@ -48,72 +48,50 @@ class CommonContainerPlanDetals extends StatelessWidget {
       ),
       child: Column(
         children: [
+          height10,
           SvgPicture.asset(imageurl, fit: BoxFit.contain),
-          height2,
+          height5,
           RichText(
             textAlign: TextAlign.center,
             text: TextSpan(
               text: titleword,
-              style: const TextStyle(
-                  color: Color(0xff1A377D),
-                  fontSize: 24,
+              style: TextStyle(
+                  color: titlewordcolor,
+                  fontSize: titlewordsize,
                   fontWeight: FontWeight.w600),
               children: [
                 TextSpan(
                   text: titlename,
-                  style: const TextStyle(
-                      fontSize: 24, fontWeight: FontWeight.w600, color: kblack),
+                  style: TextStyle(
+                      fontSize: titlenamesize,
+                      fontWeight: FontWeight.w600,
+                      color: kblack),
                 ),
               ],
             ),
           ),
-          height10,
-          Divider(color: kblack.withOpacity(0.2), endIndent: 60, indent: 60),
-          height10,
-          Text(
-            name1,
-            style: TextStyle(
-              fontSize: 14,
-
-              color: kblack.withOpacity(0.4),
-            ),
-          ),
           height5,
-          Text(
-            name2,
-            style: TextStyle(
-              fontSize: 14,
-
-              color: kblack.withOpacity(0.4),
-            ),
-          ),
+          Divider(color: kblack.withOpacity(0.1), endIndent: 20, indent: 20),
           height5,
-          Text(
-            name3,
-            style: TextStyle(
-              fontSize: 14,
-
-              color: kblack.withOpacity(0.4),
+          for (var item in [
+            "10 + Users Help and support",
+            "Qorem ipsum dolor sit",
+            "Porem ipsum dolor sit amet",
+            "Porem ipsum dolor sit amet",
+            "Porem ipsum dolor sit amet",
+          ])
+            Column(
+              children: [
+                Text(
+                  item,
+                  style: TextStyle(
+                    fontSize: customfontsize,
+                    color: kblack.withOpacity(0.4),
+                  ),
+                ),
+                height5,
+              ],
             ),
-          ),
-          height5,
-          Text(
-            name4,
-            style: TextStyle(
-              fontSize: 14,
-
-              color: kblack.withOpacity(0.4),
-            ),
-          ),
-          height5,
-          Text(
-            name5,
-            style: TextStyle(
-              fontSize: 14,
-              
-              color: kblack.withOpacity(0.4),
-            ),
-          )
         ],
       ),
     );
