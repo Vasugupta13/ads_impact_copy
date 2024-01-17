@@ -18,55 +18,60 @@ class _PaymentState extends State<Payment> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: kwhite,
-      body: SingleChildScrollView(
-        padding: const EdgeInsets.symmetric(vertical: 30),
-        physics: const BouncingScrollPhysics(),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            const CustomAppBar(
-                name: "Payment", imagepath: "assets/images/payment.svg"),
-            Divider(color: kblack.withOpacity(0.1), endIndent: 0, indent: 26),
-            const PaymentList(
-                image: "assets/images/paypal.svg", title: "Paypal"),
-            const PaymentList(
-                image: "assets/images/upi.svg", title: "Phonepe/Gpay"),
-            const PaymentList(
-                image: "assets/images/mastercard.svg",
-                title: "... ... ... 4356"),
-            const PaymentList(
-                image: "assets/images/visa.svg", title: "... ... ... 5347"),
-            height20,
-            CommonElevatedButton(
-              name: "Add new Card",
-              buttonwidth: 0.25,
-              buttonheight: 0.06,
-              textStyle: const TextStyle(fontSize: 12),
-              ontap: () {
-                Get.to(() => const AddCard());
-              },
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Align(
-                  alignment: Alignment.centerLeft,
-                  child: SizedBox(
-                    width: Get.width * 0.3,
-                    child: const Divider(
-                      color: Color(0xffFF4848),
-                      thickness: 1,
+      body: SafeArea(
+        child: SingleChildScrollView(
+          padding: const EdgeInsets.symmetric(vertical: 8),
+          physics: const NeverScrollableScrollPhysics(),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              const CustomAppBar(
+                  name: "Payment", imagepath: "assets/images/payment.svg"),
+              Divider(color: kblack.withOpacity(0.1), endIndent: 0, indent: 26),
+              const PaymentList(
+                  image: "assets/images/paypal.svg", title: "Paypal"),
+              const PaymentList(
+                  image: "assets/images/upi.svg", title: "Phonepe/Gpay"),
+              const PaymentList(
+                  image: "assets/images/mastercard.svg",
+                  title: "... ... ... 4356"),
+              const PaymentList(
+                  image: "assets/images/visa.svg", title: "... ... ... 5347"),
+              height20,
+              CommonElevatedButton(
+                name: "Add new Card",
+                buttonwidth: 0.25,
+                buttonheight: 0.06,
+                textStyle: const TextStyle(fontSize: 12),
+                ontap: () {
+                  Get.to(() => const AddCard());
+                },
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: SizedBox(
+                      width: Get.width * 0.3,
+                      child: const Divider(
+                        color: Color(0xffFF4848),
+                        thickness: 1,
+                      ),
                     ),
                   ),
-                ),
-                Align(
-                  alignment: Alignment.centerRight,
-                  child: SvgPicture.asset("assets/images/payment_image.svg"),
-                ),
-              ],
-            )
-          ],
+                  Align(
+                    alignment: Alignment.centerRight,
+                    child: SvgPicture.asset(
+                      "assets/images/payment_image.svg",
+                      height: Get.height * 0.19,
+                    ),
+                  ),
+                ],
+              )
+            ],
+          ),
         ),
       ),
     );

@@ -59,7 +59,9 @@ class _DashboardViewState extends State<DashboardView> {
             height5,
             const Text(
               "Choose Platform:",
-              style: TextStyle(fontSize: 14, ),
+              style: TextStyle(
+                fontSize: 14,
+              ),
             ),
             height15,
             SocialAccountList(
@@ -146,12 +148,10 @@ class _DashboardViewState extends State<DashboardView> {
               color: kblack.withOpacity(0.1),
             ),
             height20,
-             CommonElevatedButton(ontap: () {
-
-            },
+            CommonElevatedButton(
+                ontap: () {},
                 name: "Platform Wise Spend and ROAS %",
-                textStyle: TextStyle(
-                     color: kwhite, fontSize: 12),
+                textStyle: const TextStyle(color: kwhite, fontSize: 12),
                 buttonwidth: 0.40,
                 buttonheight: 0.07),
             height30,
@@ -163,12 +163,10 @@ class _DashboardViewState extends State<DashboardView> {
               color: kblack.withOpacity(0.1),
             ),
             height20,
-             CommonElevatedButton(ontap: () {
-
-            },
+            CommonElevatedButton(
+                ontap: () {},
                 name: "Creative Wise Spend and ROAS %",
-                textStyle: TextStyle(
-                     color: kwhite, fontSize: 12),
+                textStyle: const TextStyle(color: kwhite, fontSize: 12),
                 buttonwidth: 0.40,
                 buttonheight: 0.07),
             height30,

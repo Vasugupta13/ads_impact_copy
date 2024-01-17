@@ -16,8 +16,10 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-          fontFamily:
-              GoogleFonts.poppins(fontWeight: FontWeight.w500).fontFamily),
+        textTheme: GoogleFonts.poppinsTextTheme().copyWith(
+          bodyLarge: GoogleFonts.poppins(fontWeight: FontWeight.w500),
+        ),
+      ),
       home: const SplashScreen(),
     );
   }

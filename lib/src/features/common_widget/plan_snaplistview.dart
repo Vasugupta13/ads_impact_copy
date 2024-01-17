@@ -81,9 +81,7 @@ class _PlanListState extends State<PlanList> {
                             takeplandeatails[index]["Desc"],
                             maxLines: 3,
                             style: const TextStyle(
-                                fontSize: 10,
-                                
-                                letterSpacing: -0.3),
+                                fontSize: 10, letterSpacing: -0.3),
                           ),
                         ],
                       ),
@@ -96,14 +94,15 @@ class _PlanListState extends State<PlanList> {
                   ],
                 ),
                 TextButton(
-                    onPressed: () {},
-                    child: const Text(
-                      "View More",
-                      style: TextStyle(
-                          fontSize: 12,
-                          fontWeight: FontWeight.w600,
-                          color: kblack),
-                    ))
+                  onPressed: () {},
+                  child: const Text(
+                    "View More",
+                    style: TextStyle(
+                        fontSize: 12,
+                        fontWeight: FontWeight.w600,
+                        color: kblack),
+                  ),
+                ),
               ],
             ),
           ),

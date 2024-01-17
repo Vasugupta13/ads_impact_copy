@@ -1,4 +1,4 @@
-import 'package:ads/src/features/bottombar/account.dart';
+import 'package:ads/src/features/bottombar/account/account.dart';
 import 'package:ads/src/features/bottombar/analysis.dart';
 import 'package:ads/src/features/bottombar/cart.dart';
 import 'package:ads/src/homepage/homepage.dart';

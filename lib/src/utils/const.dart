@@ -66,3 +66,9 @@ const TextStyle headingStyleWhite =
     TextStyle(fontSize: 20, color: kwhite, fontWeight: FontWeight.bold);
 
 TextStyle prestyle = TextStyle(fontSize: 12, color: kblack.withOpacity(0.5));
+
+//divider
+Divider divider16 = Divider(
+  indent: 16,
+  color: kblack.withOpacity(0.2),
+);

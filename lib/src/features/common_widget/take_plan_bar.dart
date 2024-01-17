@@ -20,9 +20,7 @@ class _TakePlanBarState extends State<TakePlanBar> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        const Divider(
-          thickness: 1.6,
-        ),
+        
         height20,
         GestureDetector(
           onTap: widget.toggle,

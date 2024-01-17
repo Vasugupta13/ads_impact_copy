@@ -1,3 +1,4 @@
+import 'package:ads/src/features/bottombar/bottomnavigationbar.dart';
 import 'package:ads/src/features/bottombar/view/payment.dart';
 import 'package:ads/src/features/common_widget/custom_app_bar.dart';
 import 'package:ads/src/features/common_widget/elevatedbutton.dart';
@@ -238,6 +239,7 @@ class _CartPageState extends State<CartPage> {
           ],
         ),
       ),
+      bottomNavigationBar: const BottomNavBar(),
     );
   }
 

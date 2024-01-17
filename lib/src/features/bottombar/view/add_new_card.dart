@@ -1,3 +1,8 @@
+import 'dart:ui';
+
+import 'package:ads/src/features/bottombar/view/custom_textfield.dart';
+import 'package:ads/src/features/common_widget/elevatedbutton.dart';
+import 'package:ads/src/homepage/homepage.dart';
 import 'package:ads/src/utils/const.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -138,9 +143,92 @@ class _AddCardState extends State<AddCard> {
                 ),
               ],
             ),
+            height10,
+            CustomTextField(hinttext: "Name on Card"),
+            CustomTextField(hinttext: "Card number"),
+            CustomTextField(hinttext: "Expiry date"),
+            CustomTextField(hinttext: "CVV"),
+            height30,
+            CommonElevatedButton(
+              name: "Add new Card",
+              buttonwidth: 0.25,
+              buttonheight: 0.06,
+              textStyle: const TextStyle(fontSize: 12),
+              ontap: () {
+                _showPopup(context);
+              },
+            ),
           ],
         ),
       ),
     );
   }
+}
+
+void _showPopup(BuildContext context) {
+  showDialog(
+    context: context,
+    builder: (BuildContext context) {
+      return GestureDetector(
+        onTap: () {
+          Get.back();
+        },
+        child: Stack(
+          children: [
+            BackdropFilter(
+              filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
+              child: Container(
+                color: Colors.white.withOpacity(0.3),
+              ),
+            ),
+            Dialog(
+              child: Container(
+                padding: const EdgeInsets.all(12),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(16),
+                ),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Image.asset("assets/images/add_cart_popup.png",
+                        height: Get.height * 0.25),
+                    height5,
+                    Divider(color: kblack.withOpacity(0.1), thickness: 1),
+                    height20,
+                    RichText(
+                      textAlign: TextAlign.center,
+                      text: const TextSpan(
+                        text: "Congratulations! ",
+                        style: TextStyle(
+                          fontSize: 16,
+                          color: Color(0xffFF0000),
+                        ),
+                        children: [
+                          TextSpan(
+                            text: "You are now a\nBasic Plan User",
+                            style: TextStyle(fontSize: 16, color: kblack),
+                          ),
+                        ],
+                      ),
+                    ),
+                    height30,
+                    CommonElevatedButton(
+                      name: "Next",
+                      buttonwidth: 0.25,
+                      buttonheight: 0.06,
+                      textStyle: const TextStyle(fontSize: 12),
+                      ontap: () {
+                        Get.to(() => const HomePage());
+                      },
+                    ),
+                    height20,
+                  ],
+                ),
+              ),
+            ),
+          ],
+        ),
+      );
+    },
+  );
 }
