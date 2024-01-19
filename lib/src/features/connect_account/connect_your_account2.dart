@@ -1,4 +1,4 @@
-import 'package:ads/src/features/connect_account/views/account_drop_down.dart';
+import 'package:ads/src/features/connect_account/widget/account_drop_down.dart';
 import 'package:ads/src/utils/const.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -37,7 +37,7 @@ class _ConnectYourAccount2State extends State<ConnectYourAccount2> {
               ),
               child: Center(
                 child: SvgPicture.asset(
-                  "assets/images/ri_meta-fill.svg",
+                  "assets/images/meta_icon-fill.svg",
                   fit: BoxFit.contain,
                   height: 42,
                 ),
@@ -67,10 +67,10 @@ class _ConnectYourAccount2State extends State<ConnectYourAccount2> {
                 sizeboxheight: 190,
                 containerheight: 150,
                 isdropdown: false,
-                titlename: "Connect your Google Account",
+                titlename: "Connect your Facebook Account",
                 subtitlename:
                     "Ads Impact needs access to your\nGoogle Account to access Ad-\nStats",
-                imageUrl: "assets/images/bi_google.svg",
+                imageUrl: "assets/images/fb_logo.svg",
                 accountname: "Connect"),
             height25,
             const AccountIDDropDown(
@@ -80,7 +80,7 @@ class _ConnectYourAccount2State extends State<ConnectYourAccount2> {
                 titlename: "Connect your Twitter Account",
                 subtitlename:
                     "Ads Impact needs access to your\nTwitter Account to access Ad-\nStats",
-                imageUrl: "assets/images/mdi_twitter.svg",
+                imageUrl: "assets/images/twitter_logo.svg",
                 accountname: "Connect"),
             height25,
             const AccountIDDropDown(
@@ -90,7 +90,7 @@ class _ConnectYourAccount2State extends State<ConnectYourAccount2> {
                 titlename: "Connect your Linkedin Account",
                 subtitlename:
                     "Ads Impact needs access to your\nLinkedin Account to access Ad-\nStats",
-                imageUrl: "assets/images/in.svg",
+                imageUrl: "assets/images/linkedin_logo.svg",
                 accountname: "Connect"),
             height25,
             const AccountIDDropDown(
@@ -100,7 +100,7 @@ class _ConnectYourAccount2State extends State<ConnectYourAccount2> {
                 titlename: "Connect your Google Account",
                 subtitlename:
                     "Ads Impact needs access to your\nGoogle Account to access Ad-\nStats",
-                imageUrl: "assets/images/bi_google.svg",
+                imageUrl: "assets/images/google_logo.svg",
                 accountname: "Connect"),
             height25,
             const AccountIDDropDown(

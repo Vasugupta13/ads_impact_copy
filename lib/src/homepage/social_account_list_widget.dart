@@ -21,20 +21,21 @@ class _SocialAccountListState extends State<SocialAccountList> {
     return Align(
       alignment: Alignment.centerRight,
       child: Container(
-        height: 60,
+        height: Get.height * 0.1 - 15,
         width: Get.width * 0.90,
         padding: const EdgeInsets.only(left: 20, right: 20),
         decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(16),
-            boxShadow: [
-              BoxShadow(
-                color: const Color(0xff000040).withOpacity(0.25),
-                blurRadius: 16,
-                blurStyle: BlurStyle.outer,
-                offset: const Offset(0, 1),
-              ),
-            ]),
+          color: kwhite,
+          borderRadius: BorderRadius.circular(12),
+          boxShadow: [
+            BoxShadow(
+              color: const Color(0xff000040).withOpacity(0.25),
+              blurRadius: 16,
+              blurStyle: BlurStyle.outer,
+              offset: const Offset(0, 1),
+            ),
+          ],
+        ),
         child: ListView.separated(
           itemCount: AppStrings.socialaccount.length,
           physics: const BouncingScrollPhysics(),
@@ -49,26 +50,24 @@ class _SocialAccountListState extends State<SocialAccountList> {
                 });
               },
               child: Container(
-                height: 60,
-                width: 110,
+                // height: 60,
+                width: Get.width * 0.25,
                 decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(16),
+                  color: kwhite,
+                  borderRadius: BorderRadius.circular(12),
                 ),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     SvgPicture.asset(
-                      AppStrings.socialaccount[index]["imageurl"],
-                      fit: BoxFit.contain,
-                    ),
+                        AppStrings.socialaccount[index]["imageurl"],
+                        color: kblue77D,
+                        fit: BoxFit.contain),
                     kwidth5,
                     Text(
                       AppStrings.socialaccount[index]["name"],
                       style: const TextStyle(
-                        fontSize: 14,
-                        fontWeight: FontWeight.w600,
-                      ),
+                          fontSize: 14, fontWeight: FontWeight.w600),
                     )
                   ],
                 ),

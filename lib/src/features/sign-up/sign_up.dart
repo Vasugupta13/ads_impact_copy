@@ -1,8 +1,8 @@
+import 'package:ads/src/features/connect_account/connect_your_account.dart';
+import 'package:ads/src/features/sign-up/widget/sign_up_view.dart';
 import 'package:ads/src/utils/const.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-import 'about_yourself.dart';
 
 class Signup extends StatefulWidget {
   const Signup({super.key});
@@ -12,130 +12,102 @@ class Signup extends StatefulWidget {
 }
 
 class _SignupState extends State<Signup> {
+  final PageController _pageController = PageController();
+  int _currentpage = 0;
   @override
   Widget build(BuildContext context) {
-    double screenHeight = MediaQuery.of(context).size.height;
-
     return Scaffold(
       backgroundColor: kwhite,
-      appBar: AppBar(
-        backgroundColor: kwhite,
-        elevation: 0,
-        automaticallyImplyLeading: false,
-      ),
+      appBar: AppBar(backgroundColor: kwhite, elevation: 0),
       body: Column(
         children: [
           Expanded(
-            child: SingleChildScrollView(
-              physics: const BouncingScrollPhysics(),
-              child: Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 34, vertical: 40),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    SvgPicture.asset("assets/images/icon.svg"),
-                    height10,
-                    const Text(
-                      "Sign-up",
-                      style:
-                          TextStyle(fontSize: 26, ),
-                    ),
-                    height30,
-                    const DetailsField(name: "Enter your E-mail"),
-                    height20,
-                    const DetailsField(name: "Enter your Username"),
-                    height20,
-                    const DetailsField(name: "Password"),
-                    height20,
-                    const DetailsField(name: "Confirm Password"),
-                    height30,
-                    ElevatedButton(
-                      onPressed: () {
-                        Get.to(() => const AboutYourself(),
-                            transition: Transition.rightToLeftWithFade);
-                      },
-                      style: ElevatedButton.styleFrom(
-                        alignment: Alignment.center,
-                        elevation: 0,
-                        fixedSize:
-                            Size(screenHeight * 0.26, screenHeight * 0.06),
-                        backgroundColor: const Color(0xffFF4848),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(16),
-                        ),
-                      ),
-                      child: const Text(
-                        "Next",
-                        style: TextStyle(
-
-                          color: kwhite,
-                          fontSize: 14,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(bottom: 60, left: 34, right: 34),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
+            child: PageView(
+              controller: _pageController,
+              onPageChanged: (index) {
+                setState(() {
+                  _currentpage = index;
+                });
+              },
               children: [
-                const Text(
-                  "Step 1",
-                  style: TextStyle(
-                      fontSize: 14, color: kblack, fontWeight: FontWeight.w600),
-                ),
-                height5,
-                LinearProgressIndicator(
-                  borderRadius: BorderRadius.circular(18),
-                  minHeight: 10,
-                  backgroundColor: Colors.black.withOpacity(0.7),
-                  value: 0.2,
-                  valueColor: const AlwaysStoppedAnimation(Color(0xffFF4848)),
-                ),
+                CustomSignupPage(
+                    onTap: () {
+                      _pageController.nextPage(
+                          duration: const Duration(milliseconds: 500),
+                          curve: Curves.easeInOut);
+                    },
+                    iconimage: "assets/images/person_icon_black.svg",
+                    title: "Sign-up",
+                    istextfield1: true,
+                    hinttext1: "Enter your E-mail",
+                    istextfield2: true,
+                    hinttext2: "Enter your Username",
+                    istextfield3: true,
+                    hinttext3: "Password",
+                    istextfield4: true,
+                    hinttext4: "Confirm Password"),
+                CustomSignupPage(
+                    onTap: () {
+                      _pageController.nextPage(
+                          duration: const Duration(milliseconds: 500),
+                          curve: Curves.easeInOut);
+                    },
+                    iconimage: "assets/images/person_icon_black.svg",
+                    title: "About Yourself",
+                    hinttext1: "Enter your First Name",
+                    hinttext2: "Enter your Last Name",
+                    hinttext3: "Enter your Mobile Number",
+                    istextfield1: true,
+                    istextfield2: true,
+                    istextfield3: true),
+                CustomSignupPage(
+                    onTap: () {
+                      Get.to(
+                        () => const ConnectYourAccounts(),
+                      );
+                    },
+                    iscompanyvisible: true,
+                    hinttext1: "Enter your Company Name",
+                    hinttext2: "Enter your Company Website",
+                    istextfield1: true,
+                    istextfield2: true),
               ],
             ),
-          )
+          ),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                "Step ${_currentpage + 1}",
+                style: const TextStyle(
+                    fontSize: 14, color: kblack, fontWeight: FontWeight.w600),
+              ),
+              height5,
+              SizedBox(
+                width: Get.width * 0.8,
+                child: LinearProgressIndicator(
+                  borderRadius: BorderRadius.circular(12),
+                  minHeight: 10,
+                  backgroundColor: Colors.black.withOpacity(0.7),
+                  value: _calculateLinearProgress(),
+                  valueColor: const AlwaysStoppedAnimation(kred),
+                ),
+              ),
+            ],
+          ),
+          height50,
         ],
       ),
     );
   }
-}
 
-class DetailsField extends StatelessWidget {
-  final String name;
-
-  const DetailsField({super.key, required this.name});
-
-  @override
-  Widget build(BuildContext context) {
-    return TextFormField(
-      decoration: InputDecoration(
-        contentPadding:
-            const EdgeInsets.symmetric(vertical: 13, horizontal: 26),
-        enabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(16),
-          borderSide: BorderSide(color: Colors.black.withOpacity(0.2)),
-        ),
-        focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(16),
-          borderSide:
-              BorderSide(color: Colors.black.withOpacity(0.2), width: 1.3),
-        ),
-        hintText: name,
-        alignLabelWithHint: true,
-        hintStyle: TextStyle(
-          fontSize: 16,
-          
-          color: Colors.black.withOpacity(0.2),
-        ),
-      ),
-    );
+  double _calculateLinearProgress() {
+    if (_currentpage == 0) {
+      return 0.2;
+    } else if (_currentpage == 1) {
+      return 0.4;
+    } else {
+      return 0.6;
+    }
   }
 }

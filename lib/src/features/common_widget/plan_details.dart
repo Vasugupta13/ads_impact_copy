@@ -1,4 +1,4 @@
-import 'package:ads/src/features/common_widget/elevatedbutton.dart';
+import 'package:ads/src/features/common_widget/custom_elevatedbutton.dart';
 import 'package:ads/src/features/common_widget/plan_deatils_conatiner_image.dart';
 import 'package:ads/src/features/common_widget/branding_partners_sliding.dart';
 import 'package:ads/src/utils/const.dart';

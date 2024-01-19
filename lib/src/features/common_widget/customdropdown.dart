@@ -6,12 +6,13 @@ import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 
 class CustomDropDown extends StatelessWidget {
+  final double containerheight;
   final double containerwidth;
   final String hint;
   final String? value;
   final List<String> dropdownItems;
   final ValueChanged<String?>? onChanged;
-  
+  final Color? alternatecolor;
 
   const CustomDropDown(
       {super.key,
@@ -19,15 +20,18 @@ class CustomDropDown extends StatelessWidget {
       this.value,
       required this.dropdownItems,
       this.onChanged,
-      required this.containerwidth});
+      required this.containerwidth,
+      required this.containerheight,
+      this.alternatecolor});
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 34,
+      height: Get.height * containerheight,
       width: Get.width * containerwidth,
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(16),
+        color: alternatecolor ?? Colors.transparent,
+        borderRadius: BorderRadius.circular(12),
         border: Border.all(
           color: kblack.withOpacity(0.2),
         ),
@@ -37,19 +41,13 @@ class CustomDropDown extends StatelessWidget {
           iconStyleData: const IconStyleData(
             icon: Icon(Icons.keyboard_arrow_down),
           ),
-          style: const TextStyle(
-            fontSize: 10,
-            color: kblack,
-          ),
+          style: const TextStyle(fontSize: 10, color: kblack),
           isExpanded: true,
           hint: Center(
             child: Text(
               hint,
               maxLines: 1,
-              style: const TextStyle(
-                fontSize: 10,
-                color: kblack,
-              ),
+              style: const TextStyle(fontSize: 10, color: kblack),
             ),
           ),
           items: dropdownItems

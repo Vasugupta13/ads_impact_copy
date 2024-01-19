@@ -1,4 +1,4 @@
-import 'package:ads/src/features/common_widget/elevatedbutton.dart';
+import 'package:ads/src/features/common_widget/custom_elevatedbutton.dart';
 import 'package:ads/src/features/menu/catalog/widget/container_widget.dart';
 import 'package:ads/src/utils/const.dart';
 import 'package:flutter/cupertino.dart';

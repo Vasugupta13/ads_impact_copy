@@ -1,6 +1,6 @@
 import 'package:ads/src/features/bottombar/view/add_new_card.dart';
 import 'package:ads/src/features/common_widget/custom_app_bar.dart';
-import 'package:ads/src/features/common_widget/elevatedbutton.dart';
+import 'package:ads/src/features/common_widget/custom_elevatedbutton.dart';
 import 'package:ads/src/utils/const.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';

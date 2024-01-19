@@ -1,6 +1,7 @@
 import 'package:ads/src/utils/const.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
 import '../../../src/model/social_media_info.dart';
 
 class SocialMediaOverview extends StatefulWidget {
@@ -57,13 +58,13 @@ class _SocialMediaOverviewState extends State<SocialMediaOverview> {
 
   Widget _buildItem(int index) {
     return Container(
-      height: 150,
-      width: 260,
+      height: Get.height * 0.2 - 15,
+      width: Get.width * 0.9,
       margin: const EdgeInsets.all(8),
-      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
+      padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(16),
-        color: const Color(0xff1A377D).withOpacity(0.1),
+        color: kblue77D.withOpacity(0.1),
       ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
@@ -73,22 +74,14 @@ class _SocialMediaOverviewState extends State<SocialMediaOverview> {
             children: [
               Text(
                 widget.dataList[index].name,
-                style: const TextStyle(
-                  fontSize: 16,
-                ),
+                style: const TextStyle(fontSize: 16),
               ),
-              SvgPicture.asset(
-                widget.dataList[index].imageurl,
-                color: const Color(0xff5468BE),
-              )
+              SvgPicture.asset(widget.dataList[index].imageurl,
+                  color: const Color(0xff5468BE))
             ],
           ),
           if (widget.scrollDirection == Axis.horizontal)
-            const Divider(
-              color: Color(0xffFF0000),
-              endIndent: 140,
-              thickness: 0.5,
-            ),
+            const Divider(color: kred, endIndent: 140, thickness: 0.5),
           Padding(
             padding: const EdgeInsets.only(right: 20),
             child: Row(
@@ -117,7 +110,7 @@ class _SocialMediaOverviewState extends State<SocialMediaOverview> {
               ],
             ),
           ),
-          const SizedBox(height: 5),
+          height5,
           Align(
             alignment: Alignment.centerLeft,
             child: Text(

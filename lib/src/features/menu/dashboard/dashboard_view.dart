@@ -1,6 +1,6 @@
 import 'package:ads/src/features/bottombar/bottomnavigationbar.dart';
 import 'package:ads/src/features/common_widget/custom_app_bar.dart';
-import 'package:ads/src/features/common_widget/elevatedbutton.dart';
+import 'package:ads/src/features/common_widget/custom_elevatedbutton.dart';
 import 'package:ads/src/features/common_widget/insights_graph.dart';
 import 'package:ads/src/features/common_widget/social_account_overview_details.dart';
 import 'package:ads/src/features/common_widget/view_more_detail_container.dart';

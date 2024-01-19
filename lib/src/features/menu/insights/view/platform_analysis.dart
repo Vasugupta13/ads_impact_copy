@@ -4,7 +4,7 @@ import 'package:ads/src/features/bottombar/bottomnavigationbar.dart';
 import 'package:ads/src/features/common_widget/catalog_list_view.dart';
 import 'package:ads/src/features/common_widget/custom_app_bar.dart';
 import 'package:ads/src/features/common_widget/customdropdown.dart';
-import 'package:ads/src/features/common_widget/elevatedbutton.dart';
+import 'package:ads/src/features/common_widget/custom_elevatedbutton.dart';
 import 'package:ads/src/res/platform_analysis_default.dart';
 import 'package:ads/src/utils/const.dart';
 import 'package:flutter/material.dart';
@@ -96,6 +96,7 @@ class _PlatformAnalysisState extends State<PlatformAnalysis> {
             ),
             height20,
             CustomDropDown(
+              containerheight: 0.5,
               containerwidth: 0.45,
               dropdownItems: items,
               hint: 'Spends',

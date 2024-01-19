@@ -1,6 +1,7 @@
 import 'package:ads/src/utils/const.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
 import 'package:scroll_snap_list/scroll_snap_list.dart';
 
 class PlanList extends StatefulWidget {
@@ -15,17 +16,17 @@ class _PlanListState extends State<PlanList> {
     {
       "planname": "Basic Plan",
       "Desc": "Torem ipsum dolor sit amet, consectetur adipiscing elit.",
-      "imagepath": "assets/images/amico.svg"
+      "imagepath": "assets/images/basic_plan.svg"
     },
     {
       "planname": "Advance Plan",
       "Desc": "Keep booking Liveasy to earn more.",
-      "imagepath": "assets/images/pana.svg"
+      "imagepath": "assets/images/advance_plan.svg"
     },
     {
       "planname": "Premium Plan",
       "Desc": "Refer Liveasy To get Premium Account.",
-      "imagepath": "assets/images/19962852_6203626.svg"
+      "imagepath": "assets/images/premium_plan.svg"
     },
   ];
   @override
@@ -34,7 +35,7 @@ class _PlanListState extends State<PlanList> {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         SizedBox(
-          height: 140,
+          height: Get.height * 0.23,
           child: ScrollSnapList(
             itemBuilder: _buildListItem,
             duration: 100,
@@ -45,20 +46,23 @@ class _PlanListState extends State<PlanList> {
             dynamicItemSize: true,
           ),
         ),
+        divider16,
+        height10,
       ],
     );
   }
 
   Widget _buildListItem(BuildContext context, int index) {
-    return SizedBox(
-      width: 260,
-      child: ClipRRect(
-        borderRadius: BorderRadius.circular(26),
-        child: Card(
-          elevation: 0,
-          color: const Color(0xff1A377D).withOpacity(0.10),
+    return Column(
+      children: [
+        Container(
+          width: Get.width * 0.6,
+          decoration: BoxDecoration(
+            color: kblue77D.withOpacity(0.10),
+            borderRadius: BorderRadius.circular(12),
+          ),
           child: Padding(
-            padding: const EdgeInsets.only(left: 14, right: 14, top: 4),
+            padding: const EdgeInsets.all(8.0),
             child: Column(
               children: [
                 Row(
@@ -66,31 +70,24 @@ class _PlanListState extends State<PlanList> {
                   children: [
                     Expanded(
                       child: Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
                             takeplandeatails[index]["planname"],
                             style: const TextStyle(
-                              fontSize: 14,
-                              fontWeight: FontWeight.w600,
-                            ),
+                                fontSize: 14, fontWeight: FontWeight.w600),
                           ),
                           height5,
                           Text(
                             takeplandeatails[index]["Desc"],
                             maxLines: 3,
-                            style: const TextStyle(
-                                fontSize: 10, letterSpacing: -0.3),
+                            style: const TextStyle(fontSize: 10),
                           ),
                         ],
                       ),
                     ),
-                    SvgPicture.asset(
-                      takeplandeatails[index]["imagepath"],
-                      fit: BoxFit.contain,
-                      height: 80,
-                    )
+                    SvgPicture.asset(takeplandeatails[index]["imagepath"],
+                        fit: BoxFit.contain, height: 80)
                   ],
                 ),
                 TextButton(
@@ -107,7 +104,7 @@ class _PlanListState extends State<PlanList> {
             ),
           ),
         ),
-      ),
+      ],
     );
   }
 }

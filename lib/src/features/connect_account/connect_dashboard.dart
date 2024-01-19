@@ -1,6 +1,6 @@
 import 'package:ads/src/features/bottombar/bottomnavigationbar.dart';
 import 'package:ads/src/features/common_widget/custom_app_bar.dart';
-import 'package:ads/src/features/common_widget/elevatedbutton.dart';
+import 'package:ads/src/features/common_widget/custom_elevatedbutton.dart';
 import 'package:ads/src/features/menu/automations/view/ad_optimization.dart';
 import 'package:ads/src/features/menu/catalog/widget/container_widget.dart';
 import 'package:ads/src/homepage/social_account_list_widget.dart';
@@ -19,7 +19,6 @@ class ConnectView extends StatefulWidget {
 class _ConnectViewState extends State<ConnectView> {
   int listindex = 0;
   bool? isChecked = false;
-  // bool isSelected = false;
   List<String> radioitems = ["Conservative", "Enhanced", "Preservance"];
 
   int? selectedvalue;

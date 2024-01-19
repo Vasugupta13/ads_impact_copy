@@ -1,3 +1,5 @@
+import 'package:ads/src/features/bottombar/view/custom_textfield.dart';
+import 'package:ads/src/features/common_widget/custom_elevatedbutton.dart';
 import 'package:ads/src/homepage/homepage.dart';
 import 'package:ads/src/utils/const.dart';
 import 'package:flutter/material.dart';
@@ -14,9 +16,6 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  final FocusNode _emailfocusNode = FocusNode();
-  final FocusNode _passwordfocusNode = FocusNode();
-
   @override
   void dispose() {
     super.dispose();
@@ -24,8 +23,6 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
-    double screenHeight = MediaQuery.of(context).size.height;
-
     return Scaffold(
       backgroundColor: kwhite,
       appBar: AppBar(
@@ -38,157 +35,88 @@ class _LoginPageState extends State<LoginPage> {
           Expanded(
             child: SingleChildScrollView(
               physics: const BouncingScrollPhysics(),
-              padding: const EdgeInsets.only(right: 34, left: 34),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  SvgPicture.asset(
-                    "assets/images/Vector.svg",
-                    fit: BoxFit.contain,
-                  ),
+                  SvgPicture.asset("assets/images/Vector.svg",
+                      fit: BoxFit.contain),
                   height50,
                   SvgPicture.asset("assets/images/icon.svg"),
                   height20,
                   const Text(
                     "Login",
                     style: TextStyle(
-                      fontSize: 26,
-                      fontWeight: FontWeight.w600,
-                      color: Color(0xffFF4848),
-                    ),
+                        fontSize: 26, fontWeight: FontWeight.w600, color: kred),
                   ),
                   height50,
-                  TextFormField(
-                    decoration: InputDecoration(
-                      contentPadding: const EdgeInsets.symmetric(
-                          vertical: 13, horizontal: 26),
-                      enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(16),
-                        borderSide:
-                            BorderSide(color: Colors.black.withOpacity(0.2)),
-                      ),
-                      focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(16),
-                        borderSide: BorderSide(
-                            color: _emailfocusNode.hasFocus
-                                ? const Color(0xffFF4848)
-                                : Colors.black.withOpacity(0.2),
-                            width: 1.3),
-                      ),
-                      hintText: "Enter your Email address",
-                      alignLabelWithHint: true,
-                      hintStyle: TextStyle(
-                        fontSize: 16,
-
-                        color: Colors.black.withOpacity(0.2),
-                      ),
-                    ),
-                    focusNode: _emailfocusNode,
+                  CustomTextField(
+                    hintText: "Enter your Email address",
+                    onChanged: (p0) {},
                   ),
-                  height20,
-                  TextFormField(
-                    focusNode: _passwordfocusNode,
-                    obscureText: true,
-                    decoration: InputDecoration(
-                      contentPadding: const EdgeInsets.symmetric(
-                          vertical: 13, horizontal: 26),
-                      enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(16),
-                        borderSide: BorderSide(
-                            color: Colors.black.withOpacity(0.2), width: 1.3),
-                      ),
-                      focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(16),
-                        borderSide: BorderSide(
-                            color: _passwordfocusNode.hasFocus
-                                ? const Color(0xffFF4848)
-                                : Colors.black.withOpacity(0.2),
-                            width: 1.3),
-                      ),
-                      hintText: "Password",
-                      alignLabelWithHint: true,
-                      hintStyle: TextStyle(
-                        fontSize: 16,
-
-                        color: Colors.black.withOpacity(0.2),
-                      ),
-                    ),
+                  height25,
+                  CustomTextField(
+                    hintText: "Password",
+                    isPassword: true,
+                    onChanged: (p0) {},
                   ),
-                  Align(
-                    alignment: Alignment.centerRight,
-                    child: TextButton(
-                      onPressed: () {
-                        Get.to(() => const ForgotPassword(),
-                            transition: Transition.rightToLeft);
-                      },
-                      child: Text(
-                        "Forget Password?",
-                        style: TextStyle(
-                          fontSize: 14,
-                          
-                          color: Colors.black.withOpacity(0.2),
+                  SizedBox(
+                    width: Get.width * 0.8,
+                    child: Align(
+                      alignment: Alignment.centerRight,
+                      child: TextButton(
+                        onPressed: () {
+                          Get.to(() => const ForgotPassword());
+                        },
+                        child: Text(
+                          "Forget Password?",
+                          style: TextStyle(
+                            fontSize: 12,
+                            color: Colors.black.withOpacity(0.2),
+                          ),
                         ),
                       ),
                     ),
                   ),
                   height30,
-                  ElevatedButton(
-                    onPressed: () {
-                      Get.off(() => const HomePage(),
-                          transition: Transition.leftToRightWithFade);
+                  CommonElevatedButton(
+                    name: "Login",
+                    buttonwidth: 0.45,
+                    textStyle: elevatedtextstyle,
+                    ontap: () {
+                      Get.off(() => const HomePage());
                     },
-                    style: ElevatedButton.styleFrom(
-                      alignment: Alignment.center,
-                      elevation: 0,
-                      fixedSize: Size(screenHeight * 0.26, screenHeight * 0.06),
-                      backgroundColor: const Color(0xffFF4848),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(16),
-                      ),
-                    ),
-                    child: const Center(
-                      child: Text(
-                        "Login",
-                        style: TextStyle(
-                          fontWeight: FontWeight.w600,
-                          fontSize: 14,
-                        ),
-                      ),
-                    ),
                   ),
                 ],
               ),
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.only(bottom: 30),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                const Text(
-                  "Don't have an account?",
-                  style: TextStyle(
-                      fontWeight: FontWeight.w400,
-                      fontSize: 16,
-                      color: Color(0xff585858)),
+          
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              const Text(
+                "Don't have an account?",
+                style: TextStyle(
+                  fontWeight: FontWeight.w400,
+                  fontSize: 14,
+                  color: Color(0xff585858),
                 ),
-                TextButton(
-                    onPressed: () {
-                      Get.to(() => const Signup(),
-                          transition: Transition.rightToLeftWithFade);
-                    },
-                    child: const Text(
-                      "Sign-Up",
-                      style: TextStyle(
-                          fontWeight: FontWeight.w600,
-                          fontSize: 16,
-                          color: Color(0xffFF0000)),
-                    ))
-              ],
-            ),
+              ),
+              TextButton(
+                onPressed: () {
+                  Get.to(() => const Signup());
+                },
+                child: const Text(
+                  "Sign-Up",
+                  style: TextStyle(
+                      fontWeight: FontWeight.w600, fontSize: 14, color: kred),
+                ),
+              ),
+            ],
           ),
+          height40,
         ],
       ),
     );

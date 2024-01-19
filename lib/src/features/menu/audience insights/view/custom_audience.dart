@@ -1,5 +1,5 @@
 import 'dart:ui';
-import 'package:ads/src/features/common_widget/elevatedbutton.dart';
+import 'package:ads/src/features/common_widget/custom_elevatedbutton.dart';
 import 'package:ads/src/features/menu/audience%20insights/audience_insights.dart';
 import 'package:ads/src/features/menu/audience%20insights/view/custom_audience_popup.dart';
 import 'package:ads/src/utils/const.dart';
@@ -60,7 +60,7 @@ class _CustomAudienceState extends State<CustomAudience> {
                       "Retention",
                       style: TextStyle(
                         fontSize: 12,
-                        
+
                         color: Color(0xff878787),
                       ),
                     ),

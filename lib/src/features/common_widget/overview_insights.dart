@@ -3,7 +3,6 @@ import 'package:ads/src/features/common_widget/social_account_overview_details.d
 import 'package:ads/src/homepage/social_account_list_widget.dart';
 import 'package:ads/src/model/social_media_info.dart';
 import 'package:ads/src/res/socialmediainfo.dart';
-import 'package:ads/src/res/strings.dart';
 import 'package:ads/src/utils/const.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -44,7 +43,7 @@ class _HomeDetailsPageState extends State<HomeDetailsPage> {
     return Column(
       children: [
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 18),
+          padding: const EdgeInsets.symmetric(horizontal: 16),
           child: Row(
             children: [
               Expanded(
@@ -57,21 +56,19 @@ class _HomeDetailsPageState extends State<HomeDetailsPage> {
                   child: Container(
                     height: 36,
                     decoration: BoxDecoration(
-                      color: currentindex == 0
-                          ? const Color(0xff1A377D)
-                          : Colors.white,
+                      color: currentindex == 0 ? kblue77D : kwhite,
                       borderRadius: const BorderRadius.only(
-                        topLeft: Radius.circular(16),
-                        bottomLeft: Radius.circular(16),
+                        topLeft: Radius.circular(12),
+                        bottomLeft: Radius.circular(12),
                       ),
                       border: Border.all(
-                          color: Colors.black.withOpacity(0.4), width: 0.5),
+                          color: kblack.withOpacity(0.4), width: 0.5),
                     ),
                     child: Center(
                       child: Text(
                         'OverView',
                         style: TextStyle(
-                          color: currentindex == 0 ? Colors.white : kblack,
+                          color: currentindex == 0 ? kwhite : kblack,
                         ),
                       ),
                     ),
@@ -89,21 +86,19 @@ class _HomeDetailsPageState extends State<HomeDetailsPage> {
                   child: Container(
                     height: 36,
                     decoration: BoxDecoration(
-                      color: currentindex == 0
-                          ? Colors.white
-                          : const Color(0xff1A377D),
+                      color: currentindex == 0 ? kwhite : kblue77D,
                       borderRadius: const BorderRadius.only(
-                        topRight: Radius.circular(16),
-                        bottomRight: Radius.circular(16),
+                        topRight: Radius.circular(12),
+                        bottomRight: Radius.circular(12),
                       ),
                       border: Border.all(
-                          color: Colors.black.withOpacity(0.4), width: 0.5),
+                          color: kblack.withOpacity(0.4), width: 0.5),
                     ),
                     child: Center(
                       child: Text(
                         'Insights',
                         style: TextStyle(
-                          color: currentindex == 0 ? kblack : Colors.white,
+                          color: currentindex == 0 ? kblack : kwhite,
                         ),
                       ),
                     ),
@@ -115,14 +110,14 @@ class _HomeDetailsPageState extends State<HomeDetailsPage> {
         ),
         height20,
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 18),
+          padding: const EdgeInsets.symmetric(horizontal: 16),
           child: Container(
             height: 40,
             width: Get.width,
-            padding: const EdgeInsets.symmetric(horizontal: 18),
+            padding: const EdgeInsets.symmetric(horizontal: 16),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(14),
-              color: const Color(0xff1A377D).withOpacity(0.1),
+              color: kblue77D.withOpacity(0.1),
             ),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -132,11 +127,8 @@ class _HomeDetailsPageState extends State<HomeDetailsPage> {
                   fit: BoxFit.contain,
                 ),
                 const Text("Select Date Range"),
-                SvgPicture.asset(
-                  'assets/images/arrow-square-down.svg',
-                  fit: BoxFit.contain,
-                  height: 22,
-                ),
+                SvgPicture.asset('assets/images/arrow-square-down.svg',
+                    fit: BoxFit.contain, height: 22),
               ],
             ),
           ),

@@ -5,7 +5,7 @@ import 'package:ads/src/features/bottombar/account/view/notifications.dart';
 import 'package:ads/src/features/bottombar/bottomnavigationbar.dart';
 import 'package:ads/src/features/bottombar/view/custom_textfield.dart';
 import 'package:ads/src/features/common_widget/custom_app_bar.dart';
-import 'package:ads/src/features/common_widget/elevatedbutton.dart';
+import 'package:ads/src/features/common_widget/custom_elevatedbutton.dart';
 import 'package:ads/src/utils/const.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -149,8 +149,8 @@ void _showPopup(BuildContext context) {
                     height5,
                     Divider(color: kblack.withOpacity(0.1), thickness: 0.5),
                     height10,
-                    CustomTextField(hinttext: "Enter your old password"),
-                    CustomTextField(hinttext: "Enter your new password"),
+                    // CustomTextField(hinttext: "Enter your old password"),
+                    // CustomTextField(hinttext: "Enter your new password"),
                     const Align(
                       alignment: Alignment.centerLeft,
                       child: Padding(
@@ -166,7 +166,7 @@ void _showPopup(BuildContext context) {
                       ),
                     ),
                     height5,
-                    CustomTextField(hinttext: "Confirm your password"),
+                    // CustomTextField(hinttext: "Confirm your password"),
                     height20,
                     CommonElevatedButton(
                       name: "Update",

@@ -1,6 +1,7 @@
 import 'package:ads/src/experiment/demo.dart';
 import 'package:ads/src/features/connect_account/connect_dashboard.dart';
 import 'package:ads/src/features/screen/splash_screen.dart';
+import 'package:ads/src/utils/const.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -16,10 +17,10 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        textTheme: GoogleFonts.poppinsTextTheme().copyWith(
-          bodyLarge: GoogleFonts.poppins(fontWeight: FontWeight.w500),
-        ),
-      ),
+          scaffoldBackgroundColor: kwhite,
+          fontFamily:
+              GoogleFonts.poppins(fontWeight: FontWeight.w500).fontFamily),
+      defaultTransition: Transition.leftToRightWithFade,
       home: const SplashScreen(),
     );
   }

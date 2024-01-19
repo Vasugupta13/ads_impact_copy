@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
 //const colors
-const Color textorange = Color(0xfff25b5b);
-const Color boxdecorationog = Color(0XFFEF4343);
 const Color kblack = Colors.black;
 const Color kwhite = Colors.white;
 const Color kgrey = Colors.grey;
-const Color kred = Colors.red;
-const Color storyColor = Color.fromARGB(255, 231, 20, 87);
+const Color kred = Color(0xffFF4848);
+const Color textcolor = Color(0xff989898);
+const Color grey77 = Color(0xff777777);
+const Color kblue77D = Color(0xff1A377D);
 
 //const width
 const SizedBox kwidth5 = SizedBox(width: 5);
@@ -57,7 +57,12 @@ const double spaceBtwSections = 32.0;
 BorderRadius bRadius10 = BorderRadius.circular(12);
 
 //paddings
+const EdgeInsets padding8 = EdgeInsets.all(8);
 const EdgeInsets padding10 = EdgeInsets.all(10);
+const EdgeInsets padding12 = EdgeInsets.all(12);
+const EdgeInsets padding14 = EdgeInsets.all(14);
+const EdgeInsets padding15 = EdgeInsets.all(15);
+const EdgeInsets padding16 = EdgeInsets.all(16);
 
 //heading style
 const TextStyle headingStyleBlack =
@@ -67,8 +72,9 @@ const TextStyle headingStyleWhite =
 
 TextStyle prestyle = TextStyle(fontSize: 12, color: kblack.withOpacity(0.5));
 
+//textstyle
+const TextStyle elevatedtextstyle = TextStyle(color: kwhite, fontSize: 12);
+
 //divider
 Divider divider16 = Divider(
-  indent: 16,
-  color: kblack.withOpacity(0.2),
-);
+    color: kblack.withOpacity(0.2), endIndent: 16, indent: 16, thickness: 1);

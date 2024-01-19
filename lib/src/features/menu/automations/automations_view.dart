@@ -1,6 +1,6 @@
 import 'package:ads/src/features/common_widget/custom_app_bar.dart';
 import 'package:ads/src/features/common_widget/customdropdown.dart';
-import 'package:ads/src/features/common_widget/elevatedbutton.dart';
+import 'package:ads/src/features/common_widget/custom_elevatedbutton.dart';
 import 'package:ads/src/features/menu/automations/view/ad_optimization.dart';
 import 'package:ads/src/features/menu/automations/view/budget_optimization.dart';
 import 'package:ads/src/homepage/social_account_list_widget.dart';
@@ -62,6 +62,7 @@ class _AutomationState extends State<Automation> {
             ),
             height30,
             CustomDropDown(
+              containerheight: 0.5,
               hint: 'Budget Optimization',
               containerwidth: 0.50,
               dropdownItems: items,
