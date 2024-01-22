@@ -40,7 +40,12 @@ class CustomSignupPage extends StatelessWidget {
       physics: const BouncingScrollPhysics(),
       child: Column(children: [
         if (iscompanyvisible == true)
-          const CompanyContainer()
+          CompanyContainer(
+              height: Get.height * 0.15,
+              paintwidth: Get.width,
+              titlename: "Hello Sai, Let Me\nKnow your Company\nname!",
+              textStyle: const TextStyle(color: kwhite, fontSize: 16),
+              isIcon: true)
         else
           Column(
             children: [
@@ -94,31 +99,45 @@ class CardPaint extends CustomPainter {
 }
 
 class CompanyContainer extends StatelessWidget {
-  const CompanyContainer({super.key});
+  final double height;
+  final double paintwidth;
+  final bool? isIcon;
+  final String titlename;
+  final TextStyle textStyle;
+
+  const CompanyContainer(
+      {super.key,
+      required this.height,
+      required this.paintwidth,
+      this.isIcon = false,
+      required this.titlename,
+      required this.textStyle});
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       width: Get.width,
-      height: Get.height * 0.15,
+      height: height,
       child: Stack(
-        alignment: Alignment.center,
         children: [
           CustomPaint(
             painter: CardPaint(),
-            size: Size(Get.width, Get.height),
+            size: Size(paintwidth, Get.height),
           ),
           Padding(
-            padding: const EdgeInsets.all(12),
+            
+            padding: EdgeInsets.all(isIcon == true ? 16 : 10),
             child: Row(
               children: [
-                SvgPicture.asset("assets/images/person_icon_white.svg"),
-                kwidth20,
-                const Expanded(
+                isIcon == true
+                    ? SvgPicture.asset("assets/images/person_icon_white.svg")
+                    : const SizedBox(),
+                (isIcon == true ? kwidth20 : kwidth10),
+                Expanded(
                   child: Text(
-                    "Hello Sai, Let Me\nKnow your Company\nname!",
+                    titlename,
                     maxLines: 3,
-                    style: TextStyle(color: kwhite, fontSize: 16),
+                    style: textStyle,
                   ),
                 )
               ],

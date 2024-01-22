@@ -1,4 +1,4 @@
-import 'package:ads/src/features/common_widget/plan_details.dart';
+import 'package:ads/src/homepage/plan_details.dart';
 import 'package:ads/src/utils/const.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -28,7 +28,7 @@ class _TakePlanBarState extends State<TakePlanBar> {
                 width: Get.width * 0.9,
                 padding: const EdgeInsets.symmetric(horizontal: 16),
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(14),
+                  borderRadius: BorderRadius.circular(12),
                   color: const Color(0xff615F5F),
                 ),
                 child: const Align(

@@ -6,7 +6,7 @@ import 'package:get/get.dart';
 class CommonContainerPlanDetals extends StatelessWidget {
   final double containerheight;
   final double containerwidth;
-  final String titleword;
+  final String titleletter;
   final String titlename;
   final double titlewordsize;
   final double titlenamesize;
@@ -17,14 +17,14 @@ class CommonContainerPlanDetals extends StatelessWidget {
   const CommonContainerPlanDetals(
       {super.key,
       required this.imageurl,
-      required this.titleword,
+      required this.titleletter,
       required this.titlename,
       required this.containerheight,
       required this.containerwidth,
       this.customfontsize = 14,
       this.titlewordsize = 24,
       this.titlenamesize = 24,
-      this.titlewordcolor = const Color(0xff1A377D)});
+      this.titlewordcolor = kblue77D});
 
   @override
   Widget build(BuildContext context) {
@@ -35,8 +35,8 @@ class CommonContainerPlanDetals extends StatelessWidget {
       decoration: BoxDecoration(
         color: kwhite,
         borderRadius: const BorderRadius.only(
-          bottomRight: Radius.circular(14),
-          topRight: Radius.circular(14),
+          bottomRight: Radius.circular(12),
+          topRight: Radius.circular(12),
         ),
         boxShadow: [
           BoxShadow(
@@ -49,12 +49,12 @@ class CommonContainerPlanDetals extends StatelessWidget {
       child: Column(
         children: [
           height10,
-          SvgPicture.asset(imageurl, fit: BoxFit.contain),
+          SvgPicture.asset(imageurl, height: Get.height * 0.15),
           height5,
           RichText(
             textAlign: TextAlign.center,
             text: TextSpan(
-              text: titleword,
+              text: titleletter,
               style: TextStyle(
                   color: titlewordcolor,
                   fontSize: titlewordsize,

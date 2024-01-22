@@ -21,10 +21,10 @@ class _BasicPlanState extends State<BasicPlan> {
             Align(
               alignment: Alignment.centerLeft,
               child: Container(
-                height: 52,
+                height: Get.height * 0.10 / 1.5,
                 width: Get.width * 0.55,
                 decoration: const BoxDecoration(
-                  color: Color(0xffFF4848),
+                  color: kred,
                   borderRadius: BorderRadius.only(
                     bottomRight: Radius.circular(12),
                     topRight: Radius.circular(12),
@@ -49,11 +49,11 @@ class _BasicPlanState extends State<BasicPlan> {
               ),
             ),
             Expanded(
-              child: SvgPicture.asset("assets/images/basic_plan.svg"),
+              child: SvgPicture.asset("assets/images/basic_plan_user.svg"),
             ),
           ],
         ),
-        const Divider(endIndent: 16, indent: 16, thickness: 1.0),
+        divider16
       ],
     );
   }

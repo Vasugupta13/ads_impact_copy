@@ -15,7 +15,7 @@ class _ShoppingListSliderState extends State<ShoppingListSlider> {
   List<String> imageList = [
     "assets/images/ck.png",
     "assets/images/nike.png",
-    "assets/images/bmw.png",
+    "assets/images/bmw.png"
   ];
 
   @override
@@ -28,12 +28,11 @@ class _ShoppingListSliderState extends State<ShoppingListSlider> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Divider(color: kblack.withOpacity(0.2), endIndent: 8, indent: 8),
+        dividerind16,
         height15,
         const Text(
           "Our Branding Partners",
-          style: TextStyle(
-              fontSize: 24, letterSpacing: -0.3),
+          style: TextStyle(fontSize: 24),
         ),
         height20,
         SizedBox(
@@ -68,11 +67,10 @@ class _ShoppingListSliderState extends State<ShoppingListSlider> {
                 controller: _pageController,
                 count: imageList.length,
                 effect: const ExpandingDotsEffect(
-                  expansionFactor: 2.5,
-                  dotWidth: 16,
-                  dotHeight: 10,
-                  activeDotColor: Color(0xffFF4848),
-                ),
+                    expansionFactor: 2.5,
+                    dotWidth: 16,
+                    dotHeight: 10,
+                    activeDotColor: kred),
               ),
             ],
           ),

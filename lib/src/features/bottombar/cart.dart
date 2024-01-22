@@ -1,8 +1,8 @@
 import 'package:ads/src/features/bottombar/bottomnavigationbar.dart';
 import 'package:ads/src/features/bottombar/view/payment.dart';
-import 'package:ads/src/features/common_widget/custom_app_bar.dart';
+import 'package:ads/src/homepage/customapp_bar.dart';
 import 'package:ads/src/features/common_widget/custom_elevatedbutton.dart';
-import 'package:ads/src/features/common_widget/plan_deatils_conatiner_image.dart';
+import 'package:ads/src/homepage/common_plan_container.dart';
 import 'package:ads/src/utils/const.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_chat_ui/flutter_chat_ui.dart';
@@ -55,7 +55,7 @@ class _CartPageState extends State<CartPage> {
                         titlewordcolor: const Color(0xffFF0000),
                         imageurl: "assets/images/basic_plan_chart.svg",
                         titlename: "asic Plac",
-                        titleword: "B",
+                        titleletter: "B",
                       ),
                       const VerticalDivider(color: kblack),
                       Expanded(

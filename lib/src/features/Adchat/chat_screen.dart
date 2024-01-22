@@ -7,14 +7,14 @@ import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:socket_io_client/socket_io_client.dart' as io;
 
-class Demo extends StatefulWidget {
-  const Demo({super.key});
+class AdChatScreen extends StatefulWidget {
+  const AdChatScreen({super.key});
 
   @override
-  State<Demo> createState() => _DemoState();
+  State<AdChatScreen> createState() => _AdChatScreenState();
 }
 
-class _DemoState extends State<Demo> {
+class _AdChatScreenState extends State<AdChatScreen> {
   final TextEditingController controller = TextEditingController();
   final RxList<Map<String, dynamic>> messages = <Map<String, dynamic>>[
     {
@@ -67,12 +67,15 @@ class _DemoState extends State<Demo> {
     return Obx(
       () => Scaffold(
         body: isLoading.value
-            ? const CircularProgressIndicator()
+            ? const Center(child: CircularProgressIndicator())
             : Stack(
                 children: [
                   Column(
                     children: [
-                      const CustomAppBar(
+                      CustomAppBar(
+                          onTapBack: () {
+                            Navigator.pop(context);
+                          },
                           imagepath: "assets/images/chat_icon.svg",
                           name: "Adchat"),
                       Expanded(
@@ -101,6 +104,7 @@ class _DemoState extends State<Demo> {
                               Align(
                                 alignment: Alignment.bottomCenter,
                                 child: ListView.builder(
+                                  physics: const BouncingScrollPhysics(),
                                   reverse: true,
                                   padding: EdgeInsets.zero,
                                   shrinkWrap: true,

@@ -1,29 +1,22 @@
-import 'package:ads/src/features/bottombar/account/account.dart';
-import 'package:ads/src/features/bottombar/analysis.dart';
-import 'package:ads/src/features/bottombar/cart.dart';
-import 'package:ads/src/homepage/homepage.dart';
-import 'package:ads/src/utils/const.dart';
+// bottom_nav_bar.dart
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 
+class BottomNavController extends GetxController {
+  var currentIndex = 0.obs;
+}
+
+final BottomNavController bottomNavController = Get.put(BottomNavController());
+
 class BottomNavBar extends StatefulWidget {
-  const BottomNavBar({super.key});
+  const BottomNavBar({Key? key}) : super(key: key);
 
   @override
   State<BottomNavBar> createState() => _BottomNavBarState();
 }
 
 class _BottomNavBarState extends State<BottomNavBar> {
-  int currentindex = 0;
-
-  final List<Widget> pages = [
-    const HomePage(),
-    const AnalysisPage(),
-    const CartPage(),
-    const MyAccountPage()
-  ];
-
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -31,7 +24,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
       decoration: BoxDecoration(
         boxShadow: [
           BoxShadow(
-            color: kblack.withOpacity(0.1),
+            color: Colors.black.withOpacity(0.1),
             blurRadius: 10,
             offset: const Offset(0, 10),
           ),
@@ -40,12 +33,25 @@ class _BottomNavBarState extends State<BottomNavBar> {
       child: ClipRRect(
         borderRadius: BorderRadius.circular(16),
         child: BottomNavigationBar(
-          currentIndex: currentindex,
+          currentIndex: bottomNavController.currentIndex.value,
           onTap: (index) {
-            setState(() {
-              currentindex = index;
-            });
-            Get.to(() => pages[index]);
+            bottomNavController.currentIndex.value = index;
+            switch (index) {
+              case 0:
+                Get.toNamed('/home');
+                break;
+              case 1:
+                Get.toNamed('/analysis');
+                break;
+              case 2:
+                Get.toNamed('/cart');
+                break;
+              case 3:
+                Get.toNamed('/account');
+                break;
+              default:
+                break;
+            }
           },
           selectedLabelStyle: const TextStyle(
             fontSize: 12,

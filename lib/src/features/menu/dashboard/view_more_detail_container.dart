@@ -1,4 +1,4 @@
-import 'package:ads/src/res/dashboard_platform_spend.dart';
+
 import 'package:ads/src/utils/const.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -28,7 +28,7 @@ class _ViewMoreContainerState extends State<ViewMoreContainer> {
             boxShadow: [
               BoxShadow(
                 blurRadius: 4,
-                color: Colors.black.withOpacity(0.25),
+                color: kblack.withOpacity(0.25),
                 offset: const Offset(0, 4),
               ),
             ],
@@ -42,16 +42,12 @@ class _ViewMoreContainerState extends State<ViewMoreContainer> {
           child: Column(
             children: [
               height50,
-              Divider(
-                color: Colors.black.withOpacity(0.1),
-                endIndent: 14,
-                indent: 14,
-              ),
+              divider161,
               SizedBox(
                 child: ListView.builder(
                   shrinkWrap: true,
                   padding:
-                      const EdgeInsets.symmetric(horizontal: 22, vertical: 2),
+                      const EdgeInsets.symmetric(horizontal: 16, vertical: 2),
                   physics: const NeverScrollableScrollPhysics(),
                   itemCount: widget.data.length,
                   itemBuilder: (context, index) {
@@ -70,9 +66,7 @@ class _ViewMoreContainerState extends State<ViewMoreContainer> {
                             Expanded(
                               child: Text(
                                 widget.data[index]["name"],
-                                style: const TextStyle(
-                                  fontSize: 12,
-                                ),
+                                style: const TextStyle(fontSize: 12),
                               ),
                             ),
                             const VerticalDivider(color: Colors.black),
@@ -80,9 +74,7 @@ class _ViewMoreContainerState extends State<ViewMoreContainer> {
                             Text(
                               widget.data[index]["spend"],
                               style: const TextStyle(
-                                fontSize: 12,
-                                fontWeight: FontWeight.w600,
-                              ),
+                                  fontSize: 12, fontWeight: FontWeight.w600),
                             ),
                             const Spacer(),
                             Text(
@@ -94,7 +86,7 @@ class _ViewMoreContainerState extends State<ViewMoreContainer> {
                             ),
                           ],
                         ),
-                        const SizedBox(height: 30),
+                        height30,
                       ],
                     );
                   },
@@ -124,9 +116,7 @@ class _ViewMoreContainerState extends State<ViewMoreContainer> {
                   Icon(Icons.keyboard_arrow_up),
                   Text(
                     "View More",
-                    style: TextStyle(
-                      fontSize: 10,
-                    ),
+                    style: TextStyle(fontSize: 10),
                   ),
                 ],
               ),

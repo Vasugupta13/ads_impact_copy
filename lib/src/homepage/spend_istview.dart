@@ -2,7 +2,7 @@ import 'package:ads/src/utils/const.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-import '../../../src/model/social_media_info.dart';
+import '../model/social_media_info.dart';
 
 class SocialMediaOverview extends StatefulWidget {
   final List<SocialMediaInfo> dataList;
@@ -58,13 +58,17 @@ class _SocialMediaOverviewState extends State<SocialMediaOverview> {
 
   Widget _buildItem(int index) {
     return Container(
-      height: Get.height * 0.2 - 15,
-      width: Get.width * 0.9,
+      height: widget.scrollDirection == Axis.vertical
+          ? Get.height * 0.2 - 15
+          : Get.height * 0.2 - 15,
+      width: widget.scrollDirection == Axis.vertical
+          ? Get.width * 0.9
+          : Get.width * 0.6,
       margin: const EdgeInsets.all(8),
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(16),
-        color: kblue77D.withOpacity(0.1),
+        borderRadius: BorderRadius.circular(12),
+        color: const Color(0xffEAEDF7),
       ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
@@ -74,41 +78,54 @@ class _SocialMediaOverviewState extends State<SocialMediaOverview> {
             children: [
               Text(
                 widget.dataList[index].name,
-                style: const TextStyle(fontSize: 16),
+                style: widget.scrollDirection == Axis.horizontal
+                    ? const TextStyle(fontSize: 14)
+                    : const TextStyle(fontSize: 18),
               ),
               SvgPicture.asset(widget.dataList[index].imageurl,
-                  color: const Color(0xff5468BE))
+                  color: widget.scrollDirection == Axis.horizontal
+                      ? kblue77D
+                      : const Color(0xff5468BE))
             ],
           ),
           if (widget.scrollDirection == Axis.horizontal)
-            const Divider(color: kred, endIndent: 140, thickness: 0.5),
-          Padding(
-            padding: const EdgeInsets.only(right: 20),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  "₹${widget.dataList[index].amount}",
-                  style: const TextStyle(
-                      fontSize: 22, fontWeight: FontWeight.w600),
-                ),
-                TextButton.icon(
+            Align(
+              alignment: Alignment.centerLeft,
+              heightFactor: 10,
+              child: Container(
+                  height: 1, width: Get.width * 0.2 - 10, color: kred),
+            ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Text(
+                "₹${widget.dataList[index].amount}",
+                style: widget.scrollDirection == Axis.horizontal
+                    ? const TextStyle(fontSize: 14, fontWeight: FontWeight.w600)
+                    : const TextStyle(
+                        fontSize: 24, fontWeight: FontWeight.w600),
+              ),
+              widget.scrollDirection == Axis.horizontal
+                  ? const SizedBox()
+                  : const Spacer(),
+              Expanded(
+                child: TextButton.icon(
                   onPressed: () {},
                   icon: const Icon(
                     Icons.arrow_upward_sharp,
-                    color: Color(0xff00CA39),
+                    color: kgreen,
                     size: 20,
                   ),
                   label: Text(
                     widget.dataList[index].percentage,
                     style: const TextStyle(
                         fontSize: 12,
-                        color: Color(0xff00CA39),
+                        color: kgreen,
                         fontWeight: FontWeight.w600),
                   ),
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
           height5,
           Align(
@@ -116,7 +133,7 @@ class _SocialMediaOverviewState extends State<SocialMediaOverview> {
             child: Text(
               "From Last 7 days : ${widget.dataList[index].daysamount}",
               style: TextStyle(
-                fontSize: 10,
+                fontSize: 8,
                 fontWeight: FontWeight.w600,
                 color: kblack.withOpacity(0.67),
               ),

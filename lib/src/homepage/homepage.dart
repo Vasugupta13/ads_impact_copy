@@ -1,11 +1,11 @@
 import 'dart:ui';
 import 'package:ads/src/features/bottombar/bottomnavigationbar.dart';
-import 'package:ads/src/features/common_widget/overview_insights.dart';
-import 'package:ads/src/features/common_widget/plan_snaplistview.dart';
-import 'package:ads/src/features/common_widget/take_plan_bar.dart';
+import 'package:ads/src/homepage/plan_listview.dart';
+import 'package:ads/src/homepage/take_plan_bar.dart';
 import 'package:ads/src/features/menu/main_menu.dart';
 import 'package:ads/src/global_basicuser.dart';
 import 'package:ads/src/homepage/basic_plan.dart';
+import 'package:ads/src/homepage/overview_insights.dart';
 import 'package:ads/src/utils/const.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -21,11 +21,30 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   bool showplandetails = false;
+  bool isLoading = true;
 
   toggleVisibility() {
     setState(() {
       showplandetails = !showplandetails;
     });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    loadData();
+  }
+
+  void loadData() async {
+    try {
+      await Future.delayed(const Duration(milliseconds: 1500));
+
+      setState(() {
+        isLoading = false;
+      });
+    } catch (e) {
+      print("Error loading data: $e");
+    }
   }
 
   @override
@@ -76,8 +95,7 @@ class _HomePageState extends State<HomePage> {
                 ? const BasicPlan()
                 : TakePlanBar(
                     toggle: () => toggleVisibility(),
-                    isvisible: showplandetails,
-                  ),
+                    isvisible: showplandetails),
             height10,
             if (!showplandetails)
               Column(
@@ -109,6 +127,7 @@ class _HomePageState extends State<HomePage> {
       ),
       items: [
         const PopupMenuItem(
+          padding: EdgeInsets.zero,
           child: PopupMenuView(),
         ),
       ],

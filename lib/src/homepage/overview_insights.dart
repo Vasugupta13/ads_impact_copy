@@ -1,5 +1,5 @@
-import 'package:ads/src/features/common_widget/insight_view.dart';
-import 'package:ads/src/features/common_widget/social_account_overview_details.dart';
+import 'package:ads/src/homepage/insight_view.dart';
+import 'package:ads/src/homepage/spend_istview.dart';
 import 'package:ads/src/homepage/social_account_list_widget.dart';
 import 'package:ads/src/model/social_media_info.dart';
 import 'package:ads/src/res/socialmediainfo.dart';
@@ -62,7 +62,8 @@ class _HomeDetailsPageState extends State<HomeDetailsPage> {
                         bottomLeft: Radius.circular(12),
                       ),
                       border: Border.all(
-                          color: kblack.withOpacity(0.4), width: 0.5),
+                        color: kblack.withOpacity(0.4),
+                      ),
                     ),
                     child: Center(
                       child: Text(
@@ -92,7 +93,8 @@ class _HomeDetailsPageState extends State<HomeDetailsPage> {
                         bottomRight: Radius.circular(12),
                       ),
                       border: Border.all(
-                          color: kblack.withOpacity(0.4), width: 0.5),
+                        color: kblack.withOpacity(0.4),
+                      ),
                     ),
                     child: Center(
                       child: Text(
@@ -116,7 +118,7 @@ class _HomeDetailsPageState extends State<HomeDetailsPage> {
             width: Get.width,
             padding: const EdgeInsets.symmetric(horizontal: 16),
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(14),
+              borderRadius: BorderRadius.circular(12),
               color: kblue77D.withOpacity(0.1),
             ),
             child: Row(

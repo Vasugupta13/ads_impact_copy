@@ -58,7 +58,7 @@ class _PlanListState extends State<PlanList> {
         Container(
           width: Get.width * 0.6,
           decoration: BoxDecoration(
-            color: kblue77D.withOpacity(0.10),
+            color: kblue77D.withOpacity(0.1),
             borderRadius: BorderRadius.circular(12),
           ),
           child: Padding(

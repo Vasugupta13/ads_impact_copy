@@ -5,9 +5,10 @@ const Color kblack = Colors.black;
 const Color kwhite = Colors.white;
 const Color kgrey = Colors.grey;
 const Color kred = Color(0xffFF4848);
+const Color kblue77D = Color(0xff1A377D);
+const Color kgreen = Color(0xff00CA39);
 const Color textcolor = Color(0xff989898);
 const Color grey77 = Color(0xff777777);
-const Color kblue77D = Color(0xff1A377D);
 
 //const width
 const SizedBox kwidth5 = SizedBox(width: 5);
@@ -77,4 +78,13 @@ const TextStyle elevatedtextstyle = TextStyle(color: kwhite, fontSize: 12);
 
 //divider
 Divider divider16 = Divider(
-    color: kblack.withOpacity(0.2), endIndent: 16, indent: 16, thickness: 1);
+    height: 2.0, color: kblack.withOpacity(0.2), endIndent: 10, indent: 10);
+Divider dividerind16 =
+    Divider(color: kblack.withOpacity(0.2), indent: 16, thickness: 1);
+Divider divider161 =
+    Divider(color: kblack.withOpacity(0.1), indent: 16, thickness: 1);
+
+Divider divider = Divider(color: kblack.withOpacity(0.2));
+
+Divider menudivider = Divider(
+    color: kblack.withOpacity(0.1), indent: 16, thickness: 1, height: 0);
