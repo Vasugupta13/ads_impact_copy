@@ -82,7 +82,7 @@ class _PlatformAnalysisState extends State<PlatformAnalysis> {
             ),
             height20,
             CatalogListView(
-              containerwidth: 0.85,
+            
               names: const [
                 "Default View",
                 "Comparison View",

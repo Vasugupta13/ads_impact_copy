@@ -82,7 +82,6 @@ class _KeywordAnalysisState extends State<KeywordAnalysis> {
             ),
             height20,
             CatalogListView(
-              containerwidth: 0.75,
               alignment: Alignment.center,
               names: const [
                 "Default View",

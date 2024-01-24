@@ -126,11 +126,9 @@ class _AccountHelpSupportState extends State<AccountHelpSupport> {
                 iconname: Icons.chat_bubble_outline),
             height30,
           ],
-
         ),
       ),
-      bottomNavigationBar: BottomNavBar(),
-
+      bottomNavigationBar: const BottomNavBar(),
     );
   }
 
@@ -142,7 +140,7 @@ class _AccountHelpSupportState extends State<AccountHelpSupport> {
           name,
           style: const TextStyle(
             fontSize: 18,
-            color: Color(0xff878787),
+            color: kdarkgrey,
           ),
         ),
         Text(
@@ -174,7 +172,7 @@ class FAQList extends StatelessWidget {
             style: TextStyle(
                 fontWeight: FontWeight.w400,
                 fontSize: 14,
-                color: const Color(0xff878787).withOpacity(0.7)),
+                color: kdarkgrey.withOpacity(0.7)),
           ),
         ],
       ),

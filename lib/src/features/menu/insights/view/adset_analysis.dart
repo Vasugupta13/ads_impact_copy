@@ -85,7 +85,6 @@ class _AdsetAnalysisState extends State<AdsetAnalysis> {
             ),
             height20,
             CatalogListView(
-              containerwidth: 0.75,
               alignment: Alignment.center,
               names: const [
                 "Default View",

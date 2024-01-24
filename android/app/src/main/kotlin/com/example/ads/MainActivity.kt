@@ -1,4 +1,4 @@
-package com.example.ads
+package com.ads.impact
 
 import io.flutter.embedding.android.FlutterActivity
 

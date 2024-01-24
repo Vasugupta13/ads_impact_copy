@@ -68,7 +68,7 @@ class _CartPageState extends State<CartPage> {
                             ),
                             height10,
                             Divider(
-                              color: const Color(0xff878787).withOpacity(0.1),
+                              color:  kdarkgrey.withOpacity(0.1),
                             ),
                             height10,
                             const Row(
@@ -80,7 +80,7 @@ class _CartPageState extends State<CartPage> {
                                   style: TextStyle(
                                     fontSize: 16,
                                     fontWeight: FontWeight.w600,
-                                    color: Color(0xff878787),
+                                    color: kdarkgrey,
                                   ),
                                 ),
                                 Text(
@@ -89,7 +89,7 @@ class _CartPageState extends State<CartPage> {
                                     decoration: TextDecoration.lineThrough,
                                     fontSize: 16,
                                     fontWeight: FontWeight.w600,
-                                    color: Color(0xff878787),
+                                    color: kdarkgrey,
                                   ),
                                 ),
                                 Text(
@@ -97,14 +97,14 @@ class _CartPageState extends State<CartPage> {
                                   style: TextStyle(
                                     fontSize: 8,
                                     fontWeight: FontWeight.w600,
-                                    color: Color(0xff878787),
+                                    color: kdarkgrey,
                                   ),
                                 ),
                               ],
                             ),
                             const SizedBox(height: 5),
                             Divider(
-                              color: const Color(0xff878787).withOpacity(0.1),
+                              color:  kdarkgrey.withOpacity(0.1),
                             ),
                             height10,
                             const Text(

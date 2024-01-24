@@ -1,4 +1,3 @@
-import 'package:ads/src/utils/const.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -6,12 +5,14 @@ class CatalogListView extends StatefulWidget {
   final Function(int index) onTapCallback;
   final List<String> names;
   final AlignmentGeometry alignment;
-  final double containerwidth;
+ 
+
   const CatalogListView({
     Key? key,
     required this.onTapCallback,
     required this.names,
-    this.alignment = Alignment.centerRight, required this.containerwidth,
+    this.alignment = Alignment.centerRight,
+
   }) : super(key: key);
 
   @override
@@ -19,7 +20,7 @@ class CatalogListView extends StatefulWidget {
 }
 
 class _CatalogListViewState extends State<CatalogListView> {
-  int listindex = 0;
+  int selectedindex = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -27,11 +28,10 @@ class _CatalogListViewState extends State<CatalogListView> {
       alignment: widget.alignment,
       child: Container(
         height: 44,
-        width: Get.width * widget.containerwidth,
-        padding: const EdgeInsets.only(left: 20, right: 20),
+        width: Get.width * 0.9,
         decoration: BoxDecoration(
           color: Colors.white,
-          borderRadius: BorderRadius.circular(16),
+          borderRadius: BorderRadius.circular(12),
           boxShadow: [
             BoxShadow(
               color: const Color(0xff000040).withOpacity(0.25),
@@ -51,7 +51,7 @@ class _CatalogListViewState extends State<CatalogListView> {
             return GestureDetector(
               onTap: () {
                 setState(() {
-                  listindex = index;
+                  selectedindex = index;
                   widget.onTapCallback(index);
                 });
               },
@@ -65,9 +65,17 @@ class _CatalogListViewState extends State<CatalogListView> {
                   children: [
                     Text(
                       widget.names[index],
-                      style: const TextStyle(
+                      style: TextStyle(
                         fontSize: 12,
                         fontWeight: FontWeight.w600,
+                        color: Colors.black,
+                        decoration: selectedindex == index
+                            ? TextDecoration.underline
+                            : TextDecoration.none,
+                        decorationColor: selectedindex == index
+                            ? const Color(0xffFF6B00)
+                            : Colors.transparent,
+                        decorationThickness: 2,
                       ),
                     ),
                   ],

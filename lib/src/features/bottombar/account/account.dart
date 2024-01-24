@@ -3,7 +3,6 @@ import 'package:ads/src/features/bottombar/account/view/edit_profile.dart';
 import 'package:ads/src/features/bottombar/account/view/help_support.dart';
 import 'package:ads/src/features/bottombar/account/view/notifications.dart';
 import 'package:ads/src/features/bottombar/bottomnavigationbar.dart';
-import 'package:ads/src/features/bottombar/view/custom_textfield.dart';
 import 'package:ads/src/homepage/customapp_bar.dart';
 import 'package:ads/src/features/common_widget/custom_elevatedbutton.dart';
 import 'package:ads/src/utils/const.dart';
@@ -76,7 +75,6 @@ class _MyAccountPageState extends State<MyAccountPage> {
         ),
       ),
       bottomNavigationBar: BottomNavBar(),
-
     );
   }
 }
@@ -160,7 +158,7 @@ void _showPopup(BuildContext context) {
                           style: TextStyle(
                             letterSpacing: -0.3,
                             fontSize: 8,
-                            color: Color(0xff878787),
+                            color: kdarkgrey,
                           ),
                         ),
                       ),

@@ -80,7 +80,7 @@ class _CampaignAnalysisState extends State<CampaignAnalysis> {
             ),
             height20,
             CatalogListView(
-              containerwidth: 0.85,
+            
               names: const ["Default View", "Website View", "Performance View"],
               onTapCallback: (int index) {},
             ),

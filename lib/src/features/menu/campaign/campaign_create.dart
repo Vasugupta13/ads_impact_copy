@@ -39,8 +39,7 @@ class _CampaignCreateState extends State<CampaignCreate> {
                 isExpanded: true,
                 hint: const Row(
                   children: [
-                    Icon(Icons.visibility_outlined,
-                        size: 20, color: Color(0xff878787)),
+                    Icon(Icons.visibility_outlined, size: 20, color: kdarkgrey),
                     kwidth10,
                     Expanded(
                       child: Text(
@@ -49,8 +48,7 @@ class _CampaignCreateState extends State<CampaignCreate> {
                         style: TextStyle(
                           fontSize: 12,
                           overflow: TextOverflow.ellipsis,
-
-                          color: Color(0xff878787),
+                          color: kdarkgrey,
                         ),
                       ),
                     ),
@@ -102,7 +100,9 @@ class _CampaignCreateState extends State<CampaignCreate> {
             Divider(color: kblack.withOpacity(0.1), endIndent: 0, indent: 26),
             height20,
             const Text("Preview",
-                style: TextStyle(fontSize: 18, )),
+                style: TextStyle(
+                  fontSize: 18,
+                )),
             height20,
             Container(
               height: Get.height * 0.54,
@@ -188,8 +188,8 @@ class _CampaignCreateState extends State<CampaignCreate> {
                                       child: Text(
                                         "Add to Cart",
                                         style: TextStyle(
-                                            fontSize: 8,
-                                            ),
+                                          fontSize: 8,
+                                        ),
                                       ),
                                     ),
                                   ),
@@ -207,7 +207,6 @@ class _CampaignCreateState extends State<CampaignCreate> {
                                         style: TextStyle(
                                           color: kwhite,
                                           fontSize: 8,
-
                                         ),
                                       ),
                                     ),
@@ -241,7 +240,9 @@ class _CampaignCreateState extends State<CampaignCreate> {
                 icon: const Icon(Icons.volume_up_outlined, size: 16),
                 label: const Text(
                   "Create",
-                  style: TextStyle(fontSize: 12, ),
+                  style: TextStyle(
+                    fontSize: 12,
+                  ),
                 ),
               ),
             ),
@@ -287,7 +288,6 @@ class CustomTextForm extends StatelessWidget {
           alignLabelWithHint: true,
           hintStyle: TextStyle(
             fontSize: 12,
-
             color: Colors.black.withOpacity(0.2),
           ),
         ),

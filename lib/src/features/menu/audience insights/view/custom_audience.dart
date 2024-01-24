@@ -39,7 +39,9 @@ class _CustomAudienceState extends State<CustomAudience> {
                   kwidth20,
                   Text(
                     "Custom Audience",
-                    style: TextStyle(fontSize: 16, ),
+                    style: TextStyle(
+                      fontSize: 16,
+                    ),
                   ),
                 ],
               ),
@@ -60,8 +62,7 @@ class _CustomAudienceState extends State<CustomAudience> {
                       "Retention",
                       style: TextStyle(
                         fontSize: 12,
-
-                        color: Color(0xff878787),
+                        color: kdarkgrey,
                       ),
                     ),
                   ),
@@ -86,9 +87,9 @@ class _CustomAudienceState extends State<CustomAudience> {
                               Text(
                                 "Include more people",
                                 style: TextStyle(
-                                    color: kwhite,
-                                    fontSize: 10,
-                                    ),
+                                  color: kwhite,
+                                  fontSize: 10,
+                                ),
                               ),
                             ],
                           ),
@@ -111,9 +112,9 @@ class _CustomAudienceState extends State<CustomAudience> {
                               Text(
                                 "Exclude people",
                                 style: TextStyle(
-                                    color: kwhite,
-                                    fontSize: 10,
-                                    ),
+                                  color: kwhite,
+                                  fontSize: 10,
+                                ),
                               ),
                             ],
                           ),
@@ -132,8 +133,7 @@ class _CustomAudienceState extends State<CustomAudience> {
                 name: "Create Audience",
                 buttonwidth: 0.22,
                 buttonheight: 0.05,
-                textStyle: const TextStyle(
-                    fontSize: 12, color: kwhite),
+                textStyle: const TextStyle(fontSize: 12, color: kwhite),
                 ontap: () async {
                   Get.back();
                   showDialog(
@@ -194,7 +194,6 @@ class _CustomTextFormState extends State<CustomTextForm> {
             alignLabelWithHint: true,
             hintStyle: TextStyle(
               fontSize: 12,
-
               color: Colors.black.withOpacity(0.2),
             ),
           ),

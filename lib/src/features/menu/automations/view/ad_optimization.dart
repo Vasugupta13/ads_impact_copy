@@ -236,7 +236,7 @@ class StatusContainer extends StatelessWidget {
                           hintText: "Ex : 5450",
                           hintStyle: const TextStyle(
                             fontSize: 10,
-                            color: Color(0xff878787),
+                            color: kdarkgrey,
                           ),
                         ),
                       ),

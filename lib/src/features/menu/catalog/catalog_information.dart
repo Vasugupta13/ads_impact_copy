@@ -682,7 +682,7 @@ class _MenuCatalogInformationState extends State<MenuCatalogInformation> {
                   hintStyle: const TextStyle(
                     fontSize: 12,
                     fontWeight: FontWeight.w400,
-                    color: Color(0xff878787),
+                    color: kdarkgrey,
                   ),
                 ),
               ),

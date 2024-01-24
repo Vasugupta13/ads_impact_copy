@@ -17,24 +17,25 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-        debugShowCheckedModeBanner: false,
-        theme: ThemeData(
-            scaffoldBackgroundColor: kwhite,
-            fontFamily:
-                GoogleFonts.poppins(fontWeight: FontWeight.w500).fontFamily),
-        defaultTransition: Transition.leftToRightWithFade,
-        initialRoute: '/home',
-        //  '/splash',
-
-        getPages: [
-          GetPage(name: '/splash', page: () => const SplashScreen()),
-          GetPage(name: '/home', page: () => const HomePage()),
-          GetPage(name: '/analysis', page: () => const AnalysisPage()),
-          GetPage(name: '/cart', page: () => const CartPage()),
-          GetPage(name: '/account', page: () => const MyAccountPage())
-        ],
-        home: const HomePage()
-        //  SplashScreen(),
-        );
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+          scaffoldBackgroundColor: kwhite,
+          fontFamily:
+              GoogleFonts.poppins(fontWeight: FontWeight.w500).fontFamily),
+      defaultTransition: Transition.leftToRightWithFade,
+      initialRoute:
+          // '/home',
+          '/splash',
+      getPages: [
+        GetPage(name: '/splash', page: () => const SplashScreen()),
+        GetPage(name: '/home', page: () => const HomePage()),
+        GetPage(name: '/analysis', page: () => const AnalysisPage()),
+        GetPage(name: '/cart', page: () => const CartPage()),
+        GetPage(name: '/account', page: () => const MyAccountPage())
+      ],
+      home:
+          //  HomePage()
+          const SplashScreen(),
+    );
   }
 }

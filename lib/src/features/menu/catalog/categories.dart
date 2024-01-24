@@ -1,14 +1,15 @@
 import 'package:ads/src/features/bottombar/bottomnavigationbar.dart';
 import 'package:ads/src/features/common_widget/catalog_list_view.dart';
-import 'package:ads/src/homepage/customapp_bar.dart';
 import 'package:ads/src/features/common_widget/custom_elevatedbutton.dart';
+import 'package:ads/src/features/common_widget/customdropdown.dart';
+import 'package:ads/src/homepage/customapp_bar.dart';
+import 'package:ads/src/homepage/homepage.dart';
 import 'package:ads/src/res/catalog_categories_products.dart';
 import 'package:ads/src/utils/const.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
+import 'package:intl/intl.dart';
 
 class MenuCatalogCategories extends StatefulWidget {
   const MenuCatalogCategories({super.key});
@@ -18,41 +19,64 @@ class MenuCatalogCategories extends StatefulWidget {
 }
 
 class _MenuCatalogCategoriesState extends State<MenuCatalogCategories> {
-  TableRow buildRow(List<String> cells) => TableRow(
-          children: cells.map((cell) {
-        return Padding(
-          padding: const EdgeInsets.all(12),
-          child: Center(
-            child: Text(
-              cell,
-              style: const TextStyle(fontSize: 13, fontWeight: FontWeight.w600),
-            ),
-          ),
-        );
-      }).toList());
+  List<String> items = [
+    'New Products',
+    'Products',
+    'Out of Stock',
+    'Discounted',
+    'Invalid',
+    'Exclude',
+    'ROAS'
+  ];
+  String? selectedValue = "Products";
+  final NumberFormat formatter = NumberFormat("#,##0.00", "en_US");
+  List<Map<String, String>> filteredData = [];
+
+  @override
+  void initState() {
+    super.initState();
+    updateTable();
+  }
+
+  void updateTable() {
+    filteredData = CatalogProductDetail.categorydetails
+        .map((category) => {
+              "categoryname": category["categoryname"].toString(),
+              "value": category[selectedValue!.toLowerCase()].toString(),
+            })
+        .toList();
+  }
+
   @override
   Widget build(BuildContext context) {
+    double total = CatalogProductDetail.categorydetails.fold(
+        0.0,
+        (sum, category) =>
+            sum +
+            double.parse(
+                category[selectedValue!.toLowerCase()].replaceAll(',', '')));
+
     return Scaffold(
       backgroundColor: kwhite,
       body: SingleChildScrollView(
-        padding: const EdgeInsets.symmetric(vertical: 42),
         physics: const BouncingScrollPhysics(),
         child: Column(
           children: [
-            const CustomAppBar(
-                name: "Catalog", imagepath: "assets/images/catalog_group.svg"),
-            height20,
-            Divider(color: kblack.withOpacity(0.1), endIndent: 0, indent: 26),
+            CustomAppBar(
+              onTapBack: () => Get.to(() => const HomePage()),
+              name: "Catalog",
+              imagepath: "assets/images/catalog_categories_icon.svg",
+            ),
             height5,
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 18),
+              padding: const EdgeInsets.symmetric(horizontal: 16),
               child: Container(
                 height: 40,
                 width: Get.width,
-                padding: const EdgeInsets.symmetric(horizontal: 18),
+                padding: const EdgeInsets.symmetric(horizontal: 16),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(14),
-                  color: const Color(0xff1A377D).withOpacity(0.1),
+                  color: kblue77D.withOpacity(0.1),
                 ),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -68,90 +92,63 @@ class _MenuCatalogCategoriesState extends State<MenuCatalogCategories> {
             ),
             height20,
             CatalogListView(
-              containerwidth: 0.85,
-              names: ["Default View", "Website View", "Performance View"],
+              names: const ["Default View", "Website View", "Performance View"],
               onTapCallback: (int index) {},
             ),
             height20,
-            Container(
-              height: 34,
-              width: Get.width * 0.38,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(16),
-                border: Border.all(
-                  color: kblack.withOpacity(0.2),
-                ),
-              ),
-              child: const Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    "Products",
-                    style: TextStyle(fontSize: 12, fontWeight: FontWeight.w600),
-                  ),
-                  kwidth5,
-                  VerticalDivider(endIndent: 6, indent: 6, thickness: 1),
-                  kwidth5,
-                  Icon(Icons.keyboard_arrow_down)
-                ],
-              ),
+            CustomDropDown(
+              value: selectedValue,
+              onChanged: (String? value) {
+                setState(() {
+                  selectedValue = value;
+                  updateTable();
+                });
+              },
+              hint: "Products",
+              dropdownItems: items,
+              containerwidth: 0.5,
+              containerheight: 0.05,
             ),
             height20,
             Container(
-              margin: const EdgeInsets.all(15),
+              margin: const EdgeInsets.all(16),
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(16),
-                border: Border.all(
-                  color: kblack.withOpacity(0.4),
-                ),
+                borderRadius: BorderRadius.circular(12),
+                border: Border.all(color: kblack.withOpacity(0.2)),
               ),
               child: Column(
                 children: [
                   Table(
                     border: TableBorder(
                       verticalInside:
-                          BorderSide(color: kblack.withOpacity(0.4)),
-                      bottom: BorderSide(
-                        color: kblack.withOpacity(0.4),
-                      ),
+                          BorderSide(color: kblack.withOpacity(0.1)),
+                      bottom: BorderSide(color: kblack.withOpacity(0.1)),
                     ),
                     children: [
-                      buildRow(
-                        ["Product Categories", "Products"],
-                      ),
+                      buildRow(["Product Categories", selectedValue ?? ""]),
                     ],
                   ),
                   Table(
                     border: TableBorder(
-                      verticalInside: BorderSide(
-                        width: 1,
-                        color: kblack.withOpacity(0.4),
-                      ),
+                      verticalInside:
+                          BorderSide(width: 1, color: kblack.withOpacity(0.1)),
                     ),
-                    children: CatalogProductDetail.categorydetails
-                        .map(
-                          (category) => buildRow(
-                            [
-                              category["categoryname"].toString(),
-                              category["products"].toString(),
-                            ],
-                          ),
-                        )
+                    children: filteredData
+                        .map((category) => buildRow(
+                            [category["categoryname"]!, category["value"]!]))
                         .toList(),
                   ),
                 ],
               ),
             ),
-            height30,
+            height15,
+            divider161,
+            height15,
             CommonElevatedButton(
               ontap: () {},
-              name: "Total Summary:   74,072",
-              buttonwidth: 0.40,
-              buttonheight: 0.07,
-              textStyle: TextStyle(
-                fontSize: 12,
-                color: kwhite,
-              ),
+              name: "Total Summary:   ${formatter.format(total)}",
+              buttonwidth: 0.6,
+              textStyle: const TextStyle(fontSize: 12, color: kwhite),
             ),
             height30,
           ],
@@ -160,4 +157,20 @@ class _MenuCatalogCategoriesState extends State<MenuCatalogCategories> {
       bottomNavigationBar: const BottomNavBar(),
     );
   }
+
+  TableRow buildRow(List<String> cells) => TableRow(
+        children: cells
+            .map(
+              (cell) => Padding(
+                padding: const EdgeInsets.all(12),
+                child: Center(
+                  child: Text(
+                    cell,
+                    style: const TextStyle(fontSize: 12),
+                  ),
+                ),
+              ),
+            )
+            .toList(),
+      );
 }

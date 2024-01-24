@@ -1,3 +1,4 @@
+import 'package:ads/controllers/auth_controller.dart';
 import 'package:ads/src/features/bottombar/view/custom_textfield.dart';
 import 'package:ads/src/features/common_widget/custom_elevatedbutton.dart';
 import 'package:ads/src/homepage/homepage.dart';
@@ -84,14 +85,14 @@ class _LoginPageState extends State<LoginPage> {
                     buttonwidth: 0.45,
                     textStyle: elevatedtextstyle,
                     ontap: () {
-                      Get.off(() => const HomePage());
+                      authController.loginUser();
+                      // Get.off(() => const HomePage());
                     },
                   ),
                 ],
               ),
             ),
           ),
-          
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
