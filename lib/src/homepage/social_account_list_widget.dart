@@ -57,12 +57,13 @@ class _SocialAccountListState extends State<SocialAccountList> {
                   borderRadius: BorderRadius.circular(12),
                 ),
                 child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    SvgPicture.asset(
-                        AppStrings.socialaccount[index]["imageurl"],
-                        color: kblue77D,
-                        fit: BoxFit.contain),
+                    Expanded(
+                      child: SvgPicture.asset(
+                          AppStrings.socialaccount[index]["imageurl"],
+                          color: kblue77D,
+                          fit: BoxFit.contain),
+                    ),
                     kwidth5,
                     Text(
                       AppStrings.socialaccount[index]["name"],

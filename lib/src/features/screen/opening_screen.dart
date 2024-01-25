@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class OpeningScreen extends StatefulWidget {
-  const OpeningScreen({Key? key}) : super(key: key);
+  const OpeningScreen({super.key});
 
   @override
   _OpeningScreenState createState() => _OpeningScreenState();
@@ -205,12 +205,11 @@ class OpeningPage extends StatefulWidget {
   final bool showTextSpan;
 
   const OpeningPage(
-      {Key? key,
+      {super.key,
       required this.imagepath,
       required this.title,
       required this.subtitle,
-      required this.showTextSpan})
-      : super(key: key);
+      required this.showTextSpan});
 
   @override
   _OpeningPageState createState() => _OpeningPageState();

@@ -21,10 +21,12 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
           scaffoldBackgroundColor: kwhite,
           fontFamily:
-              GoogleFonts.poppins(fontWeight: FontWeight.w500).fontFamily),
+              GoogleFonts.poppins(fontWeight: FontWeight.w500).fontFamily,
+          textTheme: const TextTheme(
+              bodyLarge: TextStyle(fontWeight: FontWeight.w500))),
       defaultTransition: Transition.leftToRightWithFade,
       initialRoute:
-          // '/home',
+          //  '/home',
           '/splash',
       getPages: [
         GetPage(name: '/splash', page: () => const SplashScreen()),

@@ -16,7 +16,8 @@ class ChartNameContainer extends StatelessWidget {
       alignment: Alignment.centerLeft,
       child: Container(
         height: 46,
-        width: Get.width * 0.72,
+        width: Get.width * 0.80 - 10,
+        padding: const EdgeInsets.only(left: 16, right: 8),
         decoration: const BoxDecoration(
           color: Color(0xffFF4848),
           borderRadius: BorderRadius.only(
@@ -24,19 +25,18 @@ class ChartNameContainer extends StatelessWidget {
             topRight: Radius.circular(12),
           ),
         ),
-        child: Padding(
-          padding: const EdgeInsets.only(left: 16),
-          child: Row(
-            children: [
-              SvgPicture.asset(imagepath),
-              kwidth15,
-              Text(
+        child: Row(
+          children: [
+            SvgPicture.asset(imagepath),
+            kwidth15,
+            Expanded(
+              child: Text(
                 name,
                 style: const TextStyle(
                     fontWeight: FontWeight.w600, fontSize: 13, color: kwhite),
-              )
-            ],
-          ),
+              ),
+            )
+          ],
         ),
       ),
     );

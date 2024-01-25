@@ -1,4 +1,3 @@
-import 'dart:ui';
 import 'package:ads/src/features/bottombar/bottomnavigationbar.dart';
 import 'package:ads/src/homepage/plan_listview.dart';
 import 'package:ads/src/homepage/take_plan_bar.dart';
@@ -37,7 +36,7 @@ class _HomePageState extends State<HomePage> {
 
   void loadData() async {
     try {
-      await Future.delayed(const Duration(milliseconds: 1500));
+      await Future.delayed(const Duration(seconds: 2));
 
       setState(() {
         isLoading = false;
@@ -128,10 +127,9 @@ class _HomePageState extends State<HomePage> {
       items: [
         const PopupMenuItem(
           padding: EdgeInsets.zero,
-          child: PopupMenuView(),
+          child: MainMenuPopup(),
         ),
       ],
-      elevation: 8.0,
     );
   }
 }

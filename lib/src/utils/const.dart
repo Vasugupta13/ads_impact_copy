@@ -89,4 +89,4 @@ Divider divider161 =
 Divider divider = Divider(color: kblack.withOpacity(0.2));
 
 Divider menudivider = Divider(
-    color: kblack.withOpacity(0.1), indent: 16, thickness: 1, height: 0);
+    color: kblack.withOpacity(0.1), indent: 16, thickness: 2, height: 0);

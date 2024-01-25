@@ -1,10 +1,8 @@
 import 'dart:ui';
-
 import 'package:ads/src/utils/const.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 
 class MenuListtile extends StatelessWidget {
   final String iconimgae;
@@ -14,13 +12,13 @@ class MenuListtile extends StatelessWidget {
   final double fontsize;
 
   const MenuListtile({
-    Key? key,
+    super.key,
     required this.istrailing,
     required this.iconimgae,
     required this.title,
     required this.ontap,
     this.fontsize = 12.0,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -32,23 +30,29 @@ class MenuListtile extends StatelessWidget {
         contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 0),
         onTap: ontap,
         iconColor: kblack,
-        title: Row(
+        title: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            SvgPicture.asset(
-              iconimgae,
-              height: Get.height * 0.02 + 3,
-            ),
-            kwidth20,
-            Expanded(
-              child: Text(
-                title,
-                style: TextStyle(
-                  fontSize: fontsize,
-                  fontWeight: FontWeight.w400,
+            Row(
+              children: [
+                SvgPicture.asset(
+                  iconimgae,
+                  height: Get.height * 0.02 + 3,
                 ),
-              ),
+                kwidth20,
+                Expanded(
+                  child: Text(
+                    title,
+                    style: TextStyle(
+                      fontSize: fontsize,
+                      fontWeight: FontWeight.w400,
+                    ),
+                  ),
+                ),
+                if (istrailing) const Icon(Icons.keyboard_arrow_down_outlined),
+              ],
             ),
-            if (istrailing) const Icon(Icons.keyboard_arrow_down_outlined),
+            height5,
           ],
         ),
       ),
@@ -107,12 +111,12 @@ class PopupMenu extends StatelessWidget {
               BackdropFilter(
                 filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
                 child: Container(
-                  color: Colors.white.withOpacity(0.1),
+                  color: Colors.white.withOpacity(0.4),
                 ),
               ),
               Positioned(
                 top: Get.height * 0.3,
-                left: Get.width * 0.10 + 10,
+                left: Get.width * 0.10 + 20,
                 child: Container(
                   padding: const EdgeInsets.symmetric(vertical: 14),
                   width: Get.width * 0.55,
@@ -136,10 +140,7 @@ class PopupMenu extends StatelessWidget {
                         ],
                       ),
                       height10,
-                      Divider(
-                        height: 1.0,
-                        color: Colors.black.withOpacity(0.2),
-                      ),
+                      menudivider,
                       Column(
                         mainAxisSize: MainAxisSize.min,
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -152,7 +153,7 @@ class PopupMenu extends StatelessWidget {
                               iconimgae: menu1icon,
                               title: menu1title,
                               ontap: menutap1,
-                              fontsize: 8,
+                              fontsize: 10,
                             ),
                           ),
                           menudivider,
@@ -164,7 +165,7 @@ class PopupMenu extends StatelessWidget {
                               iconimgae: menu2icon,
                               title: menu2title,
                               ontap: menutap2,
-                              fontsize: 8,
+                              fontsize: 10,
                             ),
                           ),
                           if ((isMenu3 ?? false) &&
@@ -182,7 +183,7 @@ class PopupMenu extends StatelessWidget {
                                 iconimgae: menu3icon!,
                                 title: menu3title!,
                                 ontap: menutap3!,
-                                fontsize: 8,
+                                fontsize: 10,
                               ),
                             ),
                           if ((isMenu4 ?? false) &&
@@ -199,7 +200,7 @@ class PopupMenu extends StatelessWidget {
                                 istrailing: false,
                                 iconimgae: menu4icon!,
                                 title: menu4title!,
-                                fontsize: 8,
+                                fontsize: 10,
                                 ontap: () {},
                               ),
                             ),
