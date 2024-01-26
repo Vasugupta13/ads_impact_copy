@@ -2,9 +2,9 @@ import 'package:ads/src/features/bottombar/bottomnavigationbar.dart';
 import 'package:ads/src/homepage/plan_listview.dart';
 import 'package:ads/src/homepage/take_plan_bar.dart';
 import 'package:ads/src/features/menu/main_menu.dart';
-import 'package:ads/src/global_basicuser.dart';
 import 'package:ads/src/homepage/basic_plan.dart';
 import 'package:ads/src/homepage/overview_insights.dart';
+import 'package:ads/src/res/global_basicuser.dart';
 import 'package:ads/src/utils/const.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -54,7 +54,8 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         centerTitle: true,
         elevation: 0,
-        backgroundColor: Colors.transparent,
+        backgroundColor: kwhite,
+        shadowColor: kwhite,
         leading: IconButton(
           onPressed: () {
             _showPopupMenu(context);
@@ -117,6 +118,9 @@ class _HomePageState extends State<HomePage> {
         Overlay.of(context).context.findRenderObject() as RenderBox;
 
     showMenu(
+      color: kwhite,
+      shadowColor: kwhite,
+      surfaceTintColor: kwhite,
       context: context,
       position: RelativeRect.fromLTRB(
         overlay.size.width / 8,

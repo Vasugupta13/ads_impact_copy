@@ -1,8 +1,8 @@
+import 'package:ads/src/class/catalog_products_detail.dart';
+import 'package:ads/src/common/views/catalog_list_view.dart';
 import 'package:ads/src/features/bottombar/bottomnavigationbar.dart';
-import 'package:ads/src/features/common_widget/catalog_list_view.dart';
 import 'package:ads/src/homepage/customapp_bar.dart';
 import 'package:ads/src/homepage/homepage.dart';
-import 'package:ads/src/res/catalog_products_detail.dart';
 import 'package:ads/src/utils/const.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -54,7 +54,7 @@ class _MenuCatalogProductsState extends State<MenuCatalogProducts> {
                   onTap: () {
                     setState(() {
                       selectedStates[index] = !isSelected;
-                      
+
                     });
                   },
                   child: Stack(

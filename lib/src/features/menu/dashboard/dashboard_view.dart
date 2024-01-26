@@ -1,18 +1,17 @@
+import 'package:ads/src/class/dashboard_creative_spend.dart';
+import 'package:ads/src/class/dashboard_platform_spend.dart';
+import 'package:ads/src/class/socialmediainfo.dart';
+import 'package:ads/src/common/views/custom_elevatedbutton.dart';
 import 'package:ads/src/features/bottombar/bottomnavigationbar.dart';
 import 'package:ads/src/homepage/customapp_bar.dart';
-import 'package:ads/src/features/common_widget/custom_elevatedbutton.dart';
 import 'package:ads/src/homepage/spend_istview.dart';
 import 'package:ads/src/features/menu/dashboard/view_more_detail_container.dart';
 import 'package:ads/src/features/menu/dashboard/common_container.dart';
 import 'package:ads/src/homepage/insights_graph.dart';
 import 'package:ads/src/homepage/social_account_list_widget.dart';
 import 'package:ads/src/model/social_media_info.dart';
-import 'package:ads/src/res/dashboard_creative_spend.dart';
-import 'package:ads/src/res/dashboard_platform_spend.dart';
-import 'package:ads/src/res/socialmediainfo.dart';
 import 'package:ads/src/utils/const.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 class DashboardView extends StatefulWidget {
   const DashboardView({super.key});

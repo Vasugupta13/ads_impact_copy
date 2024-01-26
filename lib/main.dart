@@ -25,9 +25,8 @@ class MyApp extends StatelessWidget {
           textTheme: const TextTheme(
               bodyLarge: TextStyle(fontWeight: FontWeight.w500))),
       defaultTransition: Transition.leftToRightWithFade,
-      initialRoute:
-          //  '/home',
-          '/splash',
+      initialRoute: '/home',
+      // '/splash',
       getPages: [
         GetPage(name: '/splash', page: () => const SplashScreen()),
         GetPage(name: '/home', page: () => const HomePage()),

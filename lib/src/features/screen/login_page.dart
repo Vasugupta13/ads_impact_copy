@@ -1,5 +1,5 @@
+import 'package:ads/src/common/views/custom_elevatedbutton.dart';
 import 'package:ads/src/features/bottombar/view/custom_textfield.dart';
-import 'package:ads/src/features/common_widget/custom_elevatedbutton.dart';
 import 'package:ads/src/homepage/homepage.dart';
 import 'package:ads/src/utils/const.dart';
 import 'package:flutter/material.dart';
@@ -23,7 +23,8 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return Scaffold(
+        body: Column(
       children: [
         Expanded(
           child: SingleChildScrollView(
@@ -112,6 +113,6 @@ class _LoginPageState extends State<LoginPage> {
         ),
         height40,
       ],
-    );
+    ));
   }
 }

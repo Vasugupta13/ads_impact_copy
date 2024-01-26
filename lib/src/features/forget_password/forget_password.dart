@@ -1,6 +1,6 @@
 import 'dart:ui';
+import 'package:ads/src/common/views/custom_elevatedbutton.dart';
 import 'package:ads/src/features/bottombar/view/custom_textfield.dart';
-import 'package:ads/src/features/common_widget/custom_elevatedbutton.dart';
 import 'package:ads/src/utils/const.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -8,7 +8,7 @@ import 'package:get/get.dart';
 import 'create_new_password.dart';
 
 class ForgotPassword extends StatefulWidget {
-  const ForgotPassword({Key? key}) : super(key: key);
+  const ForgotPassword({super.key});
 
   @override
   State<ForgotPassword> createState() => _ForgotPasswordState();
@@ -103,12 +103,14 @@ void _showPopup(BuildContext context) {
               filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
               child: Container(
                 color: kwhite.withOpacity(0.5),
+                
               ),
             ),
             Dialog(
               child: Container(
                 padding: const EdgeInsets.all(16),
                 decoration: BoxDecoration(
+                  color: kwhite,
                   borderRadius: BorderRadius.circular(10),
                 ),
                 child: Column(

@@ -64,30 +64,23 @@ class _OpeningScreenState extends State<OpeningScreen> {
                 });
               },
               children: const [
-                // _buildContainerImage("assets/images/opening_screen1.png",
-                //     showTextSpan: true),
-                // _buildContainerImage("assets/images/opening_screen2.png",
-                //     showTextSpan: false),
-                // _buildContainerImage("assets/images/opening_screen3.png",
-                //     showTextSpan: false),
-
                 OpeningPage(
-                  showTextSpan: true,
-                  imagepath: "assets/images/opening_screen1.png",
+                  showTextSpan: false,
+                  imagepath: "assets/images/pg1.png",
                   title: "Unleash Advertising Potential",
                   subtitle:
                       "Transform Your Business: Unlock Growth\nOpportunities with Powerful Advertising\nStrategies",
                 ),
                 OpeningPage(
                   showTextSpan: false,
-                  imagepath: "assets/images/opening_screen2.png",
+                  imagepath: "assets/images/pg2.png",
                   title: "Innovative Ad Campaigns",
                   subtitle:
                       "Break Through the Noise: Engage, Inspire,\nand Convert with Cutting-Edge\nAdvertising Approaches",
                 ),
                 OpeningPage(
                   showTextSpan: false,
-                  imagepath: "assets/images/opening_screen3.png",
+                  imagepath: "assets/images/pg3.png",
                   title: "Elevate Your Brand Reach",
                   subtitle:
                       "Strategic Advertising Solutions:\nCaptivate Audiences and Amplify Brand\nRecognition",
@@ -157,45 +150,45 @@ class _OpeningScreenState extends State<OpeningScreen> {
     );
   }
 
-  Widget _buildContainerImage(String imagepath, {bool? showTextSpan}) {
-    return Column(
-      children: [
-        Image.asset(imagepath, width: Get.width, fit: BoxFit.cover),
-        if (showTextSpan!)
-          Column(
-            children: [
-              RichText(
-                textAlign: TextAlign.center,
-                maxLines: 2,
-                text: const TextSpan(
-                  style: TextStyle(
-                    fontSize: 24,
-                    height: 1.4,
-                    fontWeight: FontWeight.w600,
-                    color: Color(0xff000000),
-                  ),
-                  children: [
-                    TextSpan(
-                      text: 'W',
-                      style: TextStyle(color: kblue77D),
-                    ),
-                    TextSpan(text: 'elcome to the '),
-                    TextSpan(
-                      text: 'Ads Impact',
-                      style: TextStyle(color: kblue77D),
-                    ),
-                    TextSpan(text: '\nmobile app!'),
-                  ],
-                ),
-              ),
-              height40,
-            ],
-          )
-        else
-          const SizedBox(),
-      ],
-    );
-  }
+//   Widget _buildContainerImage(String imagepath, {bool? showTextSpan}) {
+//     return Column(
+//       children: [
+//         Image.asset(imagepath, width: Get.width, fit: BoxFit.cover),
+//         if (showTextSpan!)
+//           Column(
+//             children: [
+//               RichText(
+//                 textAlign: TextAlign.center,
+//                 maxLines: 2,
+//                 text: const TextSpan(
+//                   style: TextStyle(
+//                     fontSize: 24,
+//                     height: 1.4,
+//                     fontWeight: FontWeight.w600,
+//                     color: Color(0xff000000),
+//                   ),
+//                   children: [
+//                     TextSpan(
+//                       text: 'W',
+//                       style: TextStyle(color: kblue77D),
+//                     ),
+//                     TextSpan(text: 'elcome to the '),
+//                     TextSpan(
+//                       text: 'Ads Impact',
+//                       style: TextStyle(color: kblue77D),
+//                     ),
+//                     TextSpan(text: '\nmobile app!'),
+//                   ],
+//                 ),
+//               ),
+//               height40,
+//             ],
+//           )
+//         else
+//           const SizedBox(),
+//       ],
+//     );
+//   }
 }
 
 class OpeningPage extends StatefulWidget {
@@ -220,39 +213,41 @@ class _OpeningPageState extends State<OpeningPage> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Image.asset(widget.imagepath, width: Get.width, fit: BoxFit.cover),
-        if (widget.showTextSpan)
-          Column(
-            children: [
-              RichText(
-                textAlign: TextAlign.center,
-                maxLines: 2,
-                text: const TextSpan(
-                  style: TextStyle(
-                    fontSize: 24,
-                    height: 1.4,
-                    fontWeight: FontWeight.w600,
-                    color: Color(0xff000000),
-                  ),
-                  children: [
-                    TextSpan(
-                      text: 'W',
-                      style: TextStyle(color: kblue77D),
-                    ),
-                    TextSpan(text: 'elcome to the '),
-                    TextSpan(
-                      text: 'Ads Impact',
-                      style: TextStyle(color: kblue77D),
-                    ),
-                    TextSpan(text: '\nmobile app!'),
-                  ],
-                ),
-              ),
-              SizedBox(height: Get.height * 0.1),
-            ],
-          )
-        else
-          height30,
+        Image.asset(widget.imagepath,
+            height: Get.height * 0.5, width: Get.width, fit: BoxFit.cover),
+        // if (widget.showTextSpan)
+        //   Column(
+        //     children: [
+        //       RichText(
+        //         textAlign: TextAlign.center,
+        //         maxLines: 2,
+        //         text: const TextSpan(
+        //           style: TextStyle(
+        //             fontSize: 24,
+        //             height: 1.4,
+        //             fontWeight: FontWeight.w600,
+        //             color: Color(0xff000000),
+        //           ),
+        //           children: [
+        //             TextSpan(
+        //               text: 'W',
+        //               style: TextStyle(color: kblue77D),
+        //             ),
+        //             TextSpan(text: 'elcome to the '),
+        //             TextSpan(
+        //               text: 'Ads Impact',
+        //               style: TextStyle(color: kblue77D),
+        //             ),
+        //             TextSpan(text: '\nmobile app!'),
+        //           ],
+        //         ),
+        //       ),
+        //       SizedBox(height: Get.height * 0.1),
+        //     ],
+        //   )
+        // else
+        //   height30,
+        SizedBox(height: Get.height * 0.18),
         Column(
           mainAxisSize: MainAxisSize.min,
           children: [

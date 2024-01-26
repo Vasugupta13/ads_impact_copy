@@ -40,6 +40,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
   @override
   Widget build(BuildContext context) {
     return Material(
+      color: kwhite,
       child: SizedBox(
         height: 44,
         width: Get.width * 0.8,

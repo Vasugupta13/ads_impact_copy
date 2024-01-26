@@ -1,5 +1,5 @@
+import 'package:ads/src/class/campaign_prospect.dart';
 import 'package:ads/src/homepage/customapp_bar.dart';
-import 'package:ads/src/res/campaign_prospect.dart';
 import 'package:ads/src/utils/const.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';

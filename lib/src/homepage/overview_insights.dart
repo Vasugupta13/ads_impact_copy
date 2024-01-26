@@ -1,8 +1,8 @@
+import 'package:ads/src/class/socialmediainfo.dart';
 import 'package:ads/src/homepage/insight_view.dart';
 import 'package:ads/src/homepage/spend_istview.dart';
 import 'package:ads/src/homepage/social_account_list_widget.dart';
 import 'package:ads/src/model/social_media_info.dart';
-import 'package:ads/src/res/socialmediainfo.dart';
 import 'package:ads/src/utils/const.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';

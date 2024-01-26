@@ -1,13 +1,10 @@
+import 'package:ads/src/common/views/customdropdown.dart';
 import 'package:ads/src/homepage/customapp_bar.dart';
-import 'package:ads/src/features/common_widget/customdropdown.dart';
-import 'package:ads/src/features/common_widget/custom_elevatedbutton.dart';
 import 'package:ads/src/features/menu/automations/view/ad_optimization.dart';
 import 'package:ads/src/features/menu/automations/view/budget_optimization.dart';
 import 'package:ads/src/homepage/social_account_list_widget.dart';
 import 'package:ads/src/utils/const.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 final List<String> items = [
   "Ad Optimization",

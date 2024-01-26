@@ -1,13 +1,11 @@
-import 'package:ads/src/features/common_widget/customdropdown.dart';
-import 'package:ads/src/features/common_widget/custom_elevatedbutton.dart';
-import 'package:ads/src/features/menu/audience%20insights/audience_nextstep.dart';
+
+import 'package:ads/src/common/views/custom_elevatedbutton.dart';
+import 'package:ads/src/common/views/customdropdown.dart';
 import 'package:ads/src/features/menu/catalog/widget/container_widget.dart';
 import 'package:ads/src/utils/const.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 
 class BudgetOptimization extends StatefulWidget {
   final String image;
@@ -30,7 +28,7 @@ class _BudgetOptimizationState extends State<BudgetOptimization> {
         height20,
         CatalogContainer(name: widget.name, image: widget.image),
         height20,
-        const CustomDropDown(
+         CustomDropDown(
             containerheight: 0.5,
             hint: "Campaign",
             dropdownItems: [],

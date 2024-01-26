@@ -1,11 +1,10 @@
+import 'package:ads/src/class/campaign_analysis.dart';
+import 'package:ads/src/common/views/catalog_list_view.dart';
+import 'package:ads/src/common/views/custom_elevatedbutton.dart';
+import 'package:ads/src/common/views/customdropdown.dart';
 import 'package:ads/src/features/bottombar/bottomnavigationbar.dart';
-import 'package:ads/src/features/common_widget/catalog_list_view.dart';
 import 'package:ads/src/homepage/customapp_bar.dart';
-import 'package:ads/src/features/common_widget/customdropdown.dart';
-import 'package:ads/src/features/common_widget/custom_elevatedbutton.dart';
-import 'package:ads/src/res/campaign_analysis.dart';
 import 'package:ads/src/utils/const.dart';
-import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
@@ -80,7 +79,7 @@ class _CampaignAnalysisState extends State<CampaignAnalysis> {
             ),
             height20,
             CatalogListView(
-            
+
               names: const ["Default View", "Website View", "Performance View"],
               onTapCallback: (int index) {},
             ),

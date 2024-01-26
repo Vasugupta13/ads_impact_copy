@@ -1,10 +1,10 @@
+import 'package:ads/src/class/catalog_categories_products.dart';
+import 'package:ads/src/common/views/catalog_list_view.dart';
+import 'package:ads/src/common/views/custom_elevatedbutton.dart';
+import 'package:ads/src/common/views/customdropdown.dart';
 import 'package:ads/src/features/bottombar/bottomnavigationbar.dart';
-import 'package:ads/src/features/common_widget/catalog_list_view.dart';
-import 'package:ads/src/features/common_widget/custom_elevatedbutton.dart';
-import 'package:ads/src/features/common_widget/customdropdown.dart';
 import 'package:ads/src/homepage/customapp_bar.dart';
 import 'package:ads/src/homepage/homepage.dart';
-import 'package:ads/src/res/catalog_categories_products.dart';
 import 'package:ads/src/utils/const.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';

@@ -1,15 +1,13 @@
+import 'package:ads/src/class/adset_analysis.dart';
+import 'package:ads/src/common/views/catalog_list_view.dart';
+import 'package:ads/src/common/views/custom_elevatedbutton.dart';
+import 'package:ads/src/common/views/customdropdown.dart';
 import 'package:ads/src/features/bottombar/bottomnavigationbar.dart';
-import 'package:ads/src/features/common_widget/catalog_list_view.dart';
 import 'package:ads/src/homepage/customapp_bar.dart';
-import 'package:ads/src/features/common_widget/customdropdown.dart';
-import 'package:ads/src/features/common_widget/custom_elevatedbutton.dart';
-import 'package:ads/src/res/adset_analysis.dart';
-import 'package:ads/src/res/platform_analysis_default.dart';
 import 'package:ads/src/utils/const.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 
 final List<String> items = ["Retargetting", "Prospect", "Dynamic"];
 String? selecteditem;

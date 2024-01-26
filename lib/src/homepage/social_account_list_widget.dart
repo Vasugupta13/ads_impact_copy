@@ -1,4 +1,4 @@
-import 'package:ads/src/res/strings.dart';
+import 'package:ads/src/class/strings.dart';
 import 'package:ads/src/utils/const.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';

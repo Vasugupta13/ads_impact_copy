@@ -1,5 +1,5 @@
+import 'package:ads/src/common/views/custom_elevatedbutton.dart';
 import 'package:ads/src/features/bottombar/view/custom_textfield.dart';
-import 'package:ads/src/features/common_widget/custom_elevatedbutton.dart';
 import 'package:ads/src/utils/const.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -125,7 +125,7 @@ class CompanyContainer extends StatelessWidget {
             size: Size(paintwidth, Get.height),
           ),
           Padding(
-            
+
             padding: EdgeInsets.all(isIcon == true ? 16 : 10),
             child: Row(
               children: [

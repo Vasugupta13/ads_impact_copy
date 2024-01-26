@@ -1,10 +1,10 @@
 import 'dart:ui';
+import 'package:ads/src/common/views/custom_elevatedbutton.dart';
 import 'package:ads/src/features/bottombar/account/view/edit_profile.dart';
 import 'package:ads/src/features/bottombar/account/view/help_support.dart';
 import 'package:ads/src/features/bottombar/account/view/notifications.dart';
 import 'package:ads/src/features/bottombar/bottomnavigationbar.dart';
 import 'package:ads/src/homepage/customapp_bar.dart';
-import 'package:ads/src/features/common_widget/custom_elevatedbutton.dart';
 import 'package:ads/src/utils/const.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';

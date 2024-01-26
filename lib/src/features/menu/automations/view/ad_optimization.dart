@@ -1,11 +1,10 @@
-import 'package:ads/src/features/common_widget/custom_elevatedbutton.dart';
+
+import 'package:ads/src/common/views/custom_elevatedbutton.dart';
 import 'package:ads/src/features/menu/catalog/widget/container_widget.dart';
 import 'package:ads/src/utils/const.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 
 class AdOptimization extends StatefulWidget {
   const AdOptimization({
