@@ -1,5 +1,6 @@
 import 'package:ads/src/common/views/custom_elevatedbutton.dart';
 import 'package:ads/src/features/bottombar/view/custom_textfield.dart';
+import 'package:ads/src/res/assets.dart';
 import 'package:ads/src/utils/const.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -18,6 +19,10 @@ class CustomSignupPage extends StatelessWidget {
   final String? hinttext4;
   final bool? iscompanyvisible;
   final VoidCallback onTap;
+  final TextEditingController? textField1Controller;
+  final TextEditingController? textField2Controller;
+  final TextEditingController? textField3Controller;
+  final TextEditingController? textField4Controller;
 
   const CustomSignupPage(
       {super.key,
@@ -32,7 +37,11 @@ class CustomSignupPage extends StatelessWidget {
       this.iconimage,
       this.title,
       this.iscompanyvisible = false,
-      required this.onTap});
+      required this.onTap,
+      this.textField1Controller,
+      this.textField2Controller,
+      this.textField3Controller,
+      this.textField4Controller});
 
   @override
   Widget build(BuildContext context) {
@@ -44,7 +53,11 @@ class CustomSignupPage extends StatelessWidget {
               height: Get.height * 0.15,
               paintwidth: Get.width,
               titlename: "Hello Sai, Let Me\nKnow your Company\nname!",
-              textStyle: const TextStyle(color: kwhite, fontSize: 16),
+              textStyle: const TextStyle(
+                  color: kwhite,
+                  fontSize: 16,
+                  fontFamily: FontAssets.Poppins,
+                  fontWeight: FontWeight.w500),
               isIcon: true)
         else
           Column(
@@ -53,18 +66,29 @@ class CustomSignupPage extends StatelessWidget {
               height10,
               Text(
                 title!,
-                style: const TextStyle(fontSize: 26),
+                style: const TextStyle(
+                    fontFamily: FontAssets.Poppins,
+                    fontWeight: FontWeight.w500,
+                    fontSize: 26),
               ),
             ],
           ),
         height30,
-        if (istextfield1!) CustomTextField(hintText: hinttext1!),
+        if (istextfield1!)
+          CustomTextField(
+              hintText: hinttext1!, controller: textField1Controller),
         height25,
-        if (istextfield2!) CustomTextField(hintText: hinttext2!),
+        if (istextfield2!)
+          CustomTextField(
+              hintText: hinttext2!, controller: textField2Controller),
         height25,
-        if (istextfield3!) CustomTextField(hintText: hinttext3!),
+        if (istextfield3!)
+          CustomTextField(
+              hintText: hinttext3!, controller: textField3Controller),
         height25,
-        if (istextfield4!) CustomTextField(hintText: hinttext4!),
+        if (istextfield4!)
+          CustomTextField(
+              hintText: hinttext4!, controller: textField4Controller),
         height30,
         CommonElevatedButton(
           name: "Next",
@@ -125,7 +149,6 @@ class CompanyContainer extends StatelessWidget {
             size: Size(paintwidth, Get.height),
           ),
           Padding(
-
             padding: EdgeInsets.all(isIcon == true ? 16 : 10),
             child: Row(
               children: [

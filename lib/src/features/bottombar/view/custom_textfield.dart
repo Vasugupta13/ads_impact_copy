@@ -1,8 +1,7 @@
+import 'package:ads/src/res/assets.dart';
 import 'package:ads/src/utils/const.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 
 class CustomTextField extends StatefulWidget {
   final TextEditingController? controller;
@@ -39,12 +38,18 @@ class _CustomTextFieldState extends State<CustomTextField> {
 
   @override
   Widget build(BuildContext context) {
+    double screenWidth = MediaQuery.of(context).size.width;
+
     return Material(
       color: kwhite,
       child: SizedBox(
-        height: 44,
-        width: Get.width * 0.8,
+        width: screenWidth * 0.8,
         child: TextFormField(
+          style: const TextStyle(
+              fontFamily: FontAssets.Poppins,
+              fontWeight: FontWeight.w500,
+              fontSize: 12
+              ),
           controller: widget.controller,
           focusNode: widget.focusNode,
           // obscureText: widget.isPassword,
@@ -71,14 +76,14 @@ class _CustomTextFieldState extends State<CustomTextField> {
                   )
                 : const SizedBox(),
             enabledBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(12),
+              borderRadius: BorderRadius.circular(16),
               borderSide: BorderSide(
                 color: kblack.withOpacity(0.1),
               ),
             ),
-            contentPadding: padding16,
+            contentPadding: const EdgeInsets.symmetric(horizontal: 16),
             focusedBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(12),
+              borderRadius: BorderRadius.circular(16),
               borderSide: BorderSide(
                 color: isSelected ? kred : kblack.withOpacity(0.1),
               ),
@@ -86,6 +91,8 @@ class _CustomTextFieldState extends State<CustomTextField> {
             hintText: widget.hintText,
             alignLabelWithHint: true,
             hintStyle: TextStyle(
+              fontFamily: FontAssets.Poppins,
+              fontWeight: FontWeight.w500,
               fontSize: 12,
               color: kblack.withOpacity(0.2),
             ),

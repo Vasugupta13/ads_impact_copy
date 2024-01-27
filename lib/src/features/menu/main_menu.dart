@@ -10,7 +10,7 @@ import 'package:ads/src/features/menu/dashboard/dashboard_view.dart';
 import 'package:ads/src/features/menu/insights/granular_analysis.dart';
 import 'package:ads/src/features/menu/widgets/submenu.dart';
 import 'package:ads/src/features/menu/widgets/try_ourpacks.dart';
-import 'package:ads/src/features/sign-up/widget/sign_up_view.dart';
+import 'package:ads/src/features/sign-up/widget/custom_signup_page.dart';
 import 'package:ads/src/utils/const.dart';
 import 'package:flutter/material.dart';
 

@@ -30,13 +30,15 @@ class CommonElevatedButton extends StatefulWidget {
 class _CommonElevatedButtonState extends State<CommonElevatedButton> {
   @override
   Widget build(BuildContext context) {
+    double screenHeight = MediaQuery.of(context).size.height;
+    double screenWidth = MediaQuery.of(context).size.width;
     return Center(
       child: ElevatedButton(
         onPressed: widget.ontap,
         style: ElevatedButton.styleFrom(
           alignment: Alignment.center,
           elevation: 0,
-          fixedSize: Size(Get.width * widget.buttonwidth, 40),
+          fixedSize: Size(screenWidth * widget.buttonwidth, 40),
           backgroundColor: widget.alternatecolor ?? kwhite,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(12),

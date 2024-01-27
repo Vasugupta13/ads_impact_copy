@@ -1,24 +1,22 @@
 import 'package:ads/src/features/connect_account/widget/account_container.dart';
+import 'package:ads/src/features/connect_account/widget/account_drop_down.dart';
 import 'package:ads/src/res/assets.dart';
 import 'package:ads/src/utils/const.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:get/get.dart';
+import 'package:flutter_svg/svg.dart';
 
-class ConnectYourAccounts extends StatefulWidget {
-  final bool? includeAccountContainer;
-
-  const ConnectYourAccounts({
+class ConnectYourAccount2 extends StatefulWidget {
+  const ConnectYourAccount2({
     super.key,
-    this.includeAccountContainer = true,
   });
 
-  static const routerPath = '/ConnectYourAccounts';
+  static const routerPath = '/ConnectYourAccount2';
+
   @override
-  State<ConnectYourAccounts> createState() => _ConnectYourAccountsState();
+  State<ConnectYourAccount2> createState() => _ConnectYourAccount2State();
 }
 
-class _ConnectYourAccountsState extends State<ConnectYourAccounts> {
+class _ConnectYourAccount2State extends State<ConnectYourAccount2> {
   @override
   Widget build(BuildContext context) {
     double screenHeight = MediaQuery.of(context).size.height;
@@ -69,43 +67,33 @@ class _ConnectYourAccountsState extends State<ConnectYourAccounts> {
               const Column(
                 children: [
                   AccountContainer(
-                    issubtitle: true,
+                    issubtitle: false,
                     titlename: "Connect your Facebook Account",
-                    subtitlename:
-                        "Ads Impact needs access to your\nGoogle Account to access Ad-\nStats",
                     imageUrl: ImageAssets.fbwhite,
                   ),
                   height25,
                   AccountContainer(
-                    issubtitle: true,
+                    issubtitle: false,
                     titlename: "Connect your Twitter Account",
-                    subtitlename:
-                        "Ads Impact needs access to your\nTwitter Account to access Ad-\nStats",
                     imageUrl: ImageAssets.twitterwhite,
                   ),
                   height25,
                   AccountContainer(
-                    issubtitle: true,
+                    issubtitle: false,
                     titlename: "Connect your Linkedin Account",
-                    subtitlename:
-                        "Ads Impact needs access to your\nLinkedin Account to access Ad-\nStats",
                     imageUrl: ImageAssets.linkdinwhite,
                   ),
                   height25,
                   AccountContainer(
-                    issubtitle: true,
+                    issubtitle: false,
                     titlename: "Connect your Google Account",
-                    subtitlename:
-                        "Ads Impact needs access to your\nGoogle Account to access Ad-\nStats",
                     imageUrl: ImageAssets.googlewhite,
                   ),
                   height25,
                   AccountContainer(
-                    issubtitle: true,
+                    issubtitle: false,
                     isdropdown: true,
                     titlename: "Connect your Social Media Account",
-                    subtitlename:
-                        "Ads Impact needs access to your\nSocial media Account to access\nAd-Stats",
                     imageUrl: ImageAssets.connectwhite,
                   ),
                 ],

@@ -7,7 +7,7 @@ class ImageAssets {
   static const openingscreen2 = "$_base/openingscreen2.png";
   static const openingscreen3 = "$_base/openingscreen3.png";
   static const adslogo = "$_base/logo/ads_logo.svg";
-  static const forgotimage = '$_base/illustration/forgot_password_ill.svg';
+  static const forgotimage = '$_base/illustration/forgot_password.svg';
   static const createpassimage = '$_base/illustration/create_new_password.svg';
   static const takeplan = '$_base/illustration/takeplan.svg';
   static const fbwhite = '$_base/logo/fb_white.svg';
@@ -40,6 +40,7 @@ class IconAssets {
   static const loginicon = '$_base/login_icon_black.svg';
   static const forgotmailicon = '$_base/forgot_mail.svg';
   static const message = '$_base/message.svg';
+  static const metaicon = '$_base/meta.svg';
   static const home = '$_base/home.svg';
   static const analysis = '$_base/analysis.svg';
   static const cart = '$_base/cart.svg';
@@ -63,4 +64,9 @@ class IconAssets {
   static const calendararrow = '$_base/arrow_down.svg';
   static const catalogbar = '$_base/catalog_bar.svg';
   static const catalogconfigbar = '$_base/catalog_info_bar.svg';
+  static const connectdropdown = '$_base/connect_drop_down.svg';
+}
+
+class FontAssets {
+  static const Poppins = "Poppins";
 }

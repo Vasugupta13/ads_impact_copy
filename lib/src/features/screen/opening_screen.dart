@@ -1,11 +1,16 @@
 import 'package:ads/src/features/screen/login_page.dart';
+import 'package:ads/src/res/assets.dart';
 import 'package:ads/src/utils/const.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
+import 'package:go_router/go_router.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class OpeningScreen extends StatefulWidget {
   const OpeningScreen({super.key});
+
+  static const routerPath = '/OpeningScreen';
 
   @override
   _OpeningScreenState createState() => _OpeningScreenState();
@@ -30,6 +35,7 @@ class _OpeningScreenState extends State<OpeningScreen> {
         curve: Curves.easeInOut,
       );
     } else {
+      // context.push(LoginPage.routerPath);
       Get.to(() => const LoginPage(),
           transition: Transition.rightToLeftWithFade);
     }
@@ -37,17 +43,19 @@ class _OpeningScreenState extends State<OpeningScreen> {
 
   @override
   Widget build(BuildContext context) {
+    double screenWidth = MediaQuery.of(context).size.width;
+    double screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
       body: SafeArea(
         child: Stack(
           fit: StackFit.expand,
           children: [
             Positioned(
-              top: -(Get.height / 2.2),
+              top: -(screenHeight / 2.2),
               left: -130,
               child: Container(
-                height: Get.height + 100,
-                width: Get.height + 100,
+                height: screenHeight + 100,
+                width: screenHeight + 100,
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
                   color: const Color(0xff1A377D).withOpacity(0.1),
@@ -66,21 +74,21 @@ class _OpeningScreenState extends State<OpeningScreen> {
               children: const [
                 OpeningPage(
                   showTextSpan: false,
-                  imagepath: "assets/images/pg1.png",
+                  imagepath: ImageAssets.openingscreen1,
                   title: "Unleash Advertising Potential",
                   subtitle:
                       "Transform Your Business: Unlock Growth\nOpportunities with Powerful Advertising\nStrategies",
                 ),
                 OpeningPage(
                   showTextSpan: false,
-                  imagepath: "assets/images/pg2.png",
+                  imagepath: ImageAssets.openingscreen2,
                   title: "Innovative Ad Campaigns",
                   subtitle:
                       "Break Through the Noise: Engage, Inspire,\nand Convert with Cutting-Edge\nAdvertising Approaches",
                 ),
                 OpeningPage(
                   showTextSpan: false,
-                  imagepath: "assets/images/pg3.png",
+                  imagepath: ImageAssets.openingscreen3,
                   title: "Elevate Your Brand Reach",
                   subtitle:
                       "Strategic Advertising Solutions:\nCaptivate Audiences and Amplify Brand\nRecognition",
@@ -117,7 +125,7 @@ class _OpeningScreenState extends State<OpeningScreen> {
               ),
             ),
             Positioned(
-              bottom: Get.height / 3,
+              bottom: screenHeight / 3,
               left: 20,
               child: SmoothPageIndicator(
                 controller: _controller,
@@ -134,13 +142,17 @@ class _OpeningScreenState extends State<OpeningScreen> {
               right: 0,
               child: TextButton(
                 onPressed: () {
+                  // context.push(LoginPage.routerPath);
                   Get.to(() => const LoginPage(),
                       transition: Transition.rightToLeftWithFade);
                 },
                 child: const Text(
                   "Skip",
                   style: TextStyle(
-                      fontSize: 16, fontWeight: FontWeight.w700, color: grey77),
+                      fontFamily: FontAssets.Poppins,
+                      fontSize: 16,
+                      fontWeight: FontWeight.w700,
+                      color: grey77),
                 ),
               ),
             ),
@@ -153,7 +165,7 @@ class _OpeningScreenState extends State<OpeningScreen> {
 //   Widget _buildContainerImage(String imagepath, {bool? showTextSpan}) {
 //     return Column(
 //       children: [
-//         Image.asset(imagepath, width: Get.width, fit: BoxFit.cover),
+//         Image.asset(imagepath, width: scrennwidth, fit: BoxFit.cover),
 //         if (showTextSpan!)
 //           Column(
 //             children: [
@@ -211,10 +223,12 @@ class OpeningPage extends StatefulWidget {
 class _OpeningPageState extends State<OpeningPage> {
   @override
   Widget build(BuildContext context) {
+    double screenWidth = MediaQuery.of(context).size.width;
+    double screenHeight = MediaQuery.of(context).size.height;
     return Column(
       children: [
-        Image.asset(widget.imagepath,
-            height: Get.height * 0.5, width: Get.width, fit: BoxFit.cover),
+        SvgPicture.asset(widget.imagepath,
+            height: screenHeight * 0.5, width: screenWidth, fit: BoxFit.cover),
         // if (widget.showTextSpan)
         //   Column(
         //     children: [
@@ -242,25 +256,32 @@ class _OpeningPageState extends State<OpeningPage> {
         //           ],
         //         ),
         //       ),
-        //       SizedBox(height: Get.height * 0.1),
+        //       SizedBox(height: screenHeight * 0.1),
         //     ],
         //   )
         // else
         //   height30,
-        SizedBox(height: Get.height * 0.18),
+        SizedBox(height: screenHeight * 0.18 + 10),
         Column(
           mainAxisSize: MainAxisSize.min,
           children: [
             Text(
               widget.title,
-              style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
+              style: const TextStyle(
+                  fontFamily: FontAssets.Poppins,
+                  fontSize: 18,
+                  fontWeight: FontWeight.w600),
             ),
-            height20,
+            height15,
             Text(
               widget.subtitle,
               maxLines: 3,
               textAlign: TextAlign.center,
-              style: const TextStyle(height: 1.3, fontSize: 14, color: grey77),
+              style: const TextStyle(
+                  fontFamily: FontAssets.Poppins,
+                  fontWeight: FontWeight.w500,
+                  fontSize: 14,
+                  color: grey77),
             ),
             height10,
           ],

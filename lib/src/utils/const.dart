@@ -1,3 +1,4 @@
+import 'package:ads/src/res/assets.dart';
 import 'package:flutter/material.dart';
 
 //const colors
@@ -76,7 +77,11 @@ const TextStyle headingStyleWhite =
 TextStyle prestyle = TextStyle(fontSize: 12, color: kblack.withOpacity(0.5));
 
 //textstyle
-const TextStyle elevatedtextstyle = TextStyle(color: kwhite, fontSize: 12);
+const TextStyle elevatedtextstyle = TextStyle(
+    color: kwhite,
+    fontSize: 13,
+    fontFamily: FontAssets.Poppins,
+    fontWeight: FontWeight.w500);
 
 //divider
 Divider divider16 = Divider(

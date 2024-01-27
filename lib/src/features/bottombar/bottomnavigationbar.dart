@@ -10,7 +10,8 @@ class BottomNavController extends GetxController {
 final BottomNavController bottomNavController = Get.put(BottomNavController());
 
 class BottomNavBar extends StatefulWidget {
-  const BottomNavBar({Key? key}) : super(key: key);
+  const BottomNavBar({super.key});
+  static const routePath = '/CustomNavBar';
 
   @override
   State<BottomNavBar> createState() => _BottomNavBarState();
