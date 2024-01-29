@@ -34,13 +34,13 @@ class AccountEditProfile extends StatelessWidget {
         child: Column(
           children: [
             Divider(color: kblack.withOpacity(0.2), endIndent: 0, indent: 26),
-            // CustomTextField(hinttext: "Isabella Anderson"),
-            // CustomTextField(hinttext: "isabella.lee@example.com"),
-            // CustomTextField(hinttext: "William Davis"),
-            // CustomTextField(hinttext: "Mia Taylor"),
-            // CustomTextField(hinttext: "+1 (555) 234-5678"),
-            // CustomTextField(hinttext: "Ricoz"),
-            // CustomTextField(hinttext: "https://ricoz.in"),
+            // CustomTextField(labelText: "Isabella Anderson"),
+            // CustomTextField(labelText: "isabella.lee@example.com"),
+            // CustomTextField(labelText: "William Davis"),
+            // CustomTextField(labelText: "Mia Taylor"),
+            // CustomTextField(labelText: "+1 (555) 234-5678"),
+            // CustomTextField(labelText: "Ricoz"),
+            // CustomTextField(labelText: "https://ricoz.in"),
             height30,
             CommonElevatedButton(
               name: "Update",

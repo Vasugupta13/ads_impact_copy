@@ -147,8 +147,8 @@ void _showPopup(BuildContext context) {
                     height5,
                     Divider(color: kblack.withOpacity(0.1), thickness: 0.5),
                     height10,
-                    // CustomTextField(hinttext: "Enter your old password"),
-                    // CustomTextField(hinttext: "Enter your new password"),
+                    // CustomTextField(labelText: "Enter your old password"),
+                    // CustomTextField(labelText: "Enter your new password"),
                     const Align(
                       alignment: Alignment.centerLeft,
                       child: Padding(
@@ -164,7 +164,7 @@ void _showPopup(BuildContext context) {
                       ),
                     ),
                     height5,
-                    // CustomTextField(hinttext: "Confirm your password"),
+                    // CustomTextField(labelText: "Confirm your password"),
                     height20,
                     CommonElevatedButton(
                       name: "Update",

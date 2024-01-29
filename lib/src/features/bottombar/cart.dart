@@ -67,7 +67,7 @@ class _CartPageState extends State<CartPage> {
                             ),
                             height10,
                             Divider(
-                              color:  kdarkgrey.withOpacity(0.1),
+                              color: kdarkgrey.withOpacity(0.1),
                             ),
                             height10,
                             const Row(
@@ -103,7 +103,7 @@ class _CartPageState extends State<CartPage> {
                             ),
                             const SizedBox(height: 5),
                             Divider(
-                              color:  kdarkgrey.withOpacity(0.1),
+                              color: kdarkgrey.withOpacity(0.1),
                             ),
                             height10,
                             const Text(
@@ -181,7 +181,7 @@ class _CartPageState extends State<CartPage> {
                       color: kblack.withOpacity(0.2),
                     ),
                   ),
-                  hintText: "Enter your Promocode",
+                  labelText: "Enter your Promocode",
                   hintStyle: TextStyle(
                     fontSize: 12,
                     color: kblack.withOpacity(0.2),

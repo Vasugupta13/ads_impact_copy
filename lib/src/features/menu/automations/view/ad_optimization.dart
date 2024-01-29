@@ -1,4 +1,3 @@
-
 import 'package:ads/src/common/views/custom_elevatedbutton.dart';
 import 'package:ads/src/features/menu/catalog/widget/container_widget.dart';
 import 'package:ads/src/utils/const.dart';
@@ -232,7 +231,7 @@ class StatusContainer extends StatelessWidget {
                               color: Color(0xffE5E5E5),
                             ),
                           ),
-                          hintText: "Ex : 5450",
+                          labelText: "Ex : 5450",
                           hintStyle: const TextStyle(
                             fontSize: 10,
                             color: kdarkgrey,

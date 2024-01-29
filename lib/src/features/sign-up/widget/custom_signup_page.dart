@@ -13,10 +13,10 @@ class CustomSignupPage extends StatelessWidget {
   final bool? istextfield2;
   final bool? istextfield3;
   final bool? istextfield4;
-  final String? hinttext1;
-  final String? hinttext2;
-  final String? hinttext3;
-  final String? hinttext4;
+  final String? labelText1;
+  final String? labelText2;
+  final String? labelText3;
+  final String? labelText4;
   final bool? iscompanyvisible;
   final VoidCallback onTap;
   final TextEditingController? textField1Controller;
@@ -30,10 +30,10 @@ class CustomSignupPage extends StatelessWidget {
       this.istextfield2 = false,
       this.istextfield3 = false,
       this.istextfield4 = false,
-      this.hinttext1,
-      this.hinttext2,
-      this.hinttext3,
-      this.hinttext4,
+      this.labelText1,
+      this.labelText2,
+      this.labelText3,
+      this.labelText4,
       this.iconimage,
       this.title,
       this.iscompanyvisible = false,
@@ -76,19 +76,19 @@ class CustomSignupPage extends StatelessWidget {
         height30,
         if (istextfield1!)
           CustomTextField(
-              hintText: hinttext1!, controller: textField1Controller),
+              labelText: labelText1!, controller: textField1Controller),
         height25,
         if (istextfield2!)
           CustomTextField(
-              hintText: hinttext2!, controller: textField2Controller),
+              labelText: labelText2!, controller: textField2Controller),
         height25,
         if (istextfield3!)
           CustomTextField(
-              hintText: hinttext3!, controller: textField3Controller),
+              labelText: labelText3!, controller: textField3Controller),
         height25,
         if (istextfield4!)
           CustomTextField(
-              hintText: hinttext4!, controller: textField4Controller),
+              labelText: labelText4!, controller: textField4Controller),
         height30,
         CommonElevatedButton(
           name: "Next",

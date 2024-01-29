@@ -188,7 +188,7 @@ class _AdChatScreenState extends State<AdChatScreen> {
                             kwidth15,
                             Expanded(
                               child: CustomTextField(
-                                hintText: "I need some help r..........",
+                                labelText: "I need some help r..........",
                                 controller: controller,
                                 onChanged: (p0) {},
                               ),

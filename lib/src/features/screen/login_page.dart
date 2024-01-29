@@ -1,10 +1,8 @@
 import 'package:ads/src/common/views/custom_elevatedbutton.dart';
 import 'package:ads/src/features/bottombar/view/custom_textfield.dart';
-import 'package:ads/src/features/menu/insights/view/adset_analysis.dart';
 import 'package:ads/src/homepage/homepage.dart';
 import 'package:ads/src/res/assets.dart';
 import 'package:ads/src/utils/const.dart';
-import 'package:ads/src/utils/snackbar_services.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
@@ -24,6 +22,29 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
+  final GlobalKey<FormState> _formkey = GlobalKey<FormState>();
+
+  String emailAddress = '';
+  String password = '';
+
+  void _submitForm() {
+    if (_formkey.currentState!.validate()) {
+      Get.to(const HomePage());
+      // context.push(HomePage.routerPath);
+    }
+  }
+
+  String? _validateEMail(value) {
+    if (value!.isEmpty) {
+      return 'Enter Email';
+    }
+    RegExp emailRegExp = RegExp(
+        r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+");
+    if (!emailRegExp.hasMatch(value)) {
+      return "Enter valid email";
+    }
+    return null;
+  }
 
   @override
   void dispose() {
@@ -64,17 +85,31 @@ class _LoginPageState extends State<LoginPage> {
                         color: kred),
                   ),
                   SizedBox(height: screenHeight * 0.1),
-                  CustomTextField(
-                    controller: _emailController,
-                    hintText: "Enter your Email address",
-                    onChanged: (value) {},
-                  ),
-                  height25,
-                  CustomTextField(
-                    controller: _passwordController,
-                    hintText: "Password",
-                    isPassword: true,
-                    onChanged: (value) {},
+                  Form(
+                    key: _formkey,
+                    child: Column(
+                      children: [
+                        CustomTextField(
+                          validator: _validateEMail,
+                          controller: _emailController,
+                          labelText: "Enter your Email address",
+                          onChanged: (value) {},
+                        ),
+                        height25,
+                        CustomTextField(
+                          validator: (value) {
+                            if (value!.isEmpty) {
+                              return 'Please Enter a Password';
+                            }
+                            return null;
+                          },
+                          controller: _passwordController,
+                          labelText: "Password",
+                          isPassword: true,
+                          onChanged: (value) {},
+                        ),
+                      ],
+                    ),
                   ),
                   Padding(
                     padding: EdgeInsets.only(right: screenWidth * 0.07),
@@ -102,25 +137,10 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                   height30,
                   CommonElevatedButton(
-                    name: "Login",
-                    buttonwidth: 0.40,
-                    textStyle: elevatedtextstyle,
-                    ontap: () {
-                      final email = _emailController.text;
-                      final password = _passwordController.text;
-
-                      if (email.isEmpty) {
-                        SnackBarService.showSnackBar(
-                            context: context, message: "Enter Email Address");
-                      } else if (password.isEmpty) {
-                        SnackBarService.showSnackBar(
-                            context: context, message: "Enter Your Password");
-                      } else {
-                        // authController.loginUser();
-                        Get.off(() => const HomePage());
-                      }
-                    },
-                  ),
+                      name: "Login",
+                      buttonwidth: 0.40,
+                      textStyle: elevatedtextstyle,
+                      ontap: _submitForm),
                 ],
               ),
             ),

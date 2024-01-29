@@ -123,7 +123,7 @@ class _CustomerSupportViewState extends State<CustomerSupportView> {
                     ),
                     filled: true,
                     fillColor: Colors.white, // Adjust the color
-                    hintText: 'Type your message',
+                    labelText: 'Type your message',
                     hintStyle: GoogleFonts.inter(
                       fontSize: 14,
                       fontWeight: FontWeight.w400,

@@ -50,7 +50,10 @@ class _CommonElevatedButtonState extends State<CommonElevatedButton> {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            if (widget.iconname != null) ...[Icon(widget.iconname), kwidth20],
+            if (widget.iconname != null) ...[
+              Icon(widget.iconname, color: kwhite),
+              kwidth20
+            ],
             Text(widget.name,
                 style: widget.textStyle,
                 maxLines: 1,

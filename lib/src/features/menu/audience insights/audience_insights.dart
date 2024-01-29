@@ -84,10 +84,9 @@ class _AudienceInsightsState extends State<AudienceInsights> {
                           borderSide: BorderSide(
                               color: Colors.black.withOpacity(0.1), width: 1),
                         ),
-                        hintText: "Search by name or audience ....",
+                        labelText: "Search by name or audience ....",
                         hintStyle: TextStyle(
-                          fontSize:12,
-
+                          fontSize: 12,
                           color: Colors.black.withOpacity(0.4),
                         ),
                       ),
@@ -112,7 +111,8 @@ class _AudienceInsightsState extends State<AudienceInsights> {
                         const Text(
                           "Filter",
                           style: TextStyle(
-                              fontSize: 12, ),
+                            fontSize: 12,
+                          ),
                         )
                       ],
                     ),
@@ -246,7 +246,9 @@ class CustomCheckbox extends StatelessWidget {
         if (name != null) ...[
           Text(
             name!,
-            style: const TextStyle(fontSize: 12, ),
+            style: const TextStyle(
+              fontSize: 12,
+            ),
           ),
         ]
       ],
@@ -276,8 +278,7 @@ Widget _buildButton(String name, Color bgColor, Color textColor, int flex,
             if (icon != null) ...[icon, kwidth5],
             Text(
               name,
-              style: TextStyle(
-                  fontSize: 12, color: textColor),
+              style: TextStyle(fontSize: 12, color: textColor),
             ),
           ],
         ),

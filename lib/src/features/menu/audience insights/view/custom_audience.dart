@@ -1,4 +1,3 @@
-
 import 'package:ads/src/common/views/custom_elevatedbutton.dart';
 import 'package:ads/src/features/menu/audience%20insights/view/custom_audience_popup.dart';
 import 'package:ads/src/utils/const.dart';
@@ -189,7 +188,7 @@ class _CustomTextFormState extends State<CustomTextForm> {
                     : Colors.black.withOpacity(0.2),
               ),
             ),
-            hintText: widget.name,
+            labelText: widget.name,
             alignLabelWithHint: true,
             hintStyle: TextStyle(
               fontSize: 12,

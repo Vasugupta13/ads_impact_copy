@@ -482,7 +482,7 @@ class _MenuCatalogInformationState extends State<MenuCatalogInformation> {
                       color: kblack.withOpacity(0.2),
                     ),
                   ),
-                  hintText: "Enter Prefix",
+                  labelText: "Enter Prefix",
                   hintStyle: TextStyle(
                     fontSize: 12,
                     color: kblack.withOpacity(0.2),
@@ -676,7 +676,7 @@ class _MenuCatalogInformationState extends State<MenuCatalogInformation> {
                       color: kblack.withOpacity(0.2),
                     ),
                   ),
-                  hintText:
+                  labelText:
                       "Vorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.",
                   hintMaxLines: 5,
                   hintStyle: const TextStyle(

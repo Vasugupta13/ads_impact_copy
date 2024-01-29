@@ -1,11 +1,11 @@
 import 'package:ads/src/features/bottombar/bottomnavigationbar.dart';
+import 'package:ads/src/res/global_basicuser.dart';
+import 'package:ads/src/utils/const.dart';
 import 'package:ads/src/homepage/plan_listview.dart';
 import 'package:ads/src/homepage/take_plan_bar.dart';
 import 'package:ads/src/features/menu/main_menu.dart';
 import 'package:ads/src/homepage/basic_plan.dart';
 import 'package:ads/src/homepage/overview_insights.dart';
-import 'package:ads/src/res/global_basicuser.dart';
-import 'package:ads/src/utils/const.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -21,6 +21,9 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   bool showplandetails = false;
   bool isLoading = true;
+
+   static const routerPath = '/HomePage';
+
 
   toggleVisibility() {
     setState(() {

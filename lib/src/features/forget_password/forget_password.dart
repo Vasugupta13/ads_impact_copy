@@ -80,7 +80,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                   ),
                   height30,
                   CustomTextField(
-                      hintText: "Enter your E-mail address",
+                      labelText: "Enter your E-mail address",
                       controller: _emailController),
                   height40,
                   CommonElevatedButton(

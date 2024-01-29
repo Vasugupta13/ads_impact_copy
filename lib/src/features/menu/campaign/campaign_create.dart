@@ -88,11 +88,11 @@ class _CampaignCreateState extends State<CampaignCreate> {
             ),
             height20,
             const CustomTextForm(
-                hinttext: "Enter your Adtext", maxline: 1, verticalpad: 12),
+                labelText: "Enter your Adtext", maxline: 1, verticalpad: 12),
             height25,
             const CustomTextForm(
               maxline: 3,
-              hinttext:
+              labelText:
                   "Enter your description about that Ad. And this is also a good place to share COUPON codes.",
               verticalpad: 50,
             ),
@@ -257,11 +257,11 @@ class _CampaignCreateState extends State<CampaignCreate> {
 
 class CustomTextForm extends StatelessWidget {
   final int maxline;
-  final String hinttext;
+  final String labelText;
   final double verticalpad;
   const CustomTextForm({
     Key? key,
-    required this.hinttext,
+    required this.labelText,
     required this.verticalpad,
     required this.maxline,
   }) : super(key: key);
@@ -284,7 +284,7 @@ class CustomTextForm extends StatelessWidget {
             borderRadius: BorderRadius.circular(16),
             borderSide: const BorderSide(color: Color(0xffFF4848), width: 1.3),
           ),
-          hintText: hinttext,
+          labelText: labelText,
           alignLabelWithHint: true,
           hintStyle: TextStyle(
             fontSize: 12,

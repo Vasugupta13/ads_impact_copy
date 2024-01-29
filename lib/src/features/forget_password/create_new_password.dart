@@ -85,7 +85,7 @@ class _CreateNewPasswordState extends State<CreateNewPassword> {
                         ),
                         height5,
                         const CustomTextField(
-                            hintText:
+                            labelText:
                                 "Enter New password"), //! need to add the obsecureicon
                         height2,
                         Text(
@@ -106,7 +106,7 @@ class _CreateNewPasswordState extends State<CreateNewPassword> {
                         ),
                         height5,
                         const CustomTextField(
-                            hintText: "Confirm your new password"),
+                            labelText: "Confirm your new password"),
                         height2,
 
                         Text(
