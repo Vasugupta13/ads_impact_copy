@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:ads/src/homepage/customapp_bar.dart';
+import 'package:ads/src/common/views/customapp_bar.dart';
 import 'package:ads/src/utils/const.dart';
 
 class CampaignCreate extends StatefulWidget {

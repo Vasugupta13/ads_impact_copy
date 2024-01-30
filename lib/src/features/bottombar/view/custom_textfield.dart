@@ -13,7 +13,7 @@ class CustomTextField extends StatefulWidget {
   final VoidCallback? imageonTap;
   final bool? isSuffix;
   final String? Function(String?)? validator;
-  // bool obsecureicon;
+  final bool obscureText;
 
   const CustomTextField({
     super.key,
@@ -26,7 +26,7 @@ class CustomTextField extends StatefulWidget {
     this.isSuffix = false,
     this.imageonTap,
     this.validator,
-    // this.obsecureicon = false,
+    this.obscureText = false,
   });
 
   @override
@@ -44,13 +44,14 @@ class _CustomTextFieldState extends State<CustomTextField> {
     return SizedBox(
       width: screenWidth * 0.8,
       child: TextFormField(
+        autovalidateMode: AutovalidateMode.onUserInteraction,
         style: const TextStyle(
             fontFamily: FontAssets.Poppins,
             fontWeight: FontWeight.w500,
             fontSize: 12),
         controller: widget.controller,
         focusNode: widget.focusNode,
-        // obscureText: widget.isPassword,
+        obscureText: widget.obscureText,
         onChanged: widget.onChanged,
         validator: widget.validator,
         decoration: InputDecoration(

@@ -9,39 +9,23 @@ import 'package:get/get.dart';
 class CustomSignupPage extends StatelessWidget {
   final String? iconimage;
   final String? title;
-  final bool? istextfield1;
-  final bool? istextfield2;
-  final bool? istextfield3;
-  final bool? istextfield4;
-  final String? labelText1;
-  final String? labelText2;
-  final String? labelText3;
-  final String? labelText4;
+  final List<String?> labelTexts;
+  final List<TextEditingController?> controllers;
+  final String? Function(String?)? validator;
   final bool? iscompanyvisible;
   final VoidCallback onTap;
-  final TextEditingController? textField1Controller;
-  final TextEditingController? textField2Controller;
-  final TextEditingController? textField3Controller;
-  final TextEditingController? textField4Controller;
+  final dynamic Function(String)? textfieldOntap;
 
   const CustomSignupPage(
       {super.key,
-      this.istextfield1 = false,
-      this.istextfield2 = false,
-      this.istextfield3 = false,
-      this.istextfield4 = false,
-      this.labelText1,
-      this.labelText2,
-      this.labelText3,
-      this.labelText4,
       this.iconimage,
       this.title,
       this.iscompanyvisible = false,
       required this.onTap,
-      this.textField1Controller,
-      this.textField2Controller,
-      this.textField3Controller,
-      this.textField4Controller});
+      required this.labelTexts,
+      required this.controllers,
+      this.validator,
+      this.textfieldOntap});
 
   @override
   Widget build(BuildContext context) {
@@ -74,21 +58,19 @@ class CustomSignupPage extends StatelessWidget {
             ],
           ),
         height30,
-        if (istextfield1!)
-          CustomTextField(
-              labelText: labelText1!, controller: textField1Controller),
-        height25,
-        if (istextfield2!)
-          CustomTextField(
-              labelText: labelText2!, controller: textField2Controller),
-        height25,
-        if (istextfield3!)
-          CustomTextField(
-              labelText: labelText3!, controller: textField3Controller),
-        height25,
-        if (istextfield4!)
-          CustomTextField(
-              labelText: labelText4!, controller: textField4Controller),
+        for (int i = 0; i < labelTexts.length; i++)
+          if (labelTexts[i] != null)
+            Column(
+              children: [
+                CustomTextField(
+                  validator: validator,
+                  onChanged: textfieldOntap,
+                  labelText: labelTexts[i]!,
+                  controller: controllers[i],
+                ),
+                height25,
+              ],
+            ),
         height30,
         CommonElevatedButton(
           name: "Next",

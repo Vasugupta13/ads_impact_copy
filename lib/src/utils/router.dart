@@ -1,49 +1,60 @@
-import 'package:ads/src/features/bottombar/account/account.dart';
-import 'package:ads/src/features/bottombar/analysis.dart';
-import 'package:ads/src/features/bottombar/cart.dart';
+import 'package:ads/src/features/forget_password/create_new_password.dart';
+import 'package:ads/src/features/forget_password/forget_password.dart';
+import 'package:ads/src/features/screen/login_page.dart';
+import 'package:ads/src/features/screen/opening_screen.dart';
 import 'package:ads/src/features/screen/splash_screen.dart';
+import 'package:ads/src/features/sign-up/sign_up.dart';
 import 'package:ads/src/homepage/homepage.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-class AppRouter {
-  GoRouter router = GoRouter(
-    routes: [
-      GoRoute(
-        path: "/",
-        name: "spalsh",
-        pageBuilder: (context, state) {
-          return const MaterialPage(child: SplashScreen());
-        },
-      ),
-      GoRoute(
-        path: "/home",
-        name: "home",
-        pageBuilder: (context, state) {
-          return const MaterialPage(child: HomePage());
-        },
-      ),
-      GoRoute(
-        path: "/analysis",
-        name: "home",
-        pageBuilder: (context, state) {
-          return const MaterialPage(child: AnalysisPage());
-        },
-      ),
-      GoRoute(
-        path: "/cart",
-        name: "home",
-        pageBuilder: (context, state) {
-          return const MaterialPage(child: CartPage());
-        },
-      ),
-      GoRoute(
-        path: "/account",
-        name: "home",
-        pageBuilder: (context, state) {
-          return const MaterialPage(child: MyAccountPage());
-        },
-      ),
-    ],
-  );
-}
+final _rootNavigatorKey = GlobalKey<NavigatorState>();
+
+final GoRouter router = GoRouter(
+  debugLogDiagnostics: true,
+  initialLocation: SplashScreen.routePath,
+  routes: <RouteBase>[
+    GoRoute(
+      path: '/Splash',
+      builder: (BuildContext context, GoRouterState state) {
+        return const SplashScreen();
+      },
+    ),
+    GoRoute(
+      path: '/OpeningScreen',
+      builder: (BuildContext context, GoRouterState state) {
+        return const OpeningScreen();
+      },
+    ),
+    GoRoute(
+      path: '/LoginPage',
+      builder: (BuildContext context, GoRouterState state) {
+        return const LoginPage();
+      },
+    ),
+    GoRoute(
+      path: '/ForgotPassword',
+      builder: (BuildContext context, GoRouterState state) {
+        return const ForgotPassword();
+      },
+    ),
+    GoRoute(
+      path: '/CreateNewPassword',
+      builder: (BuildContext context, GoRouterState state) {
+        return const CreateNewPassword();
+      },
+    ),
+    GoRoute(
+      path: '/Signup',
+      builder: (BuildContext context, GoRouterState state) {
+        return const Signup();
+      },
+    ),
+    GoRoute(
+      path: '/HomePage',
+      builder: (BuildContext context, GoRouterState state) {
+        return const HomePage();
+      },
+    )
+  ],
+);

@@ -15,9 +15,9 @@ class ImageAssets {
   static const linkdinwhite = '$_base/logo/linkdin_white.svg';
   static const googlewhite = '$_base/logo/google_white.svg';
   static const connectwhite = '$_base/logo/connect_white.svg';
-  static const homebasicplan = '$_base/illustration/basic_plan.svg';
-  static const homeadvanceplan = '$_base/illustration/advance_plan.svg';
-  static const premiumplan = '$_base/illustration/premium_plan.svg';
+  static const homebasicplan = '$_base/homebasic.png';
+  static const homeadvanceplan = '$_base/homeadvance.png';
+  static const premiumplan = '$_base/homepremium.png';
   static const facebook = '$_base/logo/facebook.svg';
   static const twitter = '$_base/logo/twitter.svg';
   static const linkdin = '$_base/logo/linkedin.svg';
@@ -65,6 +65,7 @@ class IconAssets {
   static const catalogbar = '$_base/catalog_bar.svg';
   static const catalogconfigbar = '$_base/catalog_info_bar.svg';
   static const connectdropdown = '$_base/connect_drop_down.svg';
+  static const adchatperson = '$_base/adchat_person.svg';
 }
 
 class FontAssets {

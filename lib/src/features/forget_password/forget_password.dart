@@ -21,6 +21,13 @@ class ForgotPassword extends StatefulWidget {
 
 class _ForgotPasswordState extends State<ForgotPassword> {
   final TextEditingController _emailController = TextEditingController();
+  final GlobalKey<FormState> _formkey = GlobalKey<FormState>();
+
+  void _sendbutton() {
+    if (_formkey.currentState != null && _formkey.currentState!.validate()) {
+      _showPopup(context);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -79,25 +86,24 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                     ),
                   ),
                   height30,
-                  CustomTextField(
-                      labelText: "Enter your E-mail address",
-                      controller: _emailController),
+                  Form(key: _formkey,
+                    child: CustomTextField(
+                        onChanged: (value) {},
+                        validator: (value) {
+                          if (value!.isEmpty) {
+                            return 'Please Enter a E-mail Address';
+                          }
+                          return null;
+                        },
+                        labelText: "Enter your E-mail address",
+                        controller: _emailController),
+                  ),
                   height40,
                   CommonElevatedButton(
-                    name: "Send Instructions",
-                    buttonwidth: 0.45,
-                    textStyle: elevatedtextstyle,
-                    ontap: () {
-                      final email = _emailController.text;
-                      if (email.isEmpty) {
-                        SnackBarService.showSnackBar(
-                            context: context,
-                            message: "Enter Your Email Address");
-                      } else {
-                        _showPopup(context);
-                      }
-                    },
-                  ),
+                      name: "Send Instructions",
+                      buttonwidth: 0.45,
+                      textStyle: elevatedtextstyle,
+                      ontap: _sendbutton),
                   height40,
                   Align(
                     alignment: Alignment.centerRight,

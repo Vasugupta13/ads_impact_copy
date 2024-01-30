@@ -50,18 +50,6 @@ class _OpeningScreenState extends State<OpeningScreen> {
         child: Stack(
           fit: StackFit.expand,
           children: [
-            Positioned(
-              top: -(screenHeight / 2.2),
-              left: -130,
-              child: Container(
-                height: screenHeight + 100,
-                width: screenHeight + 100,
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  color: const Color(0xff1A377D).withOpacity(0.1),
-                ),
-              ),
-            ),
             PageView(
               physics: const NeverScrollableScrollPhysics(),
               controller: _controller,
@@ -73,21 +61,18 @@ class _OpeningScreenState extends State<OpeningScreen> {
               },
               children: const [
                 OpeningPage(
-                  showTextSpan: false,
                   imagepath: ImageAssets.openingscreen1,
                   title: "Unleash Advertising Potential",
                   subtitle:
                       "Transform Your Business: Unlock Growth\nOpportunities with Powerful Advertising\nStrategies",
                 ),
                 OpeningPage(
-                  showTextSpan: false,
                   imagepath: ImageAssets.openingscreen2,
                   title: "Innovative Ad Campaigns",
                   subtitle:
                       "Break Through the Noise: Engage, Inspire,\nand Convert with Cutting-Edge\nAdvertising Approaches",
                 ),
                 OpeningPage(
-                  showTextSpan: false,
                   imagepath: ImageAssets.openingscreen3,
                   title: "Elevate Your Brand Reach",
                   subtitle:
@@ -125,7 +110,7 @@ class _OpeningScreenState extends State<OpeningScreen> {
               ),
             ),
             Positioned(
-              bottom: screenHeight / 3,
+              bottom: screenHeight / 3.2,
               left: 20,
               child: SmoothPageIndicator(
                 controller: _controller,
@@ -161,60 +146,19 @@ class _OpeningScreenState extends State<OpeningScreen> {
       ),
     );
   }
-
-//   Widget _buildContainerImage(String imagepath, {bool? showTextSpan}) {
-//     return Column(
-//       children: [
-//         Image.asset(imagepath, width: scrennwidth, fit: BoxFit.cover),
-//         if (showTextSpan!)
-//           Column(
-//             children: [
-//               RichText(
-//                 textAlign: TextAlign.center,
-//                 maxLines: 2,
-//                 text: const TextSpan(
-//                   style: TextStyle(
-//                     fontSize: 24,
-//                     height: 1.4,
-//                     fontWeight: FontWeight.w600,
-//                     color: Color(0xff000000),
-//                   ),
-//                   children: [
-//                     TextSpan(
-//                       text: 'W',
-//                       style: TextStyle(color: kblue77D),
-//                     ),
-//                     TextSpan(text: 'elcome to the '),
-//                     TextSpan(
-//                       text: 'Ads Impact',
-//                       style: TextStyle(color: kblue77D),
-//                     ),
-//                     TextSpan(text: '\nmobile app!'),
-//                   ],
-//                 ),
-//               ),
-//               height40,
-//             ],
-//           )
-//         else
-//           const SizedBox(),
-//       ],
-//     );
-//   }
 }
 
 class OpeningPage extends StatefulWidget {
   final String imagepath;
   final String title;
   final String subtitle;
-  final bool showTextSpan;
 
-  const OpeningPage(
-      {super.key,
-      required this.imagepath,
-      required this.title,
-      required this.subtitle,
-      required this.showTextSpan});
+  const OpeningPage({
+    super.key,
+    required this.imagepath,
+    required this.title,
+    required this.subtitle,
+  });
 
   @override
   _OpeningPageState createState() => _OpeningPageState();
@@ -227,65 +171,28 @@ class _OpeningPageState extends State<OpeningPage> {
     double screenHeight = MediaQuery.of(context).size.height;
     return Column(
       children: [
-        SvgPicture.asset(widget.imagepath,
-            height: screenHeight * 0.5, width: screenWidth, fit: BoxFit.cover),
-        // if (widget.showTextSpan)
-        //   Column(
-        //     children: [
-        //       RichText(
-        //         textAlign: TextAlign.center,
-        //         maxLines: 2,
-        //         text: const TextSpan(
-        //           style: TextStyle(
-        //             fontSize: 24,
-        //             height: 1.4,
-        //             fontWeight: FontWeight.w600,
-        //             color: Color(0xff000000),
-        //           ),
-        //           children: [
-        //             TextSpan(
-        //               text: 'W',
-        //               style: TextStyle(color: kblue77D),
-        //             ),
-        //             TextSpan(text: 'elcome to the '),
-        //             TextSpan(
-        //               text: 'Ads Impact',
-        //               style: TextStyle(color: kblue77D),
-        //             ),
-        //             TextSpan(text: '\nmobile app!'),
-        //           ],
-        //         ),
-        //       ),
-        //       SizedBox(height: screenHeight * 0.1),
-        //     ],
-        //   )
-        // else
-        //   height30,
-        SizedBox(height: screenHeight * 0.18 + 10),
-        Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Text(
-              widget.title,
-              style: const TextStyle(
-                  fontFamily: FontAssets.Poppins,
-                  fontSize: 18,
-                  fontWeight: FontWeight.w600),
-            ),
-            height15,
-            Text(
-              widget.subtitle,
-              maxLines: 3,
-              textAlign: TextAlign.center,
-              style: const TextStyle(
-                  fontFamily: FontAssets.Poppins,
-                  fontWeight: FontWeight.w500,
-                  fontSize: 14,
-                  color: grey77),
-            ),
-            height10,
-          ],
+        Image.asset(widget.imagepath,
+            height: screenHeight * 0.68, width: screenWidth, fit: BoxFit.fill),
+        height10,
+        Text(
+          widget.title,
+          style: const TextStyle(
+              fontFamily: FontAssets.Poppins,
+              fontSize: 18,
+              fontWeight: FontWeight.w600),
         ),
+        height10,
+        Text(
+          widget.subtitle,
+          maxLines: 3,
+          textAlign: TextAlign.center,
+          style: const TextStyle(
+              fontFamily: FontAssets.Poppins,
+              fontWeight: FontWeight.w500,
+              fontSize: 14,
+              color: grey77),
+        ),
+        height10,
       ],
     );
   }

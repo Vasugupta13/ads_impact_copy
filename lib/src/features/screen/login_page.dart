@@ -24,8 +24,6 @@ class _LoginPageState extends State<LoginPage> {
   final TextEditingController _passwordController = TextEditingController();
   final GlobalKey<FormState> _formkey = GlobalKey<FormState>();
 
-  String emailAddress = '';
-  String password = '';
 
   void _submitForm() {
     if (_formkey.currentState!.validate()) {

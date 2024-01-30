@@ -1,8 +1,8 @@
 import 'package:ads/src/common/views/custom_elevatedbutton.dart';
 import 'package:ads/src/features/bottombar/bottomnavigationbar.dart';
 import 'package:ads/src/features/bottombar/view/payment.dart';
-import 'package:ads/src/homepage/customapp_bar.dart';
-import 'package:ads/src/homepage/common_plan_container.dart';
+import 'package:ads/src/common/views/customapp_bar.dart';
+import 'package:ads/src/homepage/widgets/our_plan_container.dart';
 import 'package:ads/src/utils/const.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -45,7 +45,9 @@ class _CartPageState extends State<CartPage> {
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      CommonContainerPlanDetals(
+                      OurPlansContainer(onTap: () {
+
+                      },
                         containerwidth: Get.width * 0.35,
                         containerheight: Get.height * 0.25,
                         customfontsize: 6,

@@ -1,9 +1,11 @@
 import 'package:ads/src/common/views/custom_elevatedbutton.dart';
 import 'package:ads/src/features/adchat/chat_screen.dart';
+import 'package:ads/src/res/assets.dart';
 import 'package:ads/src/utils/const.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
+import 'package:go_router/go_router.dart';
 
 class NeedHelp extends StatefulWidget {
   const NeedHelp({super.key});
@@ -21,14 +23,17 @@ class _NeedHelpState extends State<NeedHelp> {
         height15,
         const Text(
           "Need Help?",
-          style: TextStyle(fontSize: 24),
+          style: TextStyle(
+              fontFamily: FontAssets.Poppins,
+              fontWeight: FontWeight.w500,
+              fontSize: 24),
         ),
         height20,
         Align(
           alignment: Alignment.bottomRight,
-          child: SvgPicture.asset("assets/images/chatbot.svg"),
+          child: SvgPicture.asset(ImageAssets.chatbot),
         ),
-        height15,
+        height20,
         Align(
           alignment: Alignment.centerLeft,
           child: Padding(
@@ -36,17 +41,27 @@ class _NeedHelpState extends State<NeedHelp> {
             child: RichText(
               text: const TextSpan(
                 text: "Here is the ",
-                style:
-                    TextStyle(fontSize: 28, color: kblack, letterSpacing: -0.3),
+                style: TextStyle(
+                    fontFamily: FontAssets.Poppins,
+                    fontSize: 24,
+                    color: kblack,
+                    fontWeight: FontWeight.w500),
                 children: [
                   TextSpan(
                     text: "AdChat\n",
-                    style: TextStyle(fontSize: 28, color: kred),
+                    style: TextStyle(
+                        fontFamily: FontAssets.Poppins,
+                        fontSize: 24,
+                        color: kred,
+                        fontWeight: FontWeight.w500),
                   ),
                   TextSpan(
                     text: "assistance which can help\nyou!",
                     style: TextStyle(
-                        fontSize: 28, color: kblack, letterSpacing: -0.3),
+                        fontFamily: FontAssets.Poppins,
+                        fontSize: 24,
+                        color: kblack,
+                        fontWeight: FontWeight.w500),
                   ),
                 ],
               ),
@@ -56,12 +71,13 @@ class _NeedHelpState extends State<NeedHelp> {
         height40,
         CommonElevatedButton(
             name: "Adchat",
-            buttonwidth: 0.45,
+            buttonwidth: 0.35,
             textStyle: elevatedtextstyle,
             ontap: () {
+              // context.push(AdChatScreen.routerpath);
               Get.to(() => const AdChatScreen());
             },
-            iconname: Icons.forum_outlined),
+            preifxicon: IconAssets.message),
         height20,
       ],
     );

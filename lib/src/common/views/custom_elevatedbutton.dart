@@ -1,12 +1,13 @@
 import 'package:ads/src/utils/const.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 
 class CommonElevatedButton extends StatefulWidget {
   final String name;
   final double buttonwidth;
   final double? buttonheight;
-  final IconData? iconname;
+  final String? preifxicon;
   final TextStyle textStyle;
   final VoidCallback ontap;
   final Color alternatecolor;
@@ -16,7 +17,7 @@ class CommonElevatedButton extends StatefulWidget {
       {super.key,
       required this.name,
       required this.buttonwidth,
-      this.iconname,
+      this.preifxicon,
       this.buttonheight,
       required this.textStyle,
       required this.ontap,
@@ -50,8 +51,8 @@ class _CommonElevatedButtonState extends State<CommonElevatedButton> {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            if (widget.iconname != null) ...[
-              Icon(widget.iconname, color: kwhite),
+            if (widget.preifxicon != null) ...[
+              SvgPicture.asset(widget.preifxicon!),
               kwidth20
             ],
             Text(widget.name,

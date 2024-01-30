@@ -7,7 +7,7 @@ import 'package:go_router/go_router.dart';
 
 class SplashScreen extends StatelessWidget {
   const SplashScreen({super.key});
-  static const routePath = '/SplashScreen';
+  static const routePath = '/Splash';
   @override
   Widget build(BuildContext context) {
     Future.delayed(const Duration(milliseconds: 1500), () {

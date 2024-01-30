@@ -1,10 +1,10 @@
 import 'dart:ui';
 
 import 'package:ads/src/features/bottombar/bottomnavigationbar.dart';
-import 'package:ads/src/homepage/customapp_bar.dart';
+import 'package:ads/src/common/views/customapp_bar.dart';
 import 'package:ads/src/features/menu/catalog/widget/button.dart';
 import 'package:ads/src/features/menu/catalog/widget/container_widget.dart';
-import 'package:ads/src/homepage/social_account_list_widget.dart';
+import 'package:ads/src/homepage/widgets/social_account_list_widget.dart';
 import 'package:ads/src/utils/const.dart';
 import 'package:dotted_border/dotted_border.dart';
 import 'package:dropdown_button2/dropdown_button2.dart';

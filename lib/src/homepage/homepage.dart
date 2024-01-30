@@ -1,11 +1,12 @@
 import 'package:ads/src/features/bottombar/bottomnavigationbar.dart';
+import 'package:ads/src/res/assets.dart';
 import 'package:ads/src/res/global_basicuser.dart';
 import 'package:ads/src/utils/const.dart';
-import 'package:ads/src/homepage/plan_listview.dart';
-import 'package:ads/src/homepage/take_plan_bar.dart';
+import 'package:ads/src/homepage/views/plan_listview.dart';
+import 'package:ads/src/homepage/views/take_plan_bar.dart';
 import 'package:ads/src/features/menu/main_menu.dart';
 import 'package:ads/src/homepage/basic_plan.dart';
-import 'package:ads/src/homepage/overview_insights.dart';
+import 'package:ads/src/homepage/widgets/overview_insights.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -22,8 +23,7 @@ class _HomePageState extends State<HomePage> {
   bool showplandetails = false;
   bool isLoading = true;
 
-   static const routerPath = '/HomePage';
-
+  static const routerPath = '/HomePage';
 
   toggleVisibility() {
     setState(() {
@@ -51,6 +51,9 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    double screenHeight = MediaQuery.of(context).size.height;
+    double screenWidth = MediaQuery.of(context).size.width;
+
     print("basic plan $basicPlan");
     return Scaffold(
       backgroundColor: kwhite,
@@ -59,6 +62,7 @@ class _HomePageState extends State<HomePage> {
         elevation: 0,
         backgroundColor: kwhite,
         shadowColor: kwhite,
+        surfaceTintColor: kwhite,
         leading: IconButton(
           onPressed: () {
             _showPopupMenu(context);
@@ -69,8 +73,11 @@ class _HomePageState extends State<HomePage> {
         title: Column(
           children: [
             height10,
-            SvgPicture.asset("assets/images/homescreen_logo.svg",
-                height: Get.height * 0.05 + 5, fit: BoxFit.contain),
+            SvgPicture.asset(
+              ImageAssets.adslogo,
+              fit: BoxFit.fill,
+              width: screenWidth * 0.15,
+            ),
           ],
         ),
         actions: [

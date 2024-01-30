@@ -29,12 +29,12 @@ class _SignupState extends State<Signup> {
   final TextEditingController _companynameController = TextEditingController();
   final TextEditingController _companywebsiteController =
       TextEditingController();
+  final GlobalKey<FormState> _formkey = GlobalKey<FormState>();
 
   final PageController _pageController = PageController();
   int _currentpage = 0;
   @override
   Widget build(BuildContext context) {
-    double screenHeight = MediaQuery.of(context).size.height;
     double screenWidth = MediaQuery.of(context).size.width;
 
     return Scaffold(
@@ -43,18 +43,32 @@ class _SignupState extends State<Signup> {
           backgroundColor: kwhite,
           elevation: 0,
           automaticallyImplyLeading: false),
-      body: Column(
-        children: [
-          Expanded(
-            child: PageView(
-              controller: _pageController,
-              onPageChanged: (index) {
-                setState(() {
-                  _currentpage = index;
-                });
-              },
-              children: [
-                CustomSignupPage(
+      body: Form(
+        key: _formkey,
+        child: Column(
+          children: [
+            Expanded(
+              child: PageView(
+                controller: _pageController,
+                onPageChanged: (index) {
+                  setState(() {
+                    _currentpage = index;
+                  });
+                },
+                children: [
+                  CustomSignupPage(
+                    controllers: [
+                      _emailController,
+                      _usernameController,
+                      _passwordController,
+                      _confirmpasswordController
+                    ],
+                    labelTexts: const [
+                      "Enter Your Email",
+                      "Enter Your Username",
+                      "Enter your Password",
+                      "Confirm Your Password"
+                    ],
                     onTap: () {
                       final email = _emailController.text;
                       final username = _usernameController.text;
@@ -83,19 +97,8 @@ class _SignupState extends State<Signup> {
                     },
                     iconimage: IconAssets.loginicon,
                     title: "Sign-up",
-                    istextfield1: true,
-                    labelText1: "Enter your E-mail",
-                    textField1Controller: _emailController,
-                    istextfield2: true,
-                    labelText2: "Enter your Username",
-                    istextfield3: true,
-                    textField2Controller: _usernameController,
-                    labelText3: "Password",
-                    istextfield4: true,
-                    textField3Controller: _passwordController,
-                    labelText4: "Confirm Password",
-                    textField4Controller: _confirmpasswordController),
-                CustomSignupPage(
+                  ),
+                  CustomSignupPage(
                     onTap: () {
                       final firstname = _firstnameController.text;
                       final lastname = _lastnameController.text;
@@ -118,16 +121,18 @@ class _SignupState extends State<Signup> {
                     },
                     iconimage: IconAssets.loginicon,
                     title: "About Yourself",
-                    labelText1: "Enter your First Name",
-                    textField1Controller: _firstnameController,
-                    labelText2: "Enter your Last Name",
-                    textField2Controller: _lastnameController,
-                    labelText3: "Enter your Mobile Number",
-                    textField3Controller: _mobilenumberController,
-                    istextfield1: true,
-                    istextfield2: true,
-                    istextfield3: true),
-                CustomSignupPage(
+                    controllers: [
+                      _firstnameController,
+                      _lastnameController,
+                      _mobilenumberController
+                    ],
+                    labelTexts: const [
+                      "Enter your First Name",
+                      "Enter your Last Name",
+                      "Enter your Mobile Number"
+                    ],
+                  ),
+                  CustomSignupPage(
                     onTap: () {
                       // context.push(ConnectYourAccounts.routerPath);
                       final company = _companynameController.text;
@@ -141,47 +146,52 @@ class _SignupState extends State<Signup> {
                             context: context,
                             message: "Enter your Company Website");
                       } else {
+                        // context.push(ConnectYourAccounts.routerPath);
                         Get.to(
                           () => const ConnectYourAccounts(),
                         );
                       }
                     },
                     iscompanyvisible: true,
-                    labelText1: "Enter your Company Name",
-                    textField1Controller: _companynameController,
-                    labelText2: "Enter your Company Website",
-                    textField2Controller: _companywebsiteController,
-                    istextfield1: true,
-                    istextfield2: true),
+                    controllers: [
+                      _companynameController,
+                      _companywebsiteController
+                    ],
+                    labelTexts: const [
+                      "Enter your Company Name",
+                      "Enter your Company Website"
+                    ],
+                  ),
+                ],
+              ),
+            ),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  "Step ${_currentpage + 1}",
+                  style: const TextStyle(
+                      fontFamily: FontAssets.Poppins,
+                      fontSize: 14,
+                      color: kblack,
+                      fontWeight: FontWeight.w600),
+                ),
+                height5,
+                SizedBox(
+                  width: screenWidth * 0.8,
+                  child: LinearProgressIndicator(
+                    borderRadius: BorderRadius.circular(12),
+                    minHeight: 10,
+                    backgroundColor: Colors.black.withOpacity(0.7),
+                    value: _calculateLinearProgress(),
+                    valueColor: const AlwaysStoppedAnimation(kred),
+                  ),
+                ),
               ],
             ),
-          ),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                "Step ${_currentpage + 1}",
-                style: const TextStyle(
-                    fontFamily: FontAssets.Poppins,
-                    fontSize: 14,
-                    color: kblack,
-                    fontWeight: FontWeight.w600),
-              ),
-              height5,
-              SizedBox(
-                width: screenWidth * 0.8,
-                child: LinearProgressIndicator(
-                  borderRadius: BorderRadius.circular(12),
-                  minHeight: 10,
-                  backgroundColor: Colors.black.withOpacity(0.7),
-                  value: _calculateLinearProgress(),
-                  valueColor: const AlwaysStoppedAnimation(kred),
-                ),
-              ),
-            ],
-          ),
-          height40,
-        ],
+            height40,
+          ],
+        ),
       ),
     );
   }

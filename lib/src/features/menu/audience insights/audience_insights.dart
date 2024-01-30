@@ -1,5 +1,5 @@
 import 'package:ads/src/features/bottombar/bottomnavigationbar.dart';
-import 'package:ads/src/homepage/customapp_bar.dart';
+import 'package:ads/src/common/views/customapp_bar.dart';
 import 'package:ads/src/features/menu/audience%20insights/view/custom_audience.dart';
 import 'package:ads/src/features/menu/audience%20insights/view/custom_dialog.dart';
 import 'package:ads/src/features/menu/audience%20insights/view/custom_table.dart';

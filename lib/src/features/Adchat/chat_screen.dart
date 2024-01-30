@@ -1,6 +1,7 @@
 import 'package:ads/src/features/bottombar/bottomnavigationbar.dart';
 import 'package:ads/src/features/bottombar/view/custom_textfield.dart';
-import 'package:ads/src/homepage/customapp_bar.dart';
+import 'package:ads/src/common/views/customapp_bar.dart';
+import 'package:ads/src/res/assets.dart';
 import 'package:ads/src/utils/const.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -15,14 +16,16 @@ class AdChatScreen extends StatefulWidget {
 }
 
 class _AdChatScreenState extends State<AdChatScreen> {
+  static const routerPath = '/AdChatScreen';
+
   final TextEditingController controller = TextEditingController();
   final RxList<Map<String, dynamic>> messages = <Map<String, dynamic>>[
     {
       'message':
-          "Hey, I’m your Adchat Assistant. May I Know how may I help you!",
+          "Hey, I’m your Adchat Assistant. May I Know how may I\nhelp you!",
       'isLocal': false
     },
-    {'message': "Hello", 'isLocal': true},
+    {'message': "I need some help related to the application", 'isLocal': true},
     {'message': "Can you please explain your problem?", 'isLocal': false},
     {'message': "Yes Sure!", 'isLocal': true},
   ].obs;
@@ -64,45 +67,43 @@ class _AdChatScreenState extends State<AdChatScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Obx(
-      () => Scaffold(
-        body: isLoading.value
-            ? const Center(child: CircularProgressIndicator())
-            : Stack(
-                children: [
-                  Column(
-                    children: [
-                      CustomAppBar(
-                          onTapBack: () {
-                            Navigator.pop(context);
-                          },
-                          imagepath: "assets/images/chat_icon.svg",
-                          name: "Adchat"),
-                      Expanded(
-                        child: Container(
-                          height: Get.height,
-                          margin: const EdgeInsets.all(16),
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(12),
-                            border: Border.all(
-                              color: kblack.withOpacity(0.1),
-                            ),
+    double screenWidth = MediaQuery.of(context).size.width;
+    double screenHeight = MediaQuery.of(context).size.height;
+    return Scaffold(
+      body: isLoading.value
+          ? const Center(child: CircularProgressIndicator())
+          : Stack(
+              children: [
+                Column(
+                  children: [
+                    const CustomAppBar(
+                        name: "Adchat", imagepath: IconAssets.message),
+                    Expanded(
+                      child: Container(
+                        height: screenHeight,
+                        margin: const EdgeInsets.all(16),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(12),
+                          border: Border.all(
+                            color: kblack.withOpacity(0.1),
                           ),
-                          child: Stack(
-                            children: [
-                              Positioned(
-                                top: 30,
-                                left: 0,
-                                right: 0,
-                                child: Opacity(
-                                  opacity: 0.2,
-                                  child: SvgPicture.asset(
-                                      "assets/images/chat_bot.svg",
-                                      height: Get.height * 0.3),
-                                ),
+                        ),
+                        child: Stack(
+                          children: [
+                            Positioned(
+                              top: 30,
+                              left: 0,
+                              right: 0,
+                              child: Opacity(
+                                opacity: 0.2,
+                                child: SvgPicture.asset(ImageAssets.adchatbot,
+                                    height: Get.height * 0.3),
                               ),
-                              Align(
-                                alignment: Alignment.bottomCenter,
+                            ),
+                            Align(
+                              alignment: Alignment.bottomCenter,
+                              child: Padding(
+                                padding: const EdgeInsets.only(bottom: 25),
                                 child: ListView.builder(
                                   physics: const BouncingScrollPhysics(),
                                   reverse: true,
@@ -114,7 +115,8 @@ class _AdChatScreenState extends State<AdChatScreen> {
                                         messages.length - 1 - index;
                                     final message = messages[reversedIndex];
                                     return Padding(
-                                      padding: const EdgeInsets.only(top: 6.0),
+                                      padding: const EdgeInsets.only(
+                                          top: 16, left: 16, right: 12),
                                       child: Row(
                                         crossAxisAlignment:
                                             CrossAxisAlignment.end,
@@ -122,42 +124,91 @@ class _AdChatScreenState extends State<AdChatScreen> {
                                             ? MainAxisAlignment.start
                                             : MainAxisAlignment.end,
                                         children: [
-                                          Container(
-                                            margin: const EdgeInsets.only(
-                                                left: 10, right: 10),
-                                            decoration: BoxDecoration(
-                                                borderRadius:
-                                                    const BorderRadius.only(
-                                                        bottomLeft:
-                                                            Radius.circular(10),
-                                                        bottomRight:
-                                                            Radius.circular(10),
-                                                        topRight:
-                                                            Radius.circular(
-                                                                10)),
-                                                border: Border.all(
-                                                    color:
-                                                        kred.withOpacity(0.2)),
-                                                color: !message['isLocal']
-                                                    ? kwhite
-                                                    : kwhite),
-                                            padding: const EdgeInsets.symmetric(
-                                                vertical: 8, horizontal: 15),
-                                            child: Column(
+                                          Expanded(
+                                            child: Row(
                                               crossAxisAlignment:
                                                   !message['isLocal']
-                                                      ? CrossAxisAlignment.end
+                                                      ? CrossAxisAlignment.start
                                                       : CrossAxisAlignment
                                                           .start,
+                                              mainAxisAlignment:
+                                                  !message['isLocal']
+                                                      ? MainAxisAlignment.start
+                                                      : MainAxisAlignment.end,
                                               children: [
-                                                Text(
-                                                  message['message'],
-                                                  style: TextStyle(
-                                                      fontSize: 10,
-                                                      color: !message['isLocal']
-                                                          ? kblack
-                                                          : kblack),
+                                                !message['isLocal']
+                                                    ? SvgPicture.asset(
+                                                        IconAssets.message,
+                                                        color: kblack)
+                                                    : const SizedBox(),
+                                                kwidth5,
+                                                Container(
+                                                  decoration: BoxDecoration(
+                                                      borderRadius: BorderRadius.only(
+                                                          topLeft: !message['isLocal']
+                                                              ? const Radius.circular(
+                                                                  0)
+                                                              : const Radius.circular(
+                                                                  12),
+                                                          bottomLeft: const Radius
+                                                              .circular(10),
+                                                          bottomRight:
+                                                              const Radius.circular(
+                                                                  10),
+                                                          topRight: !message['isLocal']
+                                                              ? const Radius.circular(
+                                                                  10)
+                                                              : const Radius.circular(
+                                                                  0)),
+                                                      border: Border.all(
+                                                          color: !message['isLocal']
+                                                              ? kred.withOpacity(0.2)
+                                                              : const Color(0xff00A3FF).withOpacity(0.2)),
+                                                      color: !message['isLocal'] ? kwhite : kwhite),
+                                                  padding: const EdgeInsets
+                                                      .symmetric(
+                                                      vertical: 8,
+                                                      horizontal: 8),
+                                                  child: Column(
+                                                    crossAxisAlignment:
+                                                        !message['isLocal']
+                                                            ? CrossAxisAlignment
+                                                                .end
+                                                            : CrossAxisAlignment
+                                                                .start,
+                                                    children: [
+                                                      Text(
+                                                        message['message'],
+                                                        maxLines: 10,
+                                                        textAlign:
+                                                            TextAlign.center,
+                                                        overflow: TextOverflow
+                                                            .ellipsis,
+                                                        style: TextStyle(
+                                                            fontFamily:
+                                                                FontAssets
+                                                                    .Poppins,
+                                                            fontWeight:
+                                                                FontWeight.w400,
+                                                            fontSize: 10,
+                                                            color: !message[
+                                                                    'isLocal']
+                                                                ? kblack
+                                                                : kblack),
+                                                      ),
+                                                    ],
+                                                  ),
                                                 ),
+                                                kwidth5,
+                                                Align(
+                                                  alignment: Alignment.topRight,
+                                                  child: !message['isLocal']
+                                                      ? const SizedBox()
+                                                      : SvgPicture.asset(
+                                                          IconAssets
+                                                              .adchatperson,
+                                                        ),
+                                                )
                                               ],
                                             ),
                                           ),
@@ -167,54 +218,55 @@ class _AdChatScreenState extends State<AdChatScreen> {
                                   },
                                 ),
                               ),
-                            ],
-                          ),
-                        ),
-                      ),
-                      height10,
-                      Container(
-                        height: 60,
-                        decoration: const BoxDecoration(
-                            color: kwhite,
-                            borderRadius: BorderRadius.only(
-                              topRight: Radius.circular(12),
-                              topLeft: Radius.circular(12),
-                            )),
-                        padding: const EdgeInsets.all(8.0),
-                        child: Row(
-                          children: [
-                            SvgPicture.asset(
-                                "assets/images/chat_person_icon.svg"),
-                            kwidth15,
-                            Expanded(
-                              child: CustomTextField(
-                                labelText: "I need some help r..........",
-                                controller: controller,
-                                onChanged: (p0) {},
-                              ),
                             ),
-                            kwidth15,
-                            GestureDetector(
-                              onTap: () {},
-                              child: SvgPicture.asset(
-                                  "assets/images/chat_image_icon.svg"),
-                            ),
-                            kwidth15,
-                            GestureDetector(
-                              onTap: _sendMessage,
-                              child: SvgPicture.asset(
-                                  "assets/images/chat_send_icon.svg"),
-                            ),
-                            kwidth15
                           ],
                         ),
                       ),
-                    ],
-                  ),
-                ],
-              ),
-        bottomNavigationBar: const BottomNavBar(),
-      ),
+                    ),
+                    Container(
+                      height: 50,
+                      margin: const EdgeInsets.all(16),
+                      padding: const EdgeInsets.symmetric(horizontal: 16),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(14),
+                        color: kwhite,
+                        border: Border.all(
+                          color: kblack.withOpacity(0.1),
+                        ),
+                      ),
+                      child: Row(
+                        children: [
+                          SvgPicture.asset(IconAssets.adchatperson),
+                          kwidth15,
+                          Expanded(
+                            child: TextField(
+                              controller: controller,
+                              decoration: const InputDecoration(
+                                  border: InputBorder.none,
+                                  hintStyle: TextStyle(
+                                      fontSize: 12,
+                                      color: Color(0xffE5E5E5),
+                                      fontFamily: FontAssets.Poppins,
+                                      fontWeight: FontWeight.w500),
+                                  hintText: "I need some help r.........."),
+                            ),
+                          ),
+                          kwidth5,
+                          GestureDetector(
+                              onTap: () {},
+                              child: SvgPicture.asset(IconAssets.gallery)),
+                          kwidth15,
+                          GestureDetector(
+                              onTap: _sendMessage,
+                              child: SvgPicture.asset(IconAssets.send)),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+      bottomNavigationBar: const BottomNavBar(),
     );
   }
 

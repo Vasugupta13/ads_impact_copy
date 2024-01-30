@@ -123,7 +123,8 @@ class _AccountHelpSupportState extends State<AccountHelpSupport> {
                 buttonheight: 0.06,
                 textStyle: const TextStyle(color: kwhite, fontSize: 12),
                 ontap: () {},
-                iconname: Icons.chat_bubble_outline),
+                // iconname: Icons.chat_bubble_outline
+                ),
             height30,
           ],
         ),
