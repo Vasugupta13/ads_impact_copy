@@ -8,16 +8,17 @@ class CommonGraph extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double screenHeight = MediaQuery.of(context).size.height;
     return Container(
-      height: 210,
+      height: screenHeight * 0.3,
       margin: const EdgeInsets.all(10),
       decoration: BoxDecoration(
         boxShadow: [
           BoxShadow(
-            blurRadius: 4,
-            color: kblack.withOpacity(0.25),
-            offset: const Offset(0, 4),
-          ),
+              blurRadius: 4,
+              color: kblack.withOpacity(0.25),
+              offset: const Offset(0, 4),
+              spreadRadius: 1),
         ],
         color: kwhite,
         borderRadius: const BorderRadius.only(
@@ -26,10 +27,7 @@ class CommonGraph extends StatelessWidget {
           topRight: Radius.circular(12),
         ),
       ),
-      child: SvgPicture.asset(
-        imagepath,
-        fit: BoxFit.cover,
-      ),
+      child: SvgPicture.asset(imagepath, fit: BoxFit.cover),
     );
   }
 }

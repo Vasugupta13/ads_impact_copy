@@ -1,4 +1,5 @@
 import 'dart:ui';
+import 'package:ads/src/res/assets.dart';
 import 'package:ads/src/utils/const.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -22,38 +23,41 @@ class MenuListtile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 45,
-      child: ListTile(
-        horizontalTitleGap: 6,
-        minVerticalPadding: 0,
-        contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 0),
-        onTap: ontap,
-        iconColor: kblack,
-        title: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Row(
-              children: [
-                SvgPicture.asset(
-                  iconimgae,
-                  height: Get.height * 0.02 + 3,
-                ),
-                kwidth20,
-                Expanded(
-                  child: Text(
-                    title,
-                    style: TextStyle(
-                      fontSize: fontsize,
-                      fontWeight: FontWeight.w400,
+    return Material(
+      color: Colors.transparent,
+      child: SizedBox(
+        height: 45,
+        child: ListTile(
+          horizontalTitleGap: 6,
+          minVerticalPadding: 0,
+          contentPadding:
+              const EdgeInsets.symmetric(horizontal: 16, vertical: 0),
+          onTap: ontap,
+          iconColor: kblack,
+          title: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Row(
+                children: [
+                  SvgPicture.asset(iconimgae),
+                  kwidth20,
+                  Expanded(
+                    child: Text(
+                      title,
+                      style: TextStyle(
+                        fontFamily: FontAssets.Poppins,
+                        fontSize: fontsize,
+                        fontWeight: FontWeight.w400,
+                      ),
                     ),
                   ),
-                ),
-                if (istrailing) const Icon(Icons.keyboard_arrow_down_outlined),
-              ],
-            ),
-            height5,
-          ],
+                  if (istrailing)
+                    const Icon(Icons.keyboard_arrow_down_outlined),
+                ],
+              ),
+              height5,
+            ],
+          ),
         ),
       ),
     );
@@ -102,6 +106,8 @@ class PopupMenu extends StatelessWidget {
     showDialog(
       context: context,
       builder: (BuildContext context) {
+        double screenHeight = MediaQuery.of(context).size.height;
+        double screenWidth = MediaQuery.of(context).size.width;
         return GestureDetector(
           onTap: () {
             Navigator.of(context).pop();
@@ -115,11 +121,11 @@ class PopupMenu extends StatelessWidget {
                 ),
               ),
               Positioned(
-                top: Get.height * 0.3,
-                left: Get.width * 0.10 + 20,
+                top: screenHeight * 0.3,
+                left: screenWidth * 0.15 + 20,
                 child: Container(
                   padding: const EdgeInsets.symmetric(vertical: 14),
-                  width: Get.width * 0.55,
+                  width: screenWidth * 0.55,
                   decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(16),
@@ -134,7 +140,10 @@ class PopupMenu extends StatelessWidget {
                           kwidth20,
                           Text(
                             submenutitle,
-                            style: const TextStyle(fontSize: 14),
+                            style: const TextStyle(
+                                fontFamily: FontAssets.Poppins,
+                                fontWeight: FontWeight.w500,
+                                fontSize: 12),
                           ),
                           kwidth20,
                         ],
@@ -145,28 +154,20 @@ class PopupMenu extends StatelessWidget {
                         mainAxisSize: MainAxisSize.min,
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Material(
-                            color: Colors.transparent,
-                            elevation: 0,
-                            child: MenuListtile(
-                              istrailing: false,
-                              iconimgae: menu1icon,
-                              title: menu1title,
-                              ontap: menutap1,
-                              fontsize: 10,
-                            ),
+                          MenuListtile(
+                            istrailing: false,
+                            iconimgae: menu1icon,
+                            title: menu1title,
+                            ontap: menutap1,
+                            fontsize: 10,
                           ),
                           menudivider,
-                          Material(
-                            color: Colors.transparent,
-                            elevation: 0,
-                            child: MenuListtile(
-                              istrailing: false,
-                              iconimgae: menu2icon,
-                              title: menu2title,
-                              ontap: menutap2,
-                              fontsize: 10,
-                            ),
+                          MenuListtile(
+                            istrailing: false,
+                            iconimgae: menu2icon,
+                            title: menu2title,
+                            ontap: menutap2,
+                            fontsize: 10,
                           ),
                           if ((isMenu3 ?? false) &&
                               menu3icon != null &&
@@ -175,16 +176,12 @@ class PopupMenu extends StatelessWidget {
                           if ((isMenu3 ?? false) &&
                               menu3icon != null &&
                               menu3title != null)
-                            Material(
-                              color: Colors.transparent,
-                              elevation: 0,
-                              child: MenuListtile(
-                                istrailing: false,
-                                iconimgae: menu3icon!,
-                                title: menu3title!,
-                                ontap: menutap3!,
-                                fontsize: 10,
-                              ),
+                            MenuListtile(
+                              istrailing: false,
+                              iconimgae: menu3icon!,
+                              title: menu3title!,
+                              ontap: menutap3!,
+                              fontsize: 10,
                             ),
                           if ((isMenu4 ?? false) &&
                               menu4icon != null &&
@@ -193,16 +190,12 @@ class PopupMenu extends StatelessWidget {
                           if ((isMenu4 ?? false) &&
                               menu4icon != null &&
                               menu4title != null)
-                            Material(
-                              color: Colors.transparent,
-                              elevation: 0,
-                              child: MenuListtile(
-                                istrailing: false,
-                                iconimgae: menu4icon!,
-                                title: menu4title!,
-                                fontsize: 10,
-                                ontap: () {},
-                              ),
+                            MenuListtile(
+                              istrailing: false,
+                              iconimgae: menu4icon!,
+                              title: menu4title!,
+                              fontsize: 10,
+                              ontap: () {},
                             ),
                         ],
                       ),

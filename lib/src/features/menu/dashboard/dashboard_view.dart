@@ -4,17 +4,19 @@ import 'package:ads/src/class/socialmediainfo.dart';
 import 'package:ads/src/common/views/custom_elevatedbutton.dart';
 import 'package:ads/src/features/bottombar/bottomnavigationbar.dart';
 import 'package:ads/src/common/views/customapp_bar.dart';
-import 'package:ads/src/homepage/spend_istview.dart';
-import 'package:ads/src/features/menu/dashboard/view_more_detail_container.dart';
-import 'package:ads/src/features/menu/dashboard/common_container.dart';
-import 'package:ads/src/homepage/insights_graph.dart';
+import 'package:ads/src/homepage/widgets/spend_istview.dart';
+import 'package:ads/src/features/menu/dashboard/widgets/spend_container.dart';
+import 'package:ads/src/features/menu/dashboard/widgets/custom_chart_container.dart';
+import 'package:ads/src/homepage/widgets/insights_graph.dart';
 import 'package:ads/src/homepage/widgets/social_account_list_widget.dart';
 import 'package:ads/src/model/social_media_info.dart';
+import 'package:ads/src/res/assets.dart';
 import 'package:ads/src/utils/const.dart';
 import 'package:flutter/material.dart';
 
 class DashboardView extends StatefulWidget {
   const DashboardView({super.key});
+  static const routerPath = '/DashboardView';
 
   @override
   State<DashboardView> createState() => _DashboardViewState();
@@ -55,7 +57,7 @@ class _DashboardViewState extends State<DashboardView> {
                   Navigator.pop(context);
                 },
                 name: "Dashboard",
-                imagepath: "assets/images/dashboard_icon.svg"),
+                imagepath: IconAssets.menudashboard),
             height5,
             const Text(
               "Choose Platform:",
@@ -89,41 +91,40 @@ class _DashboardViewState extends State<DashboardView> {
                 dataList: currentDetails, scrollDirection: Axis.horizontal),
             height30,
             const ChartNameContainer(
-                imagepath: "assets/images/chart.svg",
+                imagepath: IconAssets.analysisbottom,
                 name: "Spends and Revenue Perfomance"),
             height20,
             divider161,
             height10,
             const CommonGraph(
-              imagepath: 'assets/images/spend_revenue_chart.svg',
+              imagepath: ImageAssets.spendsgraph,
             ),
             height40,
             const ChartNameContainer(
-                imagepath: "assets/images/roas_icon.svg", name: "ROAS % Trend"),
+                imagepath: IconAssets.dashboardroas, name: "ROAS % Trend"),
             height20,
             divider161,
             height10,
             const CommonGraph(
-              imagepath: 'assets/images/roas_trend_chart.svg',
+              imagepath: ImageAssets.roasgraph,
             ),
             height40,
             const ChartNameContainer(
-                imagepath: "assets/images/purchase_icon.svg",
-                name: "Purchases"),
+                imagepath: IconAssets.dashboardpurchases, name: "Purchases"),
             height20,
             divider161,
             height10,
             const CommonGraph(
-              imagepath: 'assets/images/purchase_chart.svg',
+              imagepath: ImageAssets.purchasegraph,
             ),
             height40,
             const ChartNameContainer(
-                imagepath: "assets/images/conversion_icon.svg",
+                imagepath: IconAssets.dashboardconversion,
                 name: "Conversion Rate Trend"),
             height20,
             divider161,
             const CommonGraph(
-              imagepath: 'assets/images/conversion_chart.svg',
+              imagepath: ImageAssets.conversiongraph,
             ),
             height10,
             divider161,
@@ -132,10 +133,11 @@ class _DashboardViewState extends State<DashboardView> {
               ontap: () {},
               name: "Platform Wise Spend and ROAS %",
               textStyle: elevatedtextstyle,
-              buttonwidth: 0.65,
+              buttonwidth: 0.7,
+              buttonheight: 50,
             ),
             height30,
-            ViewMoreContainer(data: DashboardSocialMediaData.socialspend),
+            SpendContainer(data: DashboardSocialMediaData.socialspend),
             height10,
             divider161,
             height20,
@@ -143,10 +145,12 @@ class _DashboardViewState extends State<DashboardView> {
               ontap: () {},
               name: "Creative Wise Spend and ROAS %",
               textStyle: elevatedtextstyle,
-              buttonwidth: 0.65,
+              buttonwidth: 0.7,
+              buttonheight: 50,
             ),
             height30,
-            ViewMoreContainer(data: DashboardCreativeSpend.spendname)
+            SpendContainer(data: DashboardCreativeSpend.spendname),
+            height30,
           ],
         ),
       ),

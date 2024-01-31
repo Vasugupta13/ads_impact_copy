@@ -17,6 +17,8 @@ String? selectedvalue;
 class Automation extends StatefulWidget {
   const Automation({super.key});
 
+  static const routerPath = '/Automation';
+
   @override
   State<Automation> createState() => _AutomationState();
 }

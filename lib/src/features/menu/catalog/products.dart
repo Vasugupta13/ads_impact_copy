@@ -10,6 +10,8 @@ import 'package:get/get.dart';
 
 class MenuCatalogProducts extends StatefulWidget {
   const MenuCatalogProducts({super.key});
+  
+  static const routerPath = '/MenuCatalogProducts';
 
   @override
   State<MenuCatalogProducts> createState() => _MenuCatalogProductsState();
@@ -54,7 +56,6 @@ class _MenuCatalogProductsState extends State<MenuCatalogProducts> {
                   onTap: () {
                     setState(() {
                       selectedStates[index] = !isSelected;
-
                     });
                   },
                   child: Stack(

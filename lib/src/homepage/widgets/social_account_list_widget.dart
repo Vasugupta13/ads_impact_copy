@@ -25,15 +25,17 @@ class _SocialAccountListState extends State<SocialAccountList> {
       alignment: Alignment.centerRight,
       child: Container(
         height: screenHeight * 0.1 - 15,
-        width: screenWidth * 0.90,
+        width: screenWidth * 0.95,
         padding: const EdgeInsets.only(left: 20, right: 20),
         decoration: BoxDecoration(
           color: kwhite,
-          borderRadius: BorderRadius.circular(12),
+          borderRadius: const BorderRadius.only(
+              topLeft: Radius.circular(12), bottomLeft: Radius.circular(12)),
           boxShadow: [
             BoxShadow(
               color: const Color(0xff000040).withOpacity(0.25),
               blurRadius: 16,
+              spreadRadius: 1,
               blurStyle: BlurStyle.outer,
               offset: const Offset(0, 1),
             ),
@@ -45,6 +47,7 @@ class _SocialAccountListState extends State<SocialAccountList> {
           shrinkWrap: true,
           scrollDirection: Axis.horizontal,
           itemBuilder: (context, index) {
+            bool isSelected = index == listindex;
             return GestureDetector(
               onTap: () {
                 setState(() {
@@ -59,22 +62,34 @@ class _SocialAccountListState extends State<SocialAccountList> {
                   color: kwhite,
                   borderRadius: BorderRadius.circular(12),
                 ),
-                child: Row(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Expanded(
-                      child: SvgPicture.asset(
-                          AppStrings.socialaccount[index]["imageurl"],
-                          fit: BoxFit.contain),
+                    const SizedBox(height: 16),
+                    Row(
+                      children: [
+                        Expanded(
+                          child: SvgPicture.asset(
+                              AppStrings.socialaccount[index]["imageurl"],
+                              fit: BoxFit.contain),
+                        ),
+                        kwidth5,
+                        Text(
+                          AppStrings.socialaccount[index]["name"],
+                          style: const TextStyle(
+                              fontFamily: FontAssets.Poppins,
+                              fontSize: 12,
+                              fontWeight: FontWeight.w600),
+                        ),
+                        kwidth5,
+                      ],
                     ),
-                    kwidth5,
-                    Text(
-                      AppStrings.socialaccount[index]["name"],
-                      style: const TextStyle(
-                          fontFamily: FontAssets.Poppins,
-                          fontSize: 12,
-                          fontWeight: FontWeight.w600),
+                    const SizedBox(height: 17),
+                    Container(
+                      height: 1,
+                      color: isSelected ? kred : Colors.transparent,
                     ),
-                    kwidth5,
                   ],
                 ),
               ),

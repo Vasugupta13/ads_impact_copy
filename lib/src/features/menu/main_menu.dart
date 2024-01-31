@@ -8,13 +8,15 @@ import 'package:ads/src/features/menu/catalog/categories.dart';
 import 'package:ads/src/features/menu/catalog/products.dart';
 import 'package:ads/src/features/menu/dashboard/dashboard_view.dart';
 import 'package:ads/src/features/menu/insights/granular_analysis.dart';
-import 'package:ads/src/features/menu/widgets/submenu.dart';
+import 'package:ads/src/features/menu/widgets/menulistile.dart';
 import 'package:ads/src/features/menu/widgets/try_ourpacks.dart';
 import 'package:ads/src/features/sign-up/widget/custom_signup_page.dart';
+import 'package:ads/src/res/assets.dart';
 import 'package:ads/src/utils/const.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:go_router/go_router.dart';
 
 class MainMenuPopup extends StatefulWidget {
   const MainMenuPopup({super.key});
@@ -26,6 +28,8 @@ class MainMenuPopup extends StatefulWidget {
 class _MainMenuPopupState extends State<MainMenuPopup> {
   @override
   Widget build(BuildContext context) {
+    double screenHeight = MediaQuery.of(context).size.height;
+    double screenWidth = MediaQuery.of(context).size.width;
     return Container(
       decoration:
           BoxDecoration(borderRadius: BorderRadius.circular(12), color: kwhite),
@@ -45,7 +49,10 @@ class _MainMenuPopupState extends State<MainMenuPopup> {
                 const Expanded(
                   child: Text(
                     "Menu",
-                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+                    style: TextStyle(
+                        fontFamily: FontAssets.Poppins,
+                        fontSize: 16,
+                        fontWeight: FontWeight.w600),
                   ),
                 ),
               ],
@@ -58,36 +65,41 @@ class _MainMenuPopupState extends State<MainMenuPopup> {
               children: [
                 MenuListtile(
                   istrailing: false,
-                  iconimgae: "assets/images/dashboard_icon.svg",
+                  iconimgae: IconAssets.menudashboard,
                   title: "Dashboard",
                   ontap: () {
+                    // context.push(DashboardView.routerPath);
                     Get.to(() => const DashboardView());
                   },
                 ),
                 divider16,
                 MenuListtile(
-                  iconimgae: "assets/images/catlog_icon.svg",
+                  iconimgae: IconAssets.menucatalog,
                   title: "Catalog",
                   istrailing: true,
                   ontap: () {
                     PopupMenu(
                       context: context,
-                      submenuimage: "assets/images/catlog_icon.svg",
+                      submenuimage: IconAssets.menucatalog,
                       submenutitle: "Catalog",
-                      menu1icon: "assets/images/categories_icon.svg",
+                      menu1icon: IconAssets.submenucategories,
                       menu1title: "Categories",
                       menutap1: () {
+                        // context.push(MenuCatalogCategories.routerPath);
+
                         Get.to(() => const MenuCatalogCategories());
                       },
-                      menu2icon: "assets/images/products_icon.svg",
+                      menu2icon: IconAssets.submenuproducts,
                       menu2title: "Products",
                       menutap2: () {
+                        // context.push(MenuCatalogCategories.routerPath);
                         Get.to(() => const MenuCatalogProducts());
                       },
                       isMenu3: true,
-                      menu3icon: "assets/images/info_icon.svg",
+                      menu3icon: IconAssets.submenucataloginfo,
                       menu3title: "Catalog Information",
                       menutap3: () {
+                        // context.push(MenuCatalogCategories.routerPath);
                         Get.to(() => const MenuCatalogInformation());
                       },
                     ).showPopup();
@@ -96,31 +108,31 @@ class _MainMenuPopupState extends State<MainMenuPopup> {
                 divider16,
                 MenuListtile(
                   istrailing: true,
-                  iconimgae: "assets/images/insights_icon.svg",
+                  iconimgae: IconAssets.menuinsights,
                   title: "Insights",
                   ontap: () {
                     PopupMenu(
                       isMenu3: true,
                       isMenu4: true,
                       context: context,
-                      submenuimage: "assets/images/insights_icon.svg",
+                      submenuimage: IconAssets.menuinsights,
                       submenutitle: "Insights",
-                      menu1icon: "assets/images/status_insights_icon.svg",
+                      menu1icon: IconAssets.submenustatus,
                       menu1title: "Status",
                       menutap1: () {
-                        Get.to(() => const MenuCatalogProducts());
+                        // Get.to(() => const MenuCatalogProducts());
                       },
-                      menu2icon: "assets/images/insights_chart_icon.svg",
+                      menu2icon: IconAssets.submenuanalysis,
                       menu2title: "Analysis",
                       menutap2: () {
                         Get.to(() => const GranularAnalysis());
                       },
-                      menu3icon: "assets/images/insights_chart_icon.svg",
+                      menu3icon: IconAssets.submenuanalysis,
                       menu3title: "Granular Analysis",
                       menutap3: () {
-                        Get.to(() => const MenuCatalogInformation());
+                        // Get.to(() => const MenuCatalogInformation());
                       },
-                      menu4icon: "assets/images/insights_chart_icon.svg",
+                      menu4icon: IconAssets.submenuanalysis,
                       menu4title: "ROAS Analyzer",
                     ).showPopup();
                   },
@@ -128,21 +140,23 @@ class _MainMenuPopupState extends State<MainMenuPopup> {
                 divider16,
                 MenuListtile(
                   istrailing: true,
-                  iconimgae: "assets/images/campaign_icon.svg",
+                  iconimgae: IconAssets.menucampaign,
                   title: "Campaign",
                   ontap: () {
                     PopupMenu(
                       context: context,
-                      submenuimage: "assets/images/campaign_icon.svg",
+                      submenuimage: IconAssets.menucampaign,
                       submenutitle: "Create",
-                      menu1icon: "assets/images/campaign_submenu_icon.svg",
+                      menu1icon: IconAssets.submenucampaign,
                       menu1title: "Campaign",
                       menutap1: () {
+                        // context.push(CampaignCreate.routerPath);
                         Get.to(() => const CampaignCreate());
                       },
-                      menu2icon: "assets/images/insights_chart_icon.svg",
+                      menu2icon: IconAssets.submenuanalysis,
                       menu2title: "Analysis",
                       menutap2: () {
+                        // context.push(CampaignAnalysis.routerPath);
                         Get.to(() => const CampaignAnalysis());
                       },
                     ).showPopup();
@@ -152,17 +166,19 @@ class _MainMenuPopupState extends State<MainMenuPopup> {
                 MenuListtile(
                     istrailing: false,
                     ontap: () {
+                      // context.push(AudienceInsights.routerPath);
                       Get.to(() => const AudienceInsights());
                     },
-                    iconimgae: "assets/images/audience_insights.svg",
+                    iconimgae: IconAssets.menuaudience,
                     title: "Audience Insights"),
                 divider16,
                 MenuListtile(
                     istrailing: false,
                     ontap: () {
+                      // context.push(Automation.routerPath);
                       Get.to(() => const Automation());
                     },
-                    iconimgae: "assets/images/automations_icon.svg",
+                    iconimgae: IconAssets.menuautomation,
                     title: "Automation"),
               ],
             ),
@@ -173,9 +189,12 @@ class _MainMenuPopupState extends State<MainMenuPopup> {
             child: CompanyContainer(
                 titlename: "Try Our Packs",
                 textStyle: const TextStyle(
-                    fontSize: 12, fontWeight: FontWeight.w400, color: kwhite),
-                height: Get.height * 0.05,
-                paintwidth: Get.width * 0.5),
+                    fontFamily: FontAssets.Poppins,
+                    fontSize: 12,
+                    fontWeight: FontWeight.w400,
+                    color: kwhite),
+                height: screenHeight * 0.05,
+                paintwidth: screenWidth * 0.5),
           ),
           height10,
           dividerind16,

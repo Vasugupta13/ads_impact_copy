@@ -39,7 +39,8 @@ class _CommonElevatedButtonState extends State<CommonElevatedButton> {
         style: ElevatedButton.styleFrom(
           alignment: Alignment.center,
           elevation: 0,
-          fixedSize: Size(screenWidth * widget.buttonwidth, 40),
+          fixedSize: Size(
+              screenWidth * widget.buttonwidth, widget.buttonheight ?? 40.0),
           backgroundColor: widget.alternatecolor ?? kwhite,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(12),

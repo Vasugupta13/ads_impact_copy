@@ -8,7 +8,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 
-import '../need_help_chat.dart';
+import '../widgets/need_help_chat.dart';
 
 class PlanDetails extends StatefulWidget {
   const PlanDetails({super.key});

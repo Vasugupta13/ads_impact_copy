@@ -112,7 +112,7 @@ class _HomePageState extends State<HomePage> {
                 children: [
                   basicPlan == true ? const SizedBox() : const PlanList(),
                   height10,
-                  const HomeDetailsPage(),
+                  const OverviewInsights(),
                   height10,
                 ],
               )

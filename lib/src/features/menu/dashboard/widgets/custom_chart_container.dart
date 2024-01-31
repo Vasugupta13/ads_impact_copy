@@ -1,3 +1,4 @@
+import 'package:ads/src/res/assets.dart';
 import 'package:ads/src/utils/const.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -12,11 +13,12 @@ class ChartNameContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double screenWidth = MediaQuery.of(context).size.width;
     return Align(
       alignment: Alignment.centerLeft,
       child: Container(
         height: 46,
-        width: Get.width * 0.80 - 10,
+        width: screenWidth * 0.80 - 10,
         padding: const EdgeInsets.only(left: 16, right: 8),
         decoration: const BoxDecoration(
           color: Color(0xffFF4848),
@@ -33,7 +35,10 @@ class ChartNameContainer extends StatelessWidget {
               child: Text(
                 name,
                 style: const TextStyle(
-                    fontWeight: FontWeight.w600, fontSize: 13, color: kwhite),
+                    fontFamily: FontAssets.Poppins,
+                    fontWeight: FontWeight.w600,
+                    fontSize: 13,
+                    color: kwhite),
               ),
             )
           ],

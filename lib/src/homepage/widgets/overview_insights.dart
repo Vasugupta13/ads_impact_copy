@@ -1,7 +1,8 @@
 import 'package:ads/src/class/socialmediainfo.dart';
 import 'package:ads/src/features/menu/insights/view/adset_analysis.dart';
-import 'package:ads/src/homepage/insight_view.dart';
-import 'package:ads/src/homepage/spend_istview.dart';
+import 'package:ads/src/homepage/views/insight_view.dart';
+import 'package:ads/src/homepage/widgets/calendar.dart';
+import 'package:ads/src/homepage/widgets/spend_istview.dart';
 import 'package:ads/src/homepage/widgets/social_account_list_widget.dart';
 import 'package:ads/src/model/social_media_info.dart';
 import 'package:ads/src/res/assets.dart';
@@ -11,14 +12,14 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:syncfusion_flutter_datepicker/datepicker.dart';
 
-class HomeDetailsPage extends StatefulWidget {
-  const HomeDetailsPage({super.key});
+class OverviewInsights extends StatefulWidget {
+  const OverviewInsights({super.key});
 
   @override
-  State<HomeDetailsPage> createState() => _HomeDetailsPageState();
+  State<OverviewInsights> createState() => _OverviewInsightsState();
 }
 
-class _HomeDetailsPageState extends State<HomeDetailsPage> {
+class _OverviewInsightsState extends State<OverviewInsights> {
   bool selectedcontainer1 = true;
   int currentindex = 0;
   bool isSeelected = true;
@@ -122,33 +123,7 @@ class _HomeDetailsPageState extends State<HomeDetailsPage> {
           ),
         ),
         height30,
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16),
-          child: InkWell(
-            onTap: () {},
-            child: Container(
-              height: 40,
-              width: screenWidth,
-              padding: const EdgeInsets.symmetric(horizontal: 16),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(12),
-                color: kblue77D.withOpacity(0.1),
-              ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  SvgPicture.asset(
-                    IconAssets.calendaredit,
-                    fit: BoxFit.contain,
-                  ),
-                  const Text("Select Date Range"),
-                  SvgPicture.asset(IconAssets.calendararrow,
-                      fit: BoxFit.contain),
-                ],
-              ),
-            ),
-          ),
-        ),
+        const Calendar(),
         height25,
         SocialAccountList(
           onTapCallback: (index) {

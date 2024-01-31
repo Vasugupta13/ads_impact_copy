@@ -33,6 +33,17 @@ class ImageAssets {
   static const menubasicpack = '$_base/menu_basic_pack.svg';
   static const menupropack = '$_base/menu_pro_pack.svg';
   static const menuadvancepack = '$_base/menu_advance_pack.svg';
+  static const impressionchart = '$_base/impression_graph.svg';
+  static const spendgraph = '$_base/spend_graph.svg';
+  static const costgraph = '$_base/cost_graph.svg';
+  static const linkgraph = '$_base/link_graph.svg';
+  static const spendsgraph = '$_base/spends_graph.svg';
+  static const roasgraph = '$_base/roas_graph.svg';
+  static const purchasegraph = '$_base/purchase_graph.svg';
+  static const conversiongraph = '$_base/conversion_graph.svg';
+  static const ourbasicpack = '$_base/tryour_basicpack.png';
+  static const ourpropack = '$_base/tryour_propack.png';
+  static const ouradvancepack = '$_base/tryour_advpack.png';
 }
 
 class IconAssets {
@@ -66,6 +77,17 @@ class IconAssets {
   static const catalogconfigbar = '$_base/catalog_info_bar.svg';
   static const connectdropdown = '$_base/connect_drop_down.svg';
   static const adchatperson = '$_base/adchat_person.svg';
+  static const homebottom = '$_base/home_bottom.svg';
+  static const analysisbottom = '$_base/analysis_bottom.svg';
+  static const cartbottom = '$_base/cart_bottom.svg';
+  static const accountbottom = '$_base/account_bottom.svg';
+  static const dashboardlink = '$_base/dashboard_linkedin.svg';
+  static const dashboardtwitter = '$_base/dashboard_twitter.svg';
+  static const dashboardgoogle = '$_base/dashboard_google.svg';
+  static const dashboardfb = '$_base/dashboard_facebook.svg';
+  static const dashboardpurchases = '$_base/dashboard_purchases.svg';
+  static const dashboardroas = '$_base/dashboard_roas.svg';
+  static const dashboardconversion = '$_base/dashboard_conversion.svg';
 }
 
 class FontAssets {

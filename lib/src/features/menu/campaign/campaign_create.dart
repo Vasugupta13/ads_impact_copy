@@ -10,7 +10,7 @@ import 'package:ads/src/utils/const.dart';
 
 class CampaignCreate extends StatefulWidget {
   const CampaignCreate({Key? key}) : super(key: key);
-
+  static const routerPath = '/CampaingCreate';
   @override
   State<CampaignCreate> createState() => _CampaignCreateState();
 }

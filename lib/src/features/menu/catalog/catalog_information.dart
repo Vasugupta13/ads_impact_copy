@@ -29,6 +29,7 @@ enum StockStatus {
 
 class MenuCatalogInformation extends StatefulWidget {
   const MenuCatalogInformation({super.key});
+  static const routerPath = '/MenuCatalogInformation';
 
   @override
   State<MenuCatalogInformation> createState() => _MenuCatalogInformationState();
@@ -45,6 +46,8 @@ class _MenuCatalogInformationState extends State<MenuCatalogInformation> {
   String? selectedvalue;
   @override
   Widget build(BuildContext context) {
+    double screenHeight = MediaQuery.of(context).size.height;
+    double screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
       backgroundColor: kwhite,
       appBar: AppBar(elevation: 0, toolbarHeight: 0),
@@ -53,7 +56,7 @@ class _MenuCatalogInformationState extends State<MenuCatalogInformation> {
         padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 12),
         child: Column(
           children: [
-            const CustomAppBar(
+             CustomAppBar(
                 name: "Catalog Configuration",
                 imagepath: "assets/images/catalog_info.svg"),
             height20,
@@ -218,8 +221,8 @@ class _MenuCatalogInformationState extends State<MenuCatalogInformation> {
                     : kblack.withOpacity(0.2),
                 child: Container(
                   margin: const EdgeInsets.all(16),
-                  height: Get.height * 0.5,
-                  width: Get.width,
+                  height: screenHeight * 0.5,
+                  width: screenWidth,
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
@@ -266,8 +269,8 @@ class _MenuCatalogInformationState extends State<MenuCatalogInformation> {
               },
               child: Container(
                 margin: const EdgeInsets.all(16),
-                height: Get.height * 0.5,
-                width: Get.width,
+                height: screenHeight * 0.5,
+                width: screenWidth,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(16),
                   border: Border.all(
@@ -322,8 +325,8 @@ class _MenuCatalogInformationState extends State<MenuCatalogInformation> {
             height15,
             Container(
               margin: const EdgeInsets.all(16),
-              height: Get.height * 0.5,
-              width: Get.width,
+              height: screenHeight * 0.5,
+              width: screenWidth,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(16),
                 border: Border.all(color: kblack.withOpacity(0.2)),
@@ -343,7 +346,7 @@ class _MenuCatalogInformationState extends State<MenuCatalogInformation> {
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
                       Container(
-                        height: Get.height * 0.25,
+                        height: screenHeight * 0.25,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(4),
                           border: Border.all(
@@ -465,7 +468,7 @@ class _MenuCatalogInformationState extends State<MenuCatalogInformation> {
             ),
             height10,
             SizedBox(
-              width: Get.width * 0.65,
+              width: screenWidth * 0.65,
               child: TextFormField(
                 decoration: InputDecoration(
                   focusedBorder: OutlineInputBorder(
@@ -586,7 +589,7 @@ class _MenuCatalogInformationState extends State<MenuCatalogInformation> {
                   ),
                   padding: const EdgeInsets.symmetric(horizontal: 22),
                   height: 40,
-                  width: Get.width * 0.4,
+                  width: screenWidth * 0.4,
                 ),
                 iconStyleData: const IconStyleData(
                   icon: Icon(
@@ -608,8 +611,8 @@ class _MenuCatalogInformationState extends State<MenuCatalogInformation> {
               ),
             ),
             Container(
-              height: Get.height * 0.3,
-              width: Get.width * 0.7,
+              height: screenHeight * 0.3,
+              width: screenWidth * 0.7,
               decoration: BoxDecoration(
                 border: Border.all(
                   color: kblack.withOpacity(0.3),
@@ -661,7 +664,7 @@ class _MenuCatalogInformationState extends State<MenuCatalogInformation> {
             ),
             height20,
             SizedBox(
-              width: Get.width * 0.8,
+              width: screenWidth * 0.8,
               child: TextFormField(
                 decoration: InputDecoration(
                   focusedBorder: OutlineInputBorder(

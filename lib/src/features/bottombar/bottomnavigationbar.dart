@@ -1,4 +1,5 @@
 // bottom_nav_bar.dart
+import 'package:ads/src/res/assets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
@@ -54,40 +55,33 @@ class _BottomNavBarState extends State<BottomNavBar> {
                 break;
             }
           },
+          unselectedLabelStyle: const TextStyle(
+              fontFamily: FontAssets.Poppins,
+              fontWeight: FontWeight.w500,
+              fontSize: 10),
           selectedLabelStyle: const TextStyle(
-            fontSize: 12,
-          ),
+              fontFamily: FontAssets.Poppins,
+              fontWeight: FontWeight.w500,
+              fontSize: 10),
           type: BottomNavigationBarType.fixed,
-          backgroundColor: Colors.black,
+          backgroundColor: const Color(0xff383838),
           selectedItemColor: Colors.white,
           unselectedItemColor: Colors.white,
           items: [
             BottomNavigationBarItem(
-              icon: SvgPicture.asset(
-                'assets/images/home_icon.svg',
-                height: 20,
-              ),
+              icon: SvgPicture.asset(IconAssets.homebottom),
               label: "Home",
             ),
             BottomNavigationBarItem(
-              icon: SvgPicture.asset(
-                'assets/images/chart_icon.svg',
-                height: 20,
-              ),
+              icon: SvgPicture.asset(IconAssets.analysisbottom),
               label: "Analysis",
             ),
             BottomNavigationBarItem(
-              icon: SvgPicture.asset(
-                'assets/images/shopping-cart.svg',
-                height: 20,
-              ),
+              icon: SvgPicture.asset(IconAssets.cartbottom),
               label: "Cart",
             ),
             BottomNavigationBarItem(
-              icon: SvgPicture.asset(
-                'assets/images/person_icon.svg',
-                height: 20,
-              ),
+              icon: SvgPicture.asset(IconAssets.accountbottom),
               label: "My Account",
             ),
           ],

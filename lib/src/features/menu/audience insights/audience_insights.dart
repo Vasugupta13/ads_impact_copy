@@ -12,6 +12,8 @@ import 'package:get/get.dart';
 class AudienceInsights extends StatefulWidget {
   const AudienceInsights({super.key});
 
+  static const routerPath = '/AudienceInsights';
+
   @override
   State<AudienceInsights> createState() => _AudienceInsightsState();
 }

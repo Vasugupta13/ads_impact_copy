@@ -3,7 +3,7 @@ import 'package:ads/src/utils/const.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-import '../model/social_media_info.dart';
+import '../../model/social_media_info.dart';
 
 class SocialMediaOverview extends StatefulWidget {
   final List<SocialMediaInfo> dataList;
@@ -63,7 +63,7 @@ class _SocialMediaOverviewState extends State<SocialMediaOverview> {
     return Container(
       height: widget.scrollDirection == Axis.vertical
           ? screenHeight * 0.2 - 15
-          : screenHeight * 0.2 - 15,
+          : screenHeight * 0.17 + 4,
       width: widget.scrollDirection == Axis.vertical
           ? screenWidth * 0.9
           : screenWidth * 0.6,

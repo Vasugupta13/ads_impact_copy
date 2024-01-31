@@ -1,5 +1,6 @@
 import 'package:ads/src/common/views/custom_elevatedbutton.dart';
-import 'package:ads/src/homepage/insights_graph.dart';
+import 'package:ads/src/homepage/widgets/insights_graph.dart';
+import 'package:ads/src/res/assets.dart';
 import 'package:ads/src/utils/const.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -15,12 +16,15 @@ class InsightView extends StatefulWidget {
 class _InsightViewState extends State<InsightView> {
   @override
   Widget build(BuildContext context) {
+    double screenHeight = MediaQuery.of(context).size.height;
+    double screenWidth = MediaQuery.of(context).size.width;
     return Column(
       children: [
         height20,
         CommonElevatedButton(
           name: "Impressions",
           buttonwidth: 0.7,
+          buttonheight: 45,
           textStyle: elevatedtextstyle,
           ontap: () {},
         ),
@@ -29,7 +33,7 @@ class _InsightViewState extends State<InsightView> {
         //   children: [
         //     Container(
         //       height: 210,
-        //       width: Get.width,
+        //       width: screenWidth,
         //       margin: const EdgeInsets.all(10),
         //       decoration: BoxDecoration(
         //         boxShadow: [
@@ -49,7 +53,7 @@ class _InsightViewState extends State<InsightView> {
         //     ),
         //     Positioned(
         //       top: 10,
-        //       left: (Get.width - 76) / 2,
+        //       left: (screenWidth - 76) / 2,
         //       child: GestureDetector(
         //         child: Container(
         //           height: 40,
@@ -79,35 +83,38 @@ class _InsightViewState extends State<InsightView> {
         //   ],
         // ),
         const CommonGraph(
-          imagepath: "assets/images/GraphComponent.svg",
+          imagepath: ImageAssets.impressionchart,
         ),
         height20,
         CommonElevatedButton(
           name: "Spend",
           buttonwidth: 0.7,
+          buttonheight: 45,
           textStyle: elevatedtextstyle,
           ontap: () {},
         ),
         height20,
-        const CommonGraph(imagepath: "assets/images/GraphComponent.svg"),
+        const CommonGraph(imagepath: ImageAssets.spendgraph),
         height20,
         CommonElevatedButton(
           name: "Cost Per 1000 Impression (CPM)",
           buttonwidth: 0.7,
+          buttonheight: 45,
           textStyle: elevatedtextstyle,
           ontap: () {},
         ),
         height20,
-        const CommonGraph(imagepath: "assets/images/Graph_Component2.svg"),
+        const CommonGraph(imagepath: ImageAssets.costgraph),
         height20,
         CommonElevatedButton(
           name: "Link Clicks",
           buttonwidth: 0.7,
+          buttonheight: 45,
           textStyle: elevatedtextstyle,
           ontap: () {},
         ),
         height20,
-        const CommonGraph(imagepath: "assets/images/GraphComponent.svg"),
+        const CommonGraph(imagepath: ImageAssets.linkgraph),
       ],
     );
   }

@@ -1,3 +1,4 @@
+import 'package:ads/src/res/assets.dart';
 import 'package:ads/src/utils/const.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -16,7 +17,7 @@ class TryOurPacks extends StatelessWidget {
           Expanded(
               child: PacksUI(
             "Basic Pack",
-            "assets/images/basicpack.png",
+            ImageAssets.ourbasicpack,
             () {
               print("Basic Pack");
             },
@@ -25,7 +26,7 @@ class TryOurPacks extends StatelessWidget {
           Expanded(
               child: PacksUI(
             "Pro Pack",
-            "assets/images/propack.png",
+            ImageAssets.ourpropack,
             () {
               print("Pro Pack");
             },
@@ -34,7 +35,7 @@ class TryOurPacks extends StatelessWidget {
           Expanded(
               child: PacksUI(
             "Advance Pack",
-            "assets/images/advancepack.png",
+            ImageAssets.ouradvancepack,
             () {
               print("Advance Pack");
             },
@@ -54,17 +55,19 @@ class PacksUI extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double screenHeight = MediaQuery.of(context).size.height;
+    double screenWidth = MediaQuery.of(context).size.width;
     return Center(
       child: GestureDetector(
         onTap: onTap,
         child: Container(
-          height: Get.height * 0.15,
+          height: screenHeight * 0.15,
           color: kwhite,
           child: Stack(
             children: [
               Container(
-                height: Get.height * 0.15 - 10,
-                // width: Get.width,
+                height: screenHeight * 0.15 - 10,
+                // width: screenWidth,
                 padding: const EdgeInsets.symmetric(vertical: 10),
                 decoration: BoxDecoration(
                   color: kwhite,
@@ -86,20 +89,27 @@ class PacksUI extends StatelessWidget {
                     Image.asset(imagePath,
                         fit: BoxFit.contain,
                         filterQuality: FilterQuality.medium,
-                        height: Get.height * 0.1 / 2.5),
-                    height5,
+                        height: screenHeight * 0.04),
+                    height10,
                     Text(
                       name,
                       style: const TextStyle(
-                          fontWeight: FontWeight.w600, fontSize: 8),
+                          fontFamily: FontAssets.Poppins,
+                          fontWeight: FontWeight.w600,
+                          fontSize: 8),
                     ),
                     Divider(
+                        thickness: 0.5,
                         color: kblack.withOpacity(0.2),
                         endIndent: 16,
                         indent: 16),
-                    const Text("₹ 10,000",
-                        style: TextStyle(
-                            fontWeight: FontWeight.w600, fontSize: 8)),
+                    const Text(
+                      "₹ 10,000",
+                      style: TextStyle(
+                          fontFamily: FontAssets.Poppins,
+                          fontWeight: FontWeight.w600,
+                          fontSize: 8),
+                    ),
                     height2,
                   ],
                 ),
@@ -121,7 +131,11 @@ class PacksUI extends StatelessWidget {
                   child: const Center(
                     child: Text(
                       "Buy Now",
-                      style: TextStyle(color: kwhite, fontSize: 6),
+                      style: TextStyle(
+                          fontFamily: FontAssets.Poppins,
+                          fontWeight: FontWeight.w400,
+                          color: kwhite,
+                          fontSize: 6),
                     ),
                   ),
                 ),

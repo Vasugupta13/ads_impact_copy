@@ -1,28 +1,31 @@
-
+import 'package:ads/src/res/assets.dart';
 import 'package:ads/src/utils/const.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 
-class ViewMoreContainer extends StatefulWidget {
+class SpendContainer extends StatefulWidget {
   final List<dynamic> data;
 
-  const ViewMoreContainer({
+  const SpendContainer({
     super.key,
     required this.data,
   });
 
   @override
-  State<ViewMoreContainer> createState() => _ViewMoreContainerState();
+  State<SpendContainer> createState() => _SpendContainerState();
 }
 
-class _ViewMoreContainerState extends State<ViewMoreContainer> {
+class _SpendContainerState extends State<SpendContainer> {
   @override
   Widget build(BuildContext context) {
+    double screenWidth = MediaQuery.of(context).size.width;
+    double screenHeight = MediaQuery.of(context).size.height;
+
     return Stack(
       children: [
         Container(
-          width: Get.width,
+          width: screenWidth,
           margin: const EdgeInsets.all(10),
           decoration: BoxDecoration(
             boxShadow: [
@@ -66,20 +69,25 @@ class _ViewMoreContainerState extends State<ViewMoreContainer> {
                             Expanded(
                               child: Text(
                                 widget.data[index]["name"],
-                                style: const TextStyle(fontSize: 12),
+                                style: const TextStyle(
+                                    fontFamily: FontAssets.Poppins,
+                                    fontWeight: FontWeight.w500,
+                                    fontSize: 12),
                               ),
                             ),
-                            const VerticalDivider(color: Colors.black),
                             const Spacer(),
                             Text(
                               widget.data[index]["spend"],
                               style: const TextStyle(
-                                  fontSize: 12, fontWeight: FontWeight.w600),
+                                  fontFamily: FontAssets.Poppins,
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.w600),
                             ),
                             const Spacer(),
                             Text(
                               widget.data[index]["views"].toString(),
                               style: const TextStyle(
+                                fontFamily: FontAssets.Poppins,
                                 fontSize: 12,
                                 fontWeight: FontWeight.w600,
                               ),
@@ -97,7 +105,7 @@ class _ViewMoreContainerState extends State<ViewMoreContainer> {
         ),
         Positioned(
           top: 10,
-          left: (Get.width - 76) / 2,
+          left: (screenWidth - 76) / 2,
           child: GestureDetector(
             child: Container(
               height: 40,
@@ -116,8 +124,12 @@ class _ViewMoreContainerState extends State<ViewMoreContainer> {
                   Icon(Icons.keyboard_arrow_up),
                   Text(
                     "View More",
-                    style: TextStyle(fontSize: 10),
+                    style: TextStyle(
+                        fontFamily: FontAssets.Poppins,
+                        fontWeight: FontWeight.w500,
+                        fontSize: 10),
                   ),
+                  height2,
                 ],
               ),
             ),

@@ -22,7 +22,7 @@ String? selectedvalue;
 
 class CampaignAnalysis extends StatefulWidget {
   const CampaignAnalysis({super.key});
-
+  static const routerPath = '/CampaignAnalysis';
   @override
   State<CampaignAnalysis> createState() => _CampaignAnalysisState();
 }
@@ -79,7 +79,6 @@ class _CampaignAnalysisState extends State<CampaignAnalysis> {
             ),
             height20,
             CatalogListView(
-
               names: const ["Default View", "Website View", "Performance View"],
               onTapCallback: (int index) {},
             ),
