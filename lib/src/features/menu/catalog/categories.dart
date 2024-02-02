@@ -8,6 +8,7 @@ import 'package:ads/src/homepage/homepage.dart';
 import 'package:ads/src/homepage/widgets/calendar.dart';
 import 'package:ads/src/res/assets.dart';
 import 'package:ads/src/utils/const.dart';
+import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
@@ -23,7 +24,7 @@ class MenuCatalogCategories extends StatefulWidget {
 }
 
 class _MenuCatalogCategoriesState extends State<MenuCatalogCategories> {
-  List<String> items = [
+  List<String> catalogitems = [
     'New Products',
     'Products',
     'Out of Stock',
@@ -53,6 +54,7 @@ class _MenuCatalogCategoriesState extends State<MenuCatalogCategories> {
 
   @override
   Widget build(BuildContext context) {
+    double screenWidth = MediaQuery.of(context).size.width;
     double total = CatalogProductDetail.categorydetails.fold(
         0.0,
         (sum, category) =>
@@ -84,17 +86,16 @@ class _MenuCatalogCategoriesState extends State<MenuCatalogCategories> {
               ),
               height20,
               CustomDropDown(
+                containerheight: 30,
+                containerwidth: screenWidth * 0.40,
                 value: selectedValue,
+                dropdownItems: catalogitems,
+                initialValue: 'Products',
                 onChanged: (String? value) {
                   setState(() {
                     selectedValue = value;
-                    updateTable();
                   });
                 },
-                hint: "Products",
-                dropdownItems: items,
-                containerwidth: 0.5,
-                containerheight: 0.05,
               ),
               height20,
               Container(
@@ -129,7 +130,10 @@ class _MenuCatalogCategoriesState extends State<MenuCatalogCategories> {
                 ),
               ),
               height15,
-              divider161,
+              Divider(
+                color: kblack.withOpacity(0.1),
+                indent: 16,
+              ),
               height15,
               CommonElevatedButton(
                 ontap: () {},

@@ -1,3 +1,4 @@
+import 'package:ads/src/res/assets.dart';
 import 'package:ads/src/utils/const.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -23,7 +24,7 @@ class _CatalogCommonButtonState extends State<CatalogCommonButton> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
+      padding: const EdgeInsets.symmetric(horizontal: 20),
       child: Row(
         children: [
           Expanded(
@@ -32,7 +33,7 @@ class _CatalogCommonButtonState extends State<CatalogCommonButton> {
               child: Container(
                 height: 40,
                 decoration: BoxDecoration(
-                  color: Colors.white,
+                  color: kwhite,
                   borderRadius: BorderRadius.circular(12),
                   border: Border.all(
                       color: Colors.black.withOpacity(0.4), width: 0.5),
@@ -41,8 +42,10 @@ class _CatalogCommonButtonState extends State<CatalogCommonButton> {
                   child: Text(
                     widget.name,
                     style: const TextStyle(
-                      color: kblack,
-                    ),
+                        fontFamily: FontAssets.Poppins,
+                        fontWeight: FontWeight.w500,
+                        color: kblack,
+                        fontSize: 12),
                   ),
                 ),
               ),
@@ -55,7 +58,7 @@ class _CatalogCommonButtonState extends State<CatalogCommonButton> {
               child: Container(
                 height: 40,
                 decoration: BoxDecoration(
-                  color: const Color(0xff1A377D),
+                  color: kblue77D,
                   borderRadius: BorderRadius.circular(12),
                   border: Border.all(
                       color: Colors.black.withOpacity(0.4), width: 0.5),
@@ -64,6 +67,9 @@ class _CatalogCommonButtonState extends State<CatalogCommonButton> {
                   child: Text(
                     widget.subname,
                     style: const TextStyle(
+                      fontFamily: FontAssets.Poppins,
+                      fontWeight: FontWeight.w500,
+                      fontSize: 12,
                       color: Colors.white,
                     ),
                   ),

@@ -44,6 +44,11 @@ class ImageAssets {
   static const ourbasicpack = '$_base/tryour_basicpack.png';
   static const ourpropack = '$_base/tryour_propack.png';
   static const ouradvancepack = '$_base/tryour_advpack.png';
+  static const petertshirt = '$_base/peter_tshirt.png';
+  static const peterperfume = '$_base/peter_perfume.png';
+  static const notfit1 = '$_base/no_fit1.png';
+  static const notfit2 = '$_base/no_fit2.png';
+  static const zkenterprises = '$_base/zkenterprises.png';
 }
 
 class IconAssets {
@@ -88,6 +93,15 @@ class IconAssets {
   static const dashboardpurchases = '$_base/dashboard_purchases.svg';
   static const dashboardroas = '$_base/dashboard_roas.svg';
   static const dashboardconversion = '$_base/dashboard_conversion.svg';
+  static const catalogproductsbar = '$_base/catalog_products_appbar.svg';
+  static const editicon = '$_base/edit_icon.svg';
+  static const deleteicon = '$_base/delete_icon.svg';
+  static const stockstatus = '$_base/stock_status.svg';
+  static const image = '$_base/image.svg';
+  static const imagepadding = '$_base/image_padding.svg';
+  static const productdetails = '$_base/product_details.svg';
+  static const defaultdesc = '$_base/default.svg';
+  static const variant = '$_base/variant.svg';
 }
 
 class FontAssets {

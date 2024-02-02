@@ -7,40 +7,40 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class CustomDropDown extends StatefulWidget {
-  final double containerheight;
-  final double containerwidth;
-  final String hint;
-  final String? value;
+  final double? containerheight;
+  final double? containerwidth;
+  final String? hint;
   final List<String> dropdownItems;
-  final ValueChanged<String?>? onChanged;
+  final String? initialValue;
+  final Function(String?)? onChanged;
+  final String? value;
   final Color? alternatecolor;
   final bool? isBorderColor;
-  final bool? hintstyle;
 
   const CustomDropDown({
     super.key,
-    required this.hint,
-    this.value,
     required this.dropdownItems,
+    this.initialValue,
     this.onChanged,
-    required this.containerwidth,
-    required this.containerheight,
+    this.containerheight,
+    this.containerwidth,
+    this.hint,
+    this.value,
     this.alternatecolor,
-    this.isBorderColor = true,
-    this.hintstyle = true,
+    this.isBorderColor,
   });
 
   @override
-  State<CustomDropDown> createState() => _CustomDropDownState();
+  _CustomDropDownState createState() => _CustomDropDownState();
 }
 
 class _CustomDropDownState extends State<CustomDropDown> {
   bool isDropDownOpen = false;
+
   @override
   Widget build(BuildContext context) {
     double screenHeight = MediaQuery.of(context).size.height;
     double screenWidth = MediaQuery.of(context).size.width;
-
     return Stack(
       children: [
         if (isDropDownOpen)
@@ -57,14 +57,12 @@ class _CustomDropDownState extends State<CustomDropDown> {
           decoration: BoxDecoration(
             color: widget.alternatecolor ?? Colors.transparent,
             borderRadius: BorderRadius.circular(12),
-            border: Border.all(
-              color: widget.isBorderColor!
-                  ? kblack.withOpacity(0.2)
-                  : Colors.transparent,
-            ),
+            border: Border.all(color: kblack.withOpacity(0.2)),
           ),
           child: DropdownButtonHideUnderline(
             child: DropdownButton2<String>(
+              menuItemStyleData: const MenuItemStyleData(height: 35),
+              onChanged: widget.onChanged,
               iconStyleData:
                   const IconStyleData(icon: Icon(Icons.keyboard_arrow_down)),
               style: const TextStyle(
@@ -73,53 +71,31 @@ class _CustomDropDownState extends State<CustomDropDown> {
                   fontSize: 12,
                   color: kblack),
               isExpanded: true,
-              hint: Center(
-                child: Text(
-                  widget.hint,
-                  maxLines: 1,
-                  style: widget.hintstyle!
-                      ? const TextStyle(fontSize: 10, color: kblack)
-                      : TextStyle(
-                          fontWeight: FontWeight.w600,
-                          fontFamily: FontAssets.Poppins,
-                          fontSize: 12,
-                          color: kblack.withOpacity(0.2),
-                        ),
-                ),
-              ),
-              items: widget.dropdownItems
-                  .map((String item) => DropdownMenuItem<String>(
-                        value: item,
-                        child: Center(
-                          child: Text(
-                            item,
-                            style: widget.hintstyle!
-                                ? TextStyle(
-                                    fontFamily: FontAssets.Poppins,
-                                    fontWeight: FontWeight.w500,
-                                    fontSize: 12,
-                                    color: widget.value == item ? kred : kblack,
-                                  )
-                                : TextStyle(
-                                    fontFamily: FontAssets.Poppins,
-                                    fontWeight: FontWeight.w500,
-                                    fontSize: 12,
-                                    color:
-                                        widget.value == item ? kred : kblack),
-                          ),
-                        ),
-                      ))
-                  .toList(),
               value: widget.value,
-              onChanged: widget.onChanged,
-              buttonStyleData: ButtonStyleData(
-                  width: screenWidth * 0.1,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(12),
+              items: widget.dropdownItems.map((String item) {
+                return DropdownMenuItem<String>(
+                  value: item,
+                  child: Center(
+                    child: Text(
+                      item,
+                      style: TextStyle(
+                        fontFamily: FontAssets.Poppins,
+                        fontWeight: FontWeight.w500,
+                        fontSize: 12,
+                        color: widget.value == item ? kred : kblack,
+                      ),
+                    ),
                   ),
-                  padding: const EdgeInsets.symmetric(horizontal: 16),
-                  elevation: 0),
-              menuItemStyleData: const MenuItemStyleData(),
+                );
+              }).toList(),
+              buttonStyleData: const ButtonStyleData(
+                overlayColor: MaterialStatePropertyAll(kwhite),
+                padding: EdgeInsets.symmetric(horizontal: 8),
+              ),
+              dropdownStyleData: DropdownStyleData(
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(14), color: kwhite),
+              ),
             ),
           ),
         ),
@@ -127,3 +103,125 @@ class _CustomDropDownState extends State<CustomDropDown> {
     );
   }
 }
+
+// class CustomDropDown extends StatefulWidget {
+//   final double containerheight;
+//   final double containerwidth;
+//   final String hint;
+//   final String? value;
+//   final List<String> dropdownItems;
+//   final ValueChanged<String?>? onChanged;
+  // final Color? alternatecolor;
+  // final bool? isBorderColor;
+//   final bool? hintstyle;
+
+//   const CustomDropDown({
+//     super.key,
+//     required this.hint,
+//     this.value,
+//     required this.dropdownItems,
+//     this.onChanged,
+//     required this.containerwidth,
+//     required this.containerheight,
+//     this.alternatecolor,
+//     this.isBorderColor = true,
+//     this.hintstyle = true,
+//   });
+
+//   @override
+//   State<CustomDropDown> createState() => _CustomDropDownState();
+// }
+
+// class _CustomDropDownState extends State<CustomDropDown> {
+  // bool isDropDownOpen = false;
+//   @override
+//   Widget build(BuildContext context) {
+    // double screenHeight = MediaQuery.of(context).size.height;
+    // double screenWidth = MediaQuery.of(context).size.width;
+
+//     return
+
+    // Stack(
+    //   children: [
+    //     if (isDropDownOpen)
+    //       BackdropFilter(
+    //         filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
+    //         child: Container(
+    //             color: kwhite.withOpacity(0.2),
+    //             height: screenHeight,
+    //             width: screenWidth),
+    //       ),
+    //     Container(
+    //       height: widget.containerheight,
+    //       width: widget.containerwidth,
+          // decoration: BoxDecoration(
+          //   color: widget.alternatecolor ?? Colors.transparent,
+          //   borderRadius: BorderRadius.circular(12),
+          //   border: Border.all(
+          //     color: widget.isBorderColor!
+          //         ? kblack.withOpacity(0.2)
+          //         : Colors.transparent,
+          //   ),
+          // ),
+    //       child: DropdownButton2<String>(
+            // iconStyleData:
+            //     const IconStyleData(icon: Icon(Icons.keyboard_arrow_down)),
+            // style: const TextStyle(
+            //     fontFamily: FontAssets.Poppins,
+            //     fontWeight: FontWeight.w500,
+            //     fontSize: 12,
+            //     color: kblack),
+            // isExpanded: true,
+    //         hint: Center(
+    //           child: Text(
+    //             widget.hint,
+    //             maxLines: 1,
+    //             style: widget.hintstyle!
+    //                 ? const TextStyle(fontSize: 10, color: kblack)
+    //                 : TextStyle(
+    //                     fontWeight: FontWeight.w600,
+    //                     fontFamily: FontAssets.Poppins,
+    //                     fontSize: 12,
+    //                     color: kblack.withOpacity(0.2),
+    //                   ),
+    //           ),
+    //         ),
+    //         items: widget.dropdownItems
+    //             .map((String item) => DropdownMenuItem<String>(
+    //                   value: item,
+    //                   child: Center(
+    //                     child: Text(
+    //                       item,
+    //                       style: widget.hintstyle!
+    //                           ? TextStyle(
+    //                               fontFamily: FontAssets.Poppins,
+    //                               fontWeight: FontWeight.w500,
+    //                               fontSize: 12,
+    //                               color: widget.value == item ? kred : kblack,
+    //                             )
+    //                           : TextStyle(
+    //                               fontFamily: FontAssets.Poppins,
+    //                               fontWeight: FontWeight.w500,
+    //                               fontSize: 12,
+    //                               color:
+    //                                   widget.value == item ? kred : kblack),
+    //                     ),
+    //                   ),
+    //                 ))
+    //             .toList(),
+    //         value: widget.value,
+    //         onChanged: widget.onChanged,
+    //         buttonStyleData: ButtonStyleData(
+    //             width: screenWidth * 0.1,
+    //             decoration: BoxDecoration(
+    //               borderRadius: BorderRadius.circular(12),
+    //             ),
+    //             padding: const EdgeInsets.symmetric(horizontal: 16),
+    //             elevation: 0),
+    //         menuItemStyleData: const MenuItemStyleData(),
+    //       ),
+    //     ),
+    //   ],
+    // );
+//   }
+// }

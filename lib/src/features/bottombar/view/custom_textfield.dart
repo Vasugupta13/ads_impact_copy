@@ -4,9 +4,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 class CustomTextField extends StatefulWidget {
+  final double? containerHeight;
   final TextEditingController? controller;
   final FocusNode? focusNode;
-  final String labelText;
+  final String? labelText;
+  final String? hinttext;
   final bool isPassword;
   final Function(String)? onChanged;
   final VoidCallback? sendonTap;
@@ -19,7 +21,7 @@ class CustomTextField extends StatefulWidget {
     super.key,
     this.controller,
     this.focusNode,
-    required this.labelText,
+    this.labelText,
     this.isPassword = false,
     this.onChanged,
     this.sendonTap,
@@ -27,6 +29,8 @@ class CustomTextField extends StatefulWidget {
     this.imageonTap,
     this.validator,
     this.obscureText = false,
+    this.containerHeight,
+    this.hinttext,
   });
 
   @override
@@ -43,6 +47,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
 
     return SizedBox(
       width: screenWidth * 0.8,
+      height: widget.containerHeight,
       child: TextFormField(
         autovalidateMode: AutovalidateMode.onUserInteraction,
         style: const TextStyle(
@@ -92,13 +97,21 @@ class _CustomTextFieldState extends State<CustomTextField> {
               color: kblack.withOpacity(0.1),
             ),
           ),
-          contentPadding: const EdgeInsets.symmetric(horizontal: 16),
+          contentPadding: EdgeInsets.symmetric(
+              horizontal: 16, vertical: widget.hinttext != null ? 14 : 0),
           focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(16),
             borderSide: BorderSide(
               color: isSelected ? kred : kblack.withOpacity(0.1),
             ),
           ),
+          hintText: widget.hinttext,
+          hintMaxLines: 20,
+          hintStyle: const TextStyle(
+              fontFamily: FontAssets.Poppins,
+              fontWeight: FontWeight.w400,
+              color: kgrey,
+              fontSize: 14),
           labelText: widget.labelText,
           alignLabelWithHint: true,
           labelStyle: TextStyle(

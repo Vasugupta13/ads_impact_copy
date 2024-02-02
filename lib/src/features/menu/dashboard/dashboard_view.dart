@@ -46,112 +46,114 @@ class _DashboardViewState extends State<DashboardView> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: kwhite,
-      body: SingleChildScrollView(
-        physics: const BouncingScrollPhysics(),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            CustomAppBar(
-                onTapBack: () {
-                  Navigator.pop(context);
-                },
-                name: "Dashboard",
-                imagepath: IconAssets.menudashboard),
-            height5,
-            const Text(
-              "Choose Platform:",
-              style: TextStyle(
-                fontSize: 14,
-              ),
-            ),
-            height15,
-            SocialAccountList(
-              onTapCallback: (index) {
-                setState(
-                  () {
-                    listindex = index;
-                    if (index == 0) {
-                      currentDetails = facebookSocialMediaResponse.data;
-                    } else if (index == 1) {
-                      currentDetails = twitterlMediaResponse.data;
-                    } else if (index == 2) {
-                      currentDetails = googleSociaMediaResponse.data;
-                    } else if (index == 3) {
-                      currentDetails = linkedinSocialMediaResponse.data;
-                    }
+      body: SafeArea(
+        child: SingleChildScrollView(
+          physics: const BouncingScrollPhysics(),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              CustomAppBar(
+                  onTapBack: () {
+                    Navigator.pop(context);
                   },
-                );
-              },
-            ),
-            height20,
-            dividerind16,
-            height10,
-            SocialMediaOverview(
-                dataList: currentDetails, scrollDirection: Axis.horizontal),
-            height30,
-            const ChartNameContainer(
-                imagepath: IconAssets.analysisbottom,
-                name: "Spends and Revenue Perfomance"),
-            height20,
-            divider161,
-            height10,
-            const CommonGraph(
-              imagepath: ImageAssets.spendsgraph,
-            ),
-            height40,
-            const ChartNameContainer(
-                imagepath: IconAssets.dashboardroas, name: "ROAS % Trend"),
-            height20,
-            divider161,
-            height10,
-            const CommonGraph(
-              imagepath: ImageAssets.roasgraph,
-            ),
-            height40,
-            const ChartNameContainer(
-                imagepath: IconAssets.dashboardpurchases, name: "Purchases"),
-            height20,
-            divider161,
-            height10,
-            const CommonGraph(
-              imagepath: ImageAssets.purchasegraph,
-            ),
-            height40,
-            const ChartNameContainer(
-                imagepath: IconAssets.dashboardconversion,
-                name: "Conversion Rate Trend"),
-            height20,
-            divider161,
-            const CommonGraph(
-              imagepath: ImageAssets.conversiongraph,
-            ),
-            height10,
-            divider161,
-            height20,
-            CommonElevatedButton(
-              ontap: () {},
-              name: "Platform Wise Spend and ROAS %",
-              textStyle: elevatedtextstyle,
-              buttonwidth: 0.7,
-              buttonheight: 50,
-            ),
-            height30,
-            SpendContainer(data: DashboardSocialMediaData.socialspend),
-            height10,
-            divider161,
-            height20,
-            CommonElevatedButton(
-              ontap: () {},
-              name: "Creative Wise Spend and ROAS %",
-              textStyle: elevatedtextstyle,
-              buttonwidth: 0.7,
-              buttonheight: 50,
-            ),
-            height30,
-            SpendContainer(data: DashboardCreativeSpend.spendname),
-            height30,
-          ],
+                  name: "Dashboard",
+                  imagepath: IconAssets.menudashboard),
+              height5,
+              const Text(
+                "Choose Platform:",
+                style: TextStyle(
+                  fontSize: 14,
+                ),
+              ),
+              height15,
+              SocialAccountList(
+                onTapCallback: (index) {
+                  setState(
+                    () {
+                      listindex = index;
+                      if (index == 0) {
+                        currentDetails = facebookSocialMediaResponse.data;
+                      } else if (index == 1) {
+                        currentDetails = twitterlMediaResponse.data;
+                      } else if (index == 2) {
+                        currentDetails = googleSociaMediaResponse.data;
+                      } else if (index == 3) {
+                        currentDetails = linkedinSocialMediaResponse.data;
+                      }
+                    },
+                  );
+                },
+              ),
+              height20,
+              dividerind16,
+              height10,
+              SocialMediaOverview(
+                  dataList: currentDetails, scrollDirection: Axis.horizontal),
+              height30,
+              const ChartNameContainer(
+                  imagepath: IconAssets.analysisbottom,
+                  name: "Spends and Revenue Perfomance"),
+              height20,
+              divider161,
+              height10,
+              const CommonGraph(
+                imagepath: ImageAssets.spendsgraph,
+              ),
+              height40,
+              const ChartNameContainer(
+                  imagepath: IconAssets.dashboardroas, name: "ROAS % Trend"),
+              height20,
+              divider161,
+              height10,
+              const CommonGraph(
+                imagepath: ImageAssets.roasgraph,
+              ),
+              height40,
+              const ChartNameContainer(
+                  imagepath: IconAssets.dashboardpurchases, name: "Purchases"),
+              height20,
+              divider161,
+              height10,
+              const CommonGraph(
+                imagepath: ImageAssets.purchasegraph,
+              ),
+              height40,
+              const ChartNameContainer(
+                  imagepath: IconAssets.dashboardconversion,
+                  name: "Conversion Rate Trend"),
+              height20,
+              divider161,
+              const CommonGraph(
+                imagepath: ImageAssets.conversiongraph,
+              ),
+              height10,
+              divider161,
+              height20,
+              CommonElevatedButton(
+                ontap: () {},
+                name: "Platform Wise Spend and ROAS %",
+                textStyle: elevatedtextstyle,
+                buttonwidth: 0.7,
+                buttonheight: 50,
+              ),
+              height30,
+              SpendContainer(data: DashboardSocialMediaData.socialspend),
+              height10,
+              divider161,
+              height20,
+              CommonElevatedButton(
+                ontap: () {},
+                name: "Creative Wise Spend and ROAS %",
+                textStyle: elevatedtextstyle,
+                buttonwidth: 0.7,
+                buttonheight: 50,
+              ),
+              height30,
+              SpendContainer(data: DashboardCreativeSpend.spendname),
+              height30,
+            ],
+          ),
         ),
       ),
       bottomNavigationBar: const BottomNavBar(),

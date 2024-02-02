@@ -87,7 +87,7 @@ const TextStyle elevatedtextstyle = TextStyle(
 Divider divider16 = Divider(
     height: 2.0, color: kblack.withOpacity(0.2), endIndent: 10, indent: 10);
 Divider dividerind16 =
-    Divider(color: kblack.withOpacity(0.2), indent: 16, thickness: 1);
+    Divider(color: kblack.withOpacity(0.2), indent: 16, thickness: 0.5);
 Divider divider161 =
     Divider(color: kblack.withOpacity(0.1), indent: 16, thickness: 1);
 

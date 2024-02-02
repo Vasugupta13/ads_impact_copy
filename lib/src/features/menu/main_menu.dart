@@ -5,7 +5,7 @@ import 'package:ads/src/features/menu/campaign/campaign_analysis.dart';
 import 'package:ads/src/features/menu/campaign/campaign_create.dart';
 import 'package:ads/src/features/menu/catalog/catalog_information.dart';
 import 'package:ads/src/features/menu/catalog/categories.dart';
-import 'package:ads/src/features/menu/catalog/products.dart';
+import 'package:ads/src/features/menu/catalog/catalog_products.dart';
 import 'package:ads/src/features/menu/dashboard/dashboard_view.dart';
 import 'package:ads/src/features/menu/insights/granular_analysis.dart';
 import 'package:ads/src/features/menu/widgets/menulistile.dart';

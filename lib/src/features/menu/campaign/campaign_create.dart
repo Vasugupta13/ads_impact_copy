@@ -87,7 +87,7 @@ class _CampaignCreateState extends State<CampaignCreate> {
               ),
             ),
             height20,
-            const CustomTextForm(
+             CustomTextForm(
                 labelText: "Enter your Adtext", maxline: 1, verticalpad: 12),
             height25,
             const CustomTextForm(

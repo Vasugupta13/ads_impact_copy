@@ -26,7 +26,7 @@ class _CatalogListViewState extends State<CatalogListView> {
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
     return Align(
-      alignment: widget.alignment,
+      alignment: Alignment.centerRight,
       child: Container(
         height: 44,
         width: screenWidth * 0.95,
@@ -60,33 +60,44 @@ class _CatalogListViewState extends State<CatalogListView> {
                   widget.onTapCallback(index);
                 });
               },
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Row(
-                    children: [
-                      Text(
-                        widget.names[index],
-                        style: const TextStyle(
-                          fontFamily: FontAssets.Poppins,
-                          fontSize: 12,
-                          fontWeight: FontWeight.w600,
-                          color: Colors.black,
+              child: SizedBox(
+                width: screenWidth * 0.25 + 15,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    const SizedBox(height: 13),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Text(
+                          widget.names[index],
+                          style: const TextStyle(
+                            fontFamily: FontAssets.Poppins,
+                            fontSize: 12,
+                            fontWeight: FontWeight.w600,
+                            color: Colors.black,
+                          ),
                         ),
-                      ),
-                    ],
-                  ),
-                ],
+                      ],
+                    ),
+                    const SizedBox(height: 13),
+                    Container(
+                        height: 1,
+                        color: isSelected
+                            ? const Color(0xffFF6B00)
+                            : Colors.transparent),
+                  ],
+                ),
               ),
             );
           },
           separatorBuilder: (context, index) {
-            return const VerticalDivider(
-              indent: 16,
-              endIndent: 16,
-              thickness: 1,
-              width: 50,
+            return VerticalDivider(
+              color: kblack.withOpacity(0.1),
+              endIndent: 10,
+              indent: 10,
             );
           },
         ),

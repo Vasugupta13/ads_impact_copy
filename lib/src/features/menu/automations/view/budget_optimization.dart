@@ -1,7 +1,7 @@
 
 import 'package:ads/src/common/views/custom_elevatedbutton.dart';
 import 'package:ads/src/common/views/customdropdown.dart';
-import 'package:ads/src/features/menu/catalog/widget/container_widget.dart';
+import 'package:ads/src/features/menu/catalog/widget/title_container.dart';
 import 'package:ads/src/utils/const.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';

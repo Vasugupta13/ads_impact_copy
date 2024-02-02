@@ -172,7 +172,10 @@ class _OpeningPageState extends State<OpeningPage> {
     return Column(
       children: [
         Image.asset(widget.imagepath,
-            height: screenHeight * 0.68, width: screenWidth, fit: BoxFit.fill),
+            filterQuality: FilterQuality.high,
+            height: screenHeight * 0.68,
+            width: screenWidth,
+            fit: BoxFit.fill),
         height10,
         Text(
           widget.title,

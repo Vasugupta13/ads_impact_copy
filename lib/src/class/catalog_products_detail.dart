@@ -1,7 +1,9 @@
+import 'package:ads/src/res/assets.dart';
+
 class CatalogProductDetails {
   static List defaultitem = [
     {
-      "imageurl": "assets/images/Perfume.png",
+      "imageurl": ImageAssets.peterperfume,
       "title": "Peter England Deodorant 250ML\nStylish Perfume",
       "price": "560",
       "off": " •  5 % OFF",
@@ -10,7 +12,7 @@ class CatalogProductDetails {
       "availability": "In stock"
     },
     {
-      "imageurl": "assets/images/Tshirt.png",
+      "imageurl": ImageAssets.petertshirt,
       "title": "Peter England modern look\nstylish shirt ",
       "price": "560",
       "off": " •  5 % OFF",
@@ -19,7 +21,7 @@ class CatalogProductDetails {
       "availability": "In stock"
     },
     {
-      "imageurl": "assets/images/Perfume.png",
+      "imageurl": ImageAssets.peterperfume,
       "title": "Peter England Deodorant 250ML\nStylish Perfume",
       "price": "560",
       "off": " •  5 % OFF",
@@ -28,7 +30,7 @@ class CatalogProductDetails {
       "availability": "In stock"
     },
     {
-      "imageurl": "assets/images/Tshirt.png",
+      "imageurl": ImageAssets.petertshirt,
       "title": "Peter England modern look\nstylish shirt ",
       "price": "560",
       "off": " •  5 % OFF",
