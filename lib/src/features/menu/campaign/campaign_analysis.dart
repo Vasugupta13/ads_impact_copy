@@ -4,21 +4,13 @@ import 'package:ads/src/common/views/custom_elevatedbutton.dart';
 import 'package:ads/src/common/views/customdropdown.dart';
 import 'package:ads/src/features/bottombar/bottomnavigationbar.dart';
 import 'package:ads/src/common/views/customapp_bar.dart';
+import 'package:ads/src/homepage/widgets/custom_calendar.dart';
+import 'package:ads/src/res/assets.dart';
 import 'package:ads/src/utils/const.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
-
-final List<String> items = [
-  "Clicks",
-  "Impressions",
-  "CTR",
-  "Spends(INR)",
-  "Cart Adds",
-  "Purchases",
-  "ROAS"
-];
-String? selectedvalue;
+import 'package:intl/intl.dart';
 
 class CampaignAnalysis extends StatefulWidget {
   const CampaignAnalysis({super.key});
@@ -28,135 +20,154 @@ class CampaignAnalysis extends StatefulWidget {
 }
 
 class _CampaignAnalysisState extends State<CampaignAnalysis> {
-  TableRow buildRow(List<String> cells) => TableRow(
-          children: cells.map((cell) {
-        return Padding(
-          padding: const EdgeInsets.all(12),
-          child: Center(
-            child: Text(
-              cell,
-              style: const TextStyle(fontSize: 13, fontWeight: FontWeight.w600),
-            ),
-          ),
-        );
-      }).toList());
+  final List<String> items = [
+    "Clicks",
+    "Impressions",
+    "CTR",
+    "Spends(INR)",
+    "Cart Adds",
+    "Purchases",
+    "ROAS"
+  ];
+  String? selectedvalue = "Impressions";
+
+  final NumberFormat formatter = NumberFormat("#,##0.00", "en_US");
+  List<Map<String, String>> filteredData = [];
+
+  @override
+  void initState() {
+    super.initState();
+    selectedvalue = items[1];
+    updateTable();
+  }
+
+  void updateTable() {
+    filteredData = CampaignAnalysisDetails.analysisdetails
+        .map((category) => {
+              "Date": category["date"].toString(),
+              "value": category[selectedvalue!.toLowerCase()].toString(),
+            })
+        .toList();
+  }
+
   @override
   Widget build(BuildContext context) {
+    double screenWidth = MediaQuery.of(context).size.width;
+    double total = CampaignAnalysisDetails.analysisdetails.fold(
+        0.0,
+        (sum, category) =>
+            sum +
+            double.parse(
+                category[selectedvalue?.toLowerCase()].replaceAll(',', '')));
+
     return Scaffold(
       backgroundColor: kwhite,
-      body: SingleChildScrollView(
-        padding: const EdgeInsets.symmetric(vertical: 42),
-        physics: const BouncingScrollPhysics(),
-        child: Column(
-          children: [
-            const CustomAppBar(
-                name: "Analysis",
-                imagepath: "assets/images/campaign_analysis.svg"),
-            height20,
-            Divider(color: kblack.withOpacity(0.1), endIndent: 0, indent: 26),
-            height5,
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 18),
-              child: Container(
-                height: 40,
-                width: Get.width,
-                padding: const EdgeInsets.symmetric(horizontal: 18),
+      body: SafeArea(
+        child: SingleChildScrollView(
+          physics: const BouncingScrollPhysics(),
+          child: Column(
+            children: [
+              const CustomAppBar(
+                  name: "Analysis", imagepath: IconAssets.analysis),
+              height5,
+              const CustomCalendar(),
+              height20,
+              CatalogListView(
+                names: const [
+                  "Default View",
+                  "Website View",
+                  "Performance View"
+                ],
+                onTapCallback: (int index) {},
+              ),
+              height20,
+              CustomDropDown(
+                containerheight: 30,
+                containerwidth: screenWidth * 0.5,
+                value: selectedvalue,
+                dropdownItems: items,
+                initialValue: 'Impressions',
+                onChanged: (String? value) {
+                  setState(() {
+                    selectedvalue = value;
+                  });
+                },
+              ),
+              height20,
+              Container(
+                margin: const EdgeInsets.all(14),
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(14),
-                  color: const Color(0xff1A377D).withOpacity(0.1),
+                  borderRadius: BorderRadius.circular(16),
+                  border: Border.all(
+                    color: kblack.withOpacity(0.21),
+                  ),
                 ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                child: Column(
                   children: [
-                    SvgPicture.asset('assets/images/calendar-edit.svg',
-                        fit: BoxFit.contain),
-                    const Text("Select Date Range"),
-                    SvgPicture.asset('assets/images/arrow-square-down.svg',
-                        fit: BoxFit.contain, height: 22),
+                    Table(
+                      border: TableBorder(
+                        verticalInside:
+                            BorderSide(color: kblack.withOpacity(0.21)),
+                        bottom: BorderSide(
+                          color: kblack.withOpacity(0.21),
+                        ),
+                      ),
+                      children: [
+                        buildRow(['Date', selectedvalue ?? '']),
+                      ],
+                    ),
+                    Table(
+                      border: TableBorder(
+                        verticalInside: BorderSide(
+                          width: 1,
+                          color: kblack.withOpacity(0.21),
+                        ),
+                      ),
+                      children: CampaignAnalysisDetails.analysisdetails
+                          .map(
+                            (category) => buildRow(
+                              [
+                                category["date"] ?? '',
+                                category[selectedvalue?.toLowerCase()]
+                                        ?.toString() ??
+                                    ''
+                              ],
+                            ),
+                          )
+                          .toList(),
+                    ),
                   ],
                 ),
               ),
-            ),
-            height20,
-            CatalogListView(
-              names: const ["Default View", "Website View", "Performance View"],
-              onTapCallback: (int index) {},
-            ),
-            height20,
-            CustomDropDown(
-              containerheight: 0.5,
-              containerwidth: 0.45,
-              dropdownItems: items,
-              hint: 'Impressions',
-              onChanged: (String? value) {
-                setState(() {
-                  selectedvalue = value;
-                });
-              },
-              value: selectedvalue,
-            ),
-            height20,
-            Container(
-              margin: const EdgeInsets.all(15),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(16),
-                border: Border.all(
-                  color: kblack.withOpacity(0.4),
-                ),
+              height30,
+              CommonElevatedButton(
+                ontap: () {},
+                name: "Total Summary:   ${formatter.format(total)}",
+                buttonwidth: 0.6,
+                textStyle: elevatedtextstyle,
               ),
-              child: Column(
-                children: [
-                  Table(
-                    border: TableBorder(
-                      verticalInside:
-                          BorderSide(color: kblack.withOpacity(0.4)),
-                      bottom: BorderSide(
-                        color: kblack.withOpacity(0.4),
-                      ),
-                    ),
-                    children: [
-                      buildRow(
-                        ["Date", "Impressions"],
-                      ),
-                    ],
-                  ),
-                  Table(
-                    border: TableBorder(
-                      verticalInside: BorderSide(
-                        width: 1,
-                        color: kblack.withOpacity(0.4),
-                      ),
-                    ),
-                    children: CampaignAnalysisDetails.analysisdetails
-                        .map(
-                          (category) => buildRow(
-                            [
-                              category["date"].toString(),
-                              category["impressions"].toString(),
-                            ],
-                          ),
-                        )
-                        .toList(),
-                  ),
-                ],
-              ),
-            ),
-            height30,
-            CommonElevatedButton(
-              ontap: () {},
-              name: "Total Summary:   18,47,563",
-              buttonwidth: 0.40,
-              buttonheight: 0.07,
-              textStyle: const TextStyle(
-                fontSize: 12,
-                color: kwhite,
-              ),
-            ),
-            height30,
-          ],
+              height30,
+            ],
+          ),
         ),
       ),
       bottomNavigationBar: const BottomNavBar(),
     );
   }
 }
+
+TableRow buildRow(List<String> cells) => TableRow(
+      children: cells
+          .map(
+            (cell) => Padding(
+              padding: const EdgeInsets.all(12),
+              child: Center(
+                child: Text(
+                  cell,
+                  style: const TextStyle(fontSize: 12),
+                ),
+              ),
+            ),
+          )
+          .toList(),
+    );

@@ -40,8 +40,6 @@ class _MenuCatalogInformationState extends State<MenuCatalogInformation> {
 
   @override
   Widget build(BuildContext context) {
-    double screenHeight = MediaQuery.of(context).size.height;
-    double screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
       backgroundColor: kwhite,
       appBar: AppBar(elevation: 0, toolbarHeight: 0),

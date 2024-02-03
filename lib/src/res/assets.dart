@@ -49,6 +49,10 @@ class ImageAssets {
   static const notfit1 = '$_base/no_fit1.png';
   static const notfit2 = '$_base/no_fit2.png';
   static const zkenterprises = '$_base/zkenterprises.png';
+  static const danielhall = '$_base/daniel_hall.png';
+  static const whiteshirt1 = '$_base/white_shirt1.png';
+  static const whiteshirt2 = '$_base/white_shirt2.png';
+  static const peterparker = '$_base/peter_parker_tshirt.png';
 }
 
 class IconAssets {
@@ -102,6 +106,7 @@ class IconAssets {
   static const productdetails = '$_base/product_details.svg';
   static const defaultdesc = '$_base/default.svg';
   static const variant = '$_base/variant.svg';
+  static const create = '$_base/create_icons.svg';
 }
 
 class FontAssets {

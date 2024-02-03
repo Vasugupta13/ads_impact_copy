@@ -1,7 +1,7 @@
 import 'package:ads/src/class/socialmediainfo.dart';
 import 'package:ads/src/features/menu/insights/view/adset_analysis.dart';
 import 'package:ads/src/homepage/views/insight_view.dart';
-import 'package:ads/src/homepage/widgets/calendar.dart';
+import 'package:ads/src/homepage/widgets/custom_calendar.dart';
 import 'package:ads/src/homepage/widgets/spend_istview.dart';
 import 'package:ads/src/homepage/widgets/social_account_list_widget.dart';
 import 'package:ads/src/model/social_media_info.dart';
@@ -123,7 +123,7 @@ class _OverviewInsightsState extends State<OverviewInsights> {
           ),
         ),
         height30,
-        const Calendar(),
+        CustomCalendar(),
         height25,
         SocialAccountList(
           onTapCallback: (index) {

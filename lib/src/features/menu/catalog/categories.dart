@@ -5,7 +5,7 @@ import 'package:ads/src/common/views/customdropdown.dart';
 import 'package:ads/src/features/bottombar/bottomnavigationbar.dart';
 import 'package:ads/src/common/views/customapp_bar.dart';
 import 'package:ads/src/homepage/homepage.dart';
-import 'package:ads/src/homepage/widgets/calendar.dart';
+import 'package:ads/src/homepage/widgets/custom_calendar.dart';
 import 'package:ads/src/res/assets.dart';
 import 'package:ads/src/utils/const.dart';
 import 'package:dropdown_button2/dropdown_button2.dart';
@@ -74,7 +74,7 @@ class _MenuCatalogCategoriesState extends State<MenuCatalogCategories> {
                 imagepath: IconAssets.catalogbar,
               ),
               height5,
-              const Calendar(),
+               CustomCalendar(),
               height20,
               CatalogListView(
                 names: const [
@@ -87,7 +87,7 @@ class _MenuCatalogCategoriesState extends State<MenuCatalogCategories> {
               height20,
               CustomDropDown(
                 containerheight: 30,
-                containerwidth: screenWidth * 0.40,
+                containerwidth: screenWidth * 0.5,
                 value: selectedValue,
                 dropdownItems: catalogitems,
                 initialValue: 'Products',
@@ -139,7 +139,7 @@ class _MenuCatalogCategoriesState extends State<MenuCatalogCategories> {
                 ontap: () {},
                 name: "Total Summary:   ${formatter.format(total)}",
                 buttonwidth: 0.6,
-                textStyle: const TextStyle(fontSize: 12, color: kwhite),
+                textStyle: elevatedtextstyle,
               ),
               height30,
             ],

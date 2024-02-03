@@ -4,8 +4,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-class Calendar extends StatelessWidget {
-  const Calendar({super.key});
+class CustomCalendar extends StatelessWidget {
+  const CustomCalendar({super.key});
 
   @override
   Widget build(BuildContext context) {

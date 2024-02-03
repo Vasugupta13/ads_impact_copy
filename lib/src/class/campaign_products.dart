@@ -1,12 +1,14 @@
+import 'package:ads/src/res/assets.dart';
+
 class CampaignProducts {
   static List products = [
     {
-      "imageurl": "assets/images/daniel1.png",
+      "imageurl": ImageAssets.whiteshirt1,
       "price": "₹ 1099/- ",
       "desc": " Tom Hilfiger White Shirt"
     },
     {
-      "imageurl": "assets/images/daniel2.png",
+      "imageurl": ImageAssets.whiteshirt2,
       "price": "₹ 1099/- ",
       "desc": " Tom Hilfiger White Shirt"
     }

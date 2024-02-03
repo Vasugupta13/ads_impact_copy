@@ -29,6 +29,7 @@ String? selecteditems;
 
 class GranularAnalysis extends StatefulWidget {
   const GranularAnalysis({super.key});
+  static const routerPath = '/GranularAnalysis';
 
   @override
   State<GranularAnalysis> createState() => _GranularAnalysisState();
