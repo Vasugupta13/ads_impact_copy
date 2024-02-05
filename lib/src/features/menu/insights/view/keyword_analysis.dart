@@ -22,7 +22,7 @@ String? selectedvalue;
 
 class KeywordAnalysis extends StatefulWidget {
   const KeywordAnalysis({super.key});
-
+  static const routerPath = '/KeywordAnalysis';
   @override
   State<KeywordAnalysis> createState() => _KeywordAnalysisState();
 }

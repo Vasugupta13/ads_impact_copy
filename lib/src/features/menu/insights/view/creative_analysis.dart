@@ -22,7 +22,7 @@ String? selectedvalue;
 
 class CreativeAnalysis extends StatefulWidget {
   const CreativeAnalysis({super.key});
-
+  static const routerPath = '/CreativeAnalysis';
   @override
   State<CreativeAnalysis> createState() => _CreativeAnalysisState();
 }

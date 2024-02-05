@@ -22,6 +22,7 @@ String? selectedvalue;
 
 class RegionAnalysis extends StatefulWidget {
   const RegionAnalysis({super.key});
+  static const routerPath = '/RegionAnalysis';
 
   @override
   State<RegionAnalysis> createState() => _RegionAnalysisState();

@@ -22,6 +22,7 @@ String? selectedvalue;
 
 class SearchAnalysis extends StatefulWidget {
   const SearchAnalysis({super.key});
+  static const routerPath = '/SearchAnalysis';
 
   @override
   State<SearchAnalysis> createState() => _SearchAnalysisState();

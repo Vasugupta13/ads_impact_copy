@@ -25,6 +25,7 @@ String? selectedvalue;
 
 class AdsetAnalysis extends StatefulWidget {
   const AdsetAnalysis({super.key});
+  static const routerPath = '/AdsetAnalysis';
 
   @override
   State<AdsetAnalysis> createState() => _AdsetAnalysisState();

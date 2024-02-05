@@ -81,7 +81,6 @@ class PopupMenu extends StatelessWidget {
   final String? menu4icon;
   final String? menu4title;
   final VoidCallback? menutap4;
-
   final bool? isMenu4;
 
   const PopupMenu({
@@ -198,7 +197,7 @@ class PopupMenu extends StatelessWidget {
                               iconimgae: menu4icon!,
                               title: menu4title!,
                               fontsize: 10,
-                              ontap: menutap4!,
+                              ontap: menutap4 ?? () {},
                             ),
                         ],
                       ),

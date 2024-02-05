@@ -125,12 +125,12 @@ class _MainMenuPopupState extends State<MainMenuPopup> {
                       menu2icon: IconAssets.submenuanalysis,
                       menu2title: "Analysis",
                       menutap2: () {
-                        Get.to(() => const GranularAnalysis());
+                        // Get.to(() => const GranularAnalysis());
                       },
                       menu3icon: IconAssets.submenuanalysis,
                       menu3title: "Granular Analysis",
                       menutap3: () {
-                        // Get.to(() => const MenuCatalogInformation());
+                        Get.to(() => const GranularAnalysis());
                       },
                       menu4icon: IconAssets.submenuanalysis,
                       menu4title: "ROAS Analyzer",

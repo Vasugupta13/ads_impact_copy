@@ -74,7 +74,7 @@ class _MenuCatalogCategoriesState extends State<MenuCatalogCategories> {
                 imagepath: IconAssets.catalogbar,
               ),
               height5,
-               CustomCalendar(),
+              const CustomCalendar(),
               height20,
               CatalogListView(
                 names: const [
@@ -158,7 +158,10 @@ class _MenuCatalogCategoriesState extends State<MenuCatalogCategories> {
                 child: Center(
                   child: Text(
                     cell,
-                    style: const TextStyle(fontSize: 12),
+                    style: const TextStyle(
+                        fontFamily: FontAssets.Poppins,
+                        fontWeight: FontWeight.w500,
+                        fontSize: 12),
                   ),
                 ),
               ),

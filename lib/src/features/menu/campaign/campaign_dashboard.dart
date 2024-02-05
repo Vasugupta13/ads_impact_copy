@@ -117,8 +117,10 @@ class _CampaignDashboardState extends State<CampaignDashboard> {
                                   selectedIndex == 1 ? kred : kblack,
                                   '1'),
                               buildPopupMenuItem(
-                                  'Unpin',
-                                  CupertinoIcons.pin_fill,
+                                  isPinned ? 'Unpin' : 'Pin',
+                                  isPinned
+                                      ? CupertinoIcons.pin
+                                      : CupertinoIcons.pin_slash_fill,
                                   selectedIndex == 2 ? kred : kblack,
                                   '2'),
                               buildPopupMenuItem(

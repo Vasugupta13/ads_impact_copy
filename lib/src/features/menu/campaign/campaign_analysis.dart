@@ -143,7 +143,7 @@ class _CampaignAnalysisState extends State<CampaignAnalysis> {
               CommonElevatedButton(
                 ontap: () {},
                 name: "Total Summary:   ${formatter.format(total)}",
-                buttonwidth: 0.6,
+                buttonwidth: 0.65,
                 textStyle: elevatedtextstyle,
               ),
               height30,
