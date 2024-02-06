@@ -2,7 +2,7 @@ import 'package:ads/src/common/views/custom_elevatedbutton.dart';
 import 'package:ads/src/features/bottombar/bottomnavigationbar.dart';
 import 'package:ads/src/common/views/customapp_bar.dart';
 import 'package:ads/src/features/menu/automations/view/ad_optimization.dart';
-import 'package:ads/src/features/menu/catalog/widget/title_container.dart';
+import 'package:ads/src/features/menu/catalog/widget/catalog_container.dart';
 import 'package:ads/src/homepage/widgets/social_account_list_widget.dart';
 import 'package:ads/src/utils/const.dart';
 import 'package:flutter/material.dart';

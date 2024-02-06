@@ -1,7 +1,9 @@
+import 'dart:convert';
+
 class PlatformAnalysisDetails {
-  static List defaultview = [
+  static List<Map<String, dynamic>> defaultView = [
     {
-      'platform': "facebook",
+      'platform': "Facebook",
       'spends': "237",
       'ctr': "464",
       'cpm': "682",
@@ -9,7 +11,7 @@ class PlatformAnalysisDetails {
       'add to cart': "5467",
       'aov': "5454",
       'roas': "8754",
-      'comparsionspends': "13,567",
+      'comparison spends': "13,567",
       'previous': "11,445"
     },
     {
@@ -21,7 +23,7 @@ class PlatformAnalysisDetails {
       'add to cart': "4567",
       'aov': "6587",
       'roas': "23123",
-      'comparsionspends': "13,567",
+      'comparison spends': "13,567",
       'previous': "11,445"
     },
     {
@@ -33,7 +35,7 @@ class PlatformAnalysisDetails {
       'add to cart': "4658",
       'aov': "5454",
       'roas': "8754",
-      'comparsionspends': "13,567",
+      'comparison spends': "13,567",
       'previous': "11,445"
     },
     {
@@ -45,7 +47,7 @@ class PlatformAnalysisDetails {
       'add to cart': "4547",
       'aov': "67843",
       'roas': "5872",
-      'comparsionspends': "46,567",
+      'comparison spends': "46,567",
       'previous': "11,445"
     },
     {
@@ -57,7 +59,7 @@ class PlatformAnalysisDetails {
       'add to cart': "3245",
       'aov': "4578",
       'roas': "546",
-      'comparsionspends': "75,567",
+      'comparison spends': "75,567",
       'previous': "11,445"
     },
     {
@@ -69,7 +71,7 @@ class PlatformAnalysisDetails {
       'add to cart': "2576",
       'aov': "4677",
       'roas': "5547",
-      'comparsionspends': "13,567",
+      'comparison spends': "13,567",
       'previous': "11,445"
     },
     {
@@ -81,7 +83,7 @@ class PlatformAnalysisDetails {
       'add to cart': "7524",
       'aov': "3254",
       'roas': "6578",
-      'comparsionspends': "13,567",
+      'comparison spends': "13,567",
       'previous': "11,445"
     },
   ];

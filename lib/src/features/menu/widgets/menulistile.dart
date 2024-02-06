@@ -45,7 +45,7 @@ class MenuListtile extends StatelessWidget {
                     child: Text(
                       title,
                       style: TextStyle(
-                        fontFamily: FontAssets.Poppins,
+                        
                         fontSize: fontsize,
                         fontWeight: FontWeight.w400,
                       ),
@@ -143,7 +143,7 @@ class PopupMenu extends StatelessWidget {
                           Text(
                             submenutitle,
                             style: const TextStyle(
-                                fontFamily: FontAssets.Poppins,
+
                                 fontWeight: FontWeight.w500,
                                 fontSize: 12),
                           ),

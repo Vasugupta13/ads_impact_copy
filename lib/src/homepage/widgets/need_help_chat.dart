@@ -24,7 +24,7 @@ class _NeedHelpState extends State<NeedHelp> {
         const Text(
           "Need Help?",
           style: TextStyle(
-              fontFamily: FontAssets.Poppins,
+
               fontWeight: FontWeight.w500,
               fontSize: 24),
         ),
@@ -42,7 +42,7 @@ class _NeedHelpState extends State<NeedHelp> {
               text: const TextSpan(
                 text: "Here is the ",
                 style: TextStyle(
-                    fontFamily: FontAssets.Poppins,
+
                     fontSize: 24,
                     color: kblack,
                     fontWeight: FontWeight.w500),
@@ -50,7 +50,7 @@ class _NeedHelpState extends State<NeedHelp> {
                   TextSpan(
                     text: "AdChat\n",
                     style: TextStyle(
-                        fontFamily: FontAssets.Poppins,
+
                         fontSize: 24,
                         color: kred,
                         fontWeight: FontWeight.w500),
@@ -58,7 +58,7 @@ class _NeedHelpState extends State<NeedHelp> {
                   TextSpan(
                     text: "assistance which can help\nyou!",
                     style: TextStyle(
-                        fontFamily: FontAssets.Poppins,
+                        
                         fontSize: 24,
                         color: kblack,
                         fontWeight: FontWeight.w500),

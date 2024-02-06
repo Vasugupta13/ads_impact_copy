@@ -51,7 +51,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
         title: const Text(
           "Forget Password?",
           style: TextStyle(
-              fontFamily: FontAssets.Poppins,
+
               fontWeight: FontWeight.w600,
               color: kblack,
               fontSize: 18),
@@ -79,7 +79,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                       "Enter the email associated with your account\nand we'll send an email with instructions to reset your password.",
                       maxLines: 3,
                       style: TextStyle(
-                          fontFamily: FontAssets.Poppins,
+
                           fontWeight: FontWeight.w400,
                           color: Color(0xff989898),
                           fontSize: 12),
@@ -172,7 +172,7 @@ void _showPopup(BuildContext context) {
                         "We have sent a link that contain\nemail instructions to reset your\npassword",
                         textAlign: TextAlign.center,
                         style: TextStyle(
-                            fontFamily: FontAssets.Poppins,
+
                             fontWeight: FontWeight.w400,
                             color: kblack.withOpacity(0.56),
                             fontSize: 12),

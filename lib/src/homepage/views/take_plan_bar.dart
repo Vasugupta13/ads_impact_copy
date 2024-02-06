@@ -38,7 +38,6 @@ class _TakePlanBarState extends State<TakePlanBar> {
                     "Take your plan and start your trial",
                     style: TextStyle(
                         fontWeight: FontWeight.w500,
-                        fontFamily: FontAssets.Poppins,
                         fontSize: 12,
                         color: kwhite),
                   ),
@@ -52,14 +51,7 @@ class _TakePlanBarState extends State<TakePlanBar> {
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(12), color: kred),
                   child: const Center(
-                    child: Text(
-                      "Take Plan",
-                      style: TextStyle(
-                          fontFamily: FontAssets.Poppins,
-                          fontSize: 14,
-                          color: kwhite,
-                          fontWeight: FontWeight.w600),
-                    ),
+                    child: Text("Take Plan", style: tileStyle),
                   ),
                 ),
               ),
@@ -72,3 +64,6 @@ class _TakePlanBarState extends State<TakePlanBar> {
     );
   }
 }
+
+const TextStyle tileStyle =
+    TextStyle(fontSize: 14, color: kwhite, fontWeight: FontWeight.w600);

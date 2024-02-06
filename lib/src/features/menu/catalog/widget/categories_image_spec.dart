@@ -1,6 +1,6 @@
 import 'package:ads/src/features/menu/catalog/widget/cancel_save_button.dart';
 import 'package:ads/src/features/menu/catalog/widget/custom_radiolisttile.dart';
-import 'package:ads/src/features/menu/catalog/widget/title_container.dart';
+import 'package:ads/src/features/menu/catalog/widget/catalog_container.dart';
 import 'package:ads/src/res/assets.dart';
 import 'package:ads/src/utils/const.dart';
 import 'package:dotted_border/dotted_border.dart';
@@ -33,7 +33,7 @@ class _ImageSpecificationsState extends State<ImageSpecifications> {
           style: TextStyle(
               fontSize: 20,
               fontWeight: FontWeight.w600,
-              fontFamily: FontAssets.Poppins),
+              ),
         ),
         height20,
         GestureDetector(
@@ -82,7 +82,7 @@ class _ImageSpecificationsState extends State<ImageSpecifications> {
                     child: Text(
                       "Default",
                       style: TextStyle(
-                          fontFamily: FontAssets.Poppins,
+
                           fontWeight: FontWeight.w500,
                           fontSize: 12),
                     ),
@@ -98,7 +98,7 @@ class _ImageSpecificationsState extends State<ImageSpecifications> {
           style: TextStyle(
               fontSize: 20,
               fontWeight: FontWeight.w600,
-              fontFamily: FontAssets.Poppins),
+              ),
         ),
         height20,
         GestureDetector(
@@ -156,7 +156,7 @@ class _ImageSpecificationsState extends State<ImageSpecifications> {
                   child: Text(
                     "Fit to AD",
                     style: TextStyle(
-                        fontFamily: FontAssets.Poppins,
+
                         fontWeight: FontWeight.w500,
                         fontSize: 12),
                   ),

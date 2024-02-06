@@ -35,7 +35,7 @@ class _ShoppingListSliderState extends State<ShoppingListSlider> {
         const Text(
           "Our Branding Partners",
           style: TextStyle(
-              fontFamily: FontAssets.Poppins,
+              
               fontSize: 24,
               fontWeight: FontWeight.w500),
         ),

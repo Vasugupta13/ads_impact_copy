@@ -35,7 +35,7 @@ class ChartNameContainer extends StatelessWidget {
               child: Text(
                 name,
                 style: const TextStyle(
-                    fontFamily: FontAssets.Poppins,
+
                     fontWeight: FontWeight.w600,
                     fontSize: 13,
                     color: kwhite),

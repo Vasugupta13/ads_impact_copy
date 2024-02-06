@@ -50,7 +50,7 @@ class _MainMenuPopupState extends State<MainMenuPopup> {
                   child: Text(
                     "Menu",
                     style: TextStyle(
-                        fontFamily: FontAssets.Poppins,
+                        
                         fontSize: 16,
                         fontWeight: FontWeight.w600),
                   ),
@@ -189,7 +189,7 @@ class _MainMenuPopupState extends State<MainMenuPopup> {
             child: CompanyContainer(
                 titlename: "Try Our Packs",
                 textStyle: const TextStyle(
-                    fontFamily: FontAssets.Poppins,
+
                     fontSize: 12,
                     fontWeight: FontWeight.w400,
                     color: kwhite),

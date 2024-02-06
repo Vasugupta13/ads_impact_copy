@@ -7,12 +7,18 @@ class CatalogListView extends StatefulWidget {
   final Function(int index) onTapCallback;
   final List<String> names;
   final AlignmentGeometry alignment;
+  final double containerwidth;
+  final double borderRadiusTopRight;
+  final double borderRadiusBottomRight;
 
   const CatalogListView({
     super.key,
     required this.onTapCallback,
     required this.names,
     this.alignment = Alignment.centerRight,
+    this.containerwidth = 0.95,
+    this.borderRadiusTopRight = 0,
+    this.borderRadiusBottomRight = 0,
   });
 
   @override
@@ -26,15 +32,17 @@ class _CatalogListViewState extends State<CatalogListView> {
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
     return Align(
-      alignment: Alignment.centerRight,
+      alignment: widget.alignment ?? Alignment.centerRight,
       child: Container(
         height: 44,
-        width: screenWidth * 0.95,
+        width: screenWidth * widget.containerwidth,
         decoration: BoxDecoration(
           color: Colors.white,
-          borderRadius: const BorderRadius.only(
-            topLeft: Radius.circular(12),
-            bottomLeft: Radius.circular(12),
+          borderRadius: BorderRadius.only(
+            topLeft: const Radius.circular(12),
+            bottomLeft: const Radius.circular(12),
+            topRight: Radius.circular(widget.borderRadiusTopRight),
+            bottomRight: Radius.circular(widget.borderRadiusBottomRight),
           ),
           boxShadow: [
             BoxShadow(
@@ -49,7 +57,7 @@ class _CatalogListViewState extends State<CatalogListView> {
           itemCount: widget.names.length,
           physics: const BouncingScrollPhysics(),
           shrinkWrap: true,
-          padding: const EdgeInsets.only(left: 16, right: 16),
+          padding: const EdgeInsets.only(left: 10, right: 16),
           scrollDirection: Axis.horizontal,
           itemBuilder: (context, index) {
             bool isSelected = index == listindex;
@@ -61,23 +69,24 @@ class _CatalogListViewState extends State<CatalogListView> {
                 });
               },
               child: SizedBox(
-                width: screenWidth * 0.25 + 15,
+                width: screenWidth * 0.3,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     const SizedBox(height: 13),
                     Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        Text(
-                          widget.names[index],
-                          style: const TextStyle(
-                            fontFamily: FontAssets.Poppins,
-                            fontSize: 12,
-                            fontWeight: FontWeight.w600,
-                            color: Colors.black,
+                        Expanded(
+                          child: Center(
+                            child: Text(
+                              widget.names[index],
+                              style: const TextStyle(
+                                fontSize: 12,
+                                fontWeight: FontWeight.w600,
+                                color: Colors.black,
+                              ),
+                            ),
                           ),
                         ),
                       ],

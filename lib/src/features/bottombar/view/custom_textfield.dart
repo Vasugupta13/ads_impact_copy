@@ -1,5 +1,6 @@
 import 'package:ads/src/res/assets.dart';
 import 'package:ads/src/utils/const.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -13,9 +14,13 @@ class CustomTextField extends StatefulWidget {
   final Function(String)? onChanged;
   final VoidCallback? sendonTap;
   final VoidCallback? imageonTap;
+  final Widget? prefixIcon;
+  final double? borderRadius;
   final bool? isSuffix;
   final String? Function(String?)? validator;
   final bool obscureText;
+  final TextStyle? hinTxtstyle;
+  final double? hintverticalPadding;
 
   const CustomTextField({
     super.key,
@@ -31,6 +36,10 @@ class CustomTextField extends StatefulWidget {
     this.obscureText = false,
     this.containerHeight,
     this.hinttext,
+    this.prefixIcon,
+    this.borderRadius,
+    this.hinTxtstyle,
+    this.hintverticalPadding,
   });
 
   @override
@@ -50,16 +59,14 @@ class _CustomTextFieldState extends State<CustomTextField> {
       height: widget.containerHeight,
       child: TextFormField(
         autovalidateMode: AutovalidateMode.onUserInteraction,
-        style: const TextStyle(
-            fontFamily: FontAssets.Poppins,
-            fontWeight: FontWeight.w500,
-            fontSize: 12),
+        style: const TextStyle(fontWeight: FontWeight.w500, fontSize: 12),
         controller: widget.controller,
         focusNode: widget.focusNode,
         obscureText: widget.obscureText,
         onChanged: widget.onChanged,
         validator: widget.validator,
         decoration: InputDecoration(
+          prefixIcon: widget.prefixIcon,
           suffixIcon: widget.isSuffix!
               ? Row(
                   mainAxisAlignment: MainAxisAlignment.end,
@@ -80,42 +87,42 @@ class _CustomTextFieldState extends State<CustomTextField> {
                 )
               : const SizedBox(),
           errorBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(16),
+            borderRadius: BorderRadius.circular(widget.borderRadius ?? 16),
             borderSide: const BorderSide(
               color: Colors.red,
             ),
           ),
           focusedErrorBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(16),
+            borderRadius: BorderRadius.circular(widget.borderRadius ?? 16),
             borderSide: const BorderSide(
               color: Colors.red,
             ),
           ),
           enabledBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(16),
+            borderRadius: BorderRadius.circular(widget.borderRadius ?? 16),
             borderSide: BorderSide(
               color: kblack.withOpacity(0.1),
             ),
           ),
           contentPadding: EdgeInsets.symmetric(
-              horizontal: 16, vertical: widget.hinttext != null ? 14 : 0),
+              horizontal: 16,
+              vertical: widget.hinttext != null
+                  ? widget.hintverticalPadding ?? 14
+                  : 0),
           focusedBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(16),
+            borderRadius: BorderRadius.circular(widget.borderRadius ?? 16),
             borderSide: BorderSide(
               color: isSelected ? kred : kblack.withOpacity(0.1),
             ),
           ),
           hintText: widget.hinttext,
           hintMaxLines: 20,
-          hintStyle: const TextStyle(
-              fontFamily: FontAssets.Poppins,
-              fontWeight: FontWeight.w400,
-              color: kgrey,
-              fontSize: 14),
+          hintStyle: widget.hinTxtstyle ??
+              const TextStyle(
+                  fontWeight: FontWeight.w400, color: kgrey, fontSize: 14),
           labelText: widget.labelText,
           alignLabelWithHint: true,
           labelStyle: TextStyle(
-            fontFamily: FontAssets.Poppins,
             fontWeight: FontWeight.w500,
             fontSize: 12,
             color: kblack.withOpacity(0.2),

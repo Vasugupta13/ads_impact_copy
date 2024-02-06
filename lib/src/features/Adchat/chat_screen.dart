@@ -239,7 +239,7 @@ class _AdChatScreenState extends State<AdChatScreen> {
                               hintStyle: TextStyle(
                                   fontSize: 12,
                                   color: Color(0xffE5E5E5),
-                                  fontFamily: FontAssets.Poppins,
+                                  
                                   fontWeight: FontWeight.w500),
                               hintText: "I need some help r.........."),
                         ),

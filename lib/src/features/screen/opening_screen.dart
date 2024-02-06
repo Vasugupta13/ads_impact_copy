@@ -134,7 +134,7 @@ class _OpeningScreenState extends State<OpeningScreen> {
                 child: const Text(
                   "Skip",
                   style: TextStyle(
-                      fontFamily: FontAssets.Poppins,
+
                       fontSize: 16,
                       fontWeight: FontWeight.w700,
                       color: grey77),
@@ -180,7 +180,7 @@ class _OpeningPageState extends State<OpeningPage> {
         Text(
           widget.title,
           style: const TextStyle(
-              fontFamily: FontAssets.Poppins,
+
               fontSize: 18,
               fontWeight: FontWeight.w600),
         ),
@@ -190,7 +190,7 @@ class _OpeningPageState extends State<OpeningPage> {
           maxLines: 3,
           textAlign: TextAlign.center,
           style: const TextStyle(
-              fontFamily: FontAssets.Poppins,
+
               fontWeight: FontWeight.w500,
               fontSize: 14,
               color: grey77),

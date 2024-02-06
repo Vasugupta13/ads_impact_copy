@@ -61,7 +61,7 @@ class OurPlansContainer extends StatelessWidget {
                 text: TextSpan(
                   text: titleletter,
                   style: TextStyle(
-                      fontFamily: FontAssets.Poppins,
+
                       color: titlewordcolor,
                       fontSize: titlewordsize,
                       fontWeight: FontWeight.w600),
@@ -69,7 +69,7 @@ class OurPlansContainer extends StatelessWidget {
                     TextSpan(
                       text: titlename,
                       style: TextStyle(
-                          fontFamily: FontAssets.Poppins,
+
                           fontSize: titlenamesize,
                           fontWeight: FontWeight.w600,
                           color: kblack),
@@ -93,7 +93,7 @@ class OurPlansContainer extends StatelessWidget {
                     Text(
                       item,
                       style: TextStyle(
-                        fontFamily: FontAssets.Poppins,
+
                         fontWeight: FontWeight.w500,
                         fontSize: customfontsize,
                         color: kblack.withOpacity(0.4),

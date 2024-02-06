@@ -56,11 +56,11 @@ class _BottomNavBarState extends State<BottomNavBar> {
             }
           },
           unselectedLabelStyle: const TextStyle(
-              fontFamily: FontAssets.Poppins,
+
               fontWeight: FontWeight.w500,
               fontSize: 10),
           selectedLabelStyle: const TextStyle(
-              fontFamily: FontAssets.Poppins,
+              
               fontWeight: FontWeight.w500,
               fontSize: 10),
           type: BottomNavigationBarType.fixed,

@@ -171,7 +171,7 @@ class _SignupState extends State<Signup> {
                 Text(
                   "Step ${_currentpage + 1}",
                   style: const TextStyle(
-                      fontFamily: FontAssets.Poppins,
+                      
                       fontSize: 14,
                       color: kblack,
                       fontWeight: FontWeight.w600),

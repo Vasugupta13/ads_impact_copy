@@ -44,10 +44,11 @@ class _PlatformAnalysisState extends State<PlatformAnalysis> {
   }
 
   void updateTable() {
-    filteredData = PlatformAnalysisDetails.defaultview
+    filteredData = PlatformAnalysisDetails.defaultView
         .map((category) => {
               "platform": category["platform"].toString(),
               "value": category[selectedValue!.toLowerCase()].toString(),
+              "previous": category["previous"].toString(),
             })
         .toList();
   }
@@ -55,7 +56,7 @@ class _PlatformAnalysisState extends State<PlatformAnalysis> {
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
-    double total = PlatformAnalysisDetails.defaultview.fold(
+    double total = PlatformAnalysisDetails.defaultView.fold(
         0.0,
         (sum, category) =>
             sum +
@@ -82,6 +83,8 @@ class _PlatformAnalysisState extends State<PlatformAnalysis> {
                 ],
                 onTapCallback: (int index) {
                   listindex = index;
+                  updateTable();
+                  setState(() {});
                 },
               ),
               height20,
@@ -121,7 +124,7 @@ class _PlatformAnalysisState extends State<PlatformAnalysis> {
                           "Platform",
                           selectedValue ?? "",
                           if (listindex == 1) "Previous",
-                        ]),
+                        ], fontWeight: FontWeight.w600),
                       ],
                     ),
                     Table(
@@ -133,8 +136,8 @@ class _PlatformAnalysisState extends State<PlatformAnalysis> {
                           .map((category) => buildRow([
                                 category["platform"]!,
                                 category['value']!,
-                                if (listindex == 1) category['previous'] ?? '',
-                              ]))
+                                if (listindex == 1) category['previous']!,
+                              ], fontWeight: FontWeight.w500))
                           .toList(),
                     ),
                   ],
@@ -161,7 +164,7 @@ class _PlatformAnalysisState extends State<PlatformAnalysis> {
     );
   }
 
-  TableRow buildRow(List<String> cells) => TableRow(
+  TableRow buildRow(List<String> cells, {FontWeight? fontWeight}) => TableRow(
         children: cells
             .map(
               (cell) => Padding(
@@ -169,10 +172,7 @@ class _PlatformAnalysisState extends State<PlatformAnalysis> {
                 child: Center(
                   child: Text(
                     cell,
-                    style: const TextStyle(
-                        fontFamily: FontAssets.Poppins,
-                        fontWeight: FontWeight.w500,
-                        fontSize: 12),
+                    style: TextStyle(fontWeight: fontWeight, fontSize: 12),
                   ),
                 ),
               ),
@@ -180,157 +180,3 @@ class _PlatformAnalysisState extends State<PlatformAnalysis> {
             .toList(),
       );
 }
-
-
-
-//   String? selectedvalue;
-
-//   int listindex = 0;
-//   final NumberFormat formatter = NumberFormat("#,##0.00", "en_US");
-//   late List<Map<String, String>> filteredData;
-
-//   TableRow buildRow(List<String> cells) => TableRow(
-//         children: cells
-//             .map(
-//               (cell) => Padding(
-//                 padding: const EdgeInsets.all(12),
-//                 child: Center(
-//                   child: Text(
-//                     cell,
-//                     style: const TextStyle(
-//                       fontSize: 13,
-//                       fontWeight: FontWeight.w600,
-//                     ),
-//                   ),
-//                 ),
-//               ),
-//             )
-//             .toList(),
-//       );
-
-//   @override
-//   void initState() {
-//     super.initState();
-//     // Set initial filtered data to default view
-//     filteredData = List.from(PlatformAnalysisDetails.defaultview);
-//     // Set default selected value
-//     selectedvalue = items.first;
-//   }
-
-//   @override
-//   Widget build(BuildContext context) {
-//     double screenWidth = MediaQuery.of(context).size.width;
-//     double total = filteredData.fold(
-//       0.0,
-//       (sum, category) =>
-//           sum +
-//           double.parse(
-//               category[selectedvalue!.toLowerCase()]!.replaceAll(',', '')),
-//     );
-
-//     return Scaffold(
-//       backgroundColor: kwhite,
-//       body: SafeArea(
-//         child: SingleChildScrollView(
-//           physics: const BouncingScrollPhysics(),
-//           child: Column(
-//             children: [
-              // const CustomAppBar(
-              //     name: "Platform Analysis", imagepath: IconAssets.analysis),
-//               height20,
-//               const CustomCalendar(),
-//               height30,
-//               CatalogListView(
-//                 names: const [
-//                   "Default View",
-//                   "Comparison View",
-//                   "Performance View"
-//                 ],
-//                 onTapCallback: (int index) {
-//                   setState(() {
-//                     listindex = index;
-//                   });
-//                 },
-//               ),
-//               height20,
-//               CustomDropDown(
-//                 containerheight: 30,
-//                 containerwidth: screenWidth * 0.45,
-//                 value: selectedvalue,
-//                 dropdownItems: items,
-//                 initialValue: 'Spends',
-//                 hint: 'Spends',
-//                 onChanged: (String? value) {
-//                   setState(() {
-//                     selectedvalue = value;
-//                   });
-//                 },
-//               ),
-//               height20,
-//               Container(
-//                 margin: const EdgeInsets.all(15),
-//                 decoration: BoxDecoration(
-//                   borderRadius: BorderRadius.circular(16),
-//                   border: Border.all(color: const Color(0xffE5E5E5)),
-//                 ),
-//                 child: Column(
-//                   children: [
-              //       Table(
-              //         border: const TableBorder(
-              //           verticalInside: BorderSide(
-              //             color: Color(0xffE5E5E5),
-              //           ),
-              //           bottom: BorderSide(
-              //             color: Color(0xffE5E5E5),
-              //           ),
-              //         ),
-              //         children: [
-              //           buildRow(
-              //             [
-              //               "Platform",
-              //               selectedvalue!,
-              //               if (listindex == 1) "Previous"
-              //             ],
-              //           ),
-              //         ],
-              //       ),
-              //       Table(
-              //         border: const TableBorder(
-              //           verticalInside:
-              //               BorderSide(width: 1, color: Color(0xffE5E5E5)),
-              //         ),
-              //         children: PlatformAnalysisDetails.defaultview
-              //             .map(
-              //               (category) => buildRow(
-              //                 [
-              //                   category["platform"].toString(),
-              //                   category[selectedvalue!.toLowerCase()]
-              //                       .toString(),
-              //                   if (listindex == 1)
-              //                     category['compspends'].toString(),
-              //                   if (listindex == 1)
-              //                     category['previous'].toString(),
-              //                 ],
-              //               ),
-              //             )
-              //             .toList(),
-              //       ),
-              //     ],
-              //   ),
-              // ),
-//               height30,
-//               CommonElevatedButton(
-//                 ontap: () {},
-//                 name: "Total Summary: ${formatter.format(total)}",
-//                 buttonwidth: 0.6,
-//                 textStyle: elevatedtextstyle,
-//               ),
-//               height30,
-//             ],
-//           ),
-//         ),
-//       ),
-//       bottomNavigationBar: const BottomNavBar(),
-//     );
-//   }
-// }

@@ -35,7 +35,7 @@ class _PlanDetailsState extends State<PlanDetails> {
                 TextSpan(
                   text: 'Unlock',
                   style: TextStyle(
-                      fontFamily: FontAssets.Poppins,
+
                       color: kred,
                       fontWeight: FontWeight.w600,
                       fontSize: 36),
@@ -43,7 +43,7 @@ class _PlanDetailsState extends State<PlanDetails> {
                 TextSpan(
                   text: ' the Perfect\nSolution for your\n"Ads"',
                   style: TextStyle(
-                      fontFamily: FontAssets.Poppins,
+                      
                       fontWeight: FontWeight.w500,
                       fontSize: 36,
                       color: kblack),

@@ -42,7 +42,7 @@ class _CatalogCommonButtonState extends State<CatalogCommonButton> {
                   child: Text(
                     widget.name,
                     style: const TextStyle(
-                        fontFamily: FontAssets.Poppins,
+
                         fontWeight: FontWeight.w500,
                         color: kblack,
                         fontSize: 12),
@@ -67,7 +67,7 @@ class _CatalogCommonButtonState extends State<CatalogCommonButton> {
                   child: Text(
                     widget.subname,
                     style: const TextStyle(
-                      fontFamily: FontAssets.Poppins,
+
                       fontWeight: FontWeight.w500,
                       fontSize: 12,
                       color: Colors.white,

@@ -58,7 +58,7 @@ class _AccountIDDropDownState extends State<AccountIDDropDown> {
                   child: Text(
                     widget.menutitle,
                     style: TextStyle(
-                      fontFamily: FontAssets.Poppins,
+                      
                       fontSize: 12,
                       fontWeight: FontWeight.w600,
                       color: kblack.withOpacity(0.6),
@@ -112,7 +112,7 @@ class _AccountIDDropDownState extends State<AccountIDDropDown> {
                   ? valueChooseAccount ?? "Choose your Social Media Account"
                   : valueChooseId ?? "Choose your Ad Account",
               style: TextStyle(
-                fontFamily: FontAssets.Poppins,
+
                 fontWeight: FontWeight.w500,
                 fontSize: 12,
                 color: kblack.withOpacity(0.4),

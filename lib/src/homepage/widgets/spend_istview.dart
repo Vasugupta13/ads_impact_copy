@@ -83,11 +83,11 @@ class _SocialMediaOverviewState extends State<SocialMediaOverview> {
                 widget.dataList[index].name,
                 style: widget.scrollDirection == Axis.horizontal
                     ? const TextStyle(
-                        fontFamily: FontAssets.Poppins,
+
                         fontWeight: FontWeight.w500,
                         fontSize: 14)
                     : const TextStyle(
-                        fontFamily: FontAssets.Poppins,
+
                         fontWeight: FontWeight.w600,
                         fontSize: 18,
                       ),
@@ -114,9 +114,9 @@ class _SocialMediaOverviewState extends State<SocialMediaOverview> {
                     ? const TextStyle(
                         fontSize: 14,
                         fontWeight: FontWeight.w600,
-                        fontFamily: FontAssets.Poppins)
+                        )
                     : const TextStyle(
-                        fontFamily: FontAssets.Poppins,
+
                         fontSize: 24,
                         fontWeight: FontWeight.w600),
               ),
@@ -135,7 +135,7 @@ class _SocialMediaOverviewState extends State<SocialMediaOverview> {
                     widget.dataList[index].percentage,
                     style: const TextStyle(
                         fontSize: 11,
-                        fontFamily: FontAssets.Poppins,
+
                         color: kgreen,
                         fontWeight: FontWeight.w600),
                   ),
@@ -150,7 +150,7 @@ class _SocialMediaOverviewState extends State<SocialMediaOverview> {
               "From Last 7 days : ${widget.dataList[index].daysamount}",
               style: TextStyle(
                 fontSize: 6,
-                fontFamily: FontAssets.Poppins,
+                
                 fontWeight: FontWeight.w600,
                 color: kblack.withOpacity(0.67),
               ),

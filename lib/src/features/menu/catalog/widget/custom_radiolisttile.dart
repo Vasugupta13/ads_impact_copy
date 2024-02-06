@@ -47,7 +47,7 @@ class RadioListTileButton extends StatelessWidget {
         maxLines: 1,
         overflow: TextOverflow.ellipsis,
         style: TextStyle(
-          fontFamily: FontAssets.Poppins,
+
           fontWeight: FontWeight.w400,
           fontSize: fontsize,
         ),

@@ -68,7 +68,7 @@ class _CustomDropDownState extends State<CustomDropDown> {
               iconStyleData:
                   const IconStyleData(icon: Icon(Icons.keyboard_arrow_down)),
               style: const TextStyle(
-                  fontFamily: FontAssets.Poppins,
+
                   fontWeight: FontWeight.w500,
                   fontSize: 12,
                   color: kblack),
@@ -101,7 +101,7 @@ class _CustomDropDownState extends State<CustomDropDown> {
                     child: Text(
                       item,
                       style: TextStyle(
-                        fontFamily: FontAssets.Poppins,
+
                         fontWeight: FontWeight.w500,
                         fontSize: 12,
                         color: widget.value == item ? kred : kblack,

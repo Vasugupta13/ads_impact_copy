@@ -99,7 +99,7 @@ class _MenuCatalogProductsState extends State<MenuCatalogProducts> {
                                       Text(
                                         "Date Added :",
                                         style: TextStyle(
-                                          fontFamily: FontAssets.Poppins,
+
                                           fontSize: 10,
                                           fontWeight: FontWeight.w500,
                                           color: kblack.withOpacity(0.7),
@@ -109,7 +109,7 @@ class _MenuCatalogProductsState extends State<MenuCatalogProducts> {
                                         CatalogProductDetails.defaultitem[index]
                                             ["date"],
                                         style: const TextStyle(
-                                            fontFamily: FontAssets.Poppins,
+
                                             fontWeight: FontWeight.w500,
                                             fontSize: 12),
                                       ),
@@ -141,7 +141,7 @@ class _MenuCatalogProductsState extends State<MenuCatalogProducts> {
                                           CatalogProductDetails
                                               .defaultitem[index]["title"],
                                           style: const TextStyle(
-                                              fontFamily: FontAssets.Poppins,
+
                                               fontSize: 14,
                                               fontWeight: FontWeight.w600),
                                           maxLines: 2,
@@ -203,7 +203,7 @@ class _MenuCatalogProductsState extends State<MenuCatalogProducts> {
                                                   .defaultitem[index]
                                               ["actualprice"],
                                           style: const TextStyle(
-                                              fontFamily: FontAssets.Poppins,
+
                                               fontSize: 32,
                                               fontWeight: FontWeight.w600,
                                               color: kred),
@@ -284,7 +284,7 @@ class _MenuCatalogProductsState extends State<MenuCatalogProducts> {
               Text(
                 label,
                 style: const TextStyle(
-                    fontFamily: FontAssets.Poppins,
+                    
                     fontWeight: FontWeight.w500,
                     fontSize: 12),
               ),

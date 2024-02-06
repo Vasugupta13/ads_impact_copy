@@ -24,7 +24,7 @@ class _SocialAccountListState extends State<SocialAccountList> {
     return Align(
       alignment: Alignment.centerRight,
       child: Container(
-        height: screenHeight * 0.1 - 15,
+        height: 60,
         width: screenWidth * 0.95,
         padding: const EdgeInsets.only(left: 20, right: 20),
         decoration: BoxDecoration(
@@ -78,7 +78,7 @@ class _SocialAccountListState extends State<SocialAccountList> {
                         Text(
                           AppStrings.socialaccount[index]["name"],
                           style: const TextStyle(
-                              fontFamily: FontAssets.Poppins,
+
                               fontSize: 12,
                               fontWeight: FontWeight.w600),
                         ),

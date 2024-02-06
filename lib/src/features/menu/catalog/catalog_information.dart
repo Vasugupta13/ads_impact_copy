@@ -12,7 +12,7 @@ import 'package:ads/src/features/menu/catalog/widget/categories_image_padding.da
 import 'package:ads/src/features/menu/catalog/widget/categories_image_spec.dart';
 import 'package:ads/src/features/menu/catalog/widget/categories_product_detail.dart';
 import 'package:ads/src/features/menu/catalog/widget/categories_stock_status.dart';
-import 'package:ads/src/features/menu/catalog/widget/title_container.dart';
+import 'package:ads/src/features/menu/catalog/widget/catalog_container.dart';
 import 'package:ads/src/features/menu/catalog/widget/custom_radiolisttile.dart';
 import 'package:ads/src/homepage/widgets/social_account_list_widget.dart';
 import 'package:ads/src/res/assets.dart';
@@ -97,7 +97,7 @@ class CompanyDetails extends StatelessWidget {
         Text(
           detailname,
           style: const TextStyle(
-            fontFamily: FontAssets.Poppins,
+
             fontWeight: FontWeight.w500,
             fontSize: 8,
           ),
@@ -106,7 +106,7 @@ class CompanyDetails extends StatelessWidget {
         Text(
           details,
           style: TextStyle(
-            fontFamily: FontAssets.Poppins,
+
             fontWeight: FontWeight.w500,
             fontSize: 8,
             color: kblack.withOpacity(0.5),

@@ -22,8 +22,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
           scaffoldBackgroundColor: kwhite,
-          fontFamily:
-              GoogleFonts.poppins(fontWeight: FontWeight.w500).fontFamily,
+          fontFamily: 'Poppins',
           textTheme: const TextTheme(
               bodyLarge: TextStyle(fontWeight: FontWeight.w500))),
       defaultTransition: Transition.leftToRightWithFade,
@@ -38,7 +37,7 @@ class MyApp extends StatelessWidget {
       //   GetPage(name: '/cart', page: () => const CartPage()),
       //   GetPage(name: '/account', page: () => const MyAccountPage())
       // ],
-      home:  HomePage(),
+      home: const HomePage(),
       // const SplashScreen(),
     );
   }

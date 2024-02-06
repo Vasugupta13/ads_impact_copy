@@ -54,7 +54,7 @@ class _GranularAnalysisState extends State<GranularAnalysis> {
               const Text(
                 "Performance Based Analysis",
                 style: TextStyle(
-                  fontFamily: FontAssets.Poppins,
+
                   fontWeight: FontWeight.w500,
                   fontSize: 16,
                 ),
@@ -63,7 +63,7 @@ class _GranularAnalysisState extends State<GranularAnalysis> {
               Text(
                 "About the performance of Campaign, Adsets and Ads",
                 style: TextStyle(
-                  fontFamily: FontAssets.Poppins,
+
                   fontWeight: FontWeight.w500,
                   fontSize: 8,
                   color: kblack.withOpacity(0.56),
@@ -114,7 +114,7 @@ class _GranularAnalysisState extends State<GranularAnalysis> {
               const Text(
                 "Target Based Analysis",
                 style: TextStyle(
-                  fontFamily: FontAssets.Poppins,
+                  
                   fontWeight: FontWeight.w500,
                   fontSize: 16,
                 ),
@@ -123,7 +123,7 @@ class _GranularAnalysisState extends State<GranularAnalysis> {
               Text(
                 "About the performance of Campaign, Adsets and Ads",
                 style: TextStyle(
-                  fontFamily: FontAssets.Poppins,
+
                   fontWeight: FontWeight.w500,
                   fontSize: 8,
                   color: kblack.withOpacity(0.56),

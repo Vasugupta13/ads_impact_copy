@@ -1,5 +1,5 @@
 import 'package:ads/src/features/menu/catalog/widget/cancel_save_button.dart';
-import 'package:ads/src/features/menu/catalog/widget/title_container.dart';
+import 'package:ads/src/features/menu/catalog/widget/catalog_container.dart';
 import 'package:ads/src/res/assets.dart';
 import 'package:ads/src/utils/const.dart';
 import 'package:flutter/material.dart';
@@ -39,7 +39,7 @@ class _ImagePaddingState extends State<ImagePadding> {
               const Text(
                 "Padding",
                 style: TextStyle(
-                  fontFamily: FontAssets.Poppins,
+
                   fontWeight: FontWeight.w500,
                   fontSize: 16,
                 ),

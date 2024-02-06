@@ -53,7 +53,7 @@ class _CreateNewPasswordState extends State<CreateNewPassword> {
         title: const Text(
           "Create new password",
           style: TextStyle(
-              fontFamily: FontAssets.Poppins,
+              
               fontWeight: FontWeight.w600,
               color: kblack,
               fontSize: 18),
@@ -77,7 +77,7 @@ class _CreateNewPasswordState extends State<CreateNewPassword> {
                         child: Text(
                           "Your new password must be different\nfrom previously used passwords.",
                           style: TextStyle(
-                              fontFamily: FontAssets.Poppins,
+
                               fontWeight: FontWeight.w400,
                               fontSize: 12),
                         ),
@@ -94,7 +94,7 @@ class _CreateNewPasswordState extends State<CreateNewPassword> {
                           const Text(
                             "Password",
                             style: TextStyle(
-                                fontFamily: FontAssets.Poppins,
+
                                 fontWeight: FontWeight.w500,
                                 fontSize: 12),
                           ),
@@ -116,7 +116,7 @@ class _CreateNewPasswordState extends State<CreateNewPassword> {
                           const Text(
                             "Confirm Password",
                             style: TextStyle(
-                                fontFamily: FontAssets.Poppins,
+
                                 fontWeight: FontWeight.w500,
                                 fontSize: 12),
                           ),

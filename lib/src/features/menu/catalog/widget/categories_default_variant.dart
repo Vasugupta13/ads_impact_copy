@@ -1,7 +1,7 @@
 import 'package:ads/src/features/bottombar/view/custom_textfield.dart';
 import 'package:ads/src/features/menu/catalog/widget/cancel_save_button.dart';
 import 'package:ads/src/features/menu/catalog/widget/custom_radiolisttile.dart';
-import 'package:ads/src/features/menu/catalog/widget/title_container.dart';
+import 'package:ads/src/features/menu/catalog/widget/catalog_container.dart';
 import 'package:ads/src/res/assets.dart';
 import 'package:ads/src/utils/const.dart';
 import 'package:flutter/material.dart';

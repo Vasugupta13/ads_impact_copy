@@ -3,7 +3,7 @@ import 'package:ads/src/features/bottombar/view/custom_textfield.dart';
 import 'package:ads/src/features/menu/catalog/catalog_information.dart';
 import 'package:ads/src/features/menu/catalog/widget/cancel_save_button.dart';
 import 'package:ads/src/features/menu/catalog/widget/custom_radiolisttile.dart';
-import 'package:ads/src/features/menu/catalog/widget/title_container.dart';
+import 'package:ads/src/features/menu/catalog/widget/catalog_container.dart';
 import 'package:ads/src/res/assets.dart';
 import 'package:ads/src/utils/const.dart';
 import 'package:flutter/cupertino.dart';
@@ -99,7 +99,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                     child: Text(
                       "Display Gender",
                       style: TextStyle(
-                        fontFamily: FontAssets.Poppins,
+
                         fontWeight: FontWeight.w500,
                         fontSize: 14,
                       ),
@@ -125,7 +125,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                     child: Text(
                       "Display Description",
                       style: TextStyle(
-                        fontFamily: FontAssets.Poppins,
+
                         fontWeight: FontWeight.w500,
                         fontSize: 14,
                       ),

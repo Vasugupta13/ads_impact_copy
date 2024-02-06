@@ -3,6 +3,8 @@ import 'package:ads/src/utils/const.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import 'custom_checkbox.dart';
+
 class MyTableWidget extends StatefulWidget {
   const MyTableWidget({
     super.key,
@@ -88,7 +90,7 @@ class _MyTableWidgetState extends State<MyTableWidget> {
                       rowData.status,
                       style: const TextStyle(
                         fontSize: 12,
-                        
+
                         color: Color(0xff00C944),
                       ),
                     ),

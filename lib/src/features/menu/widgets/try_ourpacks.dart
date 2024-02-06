@@ -94,7 +94,7 @@ class PacksUI extends StatelessWidget {
                     Text(
                       name,
                       style: const TextStyle(
-                          fontFamily: FontAssets.Poppins,
+
                           fontWeight: FontWeight.w600,
                           fontSize: 8),
                     ),
@@ -106,7 +106,7 @@ class PacksUI extends StatelessWidget {
                     const Text(
                       "₹ 10,000",
                       style: TextStyle(
-                          fontFamily: FontAssets.Poppins,
+
                           fontWeight: FontWeight.w600,
                           fontSize: 8),
                     ),
@@ -132,7 +132,7 @@ class PacksUI extends StatelessWidget {
                     child: Text(
                       "Buy Now",
                       style: TextStyle(
-                          fontFamily: FontAssets.Poppins,
+                          
                           fontWeight: FontWeight.w400,
                           color: kwhite,
                           fontSize: 6),

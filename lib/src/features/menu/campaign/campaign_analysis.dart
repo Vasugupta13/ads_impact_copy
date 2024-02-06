@@ -113,7 +113,8 @@ class _CampaignAnalysisState extends State<CampaignAnalysis> {
                         ),
                       ),
                       children: [
-                        buildRow(['Date', selectedvalue ?? '']),
+                        buildRow(['Date', selectedvalue ?? ''],
+                            fontWeight: FontWeight.w600),
                       ],
                     ),
                     Table(
@@ -125,14 +126,12 @@ class _CampaignAnalysisState extends State<CampaignAnalysis> {
                       ),
                       children: CampaignAnalysisDetails.analysisdetails
                           .map(
-                            (category) => buildRow(
-                              [
-                                category["date"] ?? '',
-                                category[selectedvalue?.toLowerCase()]
-                                        ?.toString() ??
-                                    ''
-                              ],
-                            ),
+                            (category) => buildRow([
+                              category["date"] ?? '',
+                              category[selectedvalue?.toLowerCase()]
+                                      ?.toString() ??
+                                  ''
+                            ], fontWeight: FontWeight.w500),
                           )
                           .toList(),
                     ),
@@ -156,7 +155,7 @@ class _CampaignAnalysisState extends State<CampaignAnalysis> {
   }
 }
 
-TableRow buildRow(List<String> cells) => TableRow(
+TableRow buildRow(List<String> cells, {FontWeight? fontWeight}) => TableRow(
       children: cells
           .map(
             (cell) => Padding(
@@ -164,7 +163,7 @@ TableRow buildRow(List<String> cells) => TableRow(
               child: Center(
                 child: Text(
                   cell,
-                  style: const TextStyle(fontSize: 12),
+                  style: TextStyle(fontSize: 12, fontWeight: fontWeight),
                 ),
               ),
             ),

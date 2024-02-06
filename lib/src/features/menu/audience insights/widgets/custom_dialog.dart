@@ -20,58 +20,71 @@ class CustomDialog extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double screenWidth = MediaQuery.of(context).size.width;
+    double screenHeight = MediaQuery.of(context).size.height;
+
     return BackdropFilter(
       filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
       child: Dialog(
+        backgroundColor: kwhite,
+        surfaceTintColor: kwhite,
+        shadowColor: kwhite,
+        elevation: 0,
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(16.0),
+          borderRadius: BorderRadius.circular(12),
         ),
         child: Container(
-          height: Get.height * containerheight,
-          width: Get.width * containerwidth,
+          color: kwhite,
+          height: screenHeight * containerheight,
+          width: screenWidth * containerwidth,
           margin: const EdgeInsets.all(6),
-          padding: const EdgeInsets.all(14),
           child: Column(
             children: [
               ListView.builder(
-                padding: const EdgeInsets.all(12),
                 shrinkWrap: true,
+                padding: const EdgeInsets.only(top: 16),
                 physics: const NeverScrollableScrollPhysics(),
                 itemCount: popupDetails.length,
                 itemBuilder: (context, index) {
                   final detail = popupDetails[index];
                   return Column(
                     children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Icon(
-                            detail.icon,
-                            size: 20,
-                          ),
-                          const SizedBox(width: 15),
-                          Text(
-                            detail.name,
-                            style: const TextStyle(
-                              fontSize: 16,
-
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 16),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            Icon(
+                              detail.icon,
+                              size: 20,
                             ),
-                          ),
-                        ],
+                            kwidth15,
+                            Text(
+                              detail.name,
+                              style: const TextStyle(
+                                fontWeight: FontWeight.w500,
+                                fontSize: 16,
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
-                      const SizedBox(height: 5),
-                      Divider(color: Colors.black.withOpacity(0.1)),
+                      Divider(
+                        color: Colors.black.withOpacity(0.1),
+                        height: 20,
+                        indent: 14,
+                      ),
+                      height5,
                     ],
                   );
                 },
               ),
-              const SizedBox(height: 10),
+              height10,
               CommonElevatedButton(
                   name: "Next",
-                  buttonwidth: 0.22,
+                  buttonwidth: 0.4,
                   buttonheight: 0.05,
-                  textStyle: const TextStyle(
-                      fontSize: 12,  color: kwhite),
+                  textStyle: elevatedtextstyle,
                   ontap: onnexttap)
             ],
           ),

@@ -46,7 +46,7 @@ class _ConnectYourAccount2State extends State<ConnectYourAccount2> {
               const Text(
                 "Connect Your Accounts",
                 style: TextStyle(
-                    fontFamily: FontAssets.Poppins,
+
                     fontWeight: FontWeight.w600,
                     fontSize: 18),
               ),
@@ -56,7 +56,7 @@ class _ConnectYourAccount2State extends State<ConnectYourAccount2> {
                 maxLines: 2,
                 style: TextStyle(
                   fontWeight: FontWeight.w500,
-                  fontFamily: FontAssets.Poppins,
+
                   fontSize: 13,
                   color: kblack.withOpacity(0.45),
                 ),

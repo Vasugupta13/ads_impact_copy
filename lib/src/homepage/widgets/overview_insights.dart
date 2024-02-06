@@ -75,7 +75,7 @@ class _OverviewInsightsState extends State<OverviewInsights> {
                       child: Text(
                         'OverView',
                         style: TextStyle(
-                          fontFamily: FontAssets.Poppins,
+
                           fontWeight: FontWeight.w500,
                           fontSize: 14,
                           color: currentindex == 0 ? kwhite : kblack,
@@ -109,7 +109,7 @@ class _OverviewInsightsState extends State<OverviewInsights> {
                       child: Text(
                         'Insights',
                         style: TextStyle(
-                          fontFamily: FontAssets.Poppins,
+
                           fontWeight: FontWeight.w500,
                           fontSize: 14,
                           color: currentindex == 0 ? kblack : kwhite,

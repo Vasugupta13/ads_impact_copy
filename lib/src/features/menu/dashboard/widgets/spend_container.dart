@@ -70,7 +70,7 @@ class _SpendContainerState extends State<SpendContainer> {
                               child: Text(
                                 widget.data[index]["name"],
                                 style: const TextStyle(
-                                    fontFamily: FontAssets.Poppins,
+
                                     fontWeight: FontWeight.w500,
                                     fontSize: 12),
                               ),
@@ -79,7 +79,7 @@ class _SpendContainerState extends State<SpendContainer> {
                             Text(
                               widget.data[index]["spend"],
                               style: const TextStyle(
-                                  fontFamily: FontAssets.Poppins,
+
                                   fontSize: 12,
                                   fontWeight: FontWeight.w600),
                             ),
@@ -87,7 +87,7 @@ class _SpendContainerState extends State<SpendContainer> {
                             Text(
                               widget.data[index]["views"].toString(),
                               style: const TextStyle(
-                                fontFamily: FontAssets.Poppins,
+
                                 fontSize: 12,
                                 fontWeight: FontWeight.w600,
                               ),
@@ -125,7 +125,7 @@ class _SpendContainerState extends State<SpendContainer> {
                   Text(
                     "View More",
                     style: TextStyle(
-                        fontFamily: FontAssets.Poppins,
+
                         fontWeight: FontWeight.w500,
                         fontSize: 10),
                   ),

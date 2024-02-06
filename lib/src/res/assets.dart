@@ -53,6 +53,9 @@ class ImageAssets {
   static const whiteshirt1 = '$_base/white_shirt1.png';
   static const whiteshirt2 = '$_base/white_shirt2.png';
   static const peterparker = '$_base/peter_parker_tshirt.png';
+  static const audienceSucces = '$_base/audience_success_created.svg';
+
+
 }
 
 class IconAssets {
@@ -107,6 +110,12 @@ class IconAssets {
   static const defaultdesc = '$_base/default.svg';
   static const variant = '$_base/variant.svg';
   static const create = '$_base/create_icons.svg';
+  static const filter = '$_base/filter_icon.svg';
+  static const twoperson = '$_base/two_person_icon.svg';
+  static const plusicon = '$_base/plus_icon.svg';
+  static const minusicon = '$_base/minus_icon.svg';
+
+
 }
 
 class FontAssets {

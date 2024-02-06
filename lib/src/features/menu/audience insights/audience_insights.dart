@@ -1,12 +1,15 @@
-import 'package:ads/src/features/bottombar/bottomnavigationbar.dart';
 import 'package:ads/src/common/views/customapp_bar.dart';
-import 'package:ads/src/features/menu/audience%20insights/view/custom_audience.dart';
-import 'package:ads/src/features/menu/audience%20insights/view/custom_dialog.dart';
-import 'package:ads/src/features/menu/audience%20insights/view/custom_table.dart';
+import 'package:ads/src/features/bottombar/bottomnavigationbar.dart';
+import 'package:ads/src/features/bottombar/view/custom_textfield.dart';
+import 'package:ads/src/features/menu/audience%20insights/widgets/custom_audience.dart';
+import 'package:ads/src/features/menu/audience%20insights/widgets/custom_checkbox.dart';
+import 'package:ads/src/features/menu/audience%20insights/widgets/custom_table.dart';
+import 'package:ads/src/features/menu/audience%20insights/widgets/custom_dialog.dart';
+import 'package:ads/src/features/menu/catalog/widget/catalog_container.dart';
+import 'package:ads/src/res/assets.dart';
 import 'package:ads/src/utils/const.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 
 class AudienceInsights extends StatefulWidget {
@@ -49,211 +52,140 @@ class _AudienceInsightsState extends State<AudienceInsights> {
   ];
   @override
   Widget build(BuildContext context) {
+    double screenHeight = MediaQuery.of(context).size.height;
+    double screenWidth = MediaQuery.of(context).size.width;
+
     return Scaffold(
       backgroundColor: kwhite,
-      body: SingleChildScrollView(
-        padding: const EdgeInsets.symmetric(vertical: 42),
-        physics: const BouncingScrollPhysics(),
-        child: Column(
-          children: [
-            const CustomAppBar(
-                name: "Audience Insights",
-                imagepath: "assets/images/campaign_analysis.svg"),
-            height20,
-            Divider(color: kblack.withOpacity(0.1), endIndent: 0, indent: 26),
-            height5,
-            Padding(
-              padding: const EdgeInsets.only(right: 32, left: 20),
-              child: Row(
-                children: [
-                  Expanded(
-                    child: TextFormField(
-                      decoration: InputDecoration(
-                        prefixIcon: Icon(
-                          Icons.search,
-                          size: 20,
-                          color: kblack.withOpacity(0.4),
-                        ),
-                        contentPadding: const EdgeInsets.symmetric(
-                            vertical: 13, horizontal: 26),
-                        enabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10),
-                          borderSide: BorderSide(
-                              color: Colors.black.withOpacity(0.1), width: 1),
-                        ),
-                        focusedBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10),
-                          borderSide: BorderSide(
-                              color: Colors.black.withOpacity(0.1), width: 1),
-                        ),
-                        labelText: "Search by name or audience ....",
-                        hintStyle: TextStyle(
-                          fontSize: 12,
-                          color: Colors.black.withOpacity(0.4),
-                        ),
+      body: SafeArea(
+        child: SingleChildScrollView(
+          physics: const BouncingScrollPhysics(),
+          child: Column(
+            children: [
+              const CustomAppBar(
+                  name: "Audience Insights", imagepath: IconAssets.analysis),
+              height20,
+              SizedBox(
+                width: screenWidth * 0.85,
+                child: Row(
+                  children: [
+                    Expanded(
+                        child: CustomTextField(
+                      borderRadius: 10,
+                      containerHeight: 45,
+                      hinttext: "Search by name or audience ....",
+                      hinTxtstyle: TextStyle(
+                        fontSize: 8,
+                        fontWeight: FontWeight.w500,
+                        color: kblack.withOpacity(0.4),
                       ),
-                    ),
-                  ),
-                  kwidth20,
-                  Container(
-                    width: 100,
-                    height: 45,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      color: kwhite,
-                      border: Border.all(
-                        color: kblack.withOpacity(0.1),
-                      ),
-                    ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        SvgPicture.asset("assets/images/filter_icon.svg"),
-                        kwidth10,
-                        const Text(
-                          "Filter",
-                          style: TextStyle(
-                            fontSize: 12,
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                ],
+                      prefixIcon: Icon(CupertinoIcons.search,
+                          color: kblack.withOpacity(0.4), size: 18),
+                    )),
+                    kwidth20,
+                    CatalogContainer(
+                        onTap: () {},
+                        containerColor: kwhite,
+                        isBorder: true,
+                        textStyle: const TextStyle(
+                            fontSize: 10, fontWeight: FontWeight.w500),
+                        containerHeight: 45,
+                        containerWidth: screenWidth * 0.2,
+                        name: "Filter",
+                        image: IconAssets.filter)
+                  ],
+                ),
               ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(28),
-              child: Column(
-                children: [
-                  CustomCheckbox(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    value: isAllChecked,
-                    onchanged: (newvalue) {
-                      isAllChecked = newvalue;
-                    },
-                    name: "All Audience",
-                  ),
-                  height15,
-                  CustomCheckbox(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    value: isExpiringChecked,
-                    onchanged: (newbool) {
-                      setState(() {
-                        isExpiringChecked = newbool;
-                      });
-                    },
-                    name: "Expiring Soon",
-                  )
-                ],
-              ),
-            ),
-            const MyTableWidget(),
-            height20,
-            Padding(
-              padding: const EdgeInsets.all(20),
-              child: Row(
-                children: [
-                  _buildButton(
-                      "Create Audience",
-                      const Color(0xffFF4848),
-                      kwhite,
-                      icon:
-                          const Icon(Icons.people_alt, size: 16, color: kwhite),
-                      5, () {
-                    showDialog(
-                      context: context,
-                      builder: (context) {
-                        return CustomDialog(
-                          containerheight: 0.40,
-                          containerwidth: 0.70,
-                          popupDetails: popupdetails,
-                          onnexttap: () async {
-                            Get.back();
-                            showDialog(
-                              context: context,
-                              builder: (context) {
-                                return CustomDialog(
-                                  containerheight: 0.52,
-                                  containerwidth: 0.70,
-                                  popupDetails: popupdetails2,
-                                  onnexttap: () async {
-                                    Get.back();
-                                    showDialog(
-                                      context: context,
-                                      builder: (context) {
-                                        return const CustomAudience();
-                                      },
-                                    );
-                                  },
-                                );
-                              },
-                            );
-                          },
-                        );
+              Padding(
+                padding: EdgeInsets.symmetric(
+                    horizontal: screenWidth * 0.1,
+                    vertical: screenHeight * 0.03),
+                child: Column(
+                  children: [
+                    CustomCheckbox(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      value: isAllChecked,
+                      onchanged: (newvalue) {
+                        isAllChecked = newvalue;
                       },
-                    );
-                  }, Colors.transparent),
-                  kwidth10,
-                  _buildButton("Edit", kwhite, kblack, 3, () {},
-                      const Color(0xffE5E5E5)),
-                  kwidth10,
-                  _buildButton("Cancel", kwhite, kblack, 3, () {},
-                      const Color(0xffE5E5E5)),
-                ],
+                      name: "All Audience",
+                    ),
+                    height15,
+                    CustomCheckbox(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      value: isExpiringChecked,
+                      onchanged: (newbool) {
+                        setState(() {
+                          isExpiringChecked = newbool;
+                        });
+                      },
+                      name: "Expiring Soon",
+                    )
+                  ],
+                ),
               ),
-            ),
-            height30,
-          ],
+              const MyTableWidget(),
+              height20,
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16),
+                child: Row(
+                  children: [
+                    _buildButton(
+                        "Create Audience",
+                        kred,
+                        kwhite,
+                        icon: const Icon(Icons.people_alt,
+                            size: 16, color: kwhite),
+                        5, () {
+                      showDialog(
+                        context: context,
+                        builder: (context) {
+                          return CustomDialog(
+                            containerheight: 0.4,
+                            containerwidth: 0.6,
+                            popupDetails: popupdetails,
+                            onnexttap: () async {
+                              Navigator.pop(context);
+                              // Get.back();
+                              showDialog(
+                                context: context,
+                                builder: (context) {
+                                  return CustomDialog(
+                                    containerheight: 0.52,
+                                    containerwidth: 0.6,
+                                    popupDetails: popupdetails2,
+                                    onnexttap: () async {
+                                      Get.back();
+                                      showDialog(
+                                        context: context,
+                                        builder: (context) {
+                                          return const CustomAudience();
+                                        },
+                                      );
+                                    },
+                                  );
+                                },
+                              );
+                            },
+                          );
+                        },
+                      );
+                    }, Colors.transparent),
+                    kwidth10,
+                    _buildButton("Edit", kwhite, kblack, 3, () {},
+                        const Color(0xffE5E5E5)),
+                    kwidth10,
+                    _buildButton("Cancel", kwhite, kblack, 3, () {},
+                        const Color(0xffE5E5E5)),
+                  ],
+                ),
+              ),
+              height30,
+            ],
+          ),
         ),
       ),
       bottomNavigationBar: const BottomNavBar(),
-    );
-  }
-}
-
-class CustomCheckbox extends StatelessWidget {
-  final bool? value;
-  final String? name;
-  final MainAxisAlignment mainAxisAlignment;
-
-  final ValueChanged<bool?>? onchanged;
-  const CustomCheckbox(
-      {super.key,
-      required this.value,
-      required this.onchanged,
-      this.name,
-      this.mainAxisAlignment = MainAxisAlignment.center});
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: mainAxisAlignment,
-      children: [
-        Container(
-          height: 26,
-          width: 26,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(8),
-            border: Border.all(color: kblack),
-          ),
-          child: Checkbox(
-              side: BorderSide.none,
-              activeColor: Colors.transparent,
-              checkColor: Colors.black,
-              value: value,
-              onChanged: onchanged),
-        ),
-        kwidth10,
-        if (name != null) ...[
-          Text(
-            name!,
-            style: const TextStyle(
-              fontSize: 12,
-            ),
-          ),
-        ]
-      ],
     );
   }
 }
@@ -280,7 +212,8 @@ Widget _buildButton(String name, Color bgColor, Color textColor, int flex,
             if (icon != null) ...[icon, kwidth5],
             Text(
               name,
-              style: TextStyle(fontSize: 12, color: textColor),
+              style: TextStyle(
+                  fontSize: 12, color: textColor, fontWeight: FontWeight.w500),
             ),
           ],
         ),

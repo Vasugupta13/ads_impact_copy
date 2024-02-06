@@ -1,11 +1,14 @@
-
-import 'package:ads/src/common/views/custom_elevatedbutton.dart';
-import 'package:ads/src/features/menu/audience%20insights/audience_nextstep.dart';
-import 'package:ads/src/utils/const.dart';
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
+
+import 'package:ads/src/common/views/custom_elevatedbutton.dart';
+import 'package:ads/src/features/menu/audience%20insights/view/audience_nextstep.dart';
+import 'package:ads/src/res/assets.dart';
+import 'package:ads/src/utils/const.dart';
+import 'package:go_router/go_router.dart';
 
 class AudiencePopup extends StatefulWidget {
   const AudiencePopup({super.key});
@@ -15,80 +18,98 @@ class AudiencePopup extends StatefulWidget {
 }
 
 class _AudiencePopupState extends State<AudiencePopup> {
-  int tappedIndex = -1;
+  int tappedIndex = 0;
   @override
   Widget build(BuildContext context) {
+    double screenWidth = MediaQuery.of(context).size.width;
+    double screenHeight = MediaQuery.of(context).size.height;
     return Dialog(
+      shadowColor: kwhite,
+      backgroundColor: kwhite,
+      surfaceTintColor: kwhite,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(16),
       ),
-      child: Container(
-        height: Get.height * 0.62,
-        width: Get.width,
-        padding: const EdgeInsets.symmetric(horizontal: 20),
+      child: SizedBox(
+        height: screenHeight * 0.65,
+        width: screenWidth,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            SvgPicture.asset("assets/images/bubbles.svg"),
+            SvgPicture.asset(ImageAssets.audienceSucces),
             height10,
-            Divider(
-              color: kblack.withOpacity(0.1),
-            ),
+            Divider(color: kblack.withOpacity(0.1), indent: 10, endIndent: 10),
             height10,
             const Text(
               "Your Custom Audience Created Successfully",
               textAlign: TextAlign.center,
-              style: TextStyle(
-                fontSize: 16,
-              ),
+              style: TextStyle(fontWeight: FontWeight.w500, fontSize: 16),
             ),
             height10,
-            Divider(
-              color: kblack.withOpacity(0.1),
-            ),
+            Divider(color: kblack.withOpacity(0.1), indent: 10, endIndent: 10),
             height10,
             const Text(
               "As a next steps you need to\nclick the below button",
               textAlign: TextAlign.center,
-              style: TextStyle(fontSize: 14),
+              style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
             ),
             height20,
             CommonElevatedButton(
               name: "Next Step",
-              buttonwidth: 0.22,
+              buttonwidth: 0.4,
               buttonheight: 0.05,
-              textStyle: const TextStyle(fontSize: 12, color: kwhite),
+              textStyle: elevatedtextstyle,
               ontap: () async {
                 Get.back();
                 showDialog(
                   context: context,
                   builder: (context) {
                     return Dialog(
+                      shadowColor: kwhite,
+                      backgroundColor: kwhite,
+                      surfaceTintColor: kwhite,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(16),
+                      ),
                       child: Container(
-                        height: Get.height * 0.75,
+                        color: kwhite,
+                        height: screenHeight * 0.72,
+                        width: screenWidth,
                         margin: const EdgeInsets.all(8),
                         padding: const EdgeInsets.all(12),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             const Text(
                               "Next Steps",
                               style: TextStyle(
-                                fontSize: 24,
-                              ),
+                                  fontWeight: FontWeight.w600, fontSize: 24),
                             ),
                             height10,
                             Divider(
                               color: kblack.withOpacity(0.1),
                             ),
                             height10,
-                            const NXTContainer(
+                            NXTContainer(
+                                isSelected: tappedIndex == 0,
+                                // onTap: () {
+                                //   setState(() {
+                                //     tappedIndex = 0;
+                                //   });
+                                // },
                                 title: "Create a Lookalike Audience",
                                 icon: CupertinoIcons.person_3,
                                 subtitle:
                                     "Jorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis."),
                             height20,
-                            const NXTContainer(
+                            NXTContainer(
+                                isSelected: tappedIndex == 1,
+                                // onTap: () {
+                                //   setState(() {
+                                //     tappedIndex = 1;
+                                //   });
+                                // },
                                 icon: CupertinoIcons.person_2_fill,
                                 title: "Create another Audience",
                                 subtitle:
@@ -96,25 +117,29 @@ class _AudiencePopupState extends State<AudiencePopup> {
                             height20,
                             CommonElevatedButton(
                               name: "Create",
-                              buttonwidth: 0.22,
-                              buttonheight: 0.05,
-                              textStyle:
-                                  const TextStyle(fontSize: 12, color: kwhite),
+                              buttonwidth: 0.4,
+                              buttonheight: 42,
+                              textStyle: elevatedtextstyle,
                               ontap: () {
+                                // context.push(NextButtonView.routerPath);
                                 Get.to(() => const NextButtonView());
                               },
                             ),
                             height10,
                             CommonElevatedButton(
-                              name: "Not Now",
-                              buttonwidth: 0.22,
-                              buttonheight: 0.05,
-                              textStyle:
-                                  const TextStyle(fontSize: 12, color: kblack),
-                              ontap: () {},
-                              alternatecolor: kwhite,
+                              name: 'Not Now',
+                              buttonwidth: 0.4,
                               bordercolor: kblack.withOpacity(0.2),
-                            ),
+                              alternatecolor: kwhite,
+                              buttonheight: 42,
+                              textStyle: const TextStyle(
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.w500,
+                                  color: kblack),
+                              ontap: () {
+                                Navigator.pop(context);
+                              },
+                            )
                           ],
                         ),
                       ),
@@ -130,35 +155,30 @@ class _AudiencePopupState extends State<AudiencePopup> {
   }
 }
 
-class NXTContainer extends StatefulWidget {
+class NXTContainer extends StatelessWidget {
   final String title;
   final String subtitle;
   final IconData icon;
+  final bool isSelected;
+  final VoidCallback? onTap;
 
   const NXTContainer({
     super.key,
-    required this.icon,
     required this.title,
     required this.subtitle,
+    required this.icon,
+    required this.isSelected,
+    this.onTap,
   });
 
   @override
-  State<NXTContainer> createState() => _NXTContainerState();
-}
-
-class _NXTContainerState extends State<NXTContainer> {
-  bool isSelected = false;
-  @override
   Widget build(BuildContext context) {
+    double screenWidth = MediaQuery.of(context).size.width;
+
     return GestureDetector(
-      onTap: () {
-        setState(() {
-          isSelected = !isSelected;
-        });
-      },
+      onTap: onTap,
       child: Container(
-        height: Get.height * 0.20,
-        width: Get.width,
+        width: screenWidth,
         padding: const EdgeInsets.all(12),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(12),
@@ -179,11 +199,11 @@ class _NXTContainerState extends State<NXTContainer> {
                     shape: BoxShape.circle,
                     color: const Color(0xff1A377D).withOpacity(0.1),
                   ),
-                  child: Icon(widget.icon, size: 18),
+                  child: Icon(icon, size: 18, color: kblack),
                 ),
                 kwidth15,
                 Text(
-                  widget.title,
+                  title,
                   style: const TextStyle(fontSize: 12),
                 )
               ],
@@ -194,7 +214,7 @@ class _NXTContainerState extends State<NXTContainer> {
             ),
             height5,
             Text(
-              widget.subtitle,
+              subtitle,
               maxLines: 3,
               textAlign: TextAlign.center,
               style: const TextStyle(fontSize: 10),

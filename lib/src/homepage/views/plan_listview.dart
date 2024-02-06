@@ -82,7 +82,7 @@ class _PlanListState extends State<PlanList> {
                           Text(
                             takeplandeatails[index]["planname"],
                             style: const TextStyle(
-                                fontFamily: FontAssets.Poppins,
+
                                 fontSize: 16,
                                 fontWeight: FontWeight.w600),
                           ),
@@ -91,7 +91,7 @@ class _PlanListState extends State<PlanList> {
                             takeplandeatails[index]["Desc"],
                             maxLines: 3,
                             style: const TextStyle(
-                                fontFamily: FontAssets.Poppins,
+
                                 fontWeight: FontWeight.w500,
                                 fontSize: 10),
                           ),
@@ -107,7 +107,7 @@ class _PlanListState extends State<PlanList> {
                   child: const Text(
                     "View More",
                     style: TextStyle(
-                        fontFamily: FontAssets.Poppins,
+
                         fontSize: 9,
                         fontWeight: FontWeight.w500,
                         color: kblack),

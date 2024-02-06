@@ -64,7 +64,7 @@ class _CampaignCreateState extends State<CampaignCreate> {
               height20,
               const Text("Preview",
                   style: TextStyle(
-                    fontFamily: FontAssets.Poppins,
+
                     fontWeight: FontWeight.w500,
                     fontSize: 18,
                   )),
@@ -85,7 +85,7 @@ class _CampaignCreateState extends State<CampaignCreate> {
                       title: const Text(
                         "Daniel Hall",
                         style: TextStyle(
-                            fontFamily: FontAssets.Poppins,
+
                             fontSize: 12,
                             fontWeight: FontWeight.w600),
                       ),
@@ -94,7 +94,7 @@ class _CampaignCreateState extends State<CampaignCreate> {
                           Text(
                             "Sponsored   •",
                             style: TextStyle(
-                                fontFamily: FontAssets.Poppins,
+
                                 fontSize: 8,
                                 color: kblack.withOpacity(0.4)),
                           ),
@@ -134,14 +134,14 @@ class _CampaignCreateState extends State<CampaignCreate> {
                                     Text(
                                       CampaignProducts.products[index]["price"],
                                       style: const TextStyle(
-                                          fontFamily: FontAssets.Poppins,
+
                                           fontSize: 8,
                                           fontWeight: FontWeight.w600),
                                     ),
                                     Text(
                                       CampaignProducts.products[index]["desc"],
                                       style: const TextStyle(
-                                          fontFamily: FontAssets.Poppins,
+
                                           fontSize: 8,
                                           fontWeight: FontWeight.w600),
                                     ),
@@ -166,7 +166,7 @@ class _CampaignCreateState extends State<CampaignCreate> {
                                           child: Text(
                                             "Add to Cart",
                                             style: TextStyle(
-                                              fontFamily: FontAssets.Poppins,
+
                                               fontWeight: FontWeight.w500,
                                               fontSize: 8,
                                             ),
@@ -189,7 +189,7 @@ class _CampaignCreateState extends State<CampaignCreate> {
                                           child: Text(
                                             "Buy Now",
                                             style: TextStyle(
-                                              fontFamily: FontAssets.Poppins,
+                                              
                                               fontWeight: FontWeight.w500,
                                               color: kwhite,
                                               fontSize: 8,

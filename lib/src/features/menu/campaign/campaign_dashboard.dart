@@ -62,7 +62,7 @@ class _CampaignDashboardState extends State<CampaignDashboard> {
                               const Text(
                                 'Off',
                                 style: TextStyle(
-                                    fontFamily: FontAssets.Poppins,
+
                                     fontSize: 12,
                                     fontWeight: FontWeight.w600),
                               ),
@@ -85,7 +85,7 @@ class _CampaignDashboardState extends State<CampaignDashboard> {
                               Text(
                                 'On',
                                 style: TextStyle(
-                                  fontFamily: FontAssets.Poppins,
+
                                   fontSize: 12,
                                   fontWeight: FontWeight.w500,
                                   color: kblack.withOpacity(0.5),
@@ -141,14 +141,14 @@ class _CampaignDashboardState extends State<CampaignDashboard> {
                         Text(
                           "Campaign Type :    ",
                           style: TextStyle(
-                              fontFamily: FontAssets.Poppins,
+
                               fontSize: 12,
                               fontWeight: FontWeight.w500),
                         ),
                         Text(
                           "Prospect",
                           style: TextStyle(
-                              fontFamily: FontAssets.Poppins,
+
                               fontSize: 12,
                               fontWeight: FontWeight.w500),
                         ),
@@ -164,7 +164,7 @@ class _CampaignDashboardState extends State<CampaignDashboard> {
                         const Text(
                           "Peter Parker Yellow Tshirt",
                           style: TextStyle(
-                              fontFamily: FontAssets.Poppins,
+
                               fontSize: 12,
                               fontWeight: FontWeight.w500),
                         ),
@@ -186,7 +186,7 @@ class _CampaignDashboardState extends State<CampaignDashboard> {
                                   CampaignProspect.campaigndetails[index]
                                       ["name"],
                                   style: const TextStyle(
-                                      fontFamily: FontAssets.Poppins,
+
                                       fontSize: 12,
                                       fontWeight: FontWeight.w600),
                                 ),
@@ -198,7 +198,7 @@ class _CampaignDashboardState extends State<CampaignDashboard> {
                                   CampaignProspect.campaigndetails[index]
                                       ["subname"],
                                   style: const TextStyle(
-                                      fontFamily: FontAssets.Poppins,
+
                                       fontSize: 12,
                                       fontWeight: FontWeight.w600),
                                 ),
@@ -236,7 +236,7 @@ PopupMenuItem<String> buildPopupMenuItem(
             text,
             style: TextStyle(
                 color: color,
-                fontFamily: FontAssets.Poppins,
+                
                 fontWeight: FontWeight.w500,
                 fontSize: 10),
           ),

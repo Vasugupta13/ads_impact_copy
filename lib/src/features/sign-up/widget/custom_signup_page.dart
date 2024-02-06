@@ -40,7 +40,7 @@ class CustomSignupPage extends StatelessWidget {
               textStyle: const TextStyle(
                   color: kwhite,
                   fontSize: 16,
-                  fontFamily: FontAssets.Poppins,
+                  
                   fontWeight: FontWeight.w500),
               isIcon: true)
         else
@@ -51,7 +51,7 @@ class CustomSignupPage extends StatelessWidget {
               Text(
                 title!,
                 style: const TextStyle(
-                    fontFamily: FontAssets.Poppins,
+
                     fontWeight: FontWeight.w500,
                     fontSize: 26),
               ),

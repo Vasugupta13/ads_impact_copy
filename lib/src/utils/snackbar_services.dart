@@ -12,7 +12,7 @@ class SnackBarService {
         content: Text(
           message,
           style: const TextStyle(
-              fontFamily: FontAssets.Poppins, fontWeight: FontWeight.w500),
+               fontWeight: FontWeight.w500),
         ),
       ),
     );

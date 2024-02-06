@@ -113,7 +113,8 @@ class _MenuCatalogCategoriesState extends State<MenuCatalogCategories> {
                         bottom: BorderSide(color: kblack.withOpacity(0.1)),
                       ),
                       children: [
-                        buildRow(["Product Categories", selectedValue ?? ""]),
+                        buildRow(["Product Categories", selectedValue ?? ""],
+                            fontWeight: FontWeight.w600),
                       ],
                     ),
                     Table(
@@ -123,7 +124,8 @@ class _MenuCatalogCategoriesState extends State<MenuCatalogCategories> {
                       ),
                       children: filteredData
                           .map((category) => buildRow(
-                              [category["categoryname"]!, category["value"]!]))
+                              [category["categoryname"]!, category["value"]!],
+                              fontWeight: FontWeight.w500))
                           .toList(),
                     ),
                   ],
@@ -150,7 +152,7 @@ class _MenuCatalogCategoriesState extends State<MenuCatalogCategories> {
     );
   }
 
-  TableRow buildRow(List<String> cells) => TableRow(
+  TableRow buildRow(List<String> cells, {FontWeight? fontWeight}) => TableRow(
         children: cells
             .map(
               (cell) => Padding(
@@ -158,10 +160,7 @@ class _MenuCatalogCategoriesState extends State<MenuCatalogCategories> {
                 child: Center(
                   child: Text(
                     cell,
-                    style: const TextStyle(
-                        fontFamily: FontAssets.Poppins,
-                        fontWeight: FontWeight.w500,
-                        fontSize: 12),
+                    style: TextStyle(fontWeight: fontWeight, fontSize: 12),
                   ),
                 ),
               ),

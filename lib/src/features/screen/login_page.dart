@@ -77,7 +77,7 @@ class _LoginPageState extends State<LoginPage> {
                   const Text(
                     "Login",
                     style: TextStyle(
-                        fontFamily: FontAssets.Poppins,
+
                         fontSize: 24,
                         fontWeight: FontWeight.w600,
                         color: kred),
@@ -124,7 +124,7 @@ class _LoginPageState extends State<LoginPage> {
                         child: Text(
                           "Forget Password?",
                           style: TextStyle(
-                            fontFamily: FontAssets.Poppins,
+
                             fontWeight: FontWeight.w500,
                             fontSize: 12,
                             color: Colors.black.withOpacity(0.2),
@@ -150,7 +150,7 @@ class _LoginPageState extends State<LoginPage> {
               const Text(
                 "Don't have an account?",
                 style: TextStyle(
-                  fontFamily: FontAssets.Poppins,
+
                   fontWeight: FontWeight.w400,
                   fontSize: 14,
                   color: Color(0xff585858),
@@ -164,7 +164,7 @@ class _LoginPageState extends State<LoginPage> {
                 child: const Text(
                   "Sign-Up",
                   style: TextStyle(
-                      fontFamily: FontAssets.Poppins,
+
                       fontWeight: FontWeight.w600,
                       fontSize: 14,
                       color: kred),
