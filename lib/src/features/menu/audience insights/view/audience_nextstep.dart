@@ -385,7 +385,7 @@ class _NextButtonViewState extends State<NextButtonView> {
           label,
           textAlign: TextAlign.center,
           style: const TextStyle(
-            fontSize: 12,
+            fontSize: 11,
           ).copyWith(color: color),
         ),
       );
