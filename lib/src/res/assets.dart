@@ -54,8 +54,6 @@ class ImageAssets {
   static const whiteshirt2 = '$_base/white_shirt2.png';
   static const peterparker = '$_base/peter_parker_tshirt.png';
   static const audienceSucces = '$_base/audience_success_created.svg';
-
-
 }
 
 class IconAssets {
@@ -114,6 +112,10 @@ class IconAssets {
   static const twoperson = '$_base/two_person_icon.svg';
   static const plusicon = '$_base/plus_icon.svg';
   static const minusicon = '$_base/minus_icon.svg';
+  static const stopLossConfig = '$_base/stop_loss_config.svg';
+  static const stopLossProd = '$_base/stop_loss_products.svg';
+  static const productExclusion = '$_base/product_exclusion.svg';
+  static const dynamicAds = '$_base/dynamic_ads.svg';
 
 
 }

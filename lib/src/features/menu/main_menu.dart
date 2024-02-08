@@ -1,6 +1,6 @@
 import 'dart:ui';
 import 'package:ads/src/features/menu/audience%20insights/audience_insights.dart';
-import 'package:ads/src/features/menu/automations/automations_view.dart';
+import 'package:ads/src/features/menu/automations/automations_dashboard.dart';
 import 'package:ads/src/features/menu/campaign/campaign_analysis.dart';
 import 'package:ads/src/features/menu/campaign/campaign_create.dart';
 import 'package:ads/src/features/menu/catalog/catalog_information.dart';
@@ -50,7 +50,7 @@ class _MainMenuPopupState extends State<MainMenuPopup> {
                   child: Text(
                     "Menu",
                     style: TextStyle(
-                        
+
                         fontSize: 16,
                         fontWeight: FontWeight.w600),
                   ),

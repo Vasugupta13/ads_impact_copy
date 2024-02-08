@@ -52,11 +52,11 @@ class _CampaignCreateState extends State<CampaignCreate> {
                   hinticon: true,
                   hint: "Viewed but not purchased in last 1 day(s)"),
               height20,
-              const CustomTextField(
+               CustomTextField(
                 hinttext: 'Enter your Adtext',
               ),
               height25,
-              const CustomTextField(
+               CustomTextField(
                   hinttext:
                       'Enter your description about that Ad. And this is also a good place to share COUPON codes. '),
               height20,
@@ -189,7 +189,7 @@ class _CampaignCreateState extends State<CampaignCreate> {
                                           child: Text(
                                             "Buy Now",
                                             style: TextStyle(
-                                              
+
                                               fontWeight: FontWeight.w500,
                                               color: kwhite,
                                               fontSize: 8,

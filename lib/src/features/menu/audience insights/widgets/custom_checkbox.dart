@@ -8,12 +8,12 @@ class CustomCheckbox extends StatelessWidget {
   final ValueChanged<bool?>? onchanged;
 
   const CustomCheckbox({
-    Key? key,
+    super.key,
     required this.value,
     required this.onchanged,
     this.name,
     this.mainAxisAlignment = MainAxisAlignment.center,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +25,7 @@ class CustomCheckbox extends StatelessWidget {
           width: 26,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(8),
-            border: Border.all(color: kblack),
+            border: Border.all(color: kblack.withOpacity(0.1)),
           ),
           child: Checkbox(
             side: BorderSide.none,

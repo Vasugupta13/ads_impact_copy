@@ -10,13 +10,15 @@ class CustomDropDown extends StatefulWidget {
   final double? containerheight;
   final double? containerwidth;
   final String? hint;
+  final TextStyle? hinttxtStyle;
   final List<String> dropdownItems;
   final String? initialValue;
   final Function(String?)? onChanged;
   final String? value;
   final Color? alternatecolor;
-  final bool? isBorderColor;
+  final Color? isBorderColor;
   final bool? hinticon;
+  final double? borderRadius;
 
   const CustomDropDown({
     super.key,
@@ -30,6 +32,8 @@ class CustomDropDown extends StatefulWidget {
     this.alternatecolor,
     this.isBorderColor,
     this.hinticon,
+    this.borderRadius,
+    this.hinttxtStyle,
   });
 
   @override
@@ -58,8 +62,9 @@ class _CustomDropDownState extends State<CustomDropDown> {
           width: widget.containerwidth,
           decoration: BoxDecoration(
             color: widget.alternatecolor ?? Colors.transparent,
-            borderRadius: BorderRadius.circular(12),
-            border: Border.all(color: kblack.withOpacity(0.2)),
+            borderRadius: BorderRadius.circular(widget.borderRadius ?? 12),
+            border: Border.all(
+                color: widget.isBorderColor ?? kblack.withOpacity(0.2)),
           ),
           child: DropdownButtonHideUnderline(
             child: DropdownButton2<String>(
@@ -68,10 +73,7 @@ class _CustomDropDownState extends State<CustomDropDown> {
               iconStyleData:
                   const IconStyleData(icon: Icon(Icons.keyboard_arrow_down)),
               style: const TextStyle(
-
-                  fontWeight: FontWeight.w500,
-                  fontSize: 12,
-                  color: kblack),
+                  fontWeight: FontWeight.w500, fontSize: 12, color: kblack),
               isExpanded: true,
               value: widget.value,
               hint: Row(
@@ -85,11 +87,12 @@ class _CustomDropDownState extends State<CustomDropDown> {
                     child: Text(
                       widget.hint ?? '',
                       maxLines: 1,
-                      style: const TextStyle(
-                        fontSize: 12,
-                        overflow: TextOverflow.ellipsis,
-                        color: kdarkgrey,
-                      ),
+                      style: widget.hinttxtStyle ??
+                          const TextStyle(
+                            fontSize: 12,
+                            overflow: TextOverflow.ellipsis,
+                            color: kdarkgrey,
+                          ),
                     ),
                   ),
                 ],
@@ -101,7 +104,6 @@ class _CustomDropDownState extends State<CustomDropDown> {
                     child: Text(
                       item,
                       style: TextStyle(
-
                         fontWeight: FontWeight.w500,
                         fontSize: 12,
                         color: widget.value == item ? kred : kblack,

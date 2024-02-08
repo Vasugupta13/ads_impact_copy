@@ -17,6 +17,8 @@ class TakePlanBar extends StatefulWidget {
 class _TakePlanBarState extends State<TakePlanBar> {
   @override
   Widget build(BuildContext context) {
+    double screenHeight = MediaQuery.of(context).size.height;
+    double screenWidth = MediaQuery.of(context).size.width;
     return Column(
       children: [
         height20,
@@ -25,8 +27,8 @@ class _TakePlanBarState extends State<TakePlanBar> {
           child: Stack(
             children: [
               Container(
-                height: Get.height * 0.1 - 15,
-                width: Get.width * 0.9,
+                height: screenHeight * 0.1 - 15,
+                width: screenWidth * 0.9,
                 padding: const EdgeInsets.only(left: 16),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(12),
@@ -46,8 +48,8 @@ class _TakePlanBarState extends State<TakePlanBar> {
               Positioned(
                 right: 0,
                 child: Container(
-                  height: Get.height * 0.1 - 15,
-                  width: Get.width * 0.25,
+                  height: screenHeight * 0.1 - 15,
+                  width: screenWidth * 0.25,
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(12), color: kred),
                   child: const Center(

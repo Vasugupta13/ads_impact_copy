@@ -1,4 +1,3 @@
-
 import 'package:ads/src/common/views/custom_elevatedbutton.dart';
 import 'package:ads/src/common/views/customdropdown.dart';
 import 'package:ads/src/features/menu/catalog/widget/catalog_container.dart';
@@ -23,19 +22,28 @@ class _BudgetOptimizationState extends State<BudgetOptimization> {
   bool item2Checked = false;
   @override
   Widget build(BuildContext context) {
+    double screenWidth = MediaQuery.of(context).size.width;
     return Column(
       children: [
         height20,
-        CatalogContainer(name: widget.name, image: widget.image),
+        CommonElevatedButton(
+            name: widget.name,
+            buttonwidth: 0.75,
+            buttonheight: 55,
+            textStyle: elevatedtextstyle,
+            ontap: () {},
+            alternatecolor: kblue77D,
+            preifxicon: widget.image),
         height20,
-         CustomDropDown(
-            containerheight: 0.5,
-            hint: "Campaign",
-            dropdownItems: [],
-            containerwidth: 0.40),
+        CustomDropDown(
+          dropdownItems: const [],
+          hint: "Campaign",
+          containerwidth: screenWidth * 0.4,
+          containerheight: 30,
+        ),
         height20,
         Container(
-          width: Get.width * 0.80,
+          width: screenWidth * 0.80,
           margin: const EdgeInsets.all(12),
           padding: const EdgeInsets.all(12),
           decoration: BoxDecoration(
@@ -49,9 +57,9 @@ class _BudgetOptimizationState extends State<BudgetOptimization> {
               height10,
               CommonElevatedButton(
                 name: "Campaign Type : Prospect",
-                buttonwidth: 0.36,
+                buttonwidth: 0.6,
                 buttonheight: 0.06,
-                textStyle: const TextStyle(color: kwhite, fontSize: 12),
+                textStyle: elevatedtextstyle,
                 ontap: () {},
               ),
               height10,
@@ -65,14 +73,14 @@ class _BudgetOptimizationState extends State<BudgetOptimization> {
                 setState(() {
                   item1Checked = value!;
                 });
-              }),
+              }, screenWidth),
               height20,
               buildCheckboxRow("Decrease Case Condition", item2Checked,
                   (value) {
                 setState(() {
                   item2Checked = value!;
                 });
-              }),
+              }, screenWidth),
               height20,
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -133,40 +141,45 @@ class _BudgetOptimizationState extends State<BudgetOptimization> {
     );
   }
 
-  Widget buildCheckboxRow(
-          String label, bool checked, ValueChanged<bool?> onChanged) =>
-      Container(
-        width: Get.width,
-        height: 40,
-        margin: const EdgeInsets.symmetric(horizontal: 18),
-        decoration: BoxDecoration(
-          color: const Color(0xff1A377D).withOpacity(0.1),
-          borderRadius: BorderRadius.circular(8),
+  Widget buildCheckboxRow(String label, bool checked,
+          ValueChanged<bool?> onChanged, double screenWidth) =>
+      GestureDetector(
+        onTap: () {
+          setState(() {
+            onChanged(!checked);
+          });
+        },
+        child: Container(
+          width: screenWidth,
+          height: 40,
+          margin: const EdgeInsets.symmetric(horizontal: 18),
+          decoration: BoxDecoration(
+            color: const Color(0xff1A377D).withOpacity(0.1),
+            borderRadius: BorderRadius.circular(8),
         ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
-            Text(
-              label,
-              style: const TextStyle(
-                fontWeight: FontWeight.w400,
-                fontSize: 12,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              Text(
+                label,
+                style:
+                    const TextStyle(fontWeight: FontWeight.w400, fontSize: 12),
               ),
-            ),
-            Checkbox(
-              side: const BorderSide(color: kblack),
-              activeColor: Colors.white,
-              checkColor: Colors.green,
-              shape: ContinuousRectangleBorder(
-                borderRadius: BorderRadius.circular(12),
-                side: BorderSide(
-                  color: kblack.withOpacity(0.1),
+              Checkbox(
+                side: const BorderSide(color: kblack),
+                activeColor: Colors.white,
+                checkColor: Colors.green,
+                shape: ContinuousRectangleBorder(
+                  borderRadius: BorderRadius.circular(12),
+                  side: BorderSide(
+                    color: kblack.withOpacity(0.1),
+                  ),
                 ),
+                value: checked,
+                onChanged: onChanged,
               ),
-              value: checked,
-              onChanged: onChanged,
-            ),
-          ],
+            ],
+          ),
         ),
       );
 }

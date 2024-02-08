@@ -13,6 +13,8 @@ class BasicPlan extends StatefulWidget {
 class _BasicPlanState extends State<BasicPlan> {
   @override
   Widget build(BuildContext context) {
+    double screenHeight = MediaQuery.of(context).size.height;
+    double screenWidth = MediaQuery.of(context).size.width;
     return Column(
       children: [
         Row(
@@ -21,8 +23,8 @@ class _BasicPlanState extends State<BasicPlan> {
             Align(
               alignment: Alignment.centerLeft,
               child: Container(
-                height: Get.height * 0.10 / 1.5,
-                width: Get.width * 0.55,
+                height: screenHeight * 0.10 / 1.5,
+                width: screenWidth * 0.55,
                 decoration: const BoxDecoration(
                   color: kred,
                   borderRadius: BorderRadius.only(

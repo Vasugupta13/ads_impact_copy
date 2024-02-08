@@ -31,19 +31,17 @@ class _MyTableWidgetState extends State<MyTableWidget> {
       padding: const EdgeInsets.all(16.0),
       child: Table(
         columnWidths: const {
-          0: FlexColumnWidth(1.5),
-          1: FlexColumnWidth(4.0),
-          2: FlexColumnWidth(2.5)
+          0: FlexColumnWidth(2),
+          1: FlexColumnWidth(5),
+          2: FlexColumnWidth(3)
         },
         border: TableBorder(
-          borderRadius: BorderRadius.circular(12),
-          bottom: BorderSide(
-            color: kblack.withOpacity(0.21),
-          ),
-          top: BorderSide(color: kblack.withOpacity(0.21)),
-          left: BorderSide(color: kblack.withOpacity(0.21)),
-          right: BorderSide(color: kblack.withOpacity(0.21)),
-          verticalInside: BorderSide(color: kblack.withOpacity(0.21)),
+          borderRadius: const BorderRadius.all(Radius.circular(12)),
+          bottom: BorderSide(color: kblack.withOpacity(0.1)),
+          top: BorderSide(color: kblack.withOpacity(0.1)),
+          left: BorderSide(color: kblack.withOpacity(0.1)),
+          right: BorderSide(color: kblack.withOpacity(0.1)),
+          verticalInside: BorderSide(color: kblack.withOpacity(0.1)),
         ),
         defaultVerticalAlignment: TableCellVerticalAlignment.middle,
         children: [
@@ -51,14 +49,36 @@ class _MyTableWidgetState extends State<MyTableWidget> {
             decoration: BoxDecoration(
               border: Border(
                 bottom: BorderSide(
-                  color: kblack.withOpacity(0.21),
+                  color: kblack.withOpacity(0.1),
                 ),
               ),
             ),
-            children: const [
-              TableCell(child: Center(child: Text('Select'))),
-              TableCell(child: Center(child: Text('Name'))),
-              TableCell(child: Center(child: Text('Status'))),
+            children: [
+              TableCell(
+                child: Padding(
+                  padding: const EdgeInsets.all(10),
+                  child: CustomCheckbox(
+                      onchanged: (value) {},
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      value: false),
+                ),
+              ),
+              const TableCell(
+                child: Center(
+                  child: Text(
+                    'Name',
+                    style: TextStyle(fontWeight: FontWeight.w600, fontSize: 12),
+                  ),
+                ),
+              ),
+              const TableCell(
+                child: Center(
+                  child: Text(
+                    'Status',
+                    style: TextStyle(fontWeight: FontWeight.w600, fontSize: 12),
+                  ),
+                ),
+              ),
             ],
           ),
           for (var rowData in tableData)
@@ -80,7 +100,7 @@ class _MyTableWidgetState extends State<MyTableWidget> {
                     child: Text(
                       rowData.name,
                       style: const TextStyle(
-                          fontSize: 12, ),
+                          fontWeight: FontWeight.w500, fontSize: 12),
                     ),
                   ),
                 ),
@@ -89,8 +109,8 @@ class _MyTableWidgetState extends State<MyTableWidget> {
                     child: Text(
                       rowData.status,
                       style: const TextStyle(
+                        fontWeight: FontWeight.w500,
                         fontSize: 12,
-
                         color: Color(0xff00C944),
                       ),
                     ),

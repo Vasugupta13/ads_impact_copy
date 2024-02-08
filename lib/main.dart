@@ -37,8 +37,9 @@ class MyApp extends StatelessWidget {
       //   GetPage(name: '/cart', page: () => const CartPage()),
       //   GetPage(name: '/account', page: () => const MyAccountPage())
       // ],
-      home: const HomePage(),
-      // const SplashScreen(),
+      home:
+           HomePage(),
+          // const SplashScreen(),
     );
   }
 }

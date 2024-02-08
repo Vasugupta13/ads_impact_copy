@@ -78,12 +78,15 @@ class _CustomAudienceState extends State<CustomAudience> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     CustomDropDown(
+                      // initialValue: "Google",
                       containerheight: 42,
                       dropdownItems: items,
                       hint: "Source",
                       value: selectedvalue,
                       onChanged: (String? value) {
-                        selectedvalue = value;
+                        setState(() {
+                          selectedvalue = value;
+                        });
                       },
                     ),
                     height20,

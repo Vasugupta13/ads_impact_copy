@@ -14,6 +14,8 @@ import 'package:get/get.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
+  static const routerPath = '/HomePage';
+
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -23,7 +25,6 @@ class _HomePageState extends State<HomePage> {
   bool showplandetails = false;
   bool isLoading = true;
 
-  static const routerPath = '/HomePage';
 
   toggleVisibility() {
     setState(() {

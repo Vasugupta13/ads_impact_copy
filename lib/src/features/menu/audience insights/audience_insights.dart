@@ -106,7 +106,9 @@ class _AudienceInsightsState extends State<AudienceInsights> {
                       mainAxisAlignment: MainAxisAlignment.start,
                       value: isAllChecked,
                       onchanged: (newvalue) {
-                        isAllChecked = newvalue;
+                        setState(() {
+                          isAllChecked = newvalue;
+                        });
                       },
                       name: "All Audience",
                     ),
@@ -155,7 +157,7 @@ class _AudienceInsightsState extends State<AudienceInsights> {
                                     containerwidth: 0.6,
                                     popupDetails: popupdetails2,
                                     onnexttap: () async {
-                                      Get.back();
+                                      Navigator.pop(context);
                                       showDialog(
                                         context: context,
                                         builder: (context) {

@@ -87,7 +87,7 @@ class _ProductDetailsState extends State<ProductDetails> {
           ),
         ),
         height10,
-        const CustomTextField(labelText: 'Enter Prefix'),
+         CustomTextField(labelText: 'Enter Prefix'),
         height20,
         SizedBox(
           width: screenWidth * 0.8,
