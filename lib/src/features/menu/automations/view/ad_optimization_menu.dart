@@ -35,10 +35,10 @@ class _AdOptimizationState extends State<AdOptimization> {
           onSavePressed: () {},
           items: itemsname,
           switchValues: switchstatus,
-          onSwitchChanged: (bool value) {
+          onSwitchChanged: (bool value,int index) {
             setState(() {
               print('$switchstatus');
-              switchstatus[0] = value;
+              switchstatus[index] = value;
             });
           },
         ),
@@ -50,9 +50,10 @@ class _AdOptimizationState extends State<AdOptimization> {
           onSavePressed: () {},
           items: const ['Stop Loss For Products'],
           switchValues: const [true],
-          onSwitchChanged: (bool value) {
+          onSwitchChanged: (bool value,int index) {
             setState(() {
-              // switchstatus[index] = value;
+              print('$switchstatus');
+              switchstatus[index] = value;
             });
           },
         ),

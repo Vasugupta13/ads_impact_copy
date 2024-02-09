@@ -11,12 +11,12 @@ class CommonWidget extends StatefulWidget {
   final String image;
   final List<String> items;
   final List<bool> switchValues;
-  final void Function(bool)? onSwitchChanged;
+  final Function(bool,int)? onSwitchChanged;
   final VoidCallback onCancelPressed;
   final VoidCallback onSavePressed;
 
   const CommonWidget({
-    super.key,
+    Key? key,
     required this.title,
     required this.items,
     required this.switchValues,
@@ -24,7 +24,7 @@ class CommonWidget extends StatefulWidget {
     required this.onSavePressed,
     this.onSwitchChanged,
     required this.image,
-  });
+  }) : super(key: key);
 
   @override
   State<CommonWidget> createState() => _CommonWidgetState();
@@ -53,7 +53,9 @@ class _CommonWidgetState extends State<CommonWidget> {
               return StatusContainer(
                 itemname: widget.items[index],
                 switchvalue: widget.switchValues[index],
-                onSwitchChnaged: widget.onSwitchChanged,
+                onSwitchChanged: (bool value) {
+                  widget.onSwitchChanged?.call(value,index);
+                }, index: index,
               );
             }),
           ),
@@ -71,14 +73,16 @@ class _CommonWidgetState extends State<CommonWidget> {
 class StatusContainer extends StatelessWidget {
   final String itemname;
   final bool? switchvalue;
-  final ValueChanged<bool>? onSwitchChnaged;
+  final ValueChanged<bool>? onSwitchChanged;
+  final int index;
 
   const StatusContainer({
-    super.key,
+    Key? key,
     required this.itemname,
     this.switchvalue,
-    this.onSwitchChnaged,
-  });
+    this.onSwitchChanged,
+    required this.index,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -114,19 +118,15 @@ class StatusContainer extends StatelessWidget {
                 style: TextStyle(fontSize: 12),
               ),
               kwidth30,
-              // CustomTextField(
-              //     hinttext: 'Ex: 550',
-              //     containerWidth: screenWidth * 0.25,
-              //     hintverticalPadding: 4,
-              //     hinTxtstyle: const TextStyle(fontSize: 8, color: kblack),
-              //     containerHeight: 25),
               Transform.scale(
                 scale: 0.8,
                 child: CupertinoSwitch(
                   trackColor: kblack.withOpacity(0.6),
                   activeColor: const Color(0xff67DA87),
                   value: switchvalue!,
-                  onChanged: onSwitchChnaged,
+                  onChanged: (bool value) {
+                    onSwitchChanged?.call(value);
+                  },
                 ),
               ),
             ],
